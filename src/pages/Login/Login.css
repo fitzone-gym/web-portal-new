@@ -1,0 +1,6 @@
+.login {
+    background-image: url('../../assets/login.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
