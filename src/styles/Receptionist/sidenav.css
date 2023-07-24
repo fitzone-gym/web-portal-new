@@ -3,10 +3,12 @@
 .sidenavbar{
     margin: 0px;
     background-color: #E54646 ;
-    width: 16%;
+    width: 14%;
     position: fixed;
     height: 100%;
     font-family: Dosis;
+    font-style: bold;
+ 
 
 }
 
@@ -15,7 +17,6 @@
 flex-shrink: 0;
     border-radius: 100px;
 border: 2px solid #000;
-background: url(<path-to-image>), lightgray 50% / cover no-repeat;
 margin-left: 25%;
 margin-top: 10%;
 }
