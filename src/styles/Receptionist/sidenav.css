@@ -1,0 +1,29 @@
+
+
+.sidenavbar{
+    margin: 0px;
+    background-color: #E54646 ;
+    width: 16%;
+    position: fixed;
+    height: 100%;
+    font-family: Dosis;
+
+}
+
+ img{
+    width: 50%;
+flex-shrink: 0;
+    border-radius: 100px;
+border: 2px solid #000;
+background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+margin-left: 25%;
+margin-top: 10%;
+}
+
+h1{
+    font-size: small;
+}
+
+.min-h-screen{
+    margin-top: 10%;
+}
