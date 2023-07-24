@@ -16,7 +16,7 @@ function Dashboard() {
 
       <div className='statistics'>
 
-      <div className="max-w-full mx-4 py-6 sm:mx-auto sm:px-6 lg:px-8">
+      <div className="max-w-full mx-4 py-6  bg-grey-600 sm:mx-auto sm:px-6 lg:px-8">
     <div className="sm:flex sm:space-x-4">
         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
             <div className="bg-white p-5">

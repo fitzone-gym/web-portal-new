@@ -1,12 +1,13 @@
 .max-w-7xl{
     width: 100%;
+    position: fixed;
 }
 
 
 
 .navbar-block{
     width: 100%;
-    color: #121212;
+    color: black;
     height: 5%;
 }
 
@@ -30,3 +31,8 @@ body{
   img{
     width: 20%;
   }
+
+.min-h-full{
+  position: fixed;
+}
+  

@@ -38,7 +38,7 @@ export default function header() {
         ```
       */}
       <div className="min-h-full">
-        <Disclosure as="nav" className="bg-black-1000">
+        <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-10xl px-4 sm:px-6 lg:px-8">
