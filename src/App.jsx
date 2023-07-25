@@ -14,6 +14,7 @@ import "./App.css";
 import R_Header from './components/Receptionist/header';
 import  R_Dashboard  from "./pages/Receptionist/R_Dashboard";
 import R_Memeberlist from "./pages/Receptionist/R_Memeberlist";
+import R_Trainerlist from "./pages/Receptionist/R_Trainerlist";
 
 function App() {
   
@@ -29,7 +30,7 @@ function App() {
        {/* <Addtrainer /> */}
 
        {/* <ReceptionistDashboard /> */}
-       <R_Memeberlist/>
+       <R_Trainerlist/>
     </>
   );
 }
