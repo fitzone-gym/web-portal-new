@@ -22,8 +22,8 @@ function Dashboard() {
             <div className="bg-white p-5">
                 <div className="sm:flex sm:items-start">
                     <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Subscribers</h3>
-                        <p className="text-3xl font-bold text-black">71,897</p>
+                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Members</h3>
+                        <p className="text-3xl font-bold text-black">236</p>
                     </div>
                 </div>
             </div>
@@ -33,8 +33,8 @@ function Dashboard() {
             <div className="bg-white p-5">
                 <div className="sm:flex sm:items-start">
                     <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Subscribers</h3>
-                        <p className="text-3xl font-bold text-black">71,897</p>
+                        <h3 className="text-sm leading-6 font-medium text-gray-400">New Members</h3>
+                        <p className="text-3xl font-bold text-black">12</p>
                     </div>
                 </div>
             </div>
@@ -43,8 +43,8 @@ function Dashboard() {
             <div className="bg-white p-5">
                 <div className="sm:flex sm:items-start">
                     <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Avg. Open Rate</h3>
-                        <p className="text-3xl font-bold text-black">58.16%</p>
+                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Trainers</h3>
+                        <p className="text-3xl font-bold text-black">36</p>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,25 @@ function Dashboard() {
                 </div>
             </div>
         </div>
+
+
+        
     </div>
+
+    <div className="sm:flex sm:space-x-">
+        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+            <div className="bg-white p-12 h-6">
+                <div className="sm:flex sm:items-start">
+                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
+                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Subscribers</h3>
+                        <p className="text-3xl font-bold text-black">71,897</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
 
     
 </div>
