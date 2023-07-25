@@ -1,0 +1,14 @@
+.announcement{
+    margin-left: 16%;
+    background-color: rgb(59, 59, 59);
+}
+
+.flex-col{
+   margin-top: 2%;
+   margin-left: 1%;
+   margin-right: 1%;
+}
+
+.home{
+    background-color: aqua;
+}
