@@ -1,9 +1,9 @@
 import React from "react";
 
-export const M_Members = () => {
+export const ReceptionistPayment = () => {
   return (
     <div
-      className=""
+      className="w-[82%]"
       style={{
         position: "relative",
         top: -25,
@@ -12,22 +12,30 @@ export const M_Members = () => {
         bottom: 0,
       }}
     >
-      <div className="">
-        <h1 className="font-bold text-red-600 text-5xl text-left ml-32 mt-10 mb-10 ">
-          Gym Members
+      <div>
+        <h1 className="font-bold text-red-600 text-5xl text-left ml-32 mt-10 mb-10">
+          Receptionist Payment Records
         </h1>
       </div>
 
-      <div className="w-[130%]">
-        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
-          <div className="text-white text-2xl ">Member Details</div>
+      <div className="w-[98%]">
+        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg">
+          <div className="text-white text-2xl ">
+            Receptionist Payment Details
+          </div>
           <div
-            className=" "
+            className=""
             style={{
               marginLeft: 600,
             }}
           >
             <form>
+              <label
+                for="default-search"
+                className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+              >
+                Search
+              </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <svg
@@ -69,7 +77,7 @@ export const M_Members = () => {
           <div className="">
             <button
               type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center ml-[23%] dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               style={{
                 height: 45,
               }}
@@ -99,16 +107,22 @@ export const M_Members = () => {
             <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
               <tr>
                 <th scope="col" className="px-6 py-3">
-                  Member name
+                  Receptionist name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Joined Date
+                  Paid Date
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Package Type
+                  Fixed Amount
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Performance level
+                  Other Amount
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Total Amount
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Paid
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Action
@@ -124,8 +138,10 @@ export const M_Members = () => {
                   Jayani Ranasinghe
                 </th>
                 <td className="px-6 py-4">3 Septemebr 2023</td>
-                <td className="px-6 py-4">1 Month</td>
-                <td className="px-6 py-4">1</td>
+                <td className="px-6 py-4">200 000</td>
+                <td className="px-6 py-4">100 000</td>
+                <td className="px-6 py-4">300 000</td>
+                <td className="px-6 py-4">paid</td>
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -143,8 +159,10 @@ export const M_Members = () => {
                   Lasith Senadheera
                 </th>
                 <td className="px-6 py-4">30 September 2023</td>
-                <td className="px-6 py-4">6 Months</td>
-                <td className="px-6 py-4">4</td>
+                <td className="px-6 py-4">200 000</td>
+                <td className="px-6 py-4">100 000</td>
+                <td className="px-6 py-4">300 000</td>
+                <td className="px-6 py-4">paid</td>
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -162,8 +180,10 @@ export const M_Members = () => {
                   Kalani Ranasinghe
                 </th>
                 <td className="px-6 py-4">7th October 2022</td>
-                <td className="px-6 py-4">Annual</td>
-                <td className="px-6 py-4">2</td>
+                <td className="px-6 py-4">200 000</td>
+                <td className="px-6 py-4">100 000</td>
+                <td className="px-6 py-4">300 000</td>
+                <td className="px-6 py-4">paid</td>
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -181,8 +201,10 @@ export const M_Members = () => {
                   Damitha Senadheera
                 </th>
                 <td className="px-6 py-4">6th January 2020</td>
-                <td className="px-6 py-4">Annual</td>
-                <td className="px-6 py-4">3</td>
+                <td className="px-6 py-4">200 000</td>
+                <td className="px-6 py-4">100 000</td>
+                <td className="px-6 py-4">300 000</td>
+                <td className="px-6 py-4">paid</td>
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -200,8 +222,10 @@ export const M_Members = () => {
                   Walter Ranasinghe
                 </th>
                 <td className="px-6 py-4">12th September 2021</td>
-                <td className="px-6 py-4">6 Months</td>
-                <td className="px-6 py-4">3</td>
+                <td className="px-6 py-4">200 000</td>
+                <td className="px-6 py-4">100 000</td>
+                <td className="px-6 py-4">300 000</td>
+                <td className="px-6 py-4">paid</td>
                 <td className="px-6 py-4">
                   <a
                     href="#"

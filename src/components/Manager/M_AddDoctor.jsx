@@ -1,9 +1,6 @@
-import React, { useState } from "react";
+import React from 'react'
 
-export const M_Addtrainer = () => {
-  const [values, setValues] = useState({
-    name
-  })
+export const M_AddDoctor = () => {
   return (
     <div
       className="text-white items-center justify-center flex"
@@ -20,7 +17,7 @@ export const M_Addtrainer = () => {
         }}
       >
         <div class="text-left px-16 py-10 text-2xl">
-          <h2>Add New Trainer</h2>
+          <h2>Add New Doctor</h2>
         </div>
 
         {/* Grid */}
@@ -86,5 +83,5 @@ export const M_Addtrainer = () => {
         </button>
       </form>
     </div>
-  );
-};
+  )
+}

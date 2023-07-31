@@ -1,22 +1,23 @@
 import React from "react";
 import { MdOutlineGirl } from "react-icons/Md";
 import { MdOutlineBoy } from "react-icons/Md";
+import {images} from '../../constants';
 
 export const ManagerDashboard = () => {
   return (
     <div
-      class="bg-[#1E1E1E]"
+      className=""
       style={{
-        position: "fixed",
-        top: 0,
+        position: "relative",
+        top: -25,
         left: 0,
         right: 0,
         bottom: 0,
       }}
     >
-      <div class="grid grid-cols-4 gap-4 ml-32 mt-12 ">
+      <div className="grid grid-cols-4 gap-4 ml-16 mt-12">
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left rounded-md"
           style={{
             height: 160,
             width: 360,
@@ -28,7 +29,7 @@ export const ManagerDashboard = () => {
         </div>
 
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -42,7 +43,7 @@ export const ManagerDashboard = () => {
         </div>
 
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -58,7 +59,7 @@ export const ManagerDashboard = () => {
         </div>
 
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -74,9 +75,9 @@ export const ManagerDashboard = () => {
         </div>
       </div>
 
-      <div class="grid grid-cols-4 gap-4 ml-32 mt-16 mt-8">
+      <div className="grid grid-cols-4 gap-4 ml-16 mt-16 mt-8">
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -88,7 +89,7 @@ export const ManagerDashboard = () => {
         </div>
 
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -100,7 +101,7 @@ export const ManagerDashboard = () => {
         </div>
 
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -114,7 +115,7 @@ export const ManagerDashboard = () => {
         </div>
 
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -127,35 +128,36 @@ export const ManagerDashboard = () => {
       </div>
 
       {/* 3 row */}
-      <div class="grid grid-cols-2 gap-4 ml-32 mt-8">
+      <div className="grid grid-cols-2 gap-4 ml-32 mt-8">
         {/* 1 box */}
         <div
-          class="bg-[#222222] font-bold rounded-sm text-left"
+          className="bg-[#222222] font-bold rounded-sm text-left max-lg:hidden w-[85%]"
           style={{
             height: 460,
-            width: 860,
+     
           }}
         >
           <div className="text-2xl text-white ml-8 py-3">
             <h1>Total Revenue(weekly)</h1>
+            {/* <img src={images.managerbgImage} alt="" /> */}
           </div>
         </div>
 
         {/* 2 box */}
         <div
-          class="bg-[#222222] font-bold rounded-sm text-left"
+          className="bg-[#222222] font-bold rounded-sm text-left max-lg:hidden w-[80%] h-[100%]"
           style={{
-            height: 460,
-            width: 560,
+            // height: 460,
+            // width: 560,
           }}
         >
           <div className="text-2xl text-white ml-8 py-3">
             <h1>Gym Member Compisition</h1>
-            <div class="text-5xl">
-              <div class="ml-16 mt-80">
+            <div className="text-5xl">
+              <div className="ml-16 mt-80">
                 <MdOutlineGirl />
               </div>
-              <div class="ml-96"
+              <div className="ml-96"
                style={{
                 marginTop:-40,
               }}

@@ -2,15 +2,16 @@ import React from "react";
 import { BsPeopleFill } from "react-icons/bs";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export const M_Staffmembers = () => {
   return (
     <div
-      class="bg-black opacity-90"
+      class="w-[80%]"
       style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
+        position: "relative",
+        top: -25,
+        left: 4,
         right: 0,
         bottom: 0,
       }}
@@ -21,18 +22,20 @@ export const M_Staffmembers = () => {
         </h1>
       </div>
 
-      <div class="grid grid-cols-3 gap-4 ml-72 mt-16 ">
+      <div class="w-[100%] grid grid-cols-3 gap-4 ml-[10%] mt-12">
         <div
-          class="bg-white font-bold text-2xl hover:bg-gray-400 hover:underline rounded-xl"
+          class="bg-white font-bold text-2xl hover:bg-gray-400 hover:underline rounded-xl "
           style={{
             height: 210,
             width: 260,
           }}
         >
+           <Link to="/Staffmembers/Trainer">
           <div class="ml-24 mt-16 text-6xl">
             <BsPeopleFill />
           </div>
           <h1 class="">Trainers</h1>
+          </Link>
         </div>
 
         <div
@@ -42,6 +45,7 @@ export const M_Staffmembers = () => {
             width: 260,
           }}
         >
+           <Link to="/Staffmembers/Doctor">
           <div class="mt-16 text-6xl"
            style={{
             marginLeft: 105,
@@ -50,6 +54,7 @@ export const M_Staffmembers = () => {
             <BsFillPersonPlusFill />
           </div>
           <h1 class="text-center">Doctor</h1>
+          </Link>
         </div>
 
         <div
@@ -59,10 +64,12 @@ export const M_Staffmembers = () => {
             width: 260,
           }}
         >
+            <Link to="/Staffmembers/Receptionist">
           <div class="ml-24 mt-16 text-6xl">
             <BsFillPersonFill />
           </div>
           <h1 class="text-center">Receptionist</h1>
+          </Link>
         </div>
 
         <div
