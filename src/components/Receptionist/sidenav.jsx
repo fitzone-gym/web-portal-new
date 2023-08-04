@@ -17,11 +17,7 @@ function sidenav() {
                 </div>
             
             <ul class="flex flex-col py-4 space-y-1">
-        <li class="px-5">
-          <div class="flex flex-row items-center h-8">
-            <div class="text-sm font-light tracking-wide text-black-500">MENU</div>
-          </div>
-        </li>
+       
         <li>
           <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
             <span class="inline-flex justify-center items-center ml-4">
@@ -65,26 +61,14 @@ function sidenav() {
             <span class="ml-2 text-sm tracking-wide truncate">PAYMENTS</span>
           </a>
         </li>
-        <li>
-          <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-            <span class="inline-flex justify-center items-center ml-4">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-            </span>
-            <span class="ml-2 text-sm tracking-wide truncate">Clients</span>
-    
-          </a>
-        </li>
-        <li class="px-5">
-          <div class="flex flex-row items-center h-8">
-            <div class="text-sm font-light tracking-wide text-black-500">Settings</div>
-          </div>
-        </li>
+       
+       
         <li>
           <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
             <span class="inline-flex justify-center items-center ml-4">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
             </span>
-            <span class="ml-2 text-sm tracking-wide truncate">Profile</span>
+            <span class="ml-2 text-sm tracking-wide truncate">PROFILE</span>
           </a>
         </li>
         <li>
@@ -95,7 +79,7 @@ function sidenav() {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
               </svg>
             </span>
-            <span class="ml-2 text-sm tracking-wide truncate">Settings</span>
+            <span class="ml-2 text-sm tracking-wide truncate">ATTENDENCE</span>
           </a>
         </li>
         <li>
@@ -103,7 +87,7 @@ function sidenav() {
             <span class="inline-flex justify-center items-center ml-4">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
             </span>
-            <span class="ml-2 text-sm tracking-wide truncate">Logout</span>
+            <span class="ml-2 text-sm tracking-wide truncate">LOGOUT</span>
           </a>
         </li>
       </ul>
