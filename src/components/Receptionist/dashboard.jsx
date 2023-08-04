@@ -121,7 +121,7 @@ function Dashboard() {
 
     <div className="sm:flex sm:space-x-">
         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-12 h-6">
+            <div className="bg-white p-12 h-5">
                 <div className="sm:flex sm:items-start">
                     <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
                         <h3 className="text-sm leading-6 font-medium text-gray-400">Total Subscribers</h3>

@@ -4,7 +4,7 @@ import "./App.css";
 // import { Members } from "./pages/Manager/Members";
 // import { Staffmembers } from "./pages/Manager/Staffmembers";
 // import { Addtrainer } from "./pages/Manager/Addtrainer";
-// import { Dashboard } from "./pages/Manager/Dashboard";
+ import { Dashboard } from "./pages/Manager/Dashboard";
 // import { Trainer } from "./pages/Manager/Trainer";
 // import { Doctor } from "./pages/Manager/Doctor";
 // import {ReceptionistDashboard} from './pages/Receptionist/R_Dashboard';
@@ -16,12 +16,16 @@ import  R_Dashboard  from "./pages/Receptionist/R_Dashboard";
 import R_Memeberlist from "./pages/Receptionist/R_Memeberlist";
 import R_Trainerlist from "./pages/Receptionist/R_Trainerlist";
 import R_Announcement from "./pages/Receptionist/R_Announcement";
+import R_Userprofile from "./pages/Receptionist/R_Userprofile";
+import R_Attendence from "./pages/Receptionist/R_Attendence"
 
 function App() {
   
 
   return (
     <>
+
+    
       {/* <Login /> */}
       {/* <Dashboard />  */}
       {/* <Members />  */}
@@ -31,7 +35,7 @@ function App() {
        {/* <Addtrainer /> */}
 
        {/* <ReceptionistDashboard /> */}
-       <R_Announcement/>
+       <R_Attendence/>
     </>
   );
 }
