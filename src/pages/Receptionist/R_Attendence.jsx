@@ -16,9 +16,11 @@ function R_Memeberlist() {
 
     <div class="heading-members">
         <span>
-        <h1> Member's Attendence</h1>
-        
-        
+         Member's Attendence
+        </span>
+
+        <span className='seeall'>
+         SEE ALL
         </span>
     </div>
 
@@ -29,14 +31,13 @@ function R_Memeberlist() {
             <thead class="bg-gray-50">
               <tr>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Joined Date</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Last Visited</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Trainer Name</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Payment Status</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Payment Status</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
+                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Check in Time</th>
+                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Check out Time</th>
+                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Duration</th>
               </tr>
             </thead>
+
+
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">
               <tr class="hover:bg-gray-50">
                 <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
@@ -61,45 +62,37 @@ function R_Memeberlist() {
                     T.K Bandara
                 </td>
 
+              
+             
+              </tr>
+
+
+
+            {/* New Row  */}
+
+            <tr class="hover:bg-gray-50">
+                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
+                  <div class="relative h-10 w-10">
+                    <img
+                      class="h-full w-full rounded-full object-cover object-center"
+                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      alt=""
+                    />
+                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
+                  </div>
+                  <div class="text-sm">
+                    <div class="font-medium text-gray-700">Steven Jobs</div>
+                    <div class="text-gray-400">jobs@sailboatui.com</div>
+                  </div>
+                </th>
+                <td class="px-6 py-4"> 01.01.2022 </td>
+                <td class="px-6 py-4">22.07.2023  </td>
                 <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
+                    T.K Bandara
                 </td>
 
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-                <td class="px-6 py-4">
-                  <div class="flex justify-end gap-4">
-                    <a x-data="{ tooltip: 'Delete' }" href="#">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-6 w-6"
-                        x-tooltip="tooltip"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                        />
-                      </svg>
-                    </a>
-                    
-                  </div>
-                </td>
+              
+             
               </tr>
 
 
@@ -107,7 +100,6 @@ function R_Memeberlist() {
             {/* New Row  */}
 
 
-
             <tr class="hover:bg-gray-50">
                 <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                   <div class="relative h-10 w-10">
@@ -130,264 +122,84 @@ function R_Memeberlist() {
                 <td class="px-6 py-4">
                     T.K Bandara
                 </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-                <td class="px-6 py-4">
-                  <div class="flex justify-end gap-4">
-                    <a x-data="{ tooltip: 'Delete' }" href="#">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-6 w-6"
-                        x-tooltip="tooltip"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                        />
-                      </svg>
-                    </a>
-                    
-                  </div>
-                </td>
-              </tr>
-
-
-              {/* New Row */}
-
 
               
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-                <td class="px-6 py-4">
-                  <div class="flex justify-end gap-4">
-                    <a x-data="{ tooltip: 'Delete' }" href="#">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-6 w-6"
-                        x-tooltip="tooltip"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                        />
-                      </svg>
-                    </a>
-                    
-                  </div>
-                </td>
-              </tr>
-
-
-              {/* New Row */}
-
-
-
-              
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-                <td class="px-6 py-4">
-                  <div class="flex justify-end gap-4">
-                    <a x-data="{ tooltip: 'Delete' }" href="#">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-6 w-6"
-                        x-tooltip="tooltip"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                        />
-                      </svg>
-                    </a>
-                    
-                  </div>
-                </td>
-              </tr>
-
-
-              {/* New Row */}
-
-
-
-
-              
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-                <td class="px-6 py-4">
-                  <div class="flex justify-end gap-4">
-                    <a x-data="{ tooltip: 'Delete' }" href="#">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-6 w-6"
-                        x-tooltip="tooltip"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                        />
-                      </svg>
-                    </a>
-                    
-                  </div>
-                </td>
-              </tr>
-
-
              
+              </tr>
 
 
-              {/* New Row */}
 
+            {/* New Row  */}
+
+
+            <tr class="hover:bg-gray-50">
+                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
+                  <div class="relative h-10 w-10">
+                    <img
+                      class="h-full w-full rounded-full object-cover object-center"
+                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      alt=""
+                    />
+                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
+                  </div>
+                  <div class="text-sm">
+                    <div class="font-medium text-gray-700">Steven Jobs</div>
+                    <div class="text-gray-400">jobs@sailboatui.com</div>
+                  </div>
+                </th>
+                <td class="px-6 py-4">
+                01.01.2022
+                </td>
+                <td class="px-6 py-4">22.07.2023</td>
+                <td class="px-6 py-4">
+                    T.K Bandara
+                </td>
+
+              
+             
+              </tr>
+
+
+
+            {/* New Row  */}
+
+
+            <tr class="hover:bg-gray-50">
+                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
+                  <div class="relative h-10 w-10">
+                    <img
+                      class="h-full w-full rounded-full object-cover object-center"
+                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      alt=""
+                    />
+                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
+                  </div>
+                  <div class="text-sm">
+                    <div class="font-medium text-gray-700">Steven Jobs</div>
+                    <div class="text-gray-400">jobs@sailboatui.com</div>
+                  </div>
+                </th>
+                <td class="px-6 py-4">
+                01.01.2022
+                </td>
+                <td class="px-6 py-4">22.07.2023</td>
+                <td class="px-6 py-4">
+                    T.K Bandara
+                </td>
+
+              
+             
+              </tr>
+
+
+
+            {/* New Row  */}
+
+
+            
+
+
+          
               
               
             </tbody>
@@ -395,31 +207,25 @@ function R_Memeberlist() {
         </div>
         </div>
 
-
-
-{/* Trainer's Attendence */}
-
-        <div class="heading-members">
+        
+    <div class="heading-members">
         <span>
-        <h1> Trainer's Attendence</h1>
-        
-        
+        Trainer's Attendence
+        </span>
+        <span className='seeall'>
+         SEE ALL
         </span>
     </div>
 
-    
-    <div class = "memberlist" >
+        <div class = "memberlist" >
         <div class="overflow-hidden rounded-lg border background-color: transparent border-gray-200 shadow-md m-5">
           <table class="w-full border-collapse bg-black text-left text-sm text-gray-500">
             <thead class="bg-gray-50">
               <tr>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Joined Date</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Last Visited</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Trainer Name</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Payment Status</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Payment Status</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
+                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Check in Time</th>
+                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Check out Time</th>
+                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Duration</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">
@@ -445,46 +251,37 @@ function R_Memeberlist() {
                 <td class="px-6 py-4">
                     T.K Bandara
                 </td>
+              </tr>
 
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
 
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-                <td class="px-6 py-4">
-                  <div class="flex justify-end gap-4">
-                    <a x-data="{ tooltip: 'Delete' }" href="#">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-6 w-6"
-                        x-tooltip="tooltip"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                        />
-                      </svg>
-                    </a>
-                    
+
+            {/* New Row  */}
+
+            <tr class="hover:bg-gray-50">
+                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
+                  <div class="relative h-10 w-10">
+                    <img
+                      class="h-full w-full rounded-full object-cover object-center"
+                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      alt=""
+                    />
+                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
                   </div>
+                  <div class="text-sm">
+                    <div class="font-medium text-gray-700">Steven Jobs</div>
+                    <div class="text-gray-400">jobs@sailboatui.com</div>
+                  </div>
+                </th>
+                <td class="px-6 py-4">
+                01.01.2022
                 </td>
+                <td class="px-6 py-4">22.07.2023</td>
+                <td class="px-6 py-4">
+                    T.K Bandara
+                </td>
+
+              
+             
               </tr>
 
 
@@ -492,7 +289,6 @@ function R_Memeberlist() {
             {/* New Row  */}
 
 
-
             <tr class="hover:bg-gray-50">
                 <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                   <div class="relative h-10 w-10">
@@ -515,270 +311,90 @@ function R_Memeberlist() {
                 <td class="px-6 py-4">
                     T.K Bandara
                 </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-                <td class="px-6 py-4">
-                  <div class="flex justify-end gap-4">
-                    <a x-data="{ tooltip: 'Delete' }" href="#">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-6 w-6"
-                        x-tooltip="tooltip"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                        />
-                      </svg>
-                    </a>
-                    
-                  </div>
-                </td>
-              </tr>
-
-
-              {/* New Row */}
-
 
               
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-                <td class="px-6 py-4">
-                  <div class="flex justify-end gap-4">
-                    <a x-data="{ tooltip: 'Delete' }" href="#">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-6 w-6"
-                        x-tooltip="tooltip"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                        />
-                      </svg>
-                    </a>
-                    
-                  </div>
-                </td>
-              </tr>
-
-
-              {/* New Row */}
-
-
-
-              
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-                <td class="px-6 py-4">
-                  <div class="flex justify-end gap-4">
-                    <a x-data="{ tooltip: 'Delete' }" href="#">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-6 w-6"
-                        x-tooltip="tooltip"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                        />
-                      </svg>
-                    </a>
-                    
-                  </div>
-                </td>
-              </tr>
-
-
-              {/* New Row */}
-
-
-
-
-              
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-
-                <td class="px-6 py-4">
-                <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                  >
-                    <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                    Completed
-                  </span>
-                </td>
-                <td class="px-6 py-4">
-                  <div class="flex justify-end gap-4">
-                    <a x-data="{ tooltip: 'Delete' }" href="#">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="h-6 w-6"
-                        x-tooltip="tooltip"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                        />
-                      </svg>
-                    </a>
-                    
-                  </div>
-                </td>
-              </tr>
-
-
              
+              </tr>
 
 
-              {/* New Row */}
+
+            {/* New Row  */}
+
+
+            <tr class="hover:bg-gray-50">
+                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
+                  <div class="relative h-10 w-10">
+                    <img
+                      class="h-full w-full rounded-full object-cover object-center"
+                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      alt=""
+                    />
+                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
+                  </div>
+                  <div class="text-sm">
+                    <div class="font-medium text-gray-700">Steven Jobs</div>
+                    <div class="text-gray-400">jobs@sailboatui.com</div>
+                  </div>
+                </th>
+                <td class="px-6 py-4">
+                01.01.2022
+                </td>
+                <td class="px-6 py-4">22.07.2023</td>
+                <td class="px-6 py-4">
+                    T.K Bandara
+                </td>
 
               
+             
+              </tr>
+
+
+
+            {/* New Row  */}
+
+
+            <tr class="hover:bg-gray-50">
+                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
+                  <div class="relative h-10 w-10">
+                    <img
+                      class="h-full w-full rounded-full object-cover object-center"
+                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      alt=""
+                    />
+                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
+                  </div>
+                  <div class="text-sm">
+                    <div class="font-medium text-gray-700">Steven Jobs</div>
+                    <div class="text-gray-400">jobs@sailboatui.com</div>
+                  </div>
+                </th>
+                <td class="px-6 py-4">
+                01.01.2022
+                </td>
+                <td class="px-6 py-4">22.07.2023</td>
+                <td class="px-6 py-4">
+                    T.K Bandara
+                </td>
+              </tr>
+
+
+
               
+            {/* New Row  */}
             </tbody>
           </table>
+
+
+          
         </div>
         </div>
+
+
+
+
+
+
+        
 </div></div> 
 
   )
