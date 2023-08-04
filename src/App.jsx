@@ -18,6 +18,7 @@ import R_Trainerlist from "./pages/Receptionist/R_Trainerlist";
 import R_Announcement from "./pages/Receptionist/R_Announcement";
 import R_Userprofile from "./pages/Receptionist/R_Userprofile";
 import R_Attendence from "./pages/Receptionist/R_Attendence"
+import R_onememberattendence from "./pages/Receptionist/onememberattendence"
 
 function App() {
   
@@ -35,7 +36,7 @@ function App() {
        {/* <Addtrainer /> */}
 
        {/* <ReceptionistDashboard /> */}
-       <R_Attendence/>
+       <R_onememberattendence/>
     </>
   );
 }
