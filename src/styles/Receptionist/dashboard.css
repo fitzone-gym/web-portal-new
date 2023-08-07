@@ -1,0 +1,6 @@
+.dashboard{
+    margin-left: 16%;
+    background-image: url(../../assets/dashboard_bg.png);
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
