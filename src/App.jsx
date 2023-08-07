@@ -7,6 +7,7 @@ import { Addtrainer } from "./pages/Manager/Addtrainer";
 import { Dashboard } from "./pages/Manager/Dashboard";
 import { Trainer } from "./pages/Manager/Trainer";
 import { Doctor } from "./pages/Manager/Doctor";
+import {DoctorDashboard} from "./pages/Doctor/DocDashboard"
 
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
       {/* <Trainer /> */}
       {/* <Doctor /> */}
        {/* <Staffmembers /> */}
-       <Addtrainer />
+       {/* <Addtrainer /> */}
+       <DoctorDashboard/>
     </>
   );
 }
