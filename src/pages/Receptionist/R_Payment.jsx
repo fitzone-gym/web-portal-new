@@ -1,19 +1,22 @@
 import React from 'react'
 import Header from '../../components/Receptionist/header';
 import Sidenav from '../../components/Receptionist/sidenav';
-import '../../styles/Receptionist/trainerlist.css'
+import '../../styles/Doctor/paymenthistory.css'
 
-function R_Trainerlist() {
+
+function D_PaymentHistory() {
   return (
-    <div>
-    
-    <Header />
-    <div className='body-members'>
-    
-    <Sidenav />
+    <div className='body'>
+        <Header/>
+        <Sidenav/>
 
+  
 
-    <div
+    
+    <div class = "memberlist" >
+    
+
+            <div
       className=""
       style={{
         position: " ",
@@ -23,12 +26,11 @@ function R_Trainerlist() {
         bottom: 0,
       }}
     >
-  
-     
 
-      <div className="w-[85%] ml-64 ">
-        <div className="grid grid-flow-col auto-cols-2 bg-gray-800 ml-20 pt-6 pb-6 rounded-t-lg mt-10">
-          <div className="text-white text-2xl ">Gym Trainers Details</div>
+
+      <div className="">
+        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-5 mr-5 pt-6 pb-6 rounded-t-lg ">
+          <div className="text-white text-2xl ">Monthly Salary  Details</div>
           <div
             className=" "
             style={{
@@ -58,12 +60,12 @@ function R_Trainerlist() {
                   type="search"
                   id="default-search"
                   className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Search Name,Level..."
+                  placeholder="Search Month..."
                   required
                 />
                 <button
                   type="submit"
-                  className="text-white absolute right-2.5 bg-gray-800 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white absolute right-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   style={{
                     marginTop: -41,
                   }}
@@ -77,7 +79,7 @@ function R_Trainerlist() {
           <div className="">
             <button
               type="button"
-              className="text-white bg-gray-600 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               style={{
                 height: 45,
               }}
@@ -102,24 +104,24 @@ function R_Trainerlist() {
           </div>
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-5 mr-5">
           <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 ">
             <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
               <tr>
                 <th scope="col" className="px-6 py-3">
-                  Member name
+                  Payment ID  
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Joined Date
+                  Month
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Package Type
+                  Payment Date
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Performance level
+                  Salary
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Action
+                  Payment Status
                 </th>
               </tr>
             </thead>
@@ -136,7 +138,7 @@ function R_Trainerlist() {
                 <td className="px-6 py-4">1</td>
                 <td className="px-6 py-4">
                   <a
-                    href="/Receptionist/Trainerprofile"
+                    href="#"
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
                     View
@@ -224,9 +226,12 @@ function R_Trainerlist() {
         </div>
       </div>
     </div>
-</div></div> 
+            </div>
 
+
+
+    </div>
   )
 }
 
-export default R_Trainerlist
+export default D_PaymentHistory

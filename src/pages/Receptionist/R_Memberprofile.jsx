@@ -27,7 +27,7 @@ function R_Userprofile() {
 
     <div className='profilecard'>
     <section className="relative py-1 ">
-      <div className="container mx-auto px-3 mt-14">
+      <div className="container mx-auto px-3 mt-24 ">
         <div className="relative flex flex-col min-w-0 break-words bg-gray-800 w-full mb-6 shadow-xl rounded-lg -mt-64">
           <div className="px-6">
             <div className="flex flex-wrap justify-center">
@@ -46,19 +46,30 @@ function R_Userprofile() {
                     className="bg-pink-500 active:bg-gray-500 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                     type="button"
                   >
-                    EDIT
+                    CHAT
                   </button>
                 </div>
               </div>
               <div className="w-full lg:w-4/12 px-4 lg:order-1">
                 <div className="flex justify-center py-4 lg:pt-4 pt-8">
-                  <div className="mr-1 p-3 text-left">
+                  <div className="mr-4 p-3 text-center">
                     <span className="text-xl font-bold block uppercase tracking-wide text-slate-50">
-                      MY PROFILE
+                      22
                     </span>
+                    <span className="text-sm text-slate-50">Reg No</span>
                   </div>
-            
-             
+                  <div className="mr-4 p-3 text-center">
+                    <span className="text-xl font-bold block uppercase tracking-wide text-slate-50">
+                      4
+                    </span>
+                    <span className="text-sm text-slate-50">Performance Level</span>
+                  </div>
+                  <div className="lg:mr-4 p-3 text-center">
+                    <span className="text-xl font-bold block uppercase tracking-wide text-slate-50">
+                      89
+                    </span>
+                    <span className="text-sm text-slate-50">Comments</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -73,11 +84,11 @@ function R_Userprofile() {
               </h3>
               <div className="text-sm leading-normal mt-0 mb-2 text-slate-50 font-bold uppercase">
                 <i className="fas fa-map-marker-alt mr-2 text-lg text-slate-50" />
-                Receptionist, FitZone
+                Dehiwala, Colombo
               </div>
               <div className="mb-2 text-slate-50 mt-10">
-                <i className="fas fa-briefcase mr-2 text-lg text-slate-50" /> 
-                
+                <i className="fas fa-briefcase mr-2 text-lg text-slate-50" />
+                Managining Director, Inaiyam Digital
               </div>
               <div className="mb-2 text-slate-50">
                 <i className="fas fa-university mr-2 text-lg text-slate-50" />
@@ -100,12 +111,7 @@ function R_Userprofile() {
         </div>
       </div>
 
-    </section>  
-    
-    
-    
-    
-    </div>
+    </section>  </div>
 
 
 

@@ -4,3 +4,15 @@
     height: 100%;
     font-family: 'Montserrat', sans-serif;
 }
+
+.memberlist{
+
+    background-color: rgb(46, 46, 46);
+    height: 100%;   
+    margin-left: 0%;
+
+}
+
+.heading-members{
+    margin-left: 0;
+}
