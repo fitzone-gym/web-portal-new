@@ -23,15 +23,12 @@ function R_Trainerlist() {
         bottom: 0,
       }}
     >
-      <div className="heading-members  ">
-        <h1 >
-          Gym Trainer's Details
-        </h1>
-      </div>
+  
+     
 
-      <div className="w-[85%] ml-64">
-        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
-          <div className="text-white text-2xl ">Member Details</div>
+      <div className="w-[85%] ml-64 ">
+        <div className="grid grid-flow-col auto-cols-2 bg-gray-800 ml-20 pt-6 pb-6 rounded-t-lg mt-10">
+          <div className="text-white text-2xl ">Gym Trainers Details</div>
           <div
             className=" "
             style={{
@@ -66,7 +63,7 @@ function R_Trainerlist() {
                 />
                 <button
                   type="submit"
-                  className="text-white absolute right-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white absolute right-2.5 bg-gray-800 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   style={{
                     marginTop: -41,
                   }}
@@ -80,7 +77,7 @@ function R_Trainerlist() {
           <div className="">
             <button
               type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white bg-gray-600 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               style={{
                 height: 45,
               }}
@@ -139,7 +136,7 @@ function R_Trainerlist() {
                 <td className="px-6 py-4">1</td>
                 <td className="px-6 py-4">
                   <a
-                    href="#"
+                    href="/Receptionist/Trainerprofile"
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
                     View

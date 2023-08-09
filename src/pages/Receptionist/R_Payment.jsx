@@ -10,13 +10,7 @@ function D_PaymentHistory() {
         <Header/>
         <Sidenav/>
 
-        <div class="heading-members">
-        <span>
-        <h1> Payment History</h1>
-        
-        
-        </span>
-    </div>
+  
 
     
     <div class = "memberlist" >
@@ -35,7 +29,7 @@ function D_PaymentHistory() {
 
 
       <div className="">
-        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
+        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-5 mr-5 pt-6 pb-6 rounded-t-lg ">
           <div className="text-white text-2xl ">Monthly Salary  Details</div>
           <div
             className=" "
@@ -110,7 +104,7 @@ function D_PaymentHistory() {
           </div>
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-5 mr-5">
           <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 ">
             <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
               <tr>

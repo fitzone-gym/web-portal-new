@@ -4,7 +4,7 @@ import Sidenav from '../../components/Receptionist/sidenav';
 import '../../styles/Receptionist/userprofile.css'
 import profilephoto from '../../assets/profileimage.jpg'
 
-function R_Userprofile() {
+function R_Trainerprofile() {
   return (
     <div>
     <Header />
@@ -46,7 +46,7 @@ function R_Userprofile() {
                     className="bg-pink-500 active:bg-gray-500 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
                     type="button"
                   >
-                    Connect
+                    Chat
                   </button>
                 </div>
               </div>
@@ -58,18 +58,8 @@ function R_Userprofile() {
                     </span>
                     <span className="text-sm text-slate-50">Reg No</span>
                   </div>
-                  <div className="mr-4 p-3 text-center">
-                    <span className="text-xl font-bold block uppercase tracking-wide text-slate-50">
-                      10
-                    </span>
-                    <span className="text-sm text-slate-50">Photos</span>
-                  </div>
-                  <div className="lg:mr-4 p-3 text-center">
-                    <span className="text-xl font-bold block uppercase tracking-wide text-slate-50">
-                      89
-                    </span>
-                    <span className="text-sm text-slate-50">Comments</span>
-                  </div>
+            
+             
                 </div>
               </div>
             </div>
@@ -87,7 +77,7 @@ function R_Userprofile() {
                 Dehiwala, Colombo
               </div>
               <div className="mb-2 text-slate-50 mt-10">
-                <i className="fas fa-briefcase mr-2 text-lg text-slate-50" />
+                <i className="fas fa-briefcase mr-2 text-lg text-slate-50" /> 
                 Managining Director, Inaiyam Digital
               </div>
               <div className="mb-2 text-slate-50">
@@ -115,7 +105,12 @@ function R_Userprofile() {
         </div>
       </div>
 
-    </section>  </div>
+    </section>  
+    
+    
+    
+    
+    </div>
 
 
 
@@ -130,4 +125,4 @@ function R_Userprofile() {
   )
 }
 
-export default R_Userprofile
+export default R_Trainerprofile

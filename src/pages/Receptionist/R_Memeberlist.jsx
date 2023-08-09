@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../../components/Receptionist/header';
 import Sidenav from '../../components/Receptionist/sidenav';
 import '../../styles/Receptionist/memberlist.css'
+import { Link } from "react-router-dom";
 
 function R_Memeberlist() {
 
@@ -140,7 +141,7 @@ function R_Memeberlist() {
                 <td className="px-6 py-4">1</td>
                 <td className="px-6 py-4">
                   <a
-                    href="#"
+                    href="/Receptionist/Memberprofile"
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
                     View

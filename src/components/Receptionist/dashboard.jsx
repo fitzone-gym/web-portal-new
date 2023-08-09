@@ -19,101 +19,116 @@ function Dashboard() {
 
 <div className="max-w-full mx-4 py-6  bg-grey-600 sm:mx-auto sm:px-6 lg:px-8">
     <div className="sm:flex sm:space-x-4">
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-gray-400 p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-50">Total Members</h3>
-                        <p className="text-3xl font-bold text-black">236</p>
-                    </div>
-                </div>
-            </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+            <div
+          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
         </div>
 
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">New Members</h3>
-                        <p className="text-3xl font-bold text-black">12</p>
-                    </div>
-                </div>
-            </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
         </div>
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Trainers</h3>
-                        <p className="text-3xl font-bold text-black">36</p>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">New Trainers</h3>
-                        <p className="text-3xl font-bold text-black">2</p>
-                    </div>
-                </div>
-            </div>
+        <div className="inline-block align-bottom rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
+        </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
         </div>
     </div>
 
     <div className="sm:flex sm:space-x-4">
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Attendence</h3>
-                        <p className="text-3xl font-bold text-black">76</p>
-                    </div>
-
-                    
-                </div>
-
-                
-            </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
         </div>
 
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Current Members</h3>
-                        <p className="text-3xl font-bold text-black">24</p>
-                    </div>
-
-                    
-                </div>
-
-                
-            </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
             
         </div>
- <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Attendence Percentage</h3>
-                        <p className="text-3xl font-bold text-black">58.16%</p>
-                    </div>
-                </div>
-            </div>
-
+ <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+ <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
             
         </div>
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Current Trainers</h3>
-                        <p className="text-3xl font-bold text-black">6</p>
-                    </div>
-                </div>
-            </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
         </div>
 
 
@@ -202,185 +217,6 @@ function Dashboard() {
 
         {/* Mmebers Revenue */}
 
-<div class="heading-members">
-        <h1>Member's Attendence</h1>
-        
-        
-    </div>
-
-        <div class = "memberlist" >
-        <div class="overflow-hidden rounded-lg border background-color: transparent border-gray-200 shadow-md m-1">
-          <table class="w-full border-collapse bg-black text-left text-sm text-gray-500">
-            <thead class="bg-gray-50">
-              <tr>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Check in Time</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Check out Time</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Duration</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-              <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                 
-                    <div class="font-medium text-gray-50">Steven Jobs</div>
-                    
-                  
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-              </tr>
-
-
-
-            {/* New Row  */}
-
-            <tr class="hover:bg-gray-40">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-              
-             
-              </tr>
-
-
-
-            {/* New Row  */}
-
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-              
-             
-              </tr>
-
-
-
-            {/* New Row  */}
-
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-              
-             
-              </tr>
-
-
-
-            {/* New Row  */}
-
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-              </tr>
-
-
-
-              
-            {/* New Row  */}
-            </tbody>
-          </table>
-
-
-        
-
-</div> </div>
-
-    
 </div>
 
 </div>
