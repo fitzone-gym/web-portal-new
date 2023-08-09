@@ -18,25 +18,24 @@ import R_Trainerlist from "./pages/Receptionist/R_Trainerlist";
 import R_Announcement from "./pages/Receptionist/R_Announcement";
 import R_Userprofile from "./pages/Receptionist/R_Userprofile";
 import R_Attendence from "./pages/Receptionist/R_Attendence"
-import R_onememberattendence from "./pages/Receptionist/onememberattendence"
+import R_onememberattendence from "./pages/Receptionist/onememberattendence";
+import R_Contactus_submitions from "./pages/Receptionist/ContactUsSubmitions";
 
 function App() {
   
 
   return (
     <>
-
-    
       {/* <Login /> */}
       {/* <Dashboard />  */}
       {/* <Members />  */}
       {/* <Trainer /> */}
       {/* <Doctor /> */}
-       {/* <Staffmembers /> */}
-       {/* <Addtrainer /> */}
-
-       {/* <ReceptionistDashboard /> */}
-       <R_onememberattendence/>
+      {/* <Staffmembers /> */}
+      {/* <Addtrainer /> */}
+      {/* <ReceptionistDashboard /> */}
+      {/* <R_onememberattendence/> */}
+      <R_Contactus_submitions/>
     </>
   );
 }
