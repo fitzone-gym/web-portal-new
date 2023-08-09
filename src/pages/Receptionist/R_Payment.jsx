@@ -1,19 +1,28 @@
 import React from 'react'
 import Header from '../../components/Receptionist/header';
 import Sidenav from '../../components/Receptionist/sidenav';
-import '../../styles/Receptionist/trainerlist.css'
+import '../../styles/Doctor/paymenthistory.css'
 
-function R_Trainerlist() {
+
+function D_PaymentHistory() {
   return (
-    <div>
-    
-    <Header />
-    <div className='body-members'>
-    
-    <Sidenav />
+    <div className='body'>
+        <Header/>
+        <Sidenav/>
 
+        <div class="heading-members">
+        <span>
+        <h1> Payment History</h1>
+        
+        
+        </span>
+    </div>
 
-    <div
+    
+    <div class = "memberlist" >
+    
+
+            <div
       className=""
       style={{
         position: " ",
@@ -23,15 +32,11 @@ function R_Trainerlist() {
         bottom: 0,
       }}
     >
-      <div className="heading-members  ">
-        <h1 >
-          Gym Trainer's Details
-        </h1>
-      </div>
 
-      <div className="w-[85%] ml-64">
+
+      <div className="">
         <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
-          <div className="text-white text-2xl ">Member Details</div>
+          <div className="text-white text-2xl ">Monthly Salary  Details</div>
           <div
             className=" "
             style={{
@@ -61,7 +66,7 @@ function R_Trainerlist() {
                   type="search"
                   id="default-search"
                   className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Search Name,Level..."
+                  placeholder="Search Month..."
                   required
                 />
                 <button
@@ -110,19 +115,19 @@ function R_Trainerlist() {
             <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
               <tr>
                 <th scope="col" className="px-6 py-3">
-                  Member name
+                  Payment ID  
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Joined Date
+                  Month
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Package Type
+                  Payment Date
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Performance level
+                  Salary
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Action
+                  Payment Status
                 </th>
               </tr>
             </thead>
@@ -227,9 +232,12 @@ function R_Trainerlist() {
         </div>
       </div>
     </div>
-</div></div> 
+            </div>
 
+
+
+    </div>
   )
 }
 
-export default R_Trainerlist
+export default D_PaymentHistory

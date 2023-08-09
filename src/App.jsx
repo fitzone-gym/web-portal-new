@@ -19,6 +19,14 @@ import R_Announcement from "./pages/Receptionist/R_Announcement";
 import R_Userprofile from "./pages/Receptionist/R_Userprofile";
 import R_Attendence from "./pages/Receptionist/R_Attendence"
 import R_onememberattendence from "./pages/Receptionist/onememberattendence"
+import D_Dashboard from "./pages/Doctor/D_Dashboard";
+import D_Leaverequest from "./pages/Doctor/D_Leaverequest";
+import D_PaymentHistory from "./pages/Doctor/D_PaymentHistory";
+import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
+import R_Payment from './pages/Receptionist/R_Payment'
+
+
+
 
 function App() {
   
@@ -36,7 +44,7 @@ function App() {
        {/* <Addtrainer /> */}
 
        {/* <ReceptionistDashboard /> */}
-       <R_onememberattendence/>
+       <R_Payment />
     </>
   );
 }
