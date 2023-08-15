@@ -117,9 +117,7 @@ function D_PaymentHistory() {
                 <th scope="col" className="px-6 py-3">
                   Payment Date
                 </th>
-                <th scope="col" className="px-6 py-3">
-                  Salary
-                </th>
+                
                 <th scope="col" className="px-6 py-3">
                   Payment Status
                 </th>
@@ -131,11 +129,11 @@ function D_PaymentHistory() {
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  Jayani Ranasinghe
+                  287
                 </th>
-                <td className="px-6 py-4">3 Septemebr 2023</td>
-                <td className="px-6 py-4">1 Month</td>
-                <td className="px-6 py-4">1</td>
+                <td className="px-6 py-4">July 2023</td>
+                <td className="px-6 py-4">25.07.2023</td>
+                
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -150,11 +148,11 @@ function D_PaymentHistory() {
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  Lasith Senadheera
+                  232
                 </th>
-                <td className="px-6 py-4">30 September 2023</td>
-                <td className="px-6 py-4">6 Months</td>
-                <td className="px-6 py-4">4</td>
+                <td className="px-6 py-4">June 2023</td>
+                <td className="px-6 py-4">26.06.2023</td>
+               
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -169,11 +167,11 @@ function D_PaymentHistory() {
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  Kalani Ranasinghe
+                  178
                 </th>
-                <td className="px-6 py-4">7th October 2022</td>
-                <td className="px-6 py-4">Annual</td>
-                <td className="px-6 py-4">2</td>
+                <td className="px-6 py-4">May 20223</td>
+                <td className="px-6 py-4">25.05.2023</td>
+             
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -188,11 +186,11 @@ function D_PaymentHistory() {
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  Damitha Senadheera
+                  149
                 </th>
-                <td className="px-6 py-4">6th January 2020</td>
-                <td className="px-6 py-4">Annual</td>
-                <td className="px-6 py-4">3</td>
+                <td className="px-6 py-4">April 2023</td>
+                <td className="px-6 py-4">25.04.2023</td>
+              
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -207,11 +205,11 @@ function D_PaymentHistory() {
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  Walter Ranasinghe
+                  132
                 </th>
-                <td className="px-6 py-4">12th September 2021</td>
-                <td className="px-6 py-4">6 Months</td>
-                <td className="px-6 py-4">3</td>
+                <td className="px-6 py-4">March 2023</td>
+                <td className="px-6 py-4">25.03.2023</td>
+             
                 <td className="px-6 py-4">
                   <a
                     href="#"

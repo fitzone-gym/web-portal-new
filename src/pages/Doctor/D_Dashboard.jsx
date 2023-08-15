@@ -16,57 +16,71 @@ function D_Dashboard() {
 
       <div className="max-w-full mx-4 py-6  bg-grey-600 sm:mx-auto sm:px-6 lg:px-8">
     <div className="sm:flex sm:space-x-4">
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Members</h3>
-                        <p className="text-3xl font-bold text-black">216</p>
-                    </div>
-                </div>
-            </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+            <div
+          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">273</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
         </div>
 
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">New Members</h3>
-                        <p className="text-3xl font-bold text-black">12</p>
-                    </div>
-                </div>
-            </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Appointments</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">56</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
         </div>
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Appoinment</h3>
-                        <p className="text-3xl font-bold text-black">36</p>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Today Appoinment </h3>
-                        <p className="text-3xl font-bold text-black">03</p>
-                    </div>
-                </div>
-            </div>
+        <div className="inline-block align-bottom rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Pending  Appointments</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">12</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
+        </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
         </div>
     </div>
 
 
 
+
+
     <div className="sm:flex sm:space-x-4">
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-2/3 sm:my-8">
-            <div className="bg-white p-12 h-5">
+        <div className="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-3/4 sm:my-8">
+            <div className="bg-white p-12 h-6">
                 <div className="sm:flex sm:items-start">
                     <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Announcements</h3>
+                        <h3 className="text-sm leading-6 font-medium text-white-50">Announcements</h3>
                         <div
   class="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-8xl md:flex-row">
   
@@ -101,243 +115,289 @@ function D_Dashboard() {
   </div>
   
 </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                Member ID
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
+        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/4 sm:my-8 h-120 ">
+    
 
-            <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                  Check-in time 
-                </label>
-            
-              </div>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="time"
-                  
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
 
-            <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-gray-800 px-3 py-2 my-5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400"
-              >
-                Mark Attendence
-              </button>
-            </div>
-          </form>
+            <div class="max-w-sm w-full shadow-lg">
+                <div class="md:p-8 p-5 dark:bg-gray-800 bg-white rounded-t">
+                    <div class="px-4 flex items-center justify-between">
+                        <span  tabindex="0" class="focus:outline-none  text-base font-bold dark:text-gray-100 text-gray-800">October 2020</span>
+                        <div class="flex items-center">
+                            <button aria-label="calendar backward" class="focus:text-gray-400 hover:text-gray-400 text-gray-800 dark:text-gray-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <polyline points="15 6 9 12 15 18" />
+                            </svg>
+                        </button>
+                        <button aria-label="calendar forward" class="focus:text-gray-400 hover:text-gray-400 ml-3 text-gray-800 dark:text-gray-100"> 
+                              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler  icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <polyline points="9 6 15 12 9 18" />
+                            </svg>
+                        </button>
 
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between pt-12 overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="w-full flex justify-center">
+                                            <p class="text-base font-medium text-center text-gray-800 dark:text-gray-100">Mo</p>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="w-full flex justify-center">
+                                            <p class="text-base font-medium text-center text-gray-800 dark:text-gray-100">Tu</p>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="w-full flex justify-center">
+                                            <p class="text-base font-medium text-center text-gray-800 dark:text-gray-100">We</p>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="w-full flex justify-center">
+                                            <p class="text-base font-medium text-center text-gray-800 dark:text-gray-100">Th</p>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="w-full flex justify-center">
+                                            <p class="text-base font-medium text-center text-gray-800 dark:text-gray-100">Fr</p>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="w-full flex justify-center">
+                                            <p class="text-base font-medium text-center text-gray-800 dark:text-gray-100">Sa</p>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="w-full flex justify-center">
+                                            <p class="text-base font-medium text-center text-gray-800 dark:text-gray-100">Su</p>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="pt-6">
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center"></div>
+                                    </td>
+                                    <td class="pt-6">
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center"></div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center"></div>
+                                    </td>
+                                    <td class="pt-6">
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">1</p>
+                                        </div>
+                                    </td>
+                                    <td class="pt-6">
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">2</p>
+                                        </div>
+                                    </td>
+                                    <td class="pt-6">
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100">3</p>
+                                        </div>
+                                    </td>
+                                    <td class="pt-6">
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100">4</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">5</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">6</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">7</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="w-full h-full">
+                                            <div class="flex items-center justify-center w-full rounded-full cursor-pointer">
+                                                <a  role="link" tabindex="0" class="focus:outline-none  focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-500 hover:bg-indigo-500 text-base w-8 h-8 flex items-center justify-center font-medium text-white bg-indigo-700 rounded-full">8</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">9</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100">10</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100">11</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">12</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">13</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">14</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">15</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">16</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100">17</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100">18</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">19</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">20</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">21</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">22</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">23</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100">24</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100">25</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">26</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">27</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">28</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">29</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="px-2 py-2 cursor-pointer flex w-full justify-center">
+                                            <p class="text-base text-gray-500 dark:text-gray-100 font-medium">30</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="md:py-8 py-5 md:px-16 px-5 dark:bg-gray-700 bg-gray-50 rounded-b">
+                    <div class="px-4">
+                        <div class="border-b pb-4 border-gray-400 border-dashed">
+                            <p class="text-xs font-light leading-3 text-gray-500 dark:text-gray-300">9:00 AM</p>
+                            <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 dark:text-gray-100 mt-2">Zoom call with design team</a>
+                            <p class="text-sm pt-2 leading-4 leading-none text-gray-600 dark:text-gray-300">Discussion on UX sprint and Wireframe review</p>
+                        </div>
+                        <div class="border-b pb-4 border-gray-400 border-dashed pt-5">
+                            <p class="text-xs font-light leading-3 text-gray-500 dark:text-gray-300">10:00 AM</p>
+                            <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 dark:text-gray-100 mt-2">Orientation session with new hires</a>
+                        </div>
+                        <div class="border-b pb-4 border-gray-400 border-dashed pt-5">
+                            <p class="text-xs font-light leading-3 text-gray-500 dark:text-gray-300">9:00 AM</p>
+                            <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 dark:text-gray-100 mt-2">Zoom call with design team</a>
+                            <p class="text-sm pt-2 leading-4 leading-none text-gray-600 dark:text-gray-300">Discussion on UX sprint and Wireframe review</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
+
+
+
+
+
+
+
+
         </div>
 
         {/* Mmebers Revenue */}
 
-        <div class="heading-members">
-        <h1>Member's Attendence</h1>
-        
-        
-    </div>
-
-        <div class = "memberlist" >
-        <div class="overflow-hidden rounded-lg border background-color: transparent border-gray-200 shadow-md m-5">
-          <table class="w-full border-collapse bg-black text-left text-sm text-gray-500">
-            <thead class="bg-gray-50">
-              <tr>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Check in Time</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Check out Time</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Duration</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-              <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-              </tr>
 
 
-
-            {/* New Row  */}
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-              
-             
-              </tr>
-
-
-
-            {/* New Row  */}
-
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-              
-             
-              </tr>
-
-
-
-            {/* New Row  */}
-
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-              
-             
-              </tr>
-
-
-
-            {/* New Row  */}
-
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
-                </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-              </tr>
-
-
-
-              
-            {/* New Row  */}
-            </tbody>
-          </table>
-
-
-        
-
-</div> </div>
 
     
 </div>

@@ -18,65 +18,122 @@ function R_Leaverequest() {
         <Header/>
         <Sidenav/>
 
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
 
-        <div className='leaveform'>
 
-        <div className="space-y-12">
-        <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base font-semibold leading-7 text-red-400">Leave Request Form </h2>
-          <p className="mt-1 text-sm leading-6 text-gray-600">
-            This information will be displayed publicly so be careful what you share.
-          </p>
+          
+      <form
+      
+        className="bg-[#555555] rounded-3xl"
+        style={{
+          height: 640,
+          width: 790,
+        }}
+      >
+
+
+        <div className="text-left px-16 py-10 text-2xl mt-[-2%] text-white ">
+          <h2>Add New Trainer</h2>
         </div>
 
-        <div className="mt-10 grid grid-rows-2 gap-x-6 gap-y-8 sm:grid-cols-3 ml-24">
+        {/* Grid */}
+        <div className="grid grid-cols-2 gap-4 ml-16 justify-center items-center text-left ">
+          <div className="col">
+            <span className="mt-52 col text-white ">First Name </span>
+          </div>
+          <div>
+            <span className="mt-52 col text-white ">Last Name</span>
+          </div>
+          <div className="">
+            <input
+              className="rounded-md w-72"
+              type="text"
+              name="firstname"
+              placeholder="first name"
+              onChange={e=>
+                setValues({ ...values, firstname: e.target.value })
+              }
+            />
+          </div>
+          <div>
+            <input
+              className="rounded-md w-72"
+              type="text"
+              name="lastname"
+              placeholder="last name"
+              onChange={e =>
+                setValues({ ...values, lastname: e.target.value })
+              }
+            />
+          </div>
 
+          <div className="col">
+            <span className="mt-52 col text-white ">Mobile No</span>
+          </div>
+          <div>
+            <span className="mt-52 col text-white ">E-mail</span>
+          </div>
+          <div>
+            <input
+              className="rounded-md w-72"
+              type="text"
+              name="phoneno"
+              placeholder="mobile no"
+              onChange={e =>
+                setValues({ ...values, phoneno: e.target.value })
+              }
+            />
+          </div>
+          <div>
+            <input
+              className="rounded-md w-72"
+              type="text"
+              name="email"
+              placeholder="email"
+              onChange={e => setValues({ ...values, email: e.target.value })}
+            />
+          </div>
 
-            <div className="sm:col-span-1">
-              <label htmlFor="username" className="block text-sm font-medium leading-6 text-red-400">
-                Date From
-              </label>
-              <div className="mt-2">
-                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                  <input
-                    type="date"
-                    name="username"
-                    id="username"
-                    autoComplete="username"
-                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-400 placeholder:text-gray-100 focus:ring-0 sm:text-sm sm:leading-6"
-                    placeholder="janesmith"
-                  />
-                </div>
-              </div>
-
-
-              <label htmlFor="username" className="block text-sm font-medium leading-6 text-red-400">
-                Date From
-              </label>
-              <div className="mt-2">
-                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                  <input
-                    type="date"
-                    name="username"
-                    id="username"
-                    autoComplete="username"
-                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-400 placeholder:text-gray-100 focus:ring-0 sm:text-sm sm:leading-6"
-                    placeholder="janesmith"
-                  />
-                </div>
-              </div>
-            </div>
+          <div>
+            <span className="mt-52 col text-white ">Username</span>
+          </div>
+          <div>
+            <span className="mt-52 col text-white ">Password</span>
+          </div>
+          <div>
+            <input
+              className="rounded-md w-72"
+              type="text"
+              name="username"
+              placeholder="username"
+              onChange={e =>
+                setValues({ ...values, username: e.target.value })
+              }
+            />
+          </div>
+          <div>
+            <input
+              className="rounded-md w-72"
+              type="password"
+              name="password"
+              placeholder="password"
+              onChange={e =>
+                setValues({ ...values, password: e.target.value })
+              }
+            />
+          </div>
         </div>
 
+        <button
+          type="submit"
+          className="btn btn-success w-1/3 bg-red-600 mt-20 hover:bg-red-800 justify-center items-center focus:outline-none focus:ring focus:ring-offset-2 focus:ring-red-800 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 text-lg font-bold rounded-lg px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+        >
+          Add
+        </button>
+      </form>
+    </div>
 
         
-        </div>
-  
-  
- 
-
-
-        </div>
         </div>
   )
 }

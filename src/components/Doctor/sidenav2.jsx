@@ -1,5 +1,16 @@
 import '../../styles/Receptionist/Sidenav.css'
 import priofileimg from '../../assets/doctor.jpg'
+import React from "react";
+import { RxDashboard } from "react-icons/rx";
+import { BsPeople } from "react-icons/bs";
+import { MdPeopleOutline } from "react-icons/md";
+import { MdOutlineAnnouncement } from "react-icons/md";
+import { MdOutlineStickyNote2 } from "react-icons/md";
+import { VscFeedback } from "react-icons/Vsc";
+import { MdOutlinePayments } from "react-icons/md";
+import { TbLogout } from "react-icons/Tb";
+import priofileimg from "../../assets/managerprofile.jpg";
+import { Link } from "react-router-dom";
 
 function sidenav() {
   

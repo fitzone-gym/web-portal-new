@@ -14,380 +14,432 @@ function R_Memeberlist() {
     <Sidenav />
 
 
-    <div class="heading-members">
-        <span>
-         Member's Attendence
-        </span>
+    <div
+      className=""
+      style={{
+        position: " ",
+        top: -25,
+        left: 0,
+        right: 0,
+        bottom: 0,
+      }}
+    >
+      <div className="heading-members  ">
+        <h1 >
+          Gym Members
+        </h1>
+      </div>
 
-        <span className='seeall'>
-         SEE ALL
-        </span>
-    </div>
+      <div className="w-[85%] ml-64">
+        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
+          <div className="text-white text-2xl ">Member Details</div>
+          <div
+            className=" "
+            style={{
+              marginLeft: 600,
+            }}
+          >
+            <form>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg
+                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  type="search"
+                  id="default-search"
+                  className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search Name,Level..."
+                  required
+                />
+                <button
+                  type="submit"
+                  className="text-white absolute right-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  style={{
+                    marginTop: -41,
+                  }}
+                >
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
 
-    
-    <div class = "memberlist" >
-        <div class="overflow-hidden rounded-lg border background-color: transparent border-gray-200 shadow-md m-5">
-          <table class="w-full border-collapse bg-black text-left text-sm text-gray-500">
-            <thead class="bg-gray-50">
+          <div className="">
+            <button
+              type="button"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              style={{
+                height: 45,
+              }}
+            >
+              <svg
+                className="w-4 h-4 text-white dark:text-white mr-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 16 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"
+                />
+              </svg>
+              Export
+            </button>
+          </div>
+        </div>
+
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20">
+          <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 ">
+            <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
               <tr>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Check in Time</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Check out Time</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Duration</th>
+                <th scope="col" className="px-6 py-3">
+                  Member name
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Check-in Time
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Check-out Time
+                </th>
+              
+                <th scope="col" className="px-6 py-3">
+                  Action
+                </th>
               </tr>
             </thead>
-
-
-            <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-              <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
+            <tbody>
+              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Jayani Ranasinghe
                 </th>
-                <td class="px-6 py-4">
-                01.01.2022
+                <td className="px-6 py-4">3 Septemebr 2023</td>
+                <td className="px-6 py-4">1 Month</td>
+      
+                <td className="px-6 py-4">
+                  <a
+                    href="/Receptionist/Memberprofile"
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    View
+                  </a>
                 </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-              
-             
               </tr>
-
-
-
-            {/* New Row  */}
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
+              <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Lasith Senadheera
                 </th>
-                <td class="px-6 py-4"> 01.01.2022 </td>
-                <td class="px-6 py-4">22.07.2023  </td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-              
+                <td className="px-6 py-4">30 September 2023</td>
+                <td className="px-6 py-4">6 Months</td>
              
+                <td className="px-6 py-4">
+                  <a
+                    href="#"
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    View
+                  </a>
+                </td>
               </tr>
-
-
-
-            {/* New Row  */}
-
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
+              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Kalani Ranasinghe
                 </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
+                <td className="px-6 py-4">7th October 2022</td>
+                <td className="px-6 py-4">Annual</td>
               
-             
+                <td className="px-6 py-4">
+                  <a
+                    href="#"
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    View
+                  </a>
+                </td>
               </tr>
-
-
-
-            {/* New Row  */}
-
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
+              <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Damitha Senadheera
                 </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
+                <td className="px-6 py-4">6th January 2020</td>
+                <td className="px-6 py-4">Annual</td>
               
-             
+                <td className="px-6 py-4">
+                  <a
+                    href="#"
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    View
+                  </a>
+                </td>
               </tr>
-
-
-
-            {/* New Row  */}
-
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
+              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Walter Ranasinghe
                 </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-              
-             
-              </tr>
-
-
-
-            {/* New Row  */}
-
-
+                <td className="px-6 py-4">12th September 2021</td>
+                <td className="px-6 py-4">6 Months</td>
             
-
-
-          
-              
-              
+                <td className="px-6 py-4">
+                  <a
+                    href="#"
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    View
+                  </a>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
-        </div>
+      </div>
+    </div>
 
         
-    <div class="heading-members">
-        <span>
-        Trainer's Attendence
-        </span>
-        <span className='seeall'>
-         SEE ALL
-        </span>
-    </div>
+    <div
+      className=""
+      style={{
+        position: " ",
+        top: -25,
+        left: 0,
+        right: 0,
+        bottom: 0,
+      }}
+    >
+      <div className="heading-members  ">
+        <h1 >
+          Gym Members
+        </h1>
+      </div>
 
-        <div class = "memberlist" >
-        <div class="overflow-hidden rounded-lg border background-color: transparent border-gray-200 shadow-md m-5">
-          <table class="w-full border-collapse bg-black text-left text-sm text-gray-500">
-            <thead class="bg-gray-50">
+      <div className="w-[85%] ml-64">
+        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
+          <div className="text-white text-2xl ">Member Details</div>
+          <div
+            className=" "
+            style={{
+              marginLeft: 600,
+            }}
+          >
+            <form>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg
+                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  type="search"
+                  id="default-search"
+                  className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search Name,Level..."
+                  required
+                />
+                <button
+                  type="submit"
+                  className="text-white absolute right-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  style={{
+                    marginTop: -41,
+                  }}
+                >
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div className="">
+            <button
+              type="button"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              style={{
+                height: 45,
+              }}
+            >
+              <svg
+                className="w-4 h-4 text-white dark:text-white mr-1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 16 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"
+                />
+              </svg>
+              Export
+            </button>
+          </div>
+        </div>
+
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20">
+          <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 ">
+            <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
               <tr>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Check in Time</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Check out Time</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Duration</th>
+                <th scope="col" className="px-6 py-3">
+                  Member name
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Check-in Time
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Check-out Time
+                </th>
+              
+                <th scope="col" className="px-6 py-3">
+                  Action
+                </th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-              <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
+            <tbody>
+              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Jayani Ranasinghe
                 </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
+                <td className="px-6 py-4">3 Septemebr 2023</td>
+                <td className="px-6 py-4">1 Month</td>
+      
+                <td className="px-6 py-4">
+                  <a
+                    href="/Receptionist/Memberprofile"
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    View
+                  </a>
                 </td>
               </tr>
-
-
-
-            {/* New Row  */}
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
+              <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Lasith Senadheera
                 </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
-              
+                <td className="px-6 py-4">30 September 2023</td>
+                <td className="px-6 py-4">6 Months</td>
              
+                <td className="px-6 py-4">
+                  <a
+                    href="#"
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    View
+                  </a>
+                </td>
               </tr>
-
-
-
-            {/* New Row  */}
-
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
+              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Kalani Ranasinghe
                 </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
+                <td className="px-6 py-4">7th October 2022</td>
+                <td className="px-6 py-4">Annual</td>
               
-             
+                <td className="px-6 py-4">
+                  <a
+                    href="#"
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    View
+                  </a>
+                </td>
               </tr>
-
-
-
-            {/* New Row  */}
-
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
+              <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Damitha Senadheera
                 </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
-                </td>
-
+                <td className="px-6 py-4">6th January 2020</td>
+                <td className="px-6 py-4">Annual</td>
               
-             
+                <td className="px-6 py-4">
+                  <a
+                    href="#"
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    View
+                  </a>
+                </td>
               </tr>
-
-
-
-            {/* New Row  */}
-
-
-            <tr class="hover:bg-gray-50">
-                <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                  <div class="relative h-10 w-10">
-                    <img
-                      class="h-full w-full rounded-full object-cover object-center"
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span class="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                  </div>
-                  <div class="text-sm">
-                    <div class="font-medium text-gray-700">Steven Jobs</div>
-                    <div class="text-gray-400">jobs@sailboatui.com</div>
-                  </div>
+              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  Walter Ranasinghe
                 </th>
-                <td class="px-6 py-4">
-                01.01.2022
-                </td>
-                <td class="px-6 py-4">22.07.2023</td>
-                <td class="px-6 py-4">
-                    T.K Bandara
+                <td className="px-6 py-4">12th September 2021</td>
+                <td className="px-6 py-4">6 Months</td>
+            
+                <td className="px-6 py-4">
+                  <a
+                    href="#"
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    View
+                  </a>
                 </td>
               </tr>
-
-
-
-              
-            {/* New Row  */}
             </tbody>
           </table>
-
-
-          
         </div>
-        </div>
+      </div>
+    </div>
 
 
 
