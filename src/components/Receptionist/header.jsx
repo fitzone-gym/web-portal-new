@@ -17,9 +17,8 @@ const user = {
     { name: 'Reports', href: '#', current: false },
   ]
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Your Profile', href: '/Receptionist/Myprofile' },
+  { name: 'Sign out', href: '/' },
 ]
 
 function classNames(...classes) {
@@ -49,7 +48,7 @@ export default function header() {
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
                       <img
-                        className="h-8 w-8"
+                        className="h-8 w-16"
                         src={Logo}
                         alt="Your Company"
                       />
@@ -60,6 +59,7 @@ export default function header() {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
+                      
                       <button
                         type="button"
                         className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -104,6 +104,11 @@ export default function header() {
                           </Menu.Items>
                         </Transition>
                       </Menu>
+
+                      <div className='text-white ml-4 mr-4'>
+                        <h4 className='text-left'>Jayani Ranasinghe</h4>
+                        <h6 className=''>jayaniranasinghe@gmail.com</h6>
+                      </div>
                     </div>
                   </div>
                   <div className="-mr-2 flex md:hidden">

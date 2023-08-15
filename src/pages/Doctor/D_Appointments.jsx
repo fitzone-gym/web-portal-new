@@ -1,10 +1,12 @@
 import React from 'react'
-import Header from '../../components/Receptionist/header';
-import Sidenav from '../../components/Receptionist/sidenav';
-import '../../styles/Receptionist/trainerlist.css'
+import Header from '../../components/Doctor/header';
+import Sidenav from '../../components/Doctor/sidenav';
+import '../../styles/Receptionist/memberlist.css'
+import { Link } from "react-router-dom";
 
-function R_Trainerlist() {
-  return (
+function D_Appointments() {
+
+    return (
     <div>
     
     <Header />
@@ -23,12 +25,11 @@ function R_Trainerlist() {
         bottom: 0,
       }}
     >
-  
-     
+   
 
-      <div className="w-[85%] ml-64 ">
-        <div className="grid grid-flow-col auto-cols-2 bg-gray-800 ml-20 pt-6 pb-6 rounded-t-lg mt-10">
-          <div className="text-white text-2xl ">Gym Trainers Details</div>
+      <div className="w-[85%] ml-64">
+        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
+          <div className="text-white text-2xl ">Checkup Appointment</div>
           <div
             className=" "
             style={{
@@ -63,7 +64,7 @@ function R_Trainerlist() {
                 />
                 <button
                   type="submit"
-                  className="text-white absolute right-2.5 bg-gray-800 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white absolute right-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   style={{
                     marginTop: -41,
                   }}
@@ -77,7 +78,7 @@ function R_Trainerlist() {
           <div className="">
             <button
               type="button"
-              className="text-white bg-gray-600 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               style={{
                 height: 45,
               }}
@@ -110,14 +111,12 @@ function R_Trainerlist() {
                   Member name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Joined Date
+                  Appointment Date
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Availability
+                  Appointment Time 
                 </th>
-                <th scope="col" className="px-6 py-3">
-                  Members
-                </th>
+              
                 <th scope="col" className="px-6 py-3">
                   Action
                 </th>
@@ -132,11 +131,12 @@ function R_Trainerlist() {
                   Jayani Ranasinghe
                 </th>
                 <td className="px-6 py-4">3 Septemebr 2023</td>
-                <td className="px-6 py-4">Available</td>
-                <td className="px-6 py-4">1</td>
+                
+                <td className="px-6 py-4">06.00 PM </td>
+                
                 <td className="px-6 py-4">
                   <a
-                    href="/Receptionist/Trainerprofile"
+                    href="/Receptionist/Memberprofile"
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
                     View
@@ -151,8 +151,8 @@ function R_Trainerlist() {
                   Lasith Senadheera
                 </th>
                 <td className="px-6 py-4">30 September 2023</td>
-                <td className="px-6 py-4">Available</td>
-                <td className="px-6 py-4">4</td>
+                <td className="px-6 py-4">06.00 PM </td>
+               
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -170,8 +170,8 @@ function R_Trainerlist() {
                   Kalani Ranasinghe
                 </th>
                 <td className="px-6 py-4">7th October 2022</td>
-                <td className="px-6 py-4">Unavailable</td>
-                <td className="px-6 py-4">2</td>
+                <td className="px-6 py-4">06.00 PM </td>
+               
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -189,8 +189,8 @@ function R_Trainerlist() {
                   Damitha Senadheera
                 </th>
                 <td className="px-6 py-4">6th January 2020</td>
-                <td className="px-6 py-4">Available</td>
-                <td className="px-6 py-4">3</td>
+                <td className="px-6 py-4">06.00 PM </td>
+               
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -208,8 +208,8 @@ function R_Trainerlist() {
                   Walter Ranasinghe
                 </th>
                 <td className="px-6 py-4">12th September 2021</td>
-                <td className="px-6 py-4">Available</td>
-                <td className="px-6 py-4">3</td>
+                <td className="px-6 py-4">06.00 PM </td>
+                
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -224,9 +224,11 @@ function R_Trainerlist() {
         </div>
       </div>
     </div>
-</div></div> 
+
+    </div>
+    </div>
 
   )
 }
 
-export default R_Trainerlist
+export default D_Appointments

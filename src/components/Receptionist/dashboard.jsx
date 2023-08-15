@@ -28,7 +28,7 @@ function Dashboard() {
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-5xl ml-8 mt-4 text-white">273</p>
           <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
         </div>
         </div>
@@ -41,9 +41,9 @@ function Dashboard() {
             width: 360,
           }}
         >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">865</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">New Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">18</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">New Gym Members</p>
         </div>
         </div>
         <div className="inline-block align-bottom rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
@@ -54,9 +54,9 @@ function Dashboard() {
             width: 360,
           }}
         >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">865</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Trainers</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">26</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Trainers</p>
         </div>
         </div>
         <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
@@ -67,9 +67,9 @@ function Dashboard() {
             width: 360,
           }}
         >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">865</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">New Trainers</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">5</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Newly joined gym trainers</p>
         </div>
         </div>
     </div>
@@ -83,9 +83,9 @@ function Dashboard() {
             width: 360,
           }}
         >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">865</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Attendence Today</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">126</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members presnet today</p>
         </div>
         </div>
 
@@ -97,9 +97,9 @@ function Dashboard() {
             width: 360,
           }}
         >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">865</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Current Presence</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">24</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Members at the time</p>
         </div>
             
         </div>
@@ -163,7 +163,7 @@ function Dashboard() {
         </div>
 
 
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8 h-80">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
             <div>

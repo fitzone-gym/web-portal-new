@@ -1,10 +1,29 @@
-import React from 'react'
+
 import Header from '../../components/Receptionist/header';
 import Sidenav from '../../components/Receptionist/sidenav';
 import '../../styles/Receptionist/memberlist.css'
 import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-function R_Memeberlist() {
+export const R_Memeberlist = () => {
+  const [data, setData] = useState([]); // Initialize data with an empty array
+
+  useEffect(() => {
+    const fetchMembers = async () => {
+      try {
+        const response = await axios.get("http://localhost:5400/memberDetails/getMembersDetails");
+        // console.log("tt"+ response.data.data); // Check the API response data
+        // console.log(typeof response.data.data); // Check the type of response.data
+        setData(response.data.data); // Assuming the response contains an array of trainer objects
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+
+    fetchMembers();
+  }, []);
+
 
     return (
     <div>
@@ -111,6 +130,9 @@ function R_Memeberlist() {
           <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 ">
             <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
               <tr>
+              <th scope="col" className="px-6 py-3">
+                  Member ID
+                </th>
                 <th scope="col" className="px-6 py-3">
                   Member name
                 </th>
@@ -129,15 +151,20 @@ function R_Memeberlist() {
               </tr>
             </thead>
             <tbody>
+
+            {data.map((member, index) => {
+                return (
+
               <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <td className="px-6 py-4">{member.member_id}</td>
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  Jayani Ranasinghe
+                  {member.first_name + " " + member.last_name}{" "}
                 </th>
-                <td className="px-6 py-4">3 Septemebr 2023</td>
-                <td className="px-6 py-4">1 Month</td>
+                <td className="px-6 py-4">{member.email}</td>
+                <td className="px-6 py-4">{member.package}</td>
                 <td className="px-6 py-4">1</td>
                 <td className="px-6 py-4">
                   <a
@@ -148,82 +175,9 @@ function R_Memeberlist() {
                   </a>
                 </td>
               </tr>
-              <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Lasith Senadheera
-                </th>
-                <td className="px-6 py-4">30 September 2023</td>
-                <td className="px-6 py-4">6 Months</td>
-                <td className="px-6 py-4">4</td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    View
-                  </a>
-                </td>
-              </tr>
-              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Kalani Ranasinghe
-                </th>
-                <td className="px-6 py-4">7th October 2022</td>
-                <td className="px-6 py-4">Annual</td>
-                <td className="px-6 py-4">2</td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    View
-                  </a>
-                </td>
-              </tr>
-              <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Damitha Senadheera
-                </th>
-                <td className="px-6 py-4">6th January 2020</td>
-                <td className="px-6 py-4">Annual</td>
-                <td className="px-6 py-4">3</td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    View
-                  </a>
-                </td>
-              </tr>
-              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Walter Ranasinghe
-                </th>
-                <td className="px-6 py-4">12th September 2021</td>
-                <td className="px-6 py-4">6 Months</td>
-                <td className="px-6 py-4">3</td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    View
-                  </a>
-                </td>
-              </tr>
+              
+ );
+              })}
             </tbody>
           </table>
         </div>
@@ -234,6 +188,6 @@ function R_Memeberlist() {
     </div>
 
   )
-}
+} 
 
 export default R_Memeberlist

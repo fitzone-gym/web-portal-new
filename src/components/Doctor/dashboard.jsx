@@ -19,101 +19,74 @@ function Dashboard() {
 
       <div className="max-w-full mx-4 py-6  bg-grey-600 sm:mx-auto sm:px-6 lg:px-8">
     <div className="sm:flex sm:space-x-4">
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Members</h3>
-                        <p className="text-3xl font-bold text-black">236</p>
-                    </div>
-                </div>
-            </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+            <div
+          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
         </div>
 
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">New Members</h3>
-                        <p className="text-3xl font-bold text-black">12</p>
-                    </div>
-                </div>
-            </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
         </div>
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Trainers</h3>
-                        <p className="text-3xl font-bold text-black">36</p>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Avg. Click Rate</h3>
-                        <p className="text-3xl font-bold text-black">24.57%</p>
-                    </div>
-                </div>
-            </div>
+        <div className="inline-block align-bottom rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
+        </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+        </div>
         </div>
     </div>
 
     <div className="sm:flex sm:space-x-4">
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Subscribers</h3>
-                        <p className="text-3xl font-bold text-black">71,897</p>
-                    </div>
-
-                    
-                </div>
-
-                
-            </div>
+        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+        <div
+          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
+          style={{
+            height: 160,
+            width: 360,
+          }}
+        >
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
         </div>
-
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Total Subscribers</h3>
-                        <p className="text-3xl font-bold text-black">71,897</p>
-                    </div>
-
-                    
-                </div>
-
-                
-            </div>
-            
-        </div>
- <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Avg. Open Rate</h3>
-                        <p className="text-3xl font-bold text-black">58.16%</p>
-                    </div>
-                </div>
-            </div>
-
-            
-        </div>
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div className="bg-white p-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Avg. Click Rate</h3>
-                        <p className="text-3xl font-bold text-black">24.57%</p>
-                    </div>
-                </div>
-            </div>
         </div>
 
 
