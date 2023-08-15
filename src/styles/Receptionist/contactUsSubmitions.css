@@ -15,7 +15,8 @@
 .contactUsMessages .contactUsCardSet .individualSubmition{
     background-color:rgb(63, 63, 63);
     text-align:left;
-    margin-bottom:30px;
+    margin:0px 30px 30px 30px;
+    padding:20px;
 }
 
 .contactUsMessages .contactUsCardSet .userName {
@@ -123,3 +124,6 @@
     color: rgb(208, 202, 202);
 }
 
+.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input{
+    color:white;
+}

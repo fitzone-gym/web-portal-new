@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 import axios from "axios";
 
 import Header from "../../components/Receptionist/header";
-import Sidenav from "../../components/Receptionist/sidenav";
+// import Sidenav from "../../components/Receptionist/sidenav";
 import "../../styles/Receptionist/contactUsSubmitions.css";
 
 import { styled } from "@mui/material/styles";
@@ -23,25 +23,10 @@ import SendIcon from "@mui/icons-material/Send";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import Button from "@mui/material/Button";
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditNoteIcon from "@mui/icons-material/EditNote";
-
-
-/*for popup */
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
-
 
 
 function Contactus_Form_Submitions() {
-
-
-
+  /*expand reply section */
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -74,8 +59,7 @@ function Contactus_Form_Submitions() {
   }
 
   /*get data */
-  const [requestDetails, setRequestDetails] = useState([]);
-
+  const [requestDetails, setRequestDetails] = useState({});
   useEffect(() => {
     axios
       .get("http://localhost:5400/contactUsSubmition")
@@ -86,6 +70,14 @@ function Contactus_Form_Submitions() {
       .catch((error) => console.error("error fetching requests"));
   }, []);
 
+  /*send mail */
+  const [isSendingEmail, setIsSendingEmail] = useState(false);
+  const handleSendingEmailStatus = (requestId) => {
+    setIsSendingEmail((prevState) => ({
+      ...prevState,
+      [requestId]: !prevState[requestId], // Toggle the state for the clicked request
+    }));
+  };
 
   /* form submition */
   const form = useRef();
@@ -95,11 +87,12 @@ function Contactus_Form_Submitions() {
       .sendForm(
         "service_sr7pfvh",
         "template_0xugg69",
-        form.current,
+        data,
         "5JSmzYAJ1ZRnFDW9-"
       )
       .then(
         (result) => {
+          handleSendingEmailStatus(requestId);
           console.log(result.text);
         },
         (error) => {
@@ -108,117 +101,61 @@ function Contactus_Form_Submitions() {
       );
   };
 
-    const handleSubmit = (e, requestId) => {
-      e.preventDefault();
+  const handleSubmit = (e, requestId) => {
+    e.preventDefault();
 
-      const formData = new FormData(e.target);
+    const formData = new FormData(e.target);
 
-      const data = {};
-      formData.forEach((value, key) => {
-        data[key] = value;
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+
+    data.replySubmitionID = requestId;
+
+    console.log("the dataset", data);
+    axios
+      .post(
+        "http://localhost:5400/contactUsSubmition/contactUsFormReplySubmition",
+        data
+      )
+
+      .then((response) => {
+        console.log("Data submitted successfully to backend", response.data);
+        // Update reply_or_not_state after successful submission
+        updateReplyStatus(requestId);
+
+        sendEmail(data, requestId);
+
+        setExpandedRequests((prevExpanded) => ({
+          ...prevExpanded,
+          [requestId]: false,
+        }));
+      })
+      .catch((error) => {
+        console.log("Error submitting data", error);
       });
+  };
 
-      data.replySubmitionID = requestId;
+  /*update replied or not state  */
+  const updateReplyStatus = (requestId) => {
+    setRequestDetails((prevDetails) =>
+      prevDetails.map((request) =>
+        request.submition_id === requestId
+          ? { ...request, reply_or_not_state: 1 } // Update the status
+          : request
+      )
+    );
+  };
 
-      console.log("the dataset", data);
-      axios
-        .post(
-          "http://localhost:5400/contactUsSubmition/contactUsFormReplySubmition",
-          data
-        )
-
-        .then((response) => {
-          console.log("Data submitted successfully to backend", response.data);
-          // Update reply_or_not_state after successful submission
-          updateReplyStatus(requestId);
-
-          // Schedule sending an email after 10 minutes
-          setTimeout(() => {
-            sendEmail(data, requestId);
-          }, 0.5 * 60 * 1000); // 10 minutes in milliseconds
-        })
-        .catch((error) => {
-          console.log("Error submitting data", error);
-        });
-    };
-
-    /*update replied or not state  */
-    const updateReplyStatus = (requestId) => {
-      setRequestDetails((prevDetails) =>
-        prevDetails.map((request) =>
-          request.submition_id === requestId
-            ? { ...request, reply_or_not_state: 1 } // Update the status
-            : request
-        )
-      );
-    };
-
-
-    /*delete popup */
-    const [open, setOpen] = React.useState(false);
-    const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-
-    const handleClose = () => {
-      setOpen(false);
-    };
-
+  /*delete reply */
+  
 
   return (
     <>
-      <Dialog
-        className="deletePopup"
-        fullScreen={fullScreen}
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
-      >
-        <DialogTitle id="responsive-dialog-title">
-          {"Delete reply for question."}
-        </DialogTitle>
-        <DialogContent className="dialogContentSection">
-          <DialogContentText
-            className="dialogContentText"
-            style={{ color: "gray", fontFamily: "'Poppins', sans-serif" }}
-          >
-            Are you sure?
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions className="buttonSection">
-          <Button
-            autoFocus
-            onClick={handleClose}
-            className="okBtn"
-            style={{
-              fontFamily: "'Poppins', sans-serif",
-              color: "#E54646",
-              fontWeight: 600,
-            }}
-          >
-            Delete
-          </Button>
-          <Button
-            onClick={handleClose}
-            className="cancelBtn"
-            style={{
-              fontFamily: "'Poppins', sans-serif",
-              color: "#1565c0",
-              fontWeight: 600,
-            }}
-            autoFocus
-          >
-            Cancel
-          </Button>
-        </DialogActions>
-      </Dialog>
-
       <div className="contactUsMessages">
         <Header />
-        <Sidenav />
+        {/* <Sidenav /> */}
         <div className="contactUsCardSet">
           {requestDetails.length > 0 ? (
             requestDetails.map((request) => (
@@ -226,7 +163,6 @@ function Contactus_Form_Submitions() {
                 sx={{ maxWidth: "100%" }}
                 className="individualSubmition"
                 key={request.submition_id}
-                disableSpacing /*adding */
               >
                 <CardHeader
                   avatar={
@@ -286,8 +222,13 @@ function Contactus_Form_Submitions() {
                     <Box sx={{ flexGrow: 1 }}>
                       <form
                         ref={form}
-                        onSubmit={(e) => handleSubmit(e, request.submition_id)}
-                        
+                        onSubmit={(e) =>
+                          handleSubmit(
+                            e,
+                            request.submition_id,
+                            isSendingEmail[request.submition_id]
+                          )
+                        }
                       >
                         <div className="fromToMessageSection">
                           <Grid container spacing={1}>
@@ -315,6 +256,7 @@ function Contactus_Form_Submitions() {
                                 style={{ fontSize: "13px" }}
                                 color="primary"
                                 focused
+                                readonly
                               />
                             </Grid>
                           </Grid>
@@ -322,15 +264,29 @@ function Contactus_Form_Submitions() {
                           <br />
                           <Grid container>
                             <Grid item xs={12}>
-                              <TextField
-                                id="outlined-controlled"
-                                label="Reply"
-                                name="ans_message"
-                                className="formInputs"
-                                style={{ fontSize: "13px" }}
-                                color="primary"
-                                focused
-                              />
+                              {request.reply_or_not_state === 0 ? (
+                                <TextField
+                                  id="outlined-controlled"
+                                  label="Reply"
+                                  name="ans_message"
+                                  className="formInputs"
+                                  style={{ fontSize: "13px" }}
+                                  color="primary"
+                                  focused
+                                />
+                              ) : (
+                                <TextField
+                                  id="outlined-controlled"
+                                  label="Reply"
+                                  name="ans_message"
+                                  className="formInputs"
+                                  value={request.reply_message}
+                                  style={{ fontSize: "13px" }}
+                                  color="primary"
+                                  focused
+                                  readonly
+                                />
+                              )}
                             </Grid>
                           </Grid>
 
@@ -345,6 +301,7 @@ function Contactus_Form_Submitions() {
                             color="primary"
                             focused
                             hidden
+                            readonly
                           />
 
                           <TextField
@@ -357,7 +314,7 @@ function Contactus_Form_Submitions() {
                             style={{ fontSize: "13px", display: "none" }}
                             color="primary"
                             focused
-                            hiddent
+                            hidden
                           />
 
                           <TextField
@@ -376,33 +333,21 @@ function Contactus_Form_Submitions() {
                           <br />
 
                           <div className="btnSection">
-                            <Button
-                              variant="contained"
-                              type="submit"
-                              value="Send"
-                              endIcon={
-                                <SendIcon
-                                  className="sendBtnTextIcon"
-                                  style={{ fontSize: "10px" }}
-                                />
-                              }
-                            >
-                              <span className="sendBtnText">Send</span>
-                            </Button>
-
-                            {/* <div className="editDeleteBtn">
-                              <IconButton aria-label="edit" className="editbtn">
-                                <EditNoteIcon />
-                              </IconButton>
-
-                              <IconButton
-                                aria-label="delete"
-                                className="deletebtn"
-                                onClick={handleClickOpen}
+                             {request.reply_or_not_state === 0 ? (
+                              <Button
+                                variant="contained"
+                                type="submit"
+                                value="Send"
+                                endIcon={
+                                  <SendIcon
+                                    className="sendBtnTextIcon"
+                                    style={{ fontSize: "10px" }}
+                                  />
+                                }
                               >
-                                <DeleteIcon />
-                              </IconButton>
-                            </div> */}
+                                <span className="sendBtnText">Send</span>
+                              </Button>
+                            ):(<p></p>)}
                           </div>
                         </div>
 
