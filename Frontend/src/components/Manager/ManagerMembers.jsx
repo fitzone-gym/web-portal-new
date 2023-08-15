@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const ManagerMembers = () => {
+  const [data, setData] = useState([]); // Initialize data with an empty array
+
+  useEffect(() => {
+    const fetchMembers = async () => {
+      try {
+        const response = await axios.get("http://localhost:5400/members");
+        // console.log("tt"+ response.data.data); // Check the API response data
+        // console.log(typeof response.data.data); // Check the type of response.data
+        setData(response.data.data); // Assuming the response contains an array of trainer objects
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+
+    fetchMembers();
+  }, []);
+
   return (
     <div
       className=""
@@ -13,13 +32,13 @@ export const ManagerMembers = () => {
       }}
     >
       <div className="">
-        <h1 className="font-bold text-red-600 text-5xl text-left ml-32 mt-10 mb-10 ">
+        <h1 className="font-bold text-red-600 text-5xl text-left ml-32 mt-16 mb-10 ">
           Gym Members
         </h1>
       </div>
 
       <div className="w-[130%]">
-        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
+        <div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-20 pt-6 pb-6 rounded-t-lg ">
           <div className="text-white text-2xl ">Member Details</div>
           <div
             className=" "
@@ -102,13 +121,13 @@ export const ManagerMembers = () => {
                   Member name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Joined Date
+                  Email
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Package Type
+                  Phone No
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Performance level
+                Package Type
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Action
@@ -116,101 +135,32 @@ export const ManagerMembers = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Jayani Ranasinghe
-                </th>
-                <td className="px-6 py-4">3 Septemebr 2023</td>
-                <td className="px-6 py-4">1 Month</td>
-                <td className="px-6 py-4">1</td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              {data.map((member, index) => {
+                return (
+                  <tr
+                    key={index}
+                    className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
                   >
-                    View
-                  </a>
-                </td>
-              </tr>
-              <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Lasith Senadheera
-                </th>
-                <td className="px-6 py-4">30 September 2023</td>
-                <td className="px-6 py-4">6 Months</td>
-                <td className="px-6 py-4">4</td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    View
-                  </a>
-                </td>
-              </tr>
-              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Kalani Ranasinghe
-                </th>
-                <td className="px-6 py-4">7th October 2022</td>
-                <td className="px-6 py-4">Annual</td>
-                <td className="px-6 py-4">2</td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    View
-                  </a>
-                </td>
-              </tr>
-              <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Damitha Senadheera
-                </th>
-                <td className="px-6 py-4">6th January 2020</td>
-                <td className="px-6 py-4">Annual</td>
-                <td className="px-6 py-4">3</td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    View
-                  </a>
-                </td>
-              </tr>
-              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Walter Ranasinghe
-                </th>
-                <td className="px-6 py-4">12th September 2021</td>
-                <td className="px-6 py-4">6 Months</td>
-                <td className="px-6 py-4">3</td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    View
-                  </a>
-                </td>
-              </tr>
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      {member.first_name + " " + member.last_name}{" "}
+                    </th>
+                    <td className="px-6 py-4">{member.email} </td>
+                    <td className="px-6 py-4">{member.phone_no}</td>{" "}
+                    <td className="px-6 py-4">{member.package}</td>
+                    <td className="px-6 py-4">
+                      <Link
+                        to="#"
+                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      >
+                        View
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

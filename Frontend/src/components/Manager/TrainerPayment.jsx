@@ -20,7 +20,7 @@ export const TrainerPayment = () => {
 
 <div>
     <div
-      className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg"
+      className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-20 pt-6 pb-6 rounded-t-lg"
     >
       <div className="text-white text-2xl ">Trainer Payment Details</div>
       <div

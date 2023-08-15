@@ -16,7 +16,7 @@ export const ManagerAddDoctor = () => {
           width: 790,
         }}
       >
-        <div class="text-left px-16 py-10 text-2xl">
+        <div className="text-left px-16 py-10 text-2xl">
           <h2>Add New Doctor</h2>
         </div>
 

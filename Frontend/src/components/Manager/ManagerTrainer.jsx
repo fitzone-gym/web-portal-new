@@ -5,28 +5,38 @@ import { Link } from "react-router-dom";
 import AddTrainerModal from "./AddTrainerModal";
 
 export const ManagerTrainer = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); // Initialize data with an empty array
   const [showModal, setShowModal] = useState(false);
-  // const history = useHistory();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8081/trainers")
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => {
-        console.log("Error:", err);
-      });
+    const fetchTrainers = async () => {
+      try {
+        const response = await axios.get("http://localhost:5400/trainers");
+       // console.log("tt"+ response.data.data); // Check the API response data
+       // console.log(typeof response.data.data); // Check the type of response.data
+        setData(response.data.data); // Assuming the response contains an array of trainer objects
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+
+    fetchTrainers();
   }, []);
 
-  const handleDelete = async () => {
+  const handleDelete = async (trainerId) => {
     try {
-      await axios.delete(`/manager/staffmembers/trainers/${trainer.id}`);
+      const apiUrl = "http://localhost:5400/trainers/";
+      const deleteUrl = `${apiUrl}${trainerId}`;
+      await axios.delete(deleteUrl);
       // Perform any additional actions (e.g., refreshing the list) after successful deletion
+      // You can call the fetchTrainers function here to refresh the data after deletion
+      alert("Trainer deleted successfully");
+       // Update the state after successful deletion
+    setData((prevData) => prevData.filter((trainer) => trainer.trainer_id !== trainerId));
     } catch (error) {
       console.error("Error deleting trainer:", error);
       // Handle errors if necessary
+      alert("Error deleting trainer");
     }
   };
 
@@ -57,7 +67,7 @@ export const ManagerTrainer = () => {
       </div>
 
       <div className="w-[110%]">
-        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
+        <div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-20 pt-6 pb-6 rounded-t-lg ">
           <div className="text-white text-2xl ml-5">Trainers Details</div>
           <div
             className=""
@@ -138,7 +148,7 @@ export const ManagerTrainer = () => {
           </div>
 
           <div className="">
-            <Link to="/Staffmembers/Trainer/Addtrainer">
+            {/* <Link to="/Manager/Staffmembers/Trainer/Addtrainer"> */}
               <button
                 type="button"
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -152,10 +162,11 @@ export const ManagerTrainer = () => {
                 </div>
                 Add New
               </button>
-            </Link>
+            {/* </Link> */}
 
             {/* Render the modal conditionally */}
             {showModal && <AddTrainerModal onClose={handleCloseModal} />}
+            
           </div>
         </div>
 
@@ -166,8 +177,11 @@ export const ManagerTrainer = () => {
                 <th scope="col" className="px-6 py-3">
                   Trainer name
                 </th>
+                {/* <th scope="col" className="px-6 py-3">
+                  NIC
+                </th> */}
                 <th scope="col" className="px-6 py-3">
-                  Joined Date
+                  Working Experience
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Email
@@ -181,8 +195,11 @@ export const ManagerTrainer = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((trainers, index) => {
+              {data.map((trainer, index) => {
+                // Changed variable name to "trainer"
+                console.log("JJJ",trainer)
                 return (
+                  
                   <tr
                     key={index}
                     className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
@@ -191,27 +208,33 @@ export const ManagerTrainer = () => {
                       scope="row"
                       className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                     >
-                      {trainers.first_name + " " + trainers.last_name}
+                      {trainer.first_name + " " + trainer.last_name}{" "}
+                      {/* Changed variable name to "trainer" */}
                     </th>
-                    <td className="px-6 py-4">{trainers.joined_date}</td>
-                    <td className="px-6 py-4">{trainers.email}</td>
-                    <td className="px-6 py-4">{trainers.phone_no}</td>
+                    {/* <td className="px-6 py-4">{trainer.nic}</td>{" "} */}
+                    {/* <td className="px-6 py-4">{trainer.trainer_id}</td>{" "} */}
+                    <td className="px-6 py-4">{trainer.working_experience}</td>{" "}
+                    {/* Changed variable name to "trainer" */}
+                    <td className="px-6 py-4">{trainer.email}</td>{" "}
+                    {/* Changed variable name to "trainer" */}
+                    <td className="px-6 py-4">{trainer.phone_no}</td>{" "}
+                    {/* Changed variable name to "trainer" */}
                     <td className="px-6 py-4">
                       <Link
-                        to={`/Staffmembers/Trainer/${trainers.id}`}
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4"
+                        to={`/Manager/Staffmembers/Trainer/Trainerprofile/${trainer.trainer_id}`} /* Changed variable name to "trainer" */
+                        className="font-medium text-blue-600 dark:text-blue-500  mr-4"
                       >
                         View
                       </Link>
-
                       <Link
-                        onClick={handleDelete}
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                        onClick={() =>handleDelete(trainer.trainer_id)  } /* Pass trainer.id to handleDelete */
+                        className="font-medium text-blue-600 dark:text-blue-500"
                       >
                         Delete
                       </Link>
                     </td>
                   </tr>
+
                 );
               })}
             </tbody>
@@ -221,107 +244,3 @@ export const ManagerTrainer = () => {
     </div>
   );
 };
-
-//  <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-//  <th
-//     scope="row"
-//     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-//   >
-//     Lasith Senadheera
-//   </th>
-//   <td className="px-6 py-4">30 September 2023</td>
-//   <td className="px-6 py-4">lasith@gmail.com</td>
-//   <td className="px-6 py-4">0714667864</td>
-//   <td className="px-6 py-4">
-//     <a
-//       href="#"
-//       className="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4"
-//     >
-//       View
-//     </a>
-
-//     <a
-//       href="#"
-//       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-//     >
-//       Delete
-//     </a>
-//   </td>
-// </tr>
-// <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-//   <th
-//     scope="row"
-//     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-//   >
-//     Kalani Ranasinghe
-//   </th>
-//   <td className="px-6 py-4">7th October 2022</td>
-//   <td className="px-6 py-4">kalanirana@gmail.com</td>
-//   <td className="px-6 py-4">0701237695</td>
-//   <td className="px-6 py-4">
-//     <a
-//       href="#"
-//       className="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4"
-//     >
-//       View
-//     </a>
-//     <a
-//       href="#"
-//       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-//     >
-//       Delete
-//     </a>
-//   </td>
-// </tr>
-// <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-//   <th
-//     scope="row"
-//     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-//   >
-//     Damitha Senadheera
-//   </th>
-//   <td className="px-6 py-4">6th January 2020</td>
-//   <td className="px-6 py-4">damitha@gmail.com</td>
-//   <td className="px-6 py-4">0761234567</td>
-//   <td className="px-6 py-4">
-//     <a
-//       href="#"
-//       className="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4"
-//     >
-//       View
-//     </a>
-
-//     <a
-//       href="#"
-//       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-//     >
-//       Delete
-//     </a>
-//   </td>
-// </tr>
-// <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-//   <th
-//     scope="row"
-//     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-//   >
-//     Walter Ranasinghe
-//   </th>
-//   <td className="px-6 py-4">12th September 2021</td>
-//   <td className="px-6 py-4">walter@gmail.com</td>
-//   <td className="px-6 py-4">0771234567</td>
-//   <td className="px-6 py-4">
-//     <a
-//       href="#"
-//       className="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4"
-//     >
-//       View
-//     </a>
-
-//     <a
-//       href="#"
-//       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-//     >
-//       Delete
-//     </a>
-//   </td>
-// </tr>

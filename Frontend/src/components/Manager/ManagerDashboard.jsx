@@ -15,7 +15,7 @@ export const ManagerDashboard = () => {
         bottom: 0,
       }}
     >
-      <div className="grid grid-cols-4 gap-4 ml-16 mt-12">
+      <div className="grid grid-cols-4 gap-4 ml-12 mt-12">
         <div
           className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left rounded-md"
           style={{
@@ -75,7 +75,7 @@ export const ManagerDashboard = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4 ml-16 mt-16 mt-8">
+      <div className="grid grid-cols-4 gap-4 ml-12 mt-16 mt-8">
         <div
           className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
@@ -128,33 +128,29 @@ export const ManagerDashboard = () => {
       </div>
 
       {/* 3 row */}
-      <div className="grid grid-cols-2 gap-4 ml-32 mt-8">
+      <div className="grid grid-cols-2 ml-28 mt-8">
         {/* 1 box */}
         <div
-          className="bg-[#222222] font-bold rounded-sm text-left max-lg:hidden w-[85%]"
+          className="font-bold rounded-sm text-left max-lg:hidden w-[85%]"
           style={{
             height: 460,
-     
           }}
         >
-          <div className="text-2xl text-white ml-8 py-3">
+          <div className="text-2xl text-white py-3">
             <h1>Total Revenue(weekly)</h1>
-            {/* <img src={images.managerbgImage} alt="" /> */}
+            <img className=" h-96 mt-10 ml-8" src={images.revenueImage} alt="" /> 
           </div>
         </div>
 
         {/* 2 box */}
-        <div
-          className="bg-[#222222] font-bold rounded-sm text-left max-lg:hidden w-[80%] h-[100%]"
-          style={{
-            // height: 460,
-            // width: 560,
-          }}
+        <div 
+        className="font-bold rounded-sm text-left max-lg:hidden w-[100%]"
         >
-          <div className="text-2xl text-white ml-8 py-3">
+          <div className="text-2xl text-white ml-28 py-3">
             <h1>Gym Member Compisition</h1>
-            <div className="text-5xl">
-              <div className="ml-16 mt-80">
+            <img className="w-[50%] h-88 mt-16 ml-12" src={images.memcompositionImage} alt="" /> 
+             <div className="text-5xl">
+              <div className=" mt-[-6%]">
                 <MdOutlineGirl />
               </div>
               <div className="ml-96"
@@ -164,7 +160,7 @@ export const ManagerDashboard = () => {
               >
                 <MdOutlineBoy />
               </div>
-            </div>
+            </div> 
           </div>
         </div>
       </div>

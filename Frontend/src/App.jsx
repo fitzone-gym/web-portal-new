@@ -10,10 +10,10 @@ import { Doctor } from "./pages/Manager/Doctor";
 import { Announcement } from "./pages/Manager/Announcement";
 import { CreateAnnoun } from "./pages/Manager/CreateAnnoun";
 import { Leave } from "./pages/Manager/Leave";
-import { Viewleave } from "./pages/Manager/Viewleave";
+// import { Viewleave } from "./pages/Manager/Viewleave";
 import { Receptionist } from "./pages/Manager/Receptionist";
-import { AddDoctor } from "./pages/Manager/AddDoctor";
-import { AddReceptionist } from "./pages/Manager/AddReceptionist";
+// import { AddDoctor } from "./pages/Manager/AddDoctor";
+// import { AddReceptionist } from "./pages/Manager/AddReceptionist";
 import { Payment } from "./pages/Manager/Payment";
 import { TrainerPay } from "./pages/Manager/TrainerPay";
 import { ReceptionistPay } from "./pages/Manager/ReceptionistPay";
@@ -21,6 +21,11 @@ import { DoctorPay } from "./pages/Manager/DoctorPay";
 import { MemberPay } from "./pages/Manager/MemberPay";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Profile } from "./pages/Manager/Profile";
+import { Feedback } from "./pages/Manager/Feedback";
+import { TrainerProfile } from "./pages/Manager/TrainerProfile";
+import { UpdateAnnoun } from "./pages/Manager/UpdateAnnoun";
+import { Messages } from "./pages/Manager/Messages";
+
 
 function App() {
   const [text, setText] = useState("");
@@ -29,29 +34,33 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/Profile" element={<Profile />} />
-          <Route path="/Members" element={<Members />} />
-          <Route path="/Staffmembers" element={<Staffmembers />} />
-          <Route path="/Staffmembers/Trainer" element={<Trainer />} />
-          <Route path="/Staffmembers/Doctor" element={<Doctor />} />
-          <Route path="/Staffmembers/Receptionist" element={<Receptionist />} />
-          <Route
-            path="/Staffmembers/Trainer/Addtrainer"
+          <Route path="/" element={<Login />} />
+          <Route path="/Manager/Dashboard" element={<Dashboard />} />
+          <Route path="/Manager/Profile" element={<Profile />} />
+          <Route path="/Manager/Messages" element={<Messages />} />
+          <Route path="/Manager/Members" element={<Members />} />
+          <Route path="/Manager/Staffmembers" element={<Staffmembers />} />
+          <Route path="/Manager/Staffmembers/Trainer" element={<Trainer />} />
+          <Route path="/Manager/Staffmembers/Doctor" element={<Doctor />} />
+          <Route path="/Manager/Staffmembers/Receptionist" element={<Receptionist />} />
+          {/* <Route
+            path="/Manager/Staffmembers/Trainer/Addtrainer"
             element={<Addtrainer />}
-          />
-          <Route path="/Announcement" element={<Announcement />} />
-          <Route path="/Announcement/CreateAnnoun" element={<CreateAnnoun />} />
-          <Route path="/Leave" element={<Leave />} />
-          {/* <Route path="/Feedback" element={<Feedback />} /> */}
-          <Route path="/Payment" element={<Payment />} />
-          <Route path="/Payment/TrainerPay" element={<TrainerPay />} />
-          <Route path="/Payment/DoctorPay" element={<DoctorPay />} />
+          /> */}
+          <Route path="/Manager/Staffmembers/Trainer/TrainerProfile" element={TrainerProfile} />
+          <Route path="/Manager/Announcement" element={<Announcement />} />
+          {/* <Route path="/Manager/Announcement/CreateAnnoun" element={<CreateAnnoun />} /> */}
+          {/* <Route path="/Manager/Announcement/UpdateAnnoun" element={<UpdateAnnoun />} /> */}
+          <Route path="/Manager/Leave" element={<Leave />} />
+          <Route path="/Manager/Feedback" element={<Feedback />} /> 
+          <Route path="/Manager/Payment" element={<Payment />} />
+          <Route path="/Manager/Payment/TrainerPay" element={<TrainerPay />} />
+          <Route path="/Manager/Payment/DoctorPay" element={<DoctorPay />} />
           <Route
-            path="/Payment/ReceptionistPay"
+            path="/Manager/Payment/ReceptionistPay"
             element={<ReceptionistPay />}
           />
-          <Route path="/Payment/MemberPay" element={<MemberPay />} />
+          <Route path="/Manager/Payment/MemberPay" element={<MemberPay />} />
         </Routes>
       </BrowserRouter>
     </>

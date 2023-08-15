@@ -4,7 +4,7 @@ import AddTrainerModal from '../../components/Manager/AddTrainerModal'
 
 export const Addtrainer = () => {
   return (
-    <div>
+    <div className=''>
         <AddTrainerModal />
     </div>
   )

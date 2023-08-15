@@ -1,9 +1,12 @@
 import React from 'react'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { BiSolidBell } from 'react-icons/bi'
+import { BiSolidMessageDetail } from 'react-icons/bi'
 import logo from '../../assets/logo.jpeg'
 import priofileimg from "../../assets/managerprofile.jpg";
+import { Link } from "react-router-dom";
 
 const user = {
   name: 'Jayani Ranasinghe',
@@ -18,8 +21,8 @@ const user = {
     { name: 'Reports', href: '#', current: false },
   ]
 const userNavigation = [
-  { name: 'Your Profile', href: '/Profile' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Your Profile', href: '/Manager/Profile' },
+  { name: 'Sign out', href: '/' },
 ]
 
 function classNames(...classes) {
@@ -47,12 +50,22 @@ export const ManagerHeader = () => {
                   </div>
                   <div className="hidden md:block mt-3">
                     <div className="ml-4 flex items-center md:ml-6">
+                      <Link to="/Manager/Messages" >
+                      <button
+                        type="button"
+                        className="rounded-full g-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mr-5"
+                      >
+                        <span className="sr-only">View Messages</span>
+                        <BiSolidMessageDetail className="h-6 w-6" aria-hidden="true" />
+                      </button>
+                      </Link>
+
                       <button
                         type="button"
                         className="rounded-full g-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mr-5"
                       >
                         <span className="sr-only">View notifications</span>
-                        <BellIcon className="h-6 w-6" aria-hidden="true" />
+                        <BiSolidBell className="h-6 w-6" aria-hidden="true" />
                       </button>
 
                       {/* Profile dropdown */}
@@ -91,6 +104,12 @@ export const ManagerHeader = () => {
                           </Menu.Items>
                         </Transition>
                       </Menu>
+
+                      <div className='text-white ml-4 mr-4'>
+                        <h3 className='text-left'>Jayani Ranasinghe</h3>
+                        <h3 className=''>jayaniranasinghe@gmail.com</h3>
+                      </div>
+
                     </div>
                   </div>
                   <div className="-mr-2 flex md:hidden">
@@ -123,7 +142,7 @@ export const ManagerHeader = () => {
                       className="mr-12 flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                     >
                       <span className="sr-only">View notifications</span>
-                      <BellIcon className="h-6 w-6" aria-hidden="true" />
+                      <BiSolidBell className="h-6 w-6" aria-hidden="true" />
                     </button>
                   </div>
                   <div className="mt-3 space-y-1 px-2">
