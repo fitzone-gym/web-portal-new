@@ -31,8 +31,8 @@ function R_Memeberlist() {
       </div>
 
       <div className="w-[85%] ml-64">
-        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
-          <div className="text-white text-2xl ">Member Details</div>
+        <div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-20 pt-6 pb-6 rounded-t-lg ">
+          <div className="text-white text-2xl ">Gym Member's Attendence</div>
           <div
             className=" "
             style={{
@@ -86,22 +86,8 @@ function R_Memeberlist() {
                 height: 45,
               }}
             >
-              <svg
-                className="w-4 h-4 text-white dark:text-white mr-1"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 16 18"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"
-                />
-              </svg>
-              Export
+              
+              SEE ALL
             </button>
           </div>
         </div>
@@ -240,13 +226,13 @@ function R_Memeberlist() {
     >
       <div className="heading-members  ">
         <h1 >
-          Gym Members
+        
         </h1>
       </div>
 
       <div className="w-[85%] ml-64">
-        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
-          <div className="text-white text-2xl ">Member Details</div>
+        <div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-20 pt-6 pb-6 rounded-t-lg ">
+          <div className="text-white text-2xl ">Gym Trainer's Attendence</div>
           <div
             className=" "
             style={{
@@ -300,22 +286,8 @@ function R_Memeberlist() {
                 height: 45,
               }}
             >
-              <svg
-                className="w-4 h-4 text-white dark:text-white mr-1"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 16 18"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"
-                />
-              </svg>
-              Export
+              
+             SEE ALL
             </button>
           </div>
         </div>

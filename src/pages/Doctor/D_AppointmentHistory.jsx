@@ -1,30 +1,17 @@
-
-import Header from '../../components/Receptionist/header';
-import Sidenav from '../../components/Receptionist/sidenav';
-import '../../styles/Receptionist/trainerlist.css'
+import React from 'react'
+import Header from '../../components/Doctor/header';
+import Sidenav from '../../components/Doctor/sidenav';
+import '../../styles/Receptionist/memberlist.css'
 import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
 
-export const R_Trainerlist = () => {
-  const [data, setData] = useState([]); // Initialize data with an empty array
 
-  useEffect(() => {
-    const fetchMembers = async () => {
-      try {
-        const response = await axios.get("http://localhost:5400/trainerDetails/getTrainerDetails");
-        // console.log("tt"+ response.data.data); // Check the API response data
-        // console.log(typeof response.data.data); // Check the type of response.data
-        setData(response.data.data); // Assuming the response contains an array of trainer objects
-      } catch (error) {
-        console.log("Error:", error);
-      }
-    };
 
-    fetchMembers();
-  }, []);
 
-  return (
+
+function R_AppointmentHistory()
+ {
+
+    return (
     <div>
     
     <Header />
@@ -43,12 +30,15 @@ export const R_Trainerlist = () => {
         bottom: 0,
       }}
     >
-  
-     
+      <div className="heading-members  ">
+        <h1 >
+          Gym Members
+        </h1>
+      </div>
 
-      <div className="w-[85%] ml-64 ">
-        <div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-20 pt-6 pb-6 rounded-t-lg mt-10">
-          <div className="text-white text-2xl ">Gym Trainers Details</div>
+      <div className="w-[85%] ml-64">
+        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
+          <div className="text-white text-2xl ">Member Details</div>
           <div
             className=" "
             style={{
@@ -83,7 +73,7 @@ export const R_Trainerlist = () => {
                 />
                 <button
                   type="submit"
-                  className="text-white absolute right-2.5 bg-gray-800 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white absolute right-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   style={{
                     marginTop: -41,
                   }}
@@ -97,7 +87,7 @@ export const R_Trainerlist = () => {
           <div className="">
             <button
               type="button"
-              className="text-white bg-gray-600 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               style={{
                 height: 45,
               }}
@@ -127,16 +117,16 @@ export const R_Trainerlist = () => {
             <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
               <tr>
                 <th scope="col" className="px-6 py-3">
-                  Trainer name
+                  Member name
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Joined Date
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Availability
+                  Package Type
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Members
+                  Performance level
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Action
@@ -144,20 +134,15 @@ export const R_Trainerlist = () => {
               </tr>
             </thead>
             <tbody>
-
-            {data.map((trainer, index) => {
-                return (
-
               <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <td className="px-6 py-4">{trainer.member_id}</td>
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  {trainer.first_name + " " + trainer.last_name}{" "}
+                  Jayani Ranasinghe
                 </th>
-                <td className="px-6 py-4">{trainer.email}</td>
-                <td className="px-6 py-4">{trainer.package}</td>
+                <td className="px-6 py-4">3 Septemebr 2023</td>
+                <td className="px-6 py-4">1 Month</td>
                 <td className="px-6 py-4">1</td>
                 <td className="px-6 py-4">
                   <a
@@ -168,19 +153,18 @@ export const R_Trainerlist = () => {
                   </a>
                 </td>
               </tr>
-              
- );
-              })}
-                
-              
+
+        
             </tbody>
           </table>
         </div>
       </div>
     </div>
-</div></div> 
+
+    </div>
+    </div>
 
   )
-}
+} 
 
-export default R_Trainerlist
+export default R_AppointmentHistory

@@ -32,7 +32,8 @@ import D_Myprofile from './pages/Doctor/D_Myprofile'
 import { Login } from "./pages/login";
 import D_Memberslist from './pages/Doctor/D_Memberslist'
 import D_Appointments from "./pages/Doctor/D_Appointments";
-
+import R_Editmyprofile from "./components/Receptionist/editprofile";
+import R_AppointmentHistory from "./pages/Doctor/D_AppointmentHistory";
 
 
 
@@ -57,7 +58,7 @@ function App() {
         <Route path="/Receptionist/Myprofile" element={<R_Userprofile />} />
         <Route path="/Receptionist/Memberattendence" element={<R_Attendence />} />
         <Route path="/Receptionist/leaveRequest" element={<R_Leaverequest />} />
-        
+        <Route path="/Receptionist/editprofile" element={<R_Editmyprofile />} />
         <Route path="/" element={<Login />} />
 
 
@@ -68,7 +69,7 @@ function App() {
         <Route path="/Doctor/MembersList" element={<D_Memberslist />} />
         <Route path="/Doctor/checkupform" element={<D_Checkupforms />} />
         <Route path="/Doctor/Appointments" element={<D_Appointments />} />
-
+        <Route path="/Doctor/Appointments" element={<D_Appointments />} />
 
 
       </Routes>
