@@ -1,20 +1,13 @@
 import "../../styles/Receptionist/Sidenav.css";
-import priofileimg from "../../assets/profileimage.jpg";
 
 function sidenav() {
   return (
     <div className="sidenavbar">
-      {/* <div classNameName='profileimage'>
-                    <img src={priofileimg} alt="" />
-                    <h1> Dasun Hettiarachi</h1>
-                    <h2> Recieptionist</h2>
-                </div> */}
-
-      <ul className="flex flex-col py-4 space-y-1">
+      <ul className="flex flex-col py-5 space-y-1 font-bold text-center ml-10">
         <li>
           <a
-            href="#"
-            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+            href="/Receptionist/Dashboard"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
               <svg
@@ -39,7 +32,7 @@ function sidenav() {
         </li>
         <li>
           <a
-            href="../../Pages/Receptionist/R_Memberslist"
+            href="/Receptionist/Memberslist"
             className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
@@ -63,7 +56,7 @@ function sidenav() {
         </li>
         <li>
           <a
-            href="#"
+            href="/Receptionist/Trainerlist"
             className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
@@ -89,7 +82,7 @@ function sidenav() {
         </li>
         <li>
           <a
-            href="#"
+            href="/Receptionist/Announcement"
             className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
@@ -116,7 +109,7 @@ function sidenav() {
 
         <li>
           <a
-            href="#"
+            href="/Receptionist/Payment"
             className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
@@ -143,7 +136,7 @@ function sidenav() {
 
         <li>
           <a
-            href="#"
+            href="/Receptionist/Myprofile"
             className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
@@ -167,7 +160,7 @@ function sidenav() {
         </li>
         <li>
           <a
-            href="#"
+            href="/Receptionist/Memberattendence"
             className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
@@ -199,10 +192,10 @@ function sidenav() {
         </li>
         <li>
           <a
-            href="#"
-            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+            href="/"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6 mt-80"
           >
-            <span className="inline-flex justify-center items-center ml-4">
+            <span className="inline-flex justify-center items-center ml-4 ">
               <svg
                 className="w-5 h-5"
                 fill="none"

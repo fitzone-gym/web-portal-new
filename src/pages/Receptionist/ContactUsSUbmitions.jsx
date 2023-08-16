@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 import axios from "axios";
 
 import Header from "../../components/Receptionist/header";
-// import Sidenav from "../../components/Receptionist/sidenav";
+import Sidenav from "../../components/Receptionist/sidenav";
 import "../../styles/Receptionist/contactUsSubmitions.css";
 
 import { styled } from "@mui/material/styles";
@@ -23,6 +23,27 @@ import SendIcon from "@mui/icons-material/Send";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import Button from "@mui/material/Button";
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: "#0052cc",
+    },
+    secondary: {
+      main: "#edf2ff",
+    },
+  },
+});
+
+theme = createTheme(theme, {
+  palette: {
+    info: {
+      main: theme.palette.secondary.main,
+    },
+  },
+});
+
 
 
 function Contactus_Form_Submitions() {
@@ -154,9 +175,19 @@ function Contactus_Form_Submitions() {
   return (
     <>
       <div className="contactUsMessages">
+        {/* <Disclosure
+          as="nav"
+          className="bg-gray-800 fixed top-0 left-0 w-full z-50"
+        >
+          <Header/>
+        </Disclosure> */}
         <Header />
-        {/* <Sidenav /> */}
+        <Sidenav />
         <div className="contactUsCardSet">
+          <div className="sectionHeader">
+            <h2>Get in Touch</h2>
+          </div>
+
           {requestDetails.length > 0 ? (
             requestDetails.map((request) => (
               <Card
@@ -166,7 +197,11 @@ function Contactus_Form_Submitions() {
               >
                 <CardHeader
                   avatar={
-                    <Avatar sx={{ bgcolor: "#54f098" }} aria-label="recipe">
+                    <Avatar
+                      sx={{ bgcolor: "#54f098" }}
+                      aria-label="recipe"
+                      style={{ backgroundColor: "#ffba16" }}
+                    >
                       {request.name[0]}
                     </Avatar>
                   }
@@ -220,139 +255,143 @@ function Contactus_Form_Submitions() {
                   <CardContent>
                     <h4 className="replySectionHeader">Reply Mail</h4>
                     <Box sx={{ flexGrow: 1 }}>
-                      <form
-                        ref={form}
-                        onSubmit={(e) =>
-                          handleSubmit(
-                            e,
-                            request.submition_id,
-                            isSendingEmail[request.submition_id]
-                          )
-                        }
-                      >
-                        <div className="fromToMessageSection">
-                          <Grid container spacing={1}>
-                            <Grid item xs={6}>
-                              <TextField
-                                id="outlined-controlled"
-                                label="From"
-                                name="frommail"
-                                value="fitzonegymmgnt@gmail.com"
-                                size="small"
-                                className="formInputs"
-                                style={{ fontSize: "13px" }}
-                                color="primary"
-                                focused
-                              />
-                            </Grid>
-                            <Grid item xs={6}>
-                              <TextField
-                                id="outlined-controlled"
-                                label="To"
-                                name="tomail"
-                                value={request.email}
-                                size="small"
-                                className="formInputs"
-                                style={{ fontSize: "13px" }}
-                                color="primary"
-                                focused
-                                readonly
-                              />
-                            </Grid>
-                          </Grid>
-
-                          <br />
-                          <Grid container>
-                            <Grid item xs={12}>
-                              {request.reply_or_not_state === 0 ? (
+                      <ThemeProvider theme={theme}>
+                        <form
+                          ref={form}
+                          onSubmit={(e) =>
+                            handleSubmit(
+                              e,
+                              request.submition_id,
+                              isSendingEmail[request.submition_id]
+                            )
+                          }
+                        >
+                          <div className="fromToMessageSection">
+                            <Grid container spacing={1}>
+                              <Grid item xs={6}>
                                 <TextField
                                   id="outlined-controlled"
-                                  label="Reply"
-                                  name="ans_message"
+                                  label="From"
+                                  name="frommail"
+                                  value="fitzonegymmgnt@gmail.com"
+                                  size="small"
                                   className="formInputs"
                                   style={{ fontSize: "13px" }}
-                                  color="primary"
+                                  color="secondary"
                                   focused
                                 />
-                              ) : (
+                              </Grid>
+                              <Grid item xs={6}>
                                 <TextField
                                   id="outlined-controlled"
-                                  label="Reply"
-                                  name="ans_message"
+                                  label="To"
+                                  name="tomail"
+                                  value={request.email}
+                                  size="small"
                                   className="formInputs"
-                                  value={request.reply_message}
                                   style={{ fontSize: "13px" }}
-                                  color="primary"
+                                  color="secondary"
                                   focused
                                   readonly
                                 />
-                              )}
+                              </Grid>
                             </Grid>
-                          </Grid>
 
-                          <TextField
-                            id="outlined-controlled"
-                            label="name"
-                            name="name"
-                            value={request.name}
-                            size="small"
-                            className="formInputs"
-                            style={{ fontSize: "13px", display: "none" }}
-                            color="primary"
-                            focused
-                            hidden
-                            readonly
-                          />
-
-                          <TextField
-                            id="outlined-controlled"
-                            label="question"
-                            name="question"
-                            value={request.message}
-                            size="small"
-                            className="formInputs"
-                            style={{ fontSize: "13px", display: "none" }}
-                            color="primary"
-                            focused
-                            hidden
-                          />
-
-                          <TextField
-                            id="outlined-controlled"
-                            label="requestID"
-                            name="replySubmitionID"
-                            value={request.submition_id}
-                            size="small"
-                            className="formInputs"
-                            style={{ fontSize: "13px", display: "none" }}
-                            color="primary"
-                            focused
-                            hidden
-                          />
-
-                          <br />
-
-                          <div className="btnSection">
-                             {request.reply_or_not_state === 0 ? (
-                              <Button
-                                variant="contained"
-                                type="submit"
-                                value="Send"
-                                endIcon={
-                                  <SendIcon
-                                    className="sendBtnTextIcon"
-                                    style={{ fontSize: "10px" }}
+                            <br />
+                            <Grid container>
+                              <Grid item xs={12}>
+                                {request.reply_or_not_state === 0 ? (
+                                  <TextField
+                                    id="outlined-controlled"
+                                    label="Reply"
+                                    name="ans_message"
+                                    className="formInputs"
+                                    style={{ fontSize: "13px" }}
+                                    color="secondary"
+                                    focused
                                   />
-                                }
-                              >
-                                <span className="sendBtnText">Send</span>
-                              </Button>
-                            ):(<p></p>)}
-                          </div>
-                        </div>
+                                ) : (
+                                  <TextField
+                                    id="outlined-controlled"
+                                    label="Reply"
+                                    name="ans_message"
+                                    className="formInputs"
+                                    value={request.reply_message}
+                                    style={{ fontSize: "13px" }}
+                                    color="secondary"
+                                    focused
+                                    readonly
+                                  />
+                                )}
+                              </Grid>
+                            </Grid>
 
-                        <div className="replyMessageSection"></div>
-                      </form>
+                            <TextField
+                              id="outlined-controlled"
+                              label="name"
+                              name="name"
+                              value={request.name}
+                              size="small"
+                              className="formInputs"
+                              style={{ fontSize: "13px", display: "none" }}
+                              color="primary"
+                              focused
+                              hidden
+                              readonly
+                            />
+
+                            <TextField
+                              id="outlined-controlled"
+                              label="question"
+                              name="question"
+                              value={request.message}
+                              size="small"
+                              className="formInputs"
+                              style={{ fontSize: "13px", display: "none" }}
+                              color="secondary"
+                              focused
+                              hidden
+                            />
+
+                            <TextField
+                              id="outlined-controlled"
+                              label="requestID"
+                              name="replySubmitionID"
+                              value={request.submition_id}
+                              size="small"
+                              className="formInputs"
+                              style={{ fontSize: "13px", display: "none" }}
+                              color="primary"
+                              focused
+                              hidden
+                            />
+
+                            <br />
+
+                            <div className="btnSection">
+                              {request.reply_or_not_state === 0 ? (
+                                <Button
+                                  variant="contained"
+                                  type="submit"
+                                  value="Send"
+                                  endIcon={
+                                    <SendIcon
+                                      className="sendBtnTextIcon"
+                                      style={{ fontSize: "10px" }}
+                                    />
+                                  }
+                                >
+                                  <span className="sendBtnText">Send</span>
+                                </Button>
+                              ) : (
+                                <p></p>
+                              )}
+                            </div>
+                          </div>
+
+                          <div className="replyMessageSection"></div>
+                        </form>
+                      </ThemeProvider>
                     </Box>
                   </CardContent>
                 </Collapse>
