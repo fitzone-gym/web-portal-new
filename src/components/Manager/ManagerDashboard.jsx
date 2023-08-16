@@ -1,22 +1,23 @@
 import React from "react";
-import { MdOutlineGirl } from "react-icons/Md";
-import { MdOutlineBoy } from "react-icons/Md";
+import { MdOutlineGirl } from "react-icons/md";
+import { MdOutlineBoy } from "react-icons/md";
+import {images} from '../../constants';
 
 export const ManagerDashboard = () => {
   return (
     <div
-      class="bg-[#1E1E1E]"
+      className=""
       style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
+        position: "relative",
+        top: 60,
+        left: 270,
         right: 0,
         bottom: 0,
       }}
     >
-      <div class="grid grid-cols-4 gap-4 ml-32 mt-12 ">
+      <div className="grid grid-cols-4 gap-4 ml-12 mt-12">
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left rounded-md"
           style={{
             height: 160,
             width: 360,
@@ -28,7 +29,7 @@ export const ManagerDashboard = () => {
         </div>
 
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -42,7 +43,7 @@ export const ManagerDashboard = () => {
         </div>
 
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -58,7 +59,7 @@ export const ManagerDashboard = () => {
         </div>
 
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -74,9 +75,9 @@ export const ManagerDashboard = () => {
         </div>
       </div>
 
-      <div class="grid grid-cols-4 gap-4 ml-32 mt-16 mt-8">
+      <div className="grid grid-cols-4 gap-4 ml-12 mt-16 mt-8">
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -88,7 +89,7 @@ export const ManagerDashboard = () => {
         </div>
 
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -100,7 +101,7 @@ export const ManagerDashboard = () => {
         </div>
 
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -114,7 +115,7 @@ export const ManagerDashboard = () => {
         </div>
 
         <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
+          className="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left "
           style={{
             height: 160,
             width: 360,
@@ -127,42 +128,39 @@ export const ManagerDashboard = () => {
       </div>
 
       {/* 3 row */}
-      <div class="grid grid-cols-2 gap-4 ml-32 mt-8">
+      <div className="grid grid-cols-2 ml-28 mt-8">
         {/* 1 box */}
         <div
-          class="bg-[#222222] font-bold rounded-sm text-left"
+          className="font-bold rounded-sm text-left max-lg:hidden w-[85%]"
           style={{
             height: 460,
-            width: 860,
           }}
         >
-          <div className="text-2xl text-white ml-8 py-3">
+          <div className="text-2xl text-white py-3">
             <h1>Total Revenue(weekly)</h1>
+            <img className=" h-96 mt-10 ml-8" src={images.revenueImage} alt="" /> 
           </div>
         </div>
 
         {/* 2 box */}
-        <div
-          class="bg-[#222222] font-bold rounded-sm text-left"
-          style={{
-            height: 460,
-            width: 560,
-          }}
+        <div 
+        className="font-bold rounded-sm text-left max-lg:hidden w-[100%]"
         >
-          <div className="text-2xl text-white ml-8 py-3">
+          <div className="text-2xl text-white ml-28 py-3">
             <h1>Gym Member Compisition</h1>
-            <div class="text-5xl">
-              <div class="ml-16 mt-80">
+            <img className="w-[50%] h-88 mt-16 ml-12" src={images.memcompositionImage} alt="" /> 
+             <div className="text-5xl">
+              <div className=" mt-[-6%]">
                 <MdOutlineGirl />
               </div>
-              <div class="ml-96"
+              <div className="ml-96"
                style={{
                 marginTop:-40,
               }}
               >
                 <MdOutlineBoy />
               </div>
-            </div>
+            </div> 
           </div>
         </div>
       </div>

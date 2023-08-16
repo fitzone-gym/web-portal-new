@@ -1,10 +1,11 @@
 import React from 'react'
-import { M_Addtrainer } from '../../components/Manager/M_Addtrainer'
+import AddTrainerModal from '../../components/Manager/AddTrainerModal'
+// import { M_Addtrainer } from '../../components/Manager/M_Addtrainer'
 
 export const Addtrainer = () => {
   return (
-    <div>
-        <M_Addtrainer />
+    <div className=''>
+        <AddTrainerModal />
     </div>
   )
 }
