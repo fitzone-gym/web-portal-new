@@ -1,0 +1,25 @@
+.memberlist{
+
+    background-color: rgb(46, 46, 46);
+    height: 100%;   
+    
+}
+
+.body-members{
+    background-color:rgb(46, 46, 46) ;
+    
+
+}
+
+.heading-members{
+color: #E54646;
+text-align: left;
+font-family: Roboto;
+font-size: 22px;
+margin-left: 18%;
+background-color: rgb(46, 46, 46);
+}
+
+body{
+    background-color:rgb(46, 46, 46)  ;
+}
