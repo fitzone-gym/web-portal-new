@@ -65,6 +65,8 @@ import { TrainerProfile } from "./pages/Manager/TrainerProfile";
 import { UpdateAnnoun } from "./pages/Manager/UpdateAnnoun";
 import { Messages } from "./pages/Manager/Messages";
 
+// import R_onememberattendence from "./pages/Receptionist/onememberattendence";
+import R_Contactus_submitions from "./pages/Receptionist/ContactUsSUbmitions";
 
 function App() {
   
@@ -92,6 +94,10 @@ function App() {
         />
         <Route path="/Receptionist/leaveRequest" element={<R_Leaverequest />} />
         <Route path="/Receptionist/editprofile" element={<R_Editmyprofile />} />
+        <Route
+          path="/Receptionist/contactUsSubmitions"
+          element={<R_Contactus_submitions />}
+        />
 
         <Route path="/" element={<Login />} />
 
