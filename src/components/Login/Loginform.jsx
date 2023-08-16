@@ -30,7 +30,7 @@ export const Loginform = () => {
     </div>
   </div>
 
-  <div className="w-[150%] bg-black opacity-80 rounded-3xl sm:max-w-xl xl:py-4 md:mr-[10%] h-[80%]">
+  <div className="w-[150%] bg-black opacity-80 rounded-3xl sm:max-w-xl xl:py-4 md:mr-[10%] h-[60%]">
     <div className="p-6 space-y-4 md:space-y-10 sm:px-24 ">
       <h1 className="text-3xl lg:text-5xl font-bold leading-tight tracking-tight text-red-600">
         Sign in
