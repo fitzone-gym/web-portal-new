@@ -70,7 +70,7 @@ function App() {
 
   return (
     <>
-   <BrowserRouter>
+
       <Routes>
         <Route path="/Receptionist/Dashboard" element={<R_Dashboard />} />
         <Route path="/Receptionist/MembersList" element={<R_Memeberlist />} />
@@ -124,7 +124,7 @@ function App() {
           />
           <Route path="/Manager/Payment/MemberPay" element={<MemberPay />} />
       </Routes>
-      </BrowserRouter>
+
   </>
   );
 }
