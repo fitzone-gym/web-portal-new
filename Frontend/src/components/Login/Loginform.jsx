@@ -11,7 +11,6 @@ export const Loginform = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    // console.log(password);
     //simulating a simple login logic
     if (email === "" || password === "") {
       setError("Invalid Username or Password");
@@ -32,12 +31,14 @@ export const Loginform = () => {
         if (response.data.success) {
           const currentUser = response.data.data;
           console.log(currentUser);
+          navigate("/Manager/Dashboard");
+
           // if cookie is set else add JWT token sessoin, local storage
           // add to the session
           // state application state
           //define the route
         }
-        navigate("/Manager/Dashboard");
+        
       } catch (err) {
         console.log(err);
       }
