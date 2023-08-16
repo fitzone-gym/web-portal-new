@@ -19,10 +19,11 @@ export const CreatAnnonModal = ({ onClose }) => {
       .post("http://localhost:8081/announcement", values)
       .then((res) => {
         console.log(res);
-        navigate("/");
+        navigate("/Manager/Dashboard");
       })
       .catch((err) => console.log(err));
   };
+
 
   return (
     // <div
