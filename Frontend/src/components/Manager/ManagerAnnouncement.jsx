@@ -228,6 +228,7 @@ export const ManagerAnnouncement = () => {
     const fetchAnnouncement = async () => {
       try {
         const response = await axios.get("http://localhost:5400/announcement");
+        console.log("This is what",response.data.data)
         setData(response.data.data); // Assuming the response contains an array of trainer objects
       } catch (error) {
         console.log("Error:", error);
@@ -271,13 +272,13 @@ export const ManagerAnnouncement = () => {
   const handleEditClick = (announcement) => {
     setEditingAnnouncement(announcement);
     setShowModal(true); // Open the update modal
-    console.log(announcement);
+    console.log("This is announcement to select",announcement.announcement_id);
   };
 
   return (
     <div
       className="w-[80%]"
-      style={{ position: "relative", top: -25, left: 0, right: 0, bottom: 0 }}
+      style={{ position: "relative", top: 50, left: 290, right: 0, bottom: 0 }}
     >
       <div className="grid grid-cols-2">
         <h1 className="font-bold text-red-600 text-5xl text-left ml-32 mt-10 mb-10">
@@ -314,10 +315,14 @@ export const ManagerAnnouncement = () => {
         <tbody className="">
           {data.map((announcement, index) => {
             return (
-              <tr key={index} className="bg-gray-400 text-left text-lg">
+              <tr key={index} className="bg-gray-300 text-left text-lg">
                 <td className="rounded-lg">
+                  <div>
+                    <p className="mt-2 ml-7 font-bold">{announcement.title}</p>
+                    <hr className="ml-7 w-1/2 border-t-1 border-black"></hr>
+                  </div>
                   <div className="msg">
-                    <p className="ml-[3%] mt-6 mr-3">
+                    <p className="ml-[3%] mt-1 mr-3">
                       Dear {announcement.for}, {announcement.description}.
                     </p>
                     <p className="ml-[3%] mt-[1%]">Jayani</p>

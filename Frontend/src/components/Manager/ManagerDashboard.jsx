@@ -9,8 +9,8 @@ export const ManagerDashboard = () => {
       className=""
       style={{
         position: "relative",
-        top: -25,
-        left: 0,
+        top: 60,
+        left: 270,
         right: 0,
         bottom: 0,
       }}

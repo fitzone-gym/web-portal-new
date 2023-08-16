@@ -1,5 +1,6 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
+import {images} from '../../constants';
 
 export const ManagerReceptionist = () => {
   return (
@@ -7,8 +8,8 @@ export const ManagerReceptionist = () => {
       className=""
       style={{
         position: "relative",
-        top: -25,
-        left: 0,
+        top: 50,
+        left: 290,
         right: 0,
         bottom: 0,
       }}
@@ -19,7 +20,7 @@ export const ManagerReceptionist = () => {
         </h1>
       </div>
 
-      <div className="w-[100%]">
+      <div className="w-[105%]">
         <div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-20 pt-6 pb-6 rounded-t-lg">
           <div className="text-white text-2xl ">Receptionists Details</div>
           <div
@@ -156,18 +157,19 @@ export const ManagerReceptionist = () => {
         <div className="grid grid-cols-2 ml-20 mt-8">
           {/* 1 box */}
           <div
-            className="bg-[#222222] font-bold rounded-md text-left"
+            className="font-bold rounded-md text-left"
             style={{
               height: 490,
               width: 700,
             }}
           >
-            <div className="text-2xl text-red-600 ml-8 py-3">
+            <div className="text-2xl text-white ml-8 py-3">
               <h1>New Member Appointments</h1>
+              <img className="w-[100%] h-88 mt-16 ml-12" src={images.revenueImage} alt="" /> 
             </div>
           </div>
 
-          {/* 2 box */}
+          {/* 2 box
           <div
             className="bg-[#222222] font-bold rounded-md text-left"
             style={{
@@ -175,11 +177,11 @@ export const ManagerReceptionist = () => {
               width: 740,
             }}
           >
-            <div className="text-2xl text-red-600  ml-8 py-3">
+            <div className="text-2xl text-white  ml-8 py-3">
               <h1>Monthly health checkup appointments</h1>
             </div>
           </div>
-      
+       */}
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 export const ManagerSidebar = () => {
   return (
-    <div className="sidenavbar font-bold rounded-tr-lg bg-[#E54646] w-[15%] h-[112%] ">
+    <div className="sidenavbar font-bold rounded-tr-lg bg-[#E54646] w-[15%] mt-20 h-[92%] fixed">
       {/* <div className="profileimage max-lg:hidden">
         <img
           src={priofileimg}

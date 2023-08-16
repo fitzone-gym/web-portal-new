@@ -8,11 +8,11 @@ import winImage from "../../assets/win.jpg"
 export const ManagerMessages = () => {
   return (
     <div className="w-[80%] mx-auto mt-4">
-      <h1 className="font-bold text-red-600 text-5xl text-left ml-24 mb-10">
+      <h1 className="font-bold text-red-600 text-5xl text-left mt-24 ml-52 mb-10">
         Messages
       </h1>
 
-      <table className="text-white mx-auto ml-40 mt-[-1%]">
+      <table className="text-white mx-auto ml-72 mt-[-1%]">
         <thead>
           <tr>
             <th colSpan={3} className="text-xl text-left">
@@ -177,10 +177,10 @@ export const ManagerMessages = () => {
           {/* Add more rows for doctors */}
         </tbody>
       </table>
-      <hr className='mt-4 w-[90%] ml-24'></hr>
+      <hr className='mt-2 w-[90%] ml-52'></hr>
 
-      <p className='mt-4 text-left  ml-40 text-xl text-red-600'>Recent Chats</p>
-      <table className='ml-60 mt-8 w-[72%]'>
+      <p className='mt-2 text-left  ml-72 text-xl text-red-600'>Recent Chats</p>
+      <table className='ml-80 mt-8 w-[72%]'>
         <tr className='bg-gray-800'
              style={{ position: "relative", top: -25, left: 0, right: 0, bottom: 0 }}>
         <img

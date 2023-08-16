@@ -13,8 +13,8 @@ export const ManagerStaffmembers = () => {
       className="w-[80%]"
       style={{
         position: "relative",
-        top: -25,
-        left: 4,
+        top: 50,
+        left: 250,
         right: 0,
         bottom: 0,
       }}

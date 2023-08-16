@@ -8,18 +8,18 @@ export const ManagerTrainer = () => {
   const [data, setData] = useState([]); // Initialize data with an empty array
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    const fetchTrainers = async () => {
-      try {
-        const response = await axios.get("http://localhost:5400/trainers");
-       // console.log("tt"+ response.data.data); // Check the API response data
-       // console.log(typeof response.data.data); // Check the type of response.data
-        setData(response.data.data); // Assuming the response contains an array of trainer objects
-      } catch (error) {
-        console.log("Error:", error);
-      }
-    };
+  const fetchTrainers = async () => {
+    try {
+      const response = await axios.get("http://localhost:5400/trainers");
+     // console.log("tt"+ response.data.data); // Check the API response data
+     // console.log(typeof response.data.data); // Check the type of response.data
+      setData(response.data.data); // Assuming the response contains an array of trainer objects
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
 
+  useEffect(() => {
     fetchTrainers();
   }, []);
 
@@ -54,8 +54,8 @@ export const ManagerTrainer = () => {
       className=""
       style={{
         position: "relative",
-        top: -25,
-        left: 0,
+        top: 50,
+        left: 290,
         right: 0,
         bottom: 0,
       }}
@@ -109,7 +109,7 @@ export const ManagerTrainer = () => {
                 />
                 <button
                   type="submit"
-                  className="text-white absolute right-2.5 mr-[-20%] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white absolute right-2.5 mr-[-20%] bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   style={{
                     marginTop: -41,
                   }}
@@ -165,7 +165,7 @@ export const ManagerTrainer = () => {
             {/* </Link> */}
 
             {/* Render the modal conditionally */}
-            {showModal && <AddTrainerModal onClose={handleCloseModal} />}
+            {showModal && <AddTrainerModal fetchTrainers={fetchTrainers} onClose={handleCloseModal} />}
             
           </div>
         </div>

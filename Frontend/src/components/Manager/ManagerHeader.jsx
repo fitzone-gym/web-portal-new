@@ -32,7 +32,7 @@ function classNames(...classes) {
 export const ManagerHeader = () => {
   return (
     <>
-        <Disclosure as="nav" className="bg-[#121212] w-full w-screen h-[8%]">
+        <Disclosure as="nav" className="bg-[#121212] w-full w-screen h-[8%] fixed">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-10xl px-4 sm:px-6 lg:px-8">

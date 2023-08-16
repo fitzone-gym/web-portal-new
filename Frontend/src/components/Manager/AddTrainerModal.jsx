@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import axios from "axios";
 import React, { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
-const AddTrainerModal = ({ onClose }) => {
+
+const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
   const [first_name, setFirstname] = useState("");
   const [last_name, setLastname] = useState("");
   const [phone_no, setPhoneno] = useState("");
@@ -18,14 +20,15 @@ const AddTrainerModal = ({ onClose }) => {
   const handleSubmit = (e) => {
     console.log("call here");
     e.preventDefault();
+    
 
     //send data to the backend
     axios
-      .post("http://localhost:5400/trainers/add", {
-        first_name,
-        last_name,
-        phone_no,
-        email,
+    .post("http://localhost:5400/trainers/add", {
+      first_name,
+      last_name,
+      phone_no,
+      email,
         working_experience,
         role_id,
         username,
@@ -33,9 +36,9 @@ const AddTrainerModal = ({ onClose }) => {
       })
       .then((response) => {
         console.log("Data submit successfully to backend", response.data);
-
+        
         alert("Data submitted successfully!");
-
+        
         setFirstname("");
         setLastname("");
         setPhoneno("");
@@ -44,10 +47,11 @@ const AddTrainerModal = ({ onClose }) => {
         setRoleid("");
         setUsername("");
         setPassword("");
-
-        // Redirect to the specified page after successful submission
-        navigate('/Manager/Staffmembers/Trainer');
-      })
+        
+        console.log("Before navigation");
+        onClose()
+        fetchTrainers()
+       })
       .catch((error) => {
         console.log("Error submitting data", error);
         alert("Error submitting data");
@@ -67,7 +71,7 @@ const AddTrainerModal = ({ onClose }) => {
       >
         <div className="mr-[-90%] mt-4">
           <button
-            onClick={onClose}
+            onClick={() => onClose(false)}
             className="ml-4 text-gray-500 hover:text-gray-800"
             style={{
               width: "28px", // Set the desired width

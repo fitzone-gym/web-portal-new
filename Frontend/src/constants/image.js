@@ -7,6 +7,7 @@ import stfcompImage from '../assets/stfcomp.png'
 import brightImage from '../assets/bright.jpg'
 import brightsecImage from '../assets/bright2.jpg'
 import winImage from '../assets/win.jpg'
+import starsImage from '../assets/start.png'
 
 export default {
     logo,
@@ -18,4 +19,5 @@ export default {
     brightImage,
     brightsecImage,
     winImage,
+    starsImage,
 }
