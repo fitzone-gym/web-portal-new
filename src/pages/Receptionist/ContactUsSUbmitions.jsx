@@ -108,7 +108,7 @@ function Contactus_Form_Submitions() {
       .sendForm(
         "service_sr7pfvh",
         "template_0xugg69",
-        data,
+        form.current,
         "5JSmzYAJ1ZRnFDW9-"
       )
       .then(

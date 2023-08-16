@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.flex-col {
+    margin-top: 0%;
+    margin-left: 0%;
+}

@@ -2,7 +2,7 @@ import "../../styles/Receptionist/Sidenav.css";
 
 function sidenav() {
   return (
-    <div className="sidenavbar" style={{paddingLeft:20}}>
+    <div className="sidenavbar" style={{paddingLeft:"20px"}}>
       <ul className="flex flex-col py-5 space-y-1 font-bold text-center ml-10">
         <li>
           <a
