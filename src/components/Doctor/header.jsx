@@ -40,7 +40,7 @@ export default function header() {
 
       <div className='header'>
       <div className="min-h-full">
-        <Disclosure as="nav" className="bg-[#121212] w-full w-screen">
+        <Disclosure as="nav" className="bg-[#121212] w-full w-screen ">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-10xl px-4 sm:px-6 lg:px-8">

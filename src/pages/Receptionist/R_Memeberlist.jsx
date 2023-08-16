@@ -51,7 +51,7 @@ export const R_Memeberlist = () => {
       </div>
 
       <div className="w-[85%] ml-64">
-        <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
+        <div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-20 pt-6 pb-6 rounded-t-lg ">
           <div className="text-white text-2xl ">Member Details</div>
           <div
             className=" "
@@ -156,7 +156,7 @@ export const R_Memeberlist = () => {
                 return (
 
               <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <td className="px-6 py-4">{member.member_id}</td>
+                <td className="px-6 py-4">{member.user_id}</td>
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -172,7 +172,7 @@ export const R_Memeberlist = () => {
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
                     View
-                  </a>
+                  </a>  
                 </td>
               </tr>
               
