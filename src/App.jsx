@@ -39,6 +39,7 @@ import R_AppointmentHistory from "./pages/Doctor/D_AppointmentHistory";
 
 
 
+
 import { Login } from "./pages/Login/Login";
 import { Members } from "./pages/Manager/Members";
 import { Staffmembers } from "./pages/Manager/Staffmembers";
@@ -70,21 +71,29 @@ function App() {
 
   return (
     <>
-
       <Routes>
         <Route path="/Receptionist/Dashboard" element={<R_Dashboard />} />
         <Route path="/Receptionist/MembersList" element={<R_Memeberlist />} />
-        <Route path="/Receptionist/Memberprofile" element={<R_Memberprofile />} />
+        <Route
+          path="/Receptionist/Memberprofile"
+          element={<R_Memberprofile />}
+        />
         <Route path="/Receptionist/Trainerlist" element={<R_Trainerlist />} />
-        <Route path="/Receptionist/Trainerprofile" element={<R_Trainerprofile />} />
+        <Route
+          path="/Receptionist/Trainerprofile"
+          element={<R_Trainerprofile />}
+        />
         <Route path="/Receptionist/Announcement" element={<R_Announcement />} />
         <Route path="/Receptionist/Payment" element={<R_Payment />} />
         <Route path="/Receptionist/Myprofile" element={<R_Userprofile />} />
-        <Route path="/Receptionist/Memberattendence" element={<R_Attendence />} />
+        <Route
+          path="/Receptionist/Memberattendence"
+          element={<R_Attendence />}
+        />
         <Route path="/Receptionist/leaveRequest" element={<R_Leaverequest />} />
         <Route path="/Receptionist/editprofile" element={<R_Editmyprofile />} />
-        <Route path="/" element={<Login />} />
 
+        <Route path="/" element={<Login />} />
 
         {/* Doctor */}
         <Route path="/Doctor/Dashboard" element={<D_Dashboard />} />
@@ -95,37 +104,41 @@ function App() {
         <Route path="/Doctor/Appointments" element={<D_Appointments />} />
         <Route path="/Doctor/Appointments" element={<D_Appointments />} />
 
-
-          <Route path="/" element={<Login />} />
-          <Route path="/Manager/Dashboard" element={<Dashboard />} />
-          <Route path="/Manager/Profile" element={<Profile />} />
-          <Route path="/Manager/Messages" element={<Messages />} />
-          <Route path="/Manager/Members" element={<Members />} />
-          <Route path="/Manager/Staffmembers" element={<Staffmembers />} />
-          <Route path="/Manager/Staffmembers/Trainer" element={<Trainer />} />
-          <Route path="/Manager/Staffmembers/Doctor" element={<Doctor />} />
-          <Route path="/Manager/Staffmembers/Receptionist" element={<Receptionist />} />
-          {/* <Route
+        <Route path="/" element={<Login />} />
+        <Route path="/Manager/Dashboard" element={<Dashboard />} />
+        <Route path="/Manager/Profile" element={<Profile />} />
+        <Route path="/Manager/Messages" element={<Messages />} />
+        <Route path="/Manager/Members" element={<Members />} />
+        <Route path="/Manager/Staffmembers" element={<Staffmembers />} />
+        <Route path="/Manager/Staffmembers/Trainer" element={<Trainer />} />
+        <Route path="/Manager/Staffmembers/Doctor" element={<Doctor />} />
+        <Route
+          path="/Manager/Staffmembers/Receptionist"
+          element={<Receptionist />}
+        />
+        {/* <Route
             path="/Manager/Staffmembers/Trainer/Addtrainer"
             element={<Addtrainer />}
           /> */}
-          <Route path="/Manager/Staffmembers/Trainer/TrainerProfile" element={TrainerProfile} />
-          <Route path="/Manager/Announcement" element={<Announcement />} />
-          {/* <Route path="/Manager/Announcement/CreateAnnoun" element={<CreateAnnoun />} /> */}
-          {/* <Route path="/Manager/Announcement/UpdateAnnoun" element={<UpdateAnnoun />} /> */}
-          <Route path="/Manager/Leave" element={<Leave />} />
-          <Route path="/Manager/Feedback" element={<Feedback />} /> 
-          <Route path="/Manager/Payment" element={<Payment />} />
-          <Route path="/Manager/Payment/TrainerPay" element={<TrainerPay />} />
-          <Route path="/Manager/Payment/DoctorPay" element={<DoctorPay />} />
-          <Route
-            path="/Manager/Payment/ReceptionistPay"
-            element={<ReceptionistPay />}
-          />
-          <Route path="/Manager/Payment/MemberPay" element={<MemberPay />} />
+        <Route
+          path="/Manager/Staffmembers/Trainer/TrainerProfile"
+          element={TrainerProfile}
+        />
+        <Route path="/Manager/Announcement" element={<Announcement />} />
+        {/* <Route path="/Manager/Announcement/CreateAnnoun" element={<CreateAnnoun />} /> */}
+        {/* <Route path="/Manager/Announcement/UpdateAnnoun" element={<UpdateAnnoun />} /> */}
+        <Route path="/Manager/Leave" element={<Leave />} />
+        <Route path="/Manager/Feedback" element={<Feedback />} />
+        <Route path="/Manager/Payment" element={<Payment />} />
+        <Route path="/Manager/Payment/TrainerPay" element={<TrainerPay />} />
+        <Route path="/Manager/Payment/DoctorPay" element={<DoctorPay />} />
+        <Route
+          path="/Manager/Payment/ReceptionistPay"
+          element={<ReceptionistPay />}
+        />
+        <Route path="/Manager/Payment/MemberPay" element={<MemberPay />} />
       </Routes>
-
-  </>
+    </>
   );
 }
 
