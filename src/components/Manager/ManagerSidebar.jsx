@@ -24,6 +24,7 @@ export const ManagerSidebar = () => {
         <h2> Manager</h2>
       </div> */}
 
+<div className="ml-12 mt-12">
       <ul className="flex flex-col py-4 space-y-1 ml-[21%] mt-[15%]">
         <li>
           <Link
@@ -132,6 +133,7 @@ export const ManagerSidebar = () => {
           </Link>
         </li>
       </ul>
+      </div>
     </div>
   );
 };
