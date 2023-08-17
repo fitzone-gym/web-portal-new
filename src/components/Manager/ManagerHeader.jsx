@@ -21,8 +21,8 @@ const user = {
     { name: 'Reports', href: '#', current: false },
   ]
 const userNavigation = [
-  { name: 'Your Profile', href: '/Manager/Profile' },
-  { name: 'Sign out', href: '/' },
+  { name: 'View Profile', href: '/Manager/Profile' },
+  { name: 'Logout', href: '/' },
 ]
 
 function classNames(...classes) {

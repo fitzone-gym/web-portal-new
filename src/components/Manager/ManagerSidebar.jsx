@@ -7,7 +7,7 @@ import { MdOutlineStickyNote2 } from "react-icons/md";
 import { VscFeedback } from "react-icons/Vsc";
 import { MdOutlinePayments } from "react-icons/md";
 import { TbLogout } from "react-icons/Tb";
-import priofileimg from "../../assets/managerprofile.jpg";
+//import priofileimg from "../../assets/managerprofile.jpg";
 import { Link } from "react-router-dom";
 
 export const ManagerSidebar = () => {
