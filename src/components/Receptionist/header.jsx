@@ -28,14 +28,6 @@ function classNames(...classes) {
 export default function header() {
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
       <div
         className="header"
         style={{ backgroundColor: "#202224bf", height: 70 }}
@@ -138,7 +130,7 @@ export default function header() {
                   </div>
                 </div>
 
-                <Disclosure.Panel className="md:hidden">
+                <Disclosure.Panel className="md:hidden" style={{marginTop:"20px"}}>
                   <div className="border-t border-gray-700 pb-3 pt-4">
                     <div className="flex items-center px-5">
                       <div className="flex-shrink-0">

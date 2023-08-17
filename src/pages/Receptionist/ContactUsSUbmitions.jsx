@@ -24,6 +24,7 @@ import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import Button from "@mui/material/Button";
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+// import { makeStyles } from "@mui/styles";
 
 let theme = createTheme({
   palette: {
@@ -169,11 +170,22 @@ function Contactus_Form_Submitions() {
     );
   };
 
-  /*delete reply */
+  // const useStyles = makeStyles({
+  //   formInputs: {
+  //     fontSize: "13px",
+  //     "& .MuiInputBase-input": {
+  //       color: "red", // Customize the text color here
+  //     },
+  //   },
+  // });
+
+  //  const classes = useStyles();
   
 
   return (
+    
     <>
+    
       <div className="contactUsMessages">
         {/* <Disclosure
           as="nav"
