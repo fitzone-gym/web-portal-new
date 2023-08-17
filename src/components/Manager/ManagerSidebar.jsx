@@ -7,7 +7,7 @@ import { MdOutlineStickyNote2 } from "react-icons/md";
 import { VscFeedback } from "react-icons/Vsc";
 import { MdOutlinePayments } from "react-icons/md";
 import { TbLogout } from "react-icons/Tb";
-import priofileimg from "../../assets/managerprofile.jpg";
+//import priofileimg from "../../assets/managerprofile.jpg";
 import { Link } from "react-router-dom";
 
 export const ManagerSidebar = () => {
@@ -24,7 +24,8 @@ export const ManagerSidebar = () => {
         <h2> Manager</h2>
       </div> */}
 
-      <ul className="flex flex-col py-4 space-y-1 ml-[21%] mt-[15%]">
+    <div className="ml-12 mt-8">
+      <ul className="flex flex-col py-4 space-y-1">
         <li>
           <Link
             to="/Manager/Dashboard"
@@ -132,6 +133,7 @@ export const ManagerSidebar = () => {
           </Link>
         </li>
       </ul>
+      </div>
     </div>
   );
 };
