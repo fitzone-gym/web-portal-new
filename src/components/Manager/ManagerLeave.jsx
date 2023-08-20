@@ -14,7 +14,7 @@ export const ManagerLeave = () => {
       }}
     >
       <div>
-        <h1 className="font-bold text-red-600 text-5xl text-left ml-24 mt-16 mb-10">
+        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
           Leave Requests
         </h1>
       </div>
@@ -40,13 +40,13 @@ export const ManagerLeave = () => {
         <input
           type="search"
           id="default-search"
-          className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Search by name"
           required
         />
         <button
           type="submit"
-          className="text-white absolute right-2.5 bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="text-white absolute right-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           style={{
             marginTop: -41,
           }}
@@ -57,7 +57,7 @@ export const ManagerLeave = () => {
 
       <div className="relative overflow-x-auto">
         <table
-          className="w-full text-sm text-left text-white dark:text-gray-400 table-auto "
+          className="w-full text-sm text-left dark:text-gray-400 table-auto "
           style={{
             height: 160,
             width: "87%",
@@ -66,7 +66,7 @@ export const ManagerLeave = () => {
             marginRight: "-22%",
           }}
         >
-          <thead className="text-base text-white dark:text-gray-400  text-center">
+          <thead className="text-base dark:text-gray-400  text-center">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Reason
@@ -86,8 +86,8 @@ export const ManagerLeave = () => {
               <th scope="col" className="px-6 py-3"></th>
             </tr>
           </thead>
-          <tbody className="">
-            <tr className="text-white bg-[#333333] dark:bg-gray-800 border-white">
+          <tbody className="drop-shadow-md border">
+            <tr className="border-white">
               <th
                 scope="row"
                 className="px-6 py-4  whitespace-nowrap dark:text-white  text-center"
@@ -165,7 +165,7 @@ export const ManagerLeave = () => {
                 </div>
               </td>
             </tr>
-            <tr className="text-white bg-[#222222] dark:bg-gray-800">
+            <tr className="drop-shadow-md border">
               <th
                 scope="row"
                 className="px-6 py-4  whitespace-nowrap dark:text-white  text-center"
@@ -241,7 +241,7 @@ export const ManagerLeave = () => {
                 </div>
               </td>
             </tr>
-            <tr className="text-white bg-[#333333] dark:bg-gray-800">
+            <tr className="drop-shadow-md border">
               <th
                 scope="row"
                 className="px-6 py-4  whitespace-nowrap dark:text-white  text-center"
@@ -317,7 +317,7 @@ export const ManagerLeave = () => {
                 </div>
               </td>
             </tr>
-            <tr className="text-white bg-[#222222] dark:bg-gray-800">
+            <tr className="drop-shadow-md border">
               <th
                 scope="row"
                 className="px-6 py-4  whitespace-nowrap dark:text-white text-center"
@@ -393,7 +393,7 @@ export const ManagerLeave = () => {
                 </div>
               </td>
             </tr>
-            <tr className="text-white bg-[#333333] dark:bg-gray-800">
+            <tr className="drop-shadow-md border">
               <th
                 scope="row"
                 className="px-6 py-4  whitespace-nowrap dark:text-white text-center"
@@ -469,7 +469,7 @@ export const ManagerLeave = () => {
                 </div>
               </td>
             </tr>
-            <tr className="text-white bg-[#222222] dark:bg-gray-800">
+            <tr className="drop-shadow-md border">
               <th
                 scope="row"
                 className="px-6 py-4  whitespace-nowrap dark:text-white text-center"

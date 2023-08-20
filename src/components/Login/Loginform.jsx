@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const Loginform = () => {
   const [email, setEmail] = useState("");
@@ -65,7 +66,7 @@ export const Loginform = () => {
         </div>
       </div>
 
-      <div className="w-[150%] bg-black opacity-80 rounded-3xl sm:max-w-xl xl:py-4 md:mr-[10%] h-[80%]">
+      <div className="w-[150%] bg-black opacity-80 rounded-3xl sm:max-w-xl xl:py-4 md:mr-[10%] h-[60%]">
         <div className="p-6 space-y-4 md:space-y-10 sm:px-24 ">
           <h1 className="text-3xl lg:text-5xl font-bold leading-tight tracking-tight text-red-600">
             Sign in
@@ -136,13 +137,16 @@ export const Loginform = () => {
                 </a>
               </div>
             </div>
+            <Link 
+            to="/Manager/Dashboard">
             <button
               type="submit"
-              className="md:w-[62%] bg-red-600 hover:bg-red-800 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-red-800 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 text-md md:text-lg font-bold rounded-lg px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              onClick={handleLogin}
+              className="mt-6 md:w-[62%] bg-red-600 hover:bg-red-800 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-red-800 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 text-md md:text-lg font-bold rounded-lg px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              // onClick={handleLogin}
             >
               Sign in
             </button>
+            </Link>
             <p className="text-xs md:text-sm font-light text-white dark:text-gray-400">
               Don’t have an account yet?{" "}
               <a

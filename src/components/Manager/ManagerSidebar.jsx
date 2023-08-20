@@ -7,12 +7,12 @@ import { MdOutlineStickyNote2 } from "react-icons/md";
 import { VscFeedback } from "react-icons/Vsc";
 import { MdOutlinePayments } from "react-icons/md";
 import { TbLogout } from "react-icons/Tb";
-import priofileimg from "../../assets/managerprofile.jpg";
+//import priofileimg from "../../assets/managerprofile.jpg";
 import { Link } from "react-router-dom";
 
 export const ManagerSidebar = () => {
   return (
-    <div className="sidenavbar font-bold rounded-tr-lg bg-[#E54646] w-[15%] mt-20 h-[92%] fixed">
+    <div className="sidenavbar font-bold rounded-tr-lg bg-[#E54646] w-[15%] mt-[4%] h-[92%] fixed">
       {/* <div className="profileimage max-lg:hidden">
         <img
           src={priofileimg}
@@ -24,6 +24,7 @@ export const ManagerSidebar = () => {
         <h2> Manager</h2>
       </div> */}
 
+<div className="ml-12 mt-12">
       <ul className="flex flex-col py-4 space-y-1 ml-[21%] mt-[15%]">
         <li>
           <Link
@@ -132,6 +133,7 @@ export const ManagerSidebar = () => {
           </Link>
         </li>
       </ul>
+      </div>
     </div>
   );
 };
