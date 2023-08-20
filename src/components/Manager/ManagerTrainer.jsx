@@ -61,13 +61,13 @@ export const ManagerTrainer = () => {
       }}
     >
       <div>
-        <h1 className="font-bold text-red-600 text-5xl text-left ml-32 mt-10 mb-10">
+        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
           Gym Trainers
         </h1>
       </div>
 
-      <div className="w-[110%]">
-        <div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-20 pt-6 pb-6 rounded-t-lg ">
+      <div className="w-[106%]">
+        <div className="grid grid-flow-col auto-cols-2 bg-neutral-700 ml-20 pt-6 pb-6 rounded-t-lg ">
           <div className="text-white text-2xl ml-5">Trainers Details</div>
           <div
             className=""
@@ -109,7 +109,7 @@ export const ManagerTrainer = () => {
                 />
                 <button
                   type="submit"
-                  className="text-white absolute right-2.5 mr-[-20%] bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white absolute right-2.5 mr-[-20%] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   style={{
                     marginTop: -41,
                   }}

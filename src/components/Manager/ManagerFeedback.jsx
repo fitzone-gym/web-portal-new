@@ -14,11 +14,11 @@ export const ManagerFeedback = () => {
       }}
     >
       <div>
-        <h1 className="font-bold text-red-600 text-5xl text-left ml-32 mt-12 mb-10">
+        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
           Feedback
         </h1>
         <div
-          className="bg-gray-400 font-bold text-2xl rounded-xl ml-44 mt-16"
+          className="border drop-shadow-md font-bold text-2xl rounded-xl ml-44 mt-16"
           style={{
             height: "30%",
             width: "83%",

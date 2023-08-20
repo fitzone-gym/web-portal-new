@@ -14,20 +14,20 @@ export const ManagerStaffmembers = () => {
       style={{
         position: "relative",
         top: 50,
-        left: 250,
+        left: 290,
         right: 0,
         bottom: 0,
       }}
     >
       <div>
-        <h1 className="font-bold text-5xl text-left ml-32 mt-16 mb-10 text-red-600">
+        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
           Staff Members Dashboard
         </h1>
       </div>
 
-      <div className="w-[100%] grid grid-cols-3 gap-4 ml-[10%] mt-12">
+      <div className="w-[100%] grid grid-cols-3 gap-4 ml-[8%] mt-12">
         <div
-          className="bg-[#222222] font-bold text-2xl hover:bg-gray-900 border border-white/[.5] "
+          className="bg-white font-bold text-2xl hover:bg-gray-500 border rounded-lg drop-shadow-md "
           style={{
             height: 220,
             width: 350,
@@ -35,17 +35,14 @@ export const ManagerStaffmembers = () => {
         >
           <Link to="/Manager/Staffmembers/Trainer">
             <div className="mt-16 text-6xl flex justify-center items-center">
-              <BsPeopleFill className="icon"
-              style={{
-                color:"white"
-              }}/>
+              <BsPeopleFill className="icon"/>
             </div>
-            <h1 className=" text-white">Trainers</h1>
+            <h1 className=" ">Trainers</h1>
           </Link>
         </div>
 
         <div
-          className="bg-[#222222]  font-bold text-2xl hover:bg-gray-900 border border-white/[.5] "
+          className="bg-white  font-bold text-2xl hover:bg-gray-500 border rounded-lg drop-shadow-md "
           style={{
             height: 220,
             width: 350,
@@ -55,17 +52,15 @@ export const ManagerStaffmembers = () => {
             <div
               className="mt-16 text-6xl flex justify-center items-center"
             >
-              <BsFillPersonPlusFill className="icon ml-3"
-              style={{
-                color:"white"
-              }}/>
+              <BsFillPersonPlusFill className="icon ml-3" />
+             
             </div>
-            <h1 className=" text-white">Doctor</h1>
+            <h1 className=" ">Doctor</h1>
           </Link>
         </div>
 
         <div
-          className="bg-[#222222]  font-bold text-2xl hover:bg-gray-900 border border-white/[.5] "
+          className="bg-white  font-bold text-2xl hover:bg-gray-500 border rounded-lg drop-shadow-md "
           style={{
             height: 220,
             width: 350,
@@ -73,12 +68,9 @@ export const ManagerStaffmembers = () => {
         >
           <Link to="/Manager/Staffmembers/Receptionist">
             <div className="mt-16 text-6xl flex justify-center items-center">
-              <BsFillPersonFill className="icon"
-              style={{
-                color:"white"
-              }}/>
+              <BsFillPersonFill className="icon"/>
             </div>
-            <h1 className="text-center text-white">Receptionist</h1>
+            <h1 className="text-center ">Receptionist</h1>
           </Link>
         </div>
       </div>
@@ -93,7 +85,7 @@ export const ManagerStaffmembers = () => {
             width: 590,
           }}
         >
-          <h1 className="text-white font-bold text-2xl text-center">
+          <h1 className=" font-bold text-3xl text-center">
             Gym Staff Composition
           </h1>
           <img className="w-80 h-80 mt-10 ml-44" src={images.stfcompImage} alt="" />
@@ -101,7 +93,7 @@ export const ManagerStaffmembers = () => {
 
         {/* 2 box */}
         <div className="font-bold rounded-sm text-left max-lg:hidden w-[100%]">
-          <div className="text-2xl text-white ml-28 mt-[7%] py-3">
+          <div className="text-3xl  ml-28 mt-[7%] py-3">
             <h1>Gym Member Compisition</h1>
             <img
               className="w-[50%] h-88 mt-10 ml-12"

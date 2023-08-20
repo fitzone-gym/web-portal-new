@@ -8,11 +8,11 @@ import winImage from "../../assets/win.jpg"
 export const ManagerMessages = () => {
   return (
     <div className="w-[80%] mx-auto mt-4">
-      <h1 className="font-bold text-red-600 text-5xl text-left mt-24 ml-52 mb-10">
+      <h1 className="font-bold text-5xl text-left mt-24 ml-52 mb-10">
         Messages
       </h1>
 
-      <table className="text-white mx-auto ml-72 mt-[-1%]">
+      <table className=" mx-auto ml-72 mt-[-1%]">
         <thead>
           <tr>
             <th colSpan={3} className="text-xl text-left">
@@ -179,54 +179,54 @@ export const ManagerMessages = () => {
       </table>
       <hr className='mt-2 w-[90%] ml-52'></hr>
 
-      <p className='mt-2 text-left  ml-72 text-xl text-red-600'>Recent Chats</p>
+      <p className='mt-2 text-left  ml-72 text-xl'>Recent Chats</p>
       <table className='ml-80 mt-8 w-[72%]'>
-        <tr className='bg-gray-800'
+        <tr className='bg-gray-100'
              style={{ position: "relative", top: -25, left: 0, right: 0, bottom: 0 }}>
         <img
                   src={brightImage}
                   alt=""
                   className="w-10 h-10 rounded-full ml-4 mt-2"
                 />
-                <p className='mt-[-3%] ml-[-73%] text-base text-white'>Jayani Ranasinghe</p>
+                <p className='mt-[-3%] ml-[-73%] text-base '>Jayani Ranasinghe</p>
                 <p className='mt-[0.01%] ml-[-73%] text-red-600 text-sm'>Hey, What's up bro?</p>
-                <p className='mt-[-3%] ml-[83%] text-sm text-white'>8.45pm</p>
+                <p className='mt-[-3%] ml-[83%] text-sm '>8.45pm</p>
                 <hr className='mt-4'></hr>
         </tr>
-        <tr className='bg-gray-800'
+        <tr className='bg-gray-100'
              style={{ position: "relative", top: -25, left: 0, right: 0, bottom: 0 }}>
         <img
                   src={brightImage}
                   alt=""
                   className="w-10 h-10 rounded-full ml-4 mt-2"
                 />
-                <p className='mt-[-3%] ml-[-73%] text-base text-white'>Jayani Ranasinghe</p>
+                <p className='mt-[-3%] ml-[-73%] text-base '>Jayani Ranasinghe</p>
                 <p className='mt-[0.01%] ml-[-73%] text-red-600 text-sm'>Hey, What's up bro?</p>
-                <p className='mt-[-3%] ml-[83%] text-sm text-white'>8.45pm</p>
+                <p className='mt-[-3%] ml-[83%] text-sm '>8.45pm</p>
                 <hr className='mt-4'></hr>
         </tr>
-        <tr className='bg-gray-800'
+        <tr className='bg-gray-100'
              style={{ position: "relative", top: -25, left: 0, right: 0, bottom: 0 }}>
         <img
                   src={brightImage}
                   alt=""
                   className="w-10 h-10 rounded-full ml-4 mt-2"
                 />
-                <p className='mt-[-3%] ml-[-73%] text-base text-white'>Jayani Ranasinghe</p>
+                <p className='mt-[-3%] ml-[-73%] text-base '>Jayani Ranasinghe</p>
                 <p className='mt-[0.01%] ml-[-73%] text-red-600 text-sm'>Hey, What's up bro?</p>
-                <p className='mt-[-3%] ml-[83%] text-sm text-white'>8.45pm</p>
+                <p className='mt-[-3%] ml-[83%] text-sm '>8.45pm</p>
                 <hr className='mt-4'></hr>
         </tr>
-        <tr className='bg-gray-800'
+        <tr className='bg-gray-100'
              style={{ position: "relative", top: -25, left: 0, right: 0, bottom: 0 }}>
         <img
                   src={brightImage}
                   alt=""
                   className="w-10 h-10 rounded-full ml-4 mt-2"
                 />
-                <p className='mt-[-3%] ml-[-73%] text-base text-white'>Jayani Ranasinghe</p>
+                <p className='mt-[-3%] ml-[-73%] text-base '>Jayani Ranasinghe</p>
                 <p className='mt-[0.01%] ml-[-73%] text-red-600 text-sm'>Hey, What's up bro?</p>
-                <p className='mt-[-3%] ml-[83%] text-sm text-white'>8.45pm</p>
+                <p className='mt-[-3%] ml-[83%] text-sm '>8.45pm</p>
                 <hr className='mt-4'></hr>
         </tr>
       </table>

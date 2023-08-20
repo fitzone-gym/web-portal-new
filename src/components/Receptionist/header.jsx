@@ -100,12 +100,12 @@ export default function header() {
                         </Menu>
 
                         <div className="text-white ml-4 mr-4">
-                          <h5 className="text-left">Jayani Ranasinghe</h5>
+                          <h5 className="text-left">Murali Jasitharan </h5>
                           <p
                             className=""
                             style={{ fontSize: 12, color: "gray" }}
                           >
-                            jayaniranasinghe@gmail.com
+                            muralijasi@gmail.com
                           </p>
                         </div>
                       </div>
