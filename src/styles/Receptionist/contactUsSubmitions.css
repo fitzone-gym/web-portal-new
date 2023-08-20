@@ -1,14 +1,14 @@
 .sectionHeader{
-    color:#E54646;
+    color:#003049;
     text-align: left;
     padding:0px 0px 40px 40px;
     font-weight: 600;
-    font-size:30px;
+    font-size:25px;
 }
 .contactUsMessages{
-    background-color:#121212;
     width:100%;
     height:100%;
+    padding-top:90px;
 }
 
 .contactUsCardSet{
@@ -20,34 +20,39 @@
 }
 
 .contactUsMessages .contactUsCardSet .individualSubmition{
-    background-color:#202224bf;
+    background-color:#ffffff;
     text-align:left;
     margin:0px 30px 30px 30px;
     padding:20px;
-    border-radius:20px;
-    border: 1px solid transparent;
+    border-radius:10px;
+    /* border: 1px solid transparent; */
+    /* box-shadow: (0, 0, 0, 0.1) 0px 4px 12px; */
 }
 
 .contactUsMessages .contactUsCardSet .individualSubmition:hover{
-    border:1px solid #4d4c4c;
+    /* border:1px solid #f0efef; */
 }
 
 .contactUsMessages .contactUsCardSet .userName {
-    color:white;
+    color:rgb(0, 0, 0);
     font-weight:600;
 }
 
 .contactUsMessages .contactUsCardSet .submitDate{
-    color:#f4f7ca;
+    color:#000000;
 }
 
 .contactUsMessages .contactUsCardSet .sumbitProblem {
-    color:#ede4e4;
+    color:#393737;
     line-height:28px;
+    text-align: justify;
+    font-size:13px;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .contactUsMessages .contactUsCardSet .openReplySection {
-    color: rgb(251, 214, 126);
+    color: rgb(185, 37, 37);
     font-size:13px;
 }
 
@@ -56,6 +61,11 @@
     border-radius:50px;
     font-size:13px;
     text-transform: lowercase;
+    color:#fcbf49;
+}
+
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-roo{
+    border:1px solid #fcbf49;
 }
 
 .contactUsMessages .contactUsCardSet .responseStateBtnPending{
@@ -63,13 +73,14 @@
     border-radius: 50px;
     font-size: 13px;
     text-transform: lowercase;
+    color:#eae2b7;
     
 }
 
 .replySectionHeader{
     margin-top:30px;
     margin-bottom:20px;
-    color:rgb(251, 214, 126);
+    color:rgb(143, 137, 137);
 }
 
 .fromToMessageSection .formInputs{
@@ -105,17 +116,22 @@
     border-radius: 10px;
 }
 
+.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input{
+    color:gray;
+    font-family: 'Poppins', sans-serif;
+    font-size:13px;
+
+}
+
 
 /*delete popup*/
 
-.deletePopup{
-    
-}
 
 #responsive-dialog-title{
     background-color: black;
     font-family: 'Poppins', sans-serif;
     color: white;
+
 }
 
 .dialogContentSection{
@@ -126,6 +142,7 @@
 .dialogContentText{
     font-family: 'Poppins', sans-serif;
     color: rgb(208, 202, 202);
+    font-size:13px;
 }
 
 .buttonSection{

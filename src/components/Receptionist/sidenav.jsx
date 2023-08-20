@@ -2,12 +2,18 @@ import "../../styles/Receptionist/Sidenav.css";
 
 function sidenav() {
   return (
-    <div className="sidenavbar" style={{ paddingLeft: "20px" }}>
+    <div className="sidenavbar">
       <ul className="flex flex-col py-5 space-y-1 font-bold text-center ml-10">
         <li>
           <a
             href="/Receptionist/Dashboard"
             className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+            style={{
+              border: "2px solid #E54646",
+              borderRadius: "5px",
+             marginLeft: "10px",
+              marginRight: "20px",
+            }}
           >
             <span className="inline-flex justify-center items-center ml-4">
               <svg
@@ -26,7 +32,7 @@ function sidenav() {
               </svg>
             </span>
             <span className="ml-2 text-sm tracking-wide truncate">
-              DASHBOARD
+              Dashboard
             </span>
           </a>
         </li>
@@ -51,7 +57,7 @@ function sidenav() {
                 ></path>
               </svg>
             </span>
-            <span className="ml-2 text-sm tracking-wide truncate">MEMBERS</span>
+            <span className="ml-2 text-sm tracking-wide truncate">Members</span>
           </a>
         </li>
         <li>
@@ -76,7 +82,7 @@ function sidenav() {
               </svg>
             </span>
             <span className="ml-2 text-sm tracking-wide truncate">
-              TRAINERS
+              Trainers
             </span>
           </a>
         </li>
@@ -102,7 +108,7 @@ function sidenav() {
               </svg>
             </span>
             <span className="ml-2 text-sm tracking-wide truncate">
-              ANNOUNCEMENTS
+              Annouments
             </span>
           </a>
         </li>
@@ -129,7 +135,7 @@ function sidenav() {
               </svg>
             </span>
             <span className="ml-2 text-sm tracking-wide truncate">
-              PAYMENTS
+              Payments
             </span>
           </a>
         </li>
@@ -155,7 +161,7 @@ function sidenav() {
                 ></path>
               </svg>
             </span>
-            <span className="ml-2 text-sm tracking-wide truncate">PROFILE</span>
+            <span className="ml-2 text-sm tracking-wide truncate">Profile</span>
           </a>
         </li>
         <li>
@@ -186,7 +192,7 @@ function sidenav() {
               </svg>
             </span>
             <span className="ml-2 text-sm tracking-wide truncate">
-              ATTENDENCE
+              Attendence
             </span>
           </a>
         </li>
@@ -218,7 +224,7 @@ function sidenav() {
               </svg>
             </span>
             <span className="ml-2 text-sm tracking-wide truncate">
-              GET IN TOUCH
+              Get In Touch
             </span>
           </a>
         </li>
@@ -243,7 +249,7 @@ function sidenav() {
                 ></path>
               </svg>
             </span>
-            <span className="ml-2 text-sm tracking-wide truncate">LOGOUT</span>
+            <span className="ml-2 text-sm tracking-wide truncate">Logout</span>
           </a>
         </li>
       </ul>

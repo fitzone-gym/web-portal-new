@@ -32,7 +32,7 @@ let theme = createTheme({
       main: "#0052cc",
     },
     secondary: {
-      main: "#edf2ff",
+      main: "#003049",
     },
   },
 });
@@ -183,9 +183,7 @@ function Contactus_Form_Submitions() {
   
 
   return (
-    
     <>
-    
       <div className="contactUsMessages">
         {/* <Disclosure
           as="nav"
@@ -210,9 +208,9 @@ function Contactus_Form_Submitions() {
                 <CardHeader
                   avatar={
                     <Avatar
-                      sx={{ bgcolor: "#54f098" }}
+                      sx={{ bgcolor: "#E54646" }}
                       aria-label="recipe"
-                      style={{ backgroundColor: "#ffba16" }}
+                      style={{ backgroundColor: "#E54646" }}
                     >
                       {request.name[0]}
                     </Avatar>
