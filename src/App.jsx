@@ -12,7 +12,6 @@ import { BrowserRouter,Routes, Route } from "react-router-dom";
 
 // import R_Dashboard from "./pages/Receptionist/R_Dashboard";
 
-import R_Header from './components/Receptionist/header';
 import  R_Dashboard  from "./pages/Receptionist/R_Dashboard";
 import R_Memeberlist from "./pages/Receptionist/R_Memeberlist";
 import R_Trainerlist from "./pages/Receptionist/R_Trainerlist";
@@ -108,7 +107,7 @@ function App() {
         <Route path="/Doctor/MembersList" element={<D_Memberslist />} />
         <Route path="/Doctor/checkupform" element={<D_Checkupforms />} />
         <Route path="/Doctor/Appointments" element={<D_Appointments />} />
-        <Route path="/Doctor/Appointments" element={<D_Appointments />} />
+
 
         <Route path="/" element={<Login />} />
         <Route path="/Manager/Dashboard" element={<Dashboard />} />

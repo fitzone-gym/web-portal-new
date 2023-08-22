@@ -1,18 +1,18 @@
-import React from 'react'
-// import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Header from '../../components/Doctor/header';
-import Sidenav from '../../components/Doctor/sidenav';
+import React from "react";
 
-function D_Checkupforms() {
+import Header from "../../components/Receptionist/header";
+import Sidenav from "../../components/Receptionist/sidenav";
+import "../../styles/Receptionist/contactUsSubmitions.css";
+
+function Layout() {
   return (
-
-    <div>
-       <Header/>
-        <Sidenav/>
-   
-    </div>
-  )
+    <>
+      <div className="contactUsMessages">
+        <Header />
+        <Sidenav />
+      </div>
+    </>
+  );
 }
 
-export default D_Checkupforms
+export default Layout;
