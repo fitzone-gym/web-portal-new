@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 export const ManagerMembers = () => {
   const [data, setData] = useState([]); // Initialize data with an empty array
+  const [searchTerm, setSearchTerm] = useState(""); // State to store the search term
+  const [searchResults, setSearchResults] = useState([]); // State to store search results
 
   useEffect(() => {
     const fetchMembers = async () => {
@@ -20,6 +22,17 @@ export const ManagerMembers = () => {
     fetchMembers();
   }, []);
 
+  const handleSearch = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.get(
+        `http://localhost:5400/members/searchMembers?searchTerm=${searchTerm}`
+      );
+      setSearchResults(response.data.data);
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
   return (
     <div
       className=""
@@ -41,14 +54,14 @@ export const ManagerMembers = () => {
         <div className="grid grid-flow-col auto-cols-2 bg-neutral-700 ml-20 pt-6 pb-6 rounded-t-lg ">
           <div className="text-white text-2xl ">Member Details</div>
           <div
-            className=" "
+            className=""
             style={{
               marginLeft: 600,
             }}
           >
-            <form>
+            <form onSubmit={handleSearch}>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-24%]">
                   <svg
                     className="w-4 h-4 text-gray-500 dark:text-gray-400"
                     aria-hidden="true"
@@ -66,15 +79,16 @@ export const ManagerMembers = () => {
                   </svg>
                 </div>
                 <input
-                  type="search"
-                  id="default-search"
-                  className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Search Name,Level..."
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="block w-[130%] ml-[-25%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                  placeholder="Search Name,Package Type..."
                   required
                 />
                 <button
                   type="submit"
-                  className="text-white absolute right-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="mr-[-4%] text-white absolute right-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   style={{
                     marginTop: -41,
                   }}
@@ -127,7 +141,7 @@ export const ManagerMembers = () => {
                   Phone No
                 </th>
                 <th scope="col" className="px-6 py-3">
-                Package Type
+                  Package Type
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Action
@@ -135,32 +149,57 @@ export const ManagerMembers = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((member, index) => {
-                return (
-                  <tr
-                    key={index}
-                    className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
-                  >
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              {searchResults.length > 0
+                ? searchResults.map((member, index) => (
+                    <tr
+                      key={index}
+                      className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
                     >
-                      {member.first_name + " " + member.last_name}{" "}
-                    </th>
-                    <td className="px-6 py-4">{member.email} </td>
-                    <td className="px-6 py-4">{member.phone_no}</td>{" "}
-                    <td className="px-6 py-4">{member.package}</td>
-                    <td className="px-6 py-4">
-                      <Link
-                        to="#"
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      <th
+                        scope="row"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                       >
-                        View
-                      </Link>
-                    </td>
-                  </tr>
-                );
-              })}
+                        {member.first_name + " " + member.last_name}{" "}
+                      </th>
+                      <td className="px-6 py-4">{member.email} </td>
+                      <td className="px-6 py-4">{member.phone_no}</td>{" "}
+                      <td className="px-6 py-4">{member.package}</td>
+                      <td className="px-6 py-4">
+                        <Link
+                          to="#"
+                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                        >
+                          View
+                        </Link>
+                      </td>
+                    </tr>
+                  ))
+                : data.map((member, index) => {
+                    return (
+                      <tr
+                        key={index}
+                        className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
+                      >
+                        <th
+                          scope="row"
+                          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        >
+                          {member.first_name + " " + member.last_name}{" "}
+                        </th>
+                        <td className="px-6 py-4">{member.email} </td>
+                        <td className="px-6 py-4">{member.phone_no}</td>{" "}
+                        <td className="px-6 py-4">{member.package}</td>
+                        <td className="px-6 py-4">
+                          <Link
+                            to="#"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          >
+                            View
+                          </Link>
+                        </td>
+                      </tr>
+                    );
+                  })}
             </tbody>
           </table>
         </div>

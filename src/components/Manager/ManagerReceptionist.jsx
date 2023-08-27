@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import {images} from '../../constants';
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const ManagerReceptionist = () => {
+  const [data, setData] = useState([]); // Initialize data with an empty array
+
+  useEffect(() => {
+    const fetchDoctor = async () => {
+      try {
+        console.log("ts");
+        const response = await axios.get("http://localhost:5400/receptionistDetails");
+         console.log("tt"+ response.data.data); // Check the API response data
+        // console.log(typeof response.data.data); // Check the type of response.data
+        setData(response.data.data); // Assuming the response contains an array of trainer objects
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+
+    fetchDoctor();
+  }, []);
+
   return (
     <div
       className=""
@@ -83,7 +103,7 @@ export const ManagerReceptionist = () => {
                   Receptionist name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Joined Date
+                  Address
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Email
@@ -97,16 +117,20 @@ export const ManagerReceptionist = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            {data.map((receptionist, index) => {
+                return (
+              <tr
+              key={index}
+              className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  Jayani Ranasinghe
+                  {receptionist.first_name + " " + receptionist.last_name}{" "}
                 </th>
-                <td className="px-6 py-4">3 Septemebr 2023</td>
-                <td className="px-6 py-4">jayaniransinghe98@gmail.com</td>
-                <td className="px-6 py-4">0734609741</td>
+                <td className="px-6 py-4">{receptionist.address}</td>
+                <td className="px-6 py-4">{receptionist.email}</td>
+                <td className="px-6 py-4">{receptionist.phone_no}</td>{" "}
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -123,32 +147,8 @@ export const ManagerReceptionist = () => {
                   </a>
                 </td>
               </tr>
-              <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Lasith Senadheera
-                </th>
-                <td className="px-6 py-4">30 September 2023</td>
-                <td className="px-6 py-4">lasith@gmail.com</td>
-                <td className="px-6 py-4">0714667864</td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4"
-                  >
-                    View
-                  </a>
-
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    Delete
-                  </a>
-                </td>
-              </tr>
+               );
+              })}
             </tbody>
           </table>
         </div>
