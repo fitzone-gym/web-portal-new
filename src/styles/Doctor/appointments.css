@@ -25,3 +25,9 @@
     justify-content: center;
     font-size:13px;
 }
+
+.formTopic {
+    font-weight: bold;
+    font-size: 16px;
+    color: #124e78
+}

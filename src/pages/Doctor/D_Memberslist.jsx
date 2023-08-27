@@ -3,15 +3,36 @@ import React, { useRef, useState, useEffect } from "react";
 
 import Header from "../../components/header";
 import Sidenav from "../../components/Doctor/sidenav";
-import "../../styles/Receptionist/contactUsSubmitions.css";
+import "../../styles/Doctor/memberList.css";
 import profile1 from "../../assets/profile1.jpeg";
 import profile2 from "../../assets/profile2.jpg";
 import profile3 from "../../assets/profile3.jpg";
 
 
 
+/*popup form */
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+
+
 
 function D_MemberList() {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
  
 
   // const handleSubmit = (e, requestId) => {
@@ -48,6 +69,18 @@ function D_MemberList() {
   //     .catch((error) => {
   //       console.log("Error submitting data", error);
   //     });
+  // };
+
+  // const styles = {
+  //   label: {
+  //     fontSize: "13px",
+  //     fontFamily: "Poppins, sans-serif", // Change to the desired font family
+  //     color: "gray",
+  //     fontWeight: 500,
+  //   },
+  //   input: {
+  //     fontSize: "13px",
+  //   },
   // };
 
  
@@ -192,7 +225,7 @@ function D_MemberList() {
                     Name
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Position
+                    Joined date
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Status
@@ -235,15 +268,17 @@ function D_MemberList() {
                   <td className="px-6 py-4">React Developer</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="statusBatchOff">Offline</div>
+                      <div className="statusBatchOff">Not</div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
                     <a
                       href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
+                      style={{textDecoration:"none"}}
+                      onClick={handleClickOpen}
                     >
-                      Edit user
+                      Report
                     </a>
                   </td>
                 </tr>
@@ -281,7 +316,7 @@ function D_MemberList() {
                   <td className="px-6 py-4">Designer</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="statusBatch">Offline</div>
+                      <div className="statusBatch">Update</div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
@@ -289,7 +324,7 @@ function D_MemberList() {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      Edit user
+                      Report
                     </a>
                   </td>
                 </tr>
@@ -325,7 +360,7 @@ function D_MemberList() {
                   <td className="px-6 py-4">Vue JS Developer</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="statusBatchOff">Offline</div>
+                      <div className="statusBatchOff">Not</div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
@@ -333,7 +368,7 @@ function D_MemberList() {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      Edit user
+                      Report
                     </a>
                   </td>
                 </tr>
@@ -369,7 +404,7 @@ function D_MemberList() {
                   <td className="px-6 py-4">UI/UX Engineer</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="statusBatch">Offline</div>
+                      <div className="statusBatch">Update</div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
@@ -377,7 +412,7 @@ function D_MemberList() {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      Edit user
+                      Report
                     </a>
                   </td>
                 </tr>
@@ -415,7 +450,7 @@ function D_MemberList() {
                   <td className="px-6 py-4">SEO Specialist</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="statusBatch">Offline</div>
+                      <div className="statusBatch">Update</div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
@@ -423,7 +458,7 @@ function D_MemberList() {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      Edit user
+                      Report
                     </a>
                   </td>
                 </tr>
@@ -432,6 +467,146 @@ function D_MemberList() {
           </div>
         </div>
       </div>
+
+      {/* dialog popup */}
+      <Dialog open={open} onClose={handleClose}>
+        {/* <DialogTitle>Subscribe</DialogTitle> */}
+        <DialogContent>
+          <DialogContentText>
+            <p className="pt-2 healthpopUpUserName">Neil singh</p>
+            <p className="healthpopUpUserAge">25 year</p>
+          </DialogContentText>
+          <div className="pt-10">
+            <div className="flex gap-4 pb-3 formInputs">
+              <TextField
+                id="outlined-read-only-input"
+                label="Weight(kg)"
+                defaultValue="55"
+                size="small"
+                // InputLabelProps={{
+                //   style: styles.label, // Apply the style to the label
+                // }}
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-read-only-input"
+                label="Height(cm)"
+                defaultValue="180"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-read-only-input"
+                label="BMI"
+                defaultValue="20.5"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+
+            <div className="flex gap-4 pt-3">
+              <TextField
+                id="outlined-read-only-input"
+                label="Sugar(mg/dL)"
+                defaultValue="70-100"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-read-only-input"
+                label="Blood Peasure(mmHg)"
+                defaultValue="120-129"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-read-only-input"
+                label="Colestrol Level(mg/dL)"
+                defaultValue="200-239"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+
+            <div className="pt-6">
+              <TextField
+                id="outlined-read-only-input"
+                label="Inguries"
+                defaultValue="Mild abrasions and contusions on the forehead and right cheek.No signs of skull fracture or concussion observed.Recommended wound cleaning and application of antibiotic ointment."
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    width: "550px",
+                    height: "50px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+          </div>
+        </DialogContent>
+        <DialogActions>
+          <button onClick={handleClose} className="dialogCloseBtn">
+            CLOSE
+          </button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }

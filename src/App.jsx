@@ -20,11 +20,10 @@ import R_Userprofile from "./pages/Receptionist/R_Userprofile";
 import R_Attendence from "./pages/Receptionist/R_Attendence"
 import R_onememberattendence from "./pages/Receptionist/onememberattendence"
 import D_Dashboard from "./pages/Doctor/D_Dashboard";
-import D_Leaverequest from "./pages/Doctor/D_Leaverequest";
+import D_Leaverequest from "./pages/Doctor/D_LeaveRequest";
 import D_PaymentHistory from "./pages/Doctor/D_PaymentHistory";
 import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
 import R_Payment from './pages/Receptionist/R_Payment'
-import D_Checkupforms from "./pages/Doctor/D_Checkupforms";
 import R_Memberprofile from './pages/Receptionist/R_Memberprofile'
 import R_Trainerprofile from "./pages/Receptionist/R_Trainerprofile";
 import D_Myprofile from './pages/Doctor/D_Myprofile'
@@ -105,9 +104,8 @@ function App() {
         <Route path="/Doctor/Payment" element={<D_PaymentHistory />} />
         <Route path="/Doctor/Myprofile" element={<D_Myprofile />} />
         <Route path="/Doctor/MembersList" element={<D_Memberslist />} />
-        <Route path="/Doctor/checkupform" element={<D_Checkupforms />} />
         <Route path="/Doctor/Appointments" element={<D_Appointments />} />
-
+        <Route path="/Doctor/LeaveRequests" element={<D_Leaverequest />} />
 
         <Route path="/" element={<Login />} />
         <Route path="/Manager/Dashboard" element={<Dashboard />} />

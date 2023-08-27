@@ -179,16 +179,16 @@ function D_Payments() {
                     </div>
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Name
+                    Payment ID
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Position
+                    Payment Date
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Status
+                    Month
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Action
+                    Amout (LKR)
                   </th>
                 </tr>
               </thead>
@@ -211,25 +211,21 @@ function D_Payments() {
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">Neil Sims</div>
-                      <div className="font-normal text-gray-500">
-                        neil.sims@flowbite.com
-                      </div>
+                      <div className="text-base font-semibold">#0001</div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">React Developer</td>
+                  <td className="px-6 py-4">2023-08-23</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="statusBatch">Online</div>
+                      <div className="statusBatch">January</div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    <p
+                      className="font-medium text-blue-600 dark:text-blue-500 DSalaryAmount"
                     >
-                      Edit user
-                    </a>
+                      50000.00
+                    </p>
                   </td>
                 </tr>
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">

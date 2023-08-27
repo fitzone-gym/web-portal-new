@@ -5,7 +5,29 @@ import Sidenav from "../../components/Doctor/sidenav";
 import "../../styles/Doctor/appointments.css";
 import profile from "../../assets/profile.jpeg";
 
+/*popup form */
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+
 function D_Appointments() {
+
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+
+    const handleClose = () => {
+      setOpen(false);
+    };
+
+
   // const handleSubmit = (e, requestId) => {
   //   e.preventDefault();
 
@@ -51,16 +73,12 @@ function D_Appointments() {
         <div
           className=""
           style={{
-            // marginLeft: "17%",
             marginRight: "20px",
             marginLeft: "17%",
             marginTop: "50px",
             textAlign: "center",
           }}
         >
-          {/* <div className="sectionHeader">
-            <h2>Appointments</h2>
-          </div> */}
           <div
             className="relative  shadow-md sm:rounded-lg"
             style={{ margin: "0px 30px 30px 30px" }}
@@ -182,7 +200,7 @@ function D_Appointments() {
                     Name
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Position
+                    Appointment Date
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Status
@@ -220,15 +238,15 @@ function D_Appointments() {
                   <td className="px-6 py-4">React Developer</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="statusBatch">Online</div>
+                      <div className="statusBatch">Old</div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
                     <a
-                      href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      onClick={handleClickOpen}
                     >
-                      Edit user
+                      View
                     </a>
                   </td>
                 </tr>
@@ -261,15 +279,15 @@ function D_Appointments() {
                   <td className="px-6 py-4">Designer</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="statusBatch">Online</div>
+                      <div className="statusBatch">Old</div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
                     <a
-                      href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      onClick={handleClickOpen}
                     >
-                      Edit user
+                      View
                     </a>
                   </td>
                 </tr>
@@ -300,15 +318,15 @@ function D_Appointments() {
                   <td className="px-6 py-4">Vue JS Developer</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="statusBatch">Online</div>
+                      <div className="statusBatch">Old</div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
                     <a
-                      href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      onClick={handleClickOpen}
                     >
-                      Edit user
+                      View
                     </a>
                   </td>
                 </tr>
@@ -339,7 +357,7 @@ function D_Appointments() {
                   <td className="px-6 py-4">UI/UX Engineer</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="statusBatch">Online</div>
+                      <div className="statusBatch">Old</div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
@@ -347,7 +365,7 @@ function D_Appointments() {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      Edit user
+                      View
                     </a>
                   </td>
                 </tr>
@@ -380,7 +398,7 @@ function D_Appointments() {
                   <td className="px-6 py-4">SEO Specialist</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="statusBatchOff">Offline</div>
+                      <div className="statusBatchOff">New</div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
@@ -388,7 +406,7 @@ function D_Appointments() {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      Edit user
+                      View
                     </a>
                   </td>
                 </tr>
@@ -397,6 +415,202 @@ function D_Appointments() {
           </div>
         </div>
       </div>
+
+      {/* dialog popup */}
+      <Dialog open={open} onClose={handleClose}>
+        {/* <DialogTitle>Subscribe</DialogTitle> */}
+        <DialogContent>
+          <DialogContentText>
+            <p className="pt-2 formTopic">Health Check</p>
+          </DialogContentText>
+          <div className="pt-10">
+            <div className=" pb-3">
+              <TextField
+                id="outlined-read-only-input"
+                label="Name"
+                defaultValue="Neil Slim"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    width: "550px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+
+            <div className="pt-3 pb-3">
+              <TextField
+                id="outlined-read-only-input"
+                label="Age"
+                defaultValue="25"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    width: "550px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+
+            <div className="pt-3 pb-3">
+              <TextField
+                id="outlined-read-only-input"
+                label="Reason"
+                defaultValue="To do basic heath check."
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    width: "550px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+
+            <div className="flex gap-4 pb-3 pt-3 formInputs">
+              <TextField
+                id="outlined-input"
+                label="Weight(kg)"
+                defaultValue="55"
+                size="small"
+                // InputLabelProps={{
+                //   style: styles.label, // Apply the style to the label
+                // }}
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-input"
+                label="Height(cm)"
+                defaultValue="180"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-read-only-input"
+                label="BMI"
+                defaultValue="20.5"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+
+            <div className="flex gap-4 pt-3">
+              <TextField
+                id="outlined-input"
+                label="Sugar(mg/dL)"
+                defaultValue="70-100"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-input"
+                label="Blood Peasure(mmHg)"
+                defaultValue="120-129"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-input"
+                label="Colestrol Level(mg/dL)"
+                defaultValue="200-239"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+
+            <div className="pt-6">
+              <TextField
+                id="outlined-input"
+                label="Inguries"
+                defaultValue="Mild abrasions and contusions on the forehead and right cheek.No signs of skull fracture or concussion observed.Recommended wound cleaning and application of antibiotic ointment."
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    width: "550px",
+                    height: "50px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+          </div>
+        </DialogContent>
+        <DialogActions>
+          <button onClick={handleClose} className="dialogCloseBtn">
+            CLOSE
+          </button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }
