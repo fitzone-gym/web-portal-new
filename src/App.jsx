@@ -23,12 +23,14 @@ import R_onememberattendence from "./pages/Receptionist/onememberattendence"
 import D_Dashboard from "./pages/Doctor/D_Dashboard";
 import D_Leaverequest from "./pages/Doctor/D_Leaverequest";
 import D_PaymentHistory from "./pages/Doctor/D_PaymentHistory";
-import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
+import R_Leavedetails from "./pages/Receptionist/R_Leavedetails";
 import R_Payment from './pages/Receptionist/R_Payment'
 import D_Checkupforms from "./pages/Doctor/D_Checkupforms";
 import R_Memberprofile from './pages/Receptionist/R_Memberprofile'
 import R_Trainerprofile from "./pages/Receptionist/R_Trainerprofile";
 import D_Myprofile from './pages/Doctor/D_Myprofile'
+import R_Leaverequestform from "./pages/Receptionist/R_Leaverequestform";
+import Salarypopup from "./components/Receptionist/salarypopup";
 
 import D_Memberslist from './pages/Doctor/D_Memberslist'
 import D_Appointments from "./pages/Doctor/D_Appointments";
@@ -87,12 +89,15 @@ function App() {
         />
         <Route path="/Receptionist/Announcement" element={<R_Announcement />} />
         <Route path="/Receptionist/Payment" element={<R_Payment />} />
+        <Route path="/Receptionist/salarydetails" element={<Salarypopup />} />
         <Route path="/Receptionist/Myprofile" element={<R_Userprofile />} />
         <Route
           path="/Receptionist/Memberattendence"
           element={<R_Attendence />}
         />
-        <Route path="/Receptionist/leaveRequest" element={<R_Leaverequest />} />
+        <Route path="/Receptionist/leaveRequest" element={<R_Leavedetails />} />
+
+        <Route path="/Receptionist/Applyleave" element={<R_Leaverequestform />} />
         <Route path="/Receptionist/editprofile" element={<R_Editmyprofile />} />
         <Route
           path="/Receptionist/contactUsSubmitions"

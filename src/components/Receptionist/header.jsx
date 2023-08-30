@@ -15,7 +15,8 @@ function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-inverse fixed-top scrolling-navbar top-nav-collapse">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
+          
           <img src={Logo} className="navbar_logo" />
 
           <div className="w-full md:block md:w-auto" id="navbar-default">
