@@ -8,14 +8,14 @@ export const ManagerDashboard = () => {
     <div
       className=""
       style={{
-        position: "relative",
+        position: "fixed",
         top: 60,
         left: 270,
         right: 0,
         bottom: 0,
       }}
     >
-      <div className="grid grid-cols-4 gap-4 ml-7 mt-12 ">
+      <div className="grid grid-cols-4 gap-2 ml-12 mt-12 ">
         <div
           className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md"
           style={{
@@ -75,7 +75,7 @@ export const ManagerDashboard = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4 ml-7 mt-16 mt-8">
+      <div className="grid grid-cols-4 gap-2 ml-12 mt-16 mt-8">
         <div
           className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md "
           style={{

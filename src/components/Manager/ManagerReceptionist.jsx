@@ -1,112 +1,119 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import {images} from '../../constants';
+import axios from "axios";
+import { Link } from "react-router-dom";
+import priofileimg from "../../assets/managerprofile.jpg";
 
 export const ManagerReceptionist = () => {
+  const [data, setData] = useState([]); // Initialize data with an empty array
+
+  useEffect(() => {
+    const fetchDoctor = async () => {
+      try {
+        console.log("ts");
+        const response = await axios.get("http://localhost:5400/receptionistDetails");
+         console.log("tt"+ response.data.data); // Check the API response data
+        // console.log(typeof response.data.data); // Check the type of response.data
+        setData(response.data.data); // Assuming the response contains an array of trainer objects
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+
+    fetchDoctor();
+  }, []);
+
   return (
     <div
       className=""
       style={{
-        position: "relative",
-        top: 50,
+        position: "fixed",
+        top: 140,
         left: 290,
         right: 0,
         bottom: 0,
       }}
     >
-      <div>
-        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
-          Gym Receptionists
-        </h1>
-      </div>
-
-      <div className="w-[105%]">
-        <div className="grid grid-flow-col auto-cols-2 bg-neutral-700 ml-20 pt-6 pb-6 rounded-t-lg">
-          <div className="text-white text-2xl ">Receptionists Details</div>
-          <div
+      <div className="w-[90%]">
+        <div className="pt-6 pb-6 ml-[62%] w-[24%]">
+          {/* <div
             className=""
             style={{
               marginLeft: 600,
             }}
-          ></div>
+          ></div> */}
 
-          <div className="">
-            <button
-              type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center ml-24 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              style={{
-                height: 45,
-                marginLeft: "80%",
-              }}
-            >
-              <svg
-                className="w-4 h-4 text-white dark:text-white mr-1"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 16 18"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"
-                />
-              </svg>
-              Export
-            </button>
-          </div>
-
-          <div className="">
-            <button
-              type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              style={{
-                height: 45,
-                marginLeft:50,
-              }}
-            >
-              <div className="mr-1">
-                <FaPlus />
-              </div>
-              Add New
-            </button>
-          </div>
+        <div className="ml-[115%] ">
+          {/* <Link to="/Manager/Staffmembers/Trainer/Addtrainer"> */}
+          <button
+            type="button"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center inline-flex items-center mr-2  "
+            style={{
+              height: 45,
+              width:120
+            }}
+          >
+            <div className="mr-2">
+              <FaPlus />
+            </div>
+            Add New
+          </button>
+        </div>
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20">
-          <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 ">
-            <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-36">
+          <table className="w-full text-sm text-left text-gray-500">
+            <thead className="text-xs text-[#374151] uppercase bg-gray-50">
               <tr>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-20 py-3">
                   Receptionist name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Joined Date
+                  Address
                 </th>
-                <th scope="col" className="px-6 py-3">
+                {/* <th scope="col" className="px-6 py-3">
                   Email
-                </th>
+                </th> */}
                 <th scope="col" className="px-6 py-3">
                   Phone No
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Action
                 </th>
+                <th>
+                  Download
+                </th>
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            {data.map((receptionist, index) => {
+                return (
+              <tr
+              key={index}
+              className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  Jayani Ranasinghe
+                   <img
+                            className="h-10 w-10 rounded-full ml-14 "
+                            src={priofileimg}
+                            alt=""
+                          />
+                          <div className="pl-12 mt-[-11%] ml-16">
+                            <div className="text-base font-semibold">
+                            {receptionist.first_name + " " + receptionist.last_name}{" "}
+                            </div>
+                            <div className="font-normal text-gray-500">
+                            {receptionist.email}
+                            </div>
+                          </div>
+                 
                 </th>
-                <td className="px-6 py-4">3 Septemebr 2023</td>
-                <td className="px-6 py-4">jayaniransinghe98@gmail.com</td>
-                <td className="px-6 py-4">0734609741</td>
+                <td className="px-6 py-4">{receptionist.address}</td>
+                {/* <td className="px-6 py-4">{receptionist.email}</td> */}
+                <td className="px-6 py-4">{receptionist.phone_no}</td>{" "}
                 <td className="px-6 py-4">
                   <a
                     href="#"
@@ -122,33 +129,14 @@ export const ManagerReceptionist = () => {
                     Delete
                   </a>
                 </td>
+                <td>
+                          <Link className="font-medium text-blue-600 dark:text-blue-500">
+                            Report Generation
+                          </Link>
+                        </td>
               </tr>
-              <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Lasith Senadheera
-                </th>
-                <td className="px-6 py-4">30 September 2023</td>
-                <td className="px-6 py-4">lasith@gmail.com</td>
-                <td className="px-6 py-4">0714667864</td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4"
-                  >
-                    View
-                  </a>
-
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    Delete
-                  </a>
-                </td>
-              </tr>
+               );
+              })}
             </tbody>
           </table>
         </div>

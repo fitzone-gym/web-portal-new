@@ -5,7 +5,7 @@ export const ManagerTrainerProfile = () => {
     <div
       className="w-[80%] py-12 flex items-center"
       style={{
-        position: "relative",
+        position: "fixed",
         top: 10,
         left: 0,
         right: 0,

@@ -12,20 +12,14 @@ export const ManagerStaffmembers = () => {
     <div
       className="w-[80%]"
       style={{
-        position: "relative",
-        top: 50,
+        position: "fixed",
+        top: 140,
         left: 290,
         right: 0,
         bottom: 0,
       }}
     >
-      <div>
-        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
-          Staff Members Dashboard
-        </h1>
-      </div>
-
-      <div className="w-[100%] grid grid-cols-3 gap-4 ml-[8%] mt-12">
+     <div className="w-[100%] grid grid-cols-3 gap-4 ml-[8%] mt-12">
         <div
           className="bg-white font-bold text-2xl hover:bg-gray-500 border rounded-lg drop-shadow-md "
           style={{
