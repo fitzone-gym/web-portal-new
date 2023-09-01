@@ -32,7 +32,21 @@ export const Loginform = () => {
         if (response.data.success) {
           const currentUser = response.data.data;
           console.log(currentUser);
-          navigate("/Manager/Dashboard");
+
+          if(currentUser.user_role === 3){
+            sessionStorage.setItem("first_name", currentUser.first_name);
+            sessionStorage.setItem("last_name", currentUser.last_name);
+            sessionStorage.setItem("email", currentUser.email);
+            sessionStorage.setItem("profile_image", currentUser.profile_picture);
+            navigate("/Doctor/Dashboard");
+          }else if (currentUser.user_role === 4) {
+            sessionStorage.setItem("role", "manager");
+            navigate("/Manager/Dashboard");
+          } else if (currentUser.user_role === 5) {
+            sessionStorage.setItem("role", "receptionist");
+            navigate("/Receptionist/Dashboard");
+          }
+          // navigate("/Doctor/Dashboard");
 
           // if cookie is set else add JWT token sessoin, local storage
           // add to the session
@@ -137,16 +151,16 @@ export const Loginform = () => {
                 </a>
               </div>
             </div>
-            <Link 
-            to="/Manager/Dashboard">
+            {/* <Link 
+            to="/Manager/Dashboard"> */}
             <button
               type="submit"
               className="mt-6 md:w-[62%] bg-red-600 hover:bg-red-800 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-red-800 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 text-md md:text-lg font-bold rounded-lg px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              // onClick={handleLogin}
+              onClick={handleLogin}
             >
               Sign in
             </button>
-            </Link>
+            {/* </Link> */}
             <p className="text-xs md:text-sm font-light text-white dark:text-gray-400">
               Don’t have an account yet?{" "}
               <a

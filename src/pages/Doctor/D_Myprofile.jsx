@@ -24,16 +24,21 @@ function Profile() {
                 <img src={profile} className="userProfileImage" />
               </div>
               <div className=" fw-600 userProfileDtails">
-                <p className="userNameProfile">M.R Mayunika</p>
-                <p className="userEmailProfile">ruwandimayunika@gmail.com</p>
+                <p className="userNameProfile">
+                  {sessionStorage.getItem("first_name")}&nbsp;
+                  {sessionStorage.getItem("last_name")}
+                </p>
+                <p className="userEmailProfile">
+                  {sessionStorage.getItem("email")}
+                </p>
                 <p className="qualfication"> MBBS (Colombo)</p>
               </div>
             </div>
           </div>
 
           <div className="flex gap-4 text-center pt-6 contactIcon">
-            <FacebookIcon className="facebookIcon"/>
-            <TwitterIcon  className="twitterIcon"/>
+            <FacebookIcon className="facebookIcon" />
+            <TwitterIcon className="twitterIcon" />
             <LinkedInIcon className="LinkedInIcon" />
           </div>
 
@@ -50,7 +55,7 @@ function Profile() {
               your overall wellness, I am here to provide you with
               evidence-based guidance and personalized recommendations. As your
               dedicated wellness partner, I believe in a comprehensive approach
-              to health that encompasses not only physical fitness. 
+              to health that encompasses not only physical fitness.
             </span>
           </div>
         </div>
