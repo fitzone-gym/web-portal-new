@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 
 export const Loginform = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ export const Loginform = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5400/memberLoginWeb",
+          "http://localhost:5400/auth/login",
           {
             email: email,
             password: password,
@@ -37,6 +37,8 @@ export const Loginform = () => {
             sessionStorage.setItem("first_name", currentUser.first_name);
             sessionStorage.setItem("last_name", currentUser.last_name);
             sessionStorage.setItem("email", currentUser.email);
+            sessionStorage.setItem("user_role", currentUser.user_role);
+            sessionStorage.setItem("id", currentUser.id);
             sessionStorage.setItem("profile_image", currentUser.profile_picture);
             navigate("/Doctor/Dashboard");
           }else if (currentUser.user_role === 4) {
