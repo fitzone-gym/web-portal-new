@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../../components/Receptionist/header';
 import Sidenav from '../../components/Receptionist/sidenav';
-import Payment from '../../components/Receptionist/payment';
+import Payment from '../../components/Receptionist/Payment';
 import '../../styles/Doctor/paymenthistory.css'
 
 

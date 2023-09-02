@@ -10,15 +10,15 @@ function Myprofile() {
    <div>
     <section className="relative  w-[100%] ml-80 mt-40 drop-shadow-lg">
       <div className="container mx-auto px-3 mt-14">
-        <div className="relative flex flex-col min-w-0 break-words bg-neutral-100 w-full mb-6 shadow-xl rounded-lg -mt-64 text-gray-800">
-          <div className="px-6">
+        <div className="relative flex flex-col min-w-0 break-words bg-neutral-100 w-full mb-6 shadow-xl rounded-lg -mt-64 text-gray-800 w-[100%]">
+          <div className="px-6 w-[100%]">
             <div className="flex flex-wrap justify-center">
-              <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
-                <div className="relative">
+              <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center rounded-lg">
+                <div className="relative rounded-lg">
                   <img
                     alt="..."
                     src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg"
-                    className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
+                    className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px rounded-lg"
                   />
                 </div>
               </div>
@@ -33,7 +33,7 @@ function Myprofile() {
                 </div>
               </div>
               <div className="w-full lg:w-3/12 px-4 lg:order-1">
-                <div className="flex justify-center py-4 lg:pt-4 pt-8">
+                <div className="flex justify-center py-2 lg:pt-4 pt-8">
                   <div className="mr-0 p-3 text-left">
                     <span className="text-xl font-bold block uppercase tracking-wide text-gray-800">
                       My Profile
@@ -47,21 +47,21 @@ function Myprofile() {
                 <img src={profilephoto}/>
 
             </div>
-            <div className="text-center mt-12">
+            <div className="text-center mt-2">
               <h3 className="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
                 Jasitharan
               </h3>
-              <div className="text-sm leading-normal mt-0 mb-2 text-gray-800 font-bold uppercase">
+              <div className="text-sm leading-normal mt-0 mb-0 text-gray-800 font-bold uppercase">
                 <i className="fas fa-map-marker-alt mr-2 text-lg text-slate-50" />
                 Receptionist , FitZone
               </div>
            
               <div className="mb-2 text-gray-800">
-                <i className="fas fa-university mr-2 text-lg text-gray-800" />
+                <i className="fas fa-university mr-0 text-lg text-gray-800" />
                 University of Colombo School of Computing
               </div>
             </div>
-            <div className="mt-10 py-10 border-t border-blueGray-200 text-center w-full">
+            <div className="mt-0 py-10 border-t border-blueGray-200 text-center w-full">
               <div className="flex flex-wrap justify-center">
                 <div className="w-full lg:w-11/12 px-4">
                
@@ -82,15 +82,15 @@ function Myprofile() {
                         <div class="grid md:grid-cols-2 text-m text-left">
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">First Name</div>
-                                <div class="px-4 py-2">Jane</div>
+                                <div class="px-4 py-2">Jasitharan</div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Last Name</div>
-                                <div class="px-4 py-2">Doe</div>
+                                <div class="px-4 py-2">Muralitharan</div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Gender</div>
-                                <div class="px-4 py-2">Female</div>
+                                <div class="px-4 py-2">Male</div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Contact No.</div>
@@ -98,16 +98,16 @@ function Myprofile() {
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Current Address</div>
-                                <div class="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
+                                <div class="px-4 py-2">Dehiwala, Colombo </div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Permanant Address</div>
-                                <div class="px-4 py-2">Arlington Heights, IL, Illinois</div>
+                                <div class="px-4 py-2">Trincomalee , Sri Lanka</div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Email.</div>
                                 <div class="px-4 py-2">
-                                    <a class="text-blue-800" href="mailto:jane@example.com">jane@example.com</a>
+                                    <a class="text-blue-800" href="mailto:jane@example.com">jasi@fitzone.com</a>
                                 </div>
                             </div>
                             <div class="grid grid-cols-2">

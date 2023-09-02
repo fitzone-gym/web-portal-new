@@ -1,21 +1,28 @@
-.memberlist{
-    margin-left: 15%;
-    background-color: rgb(46, 46, 46);
-    height: 100%;   
-     margin-left: 16%;
+.healthpopUpUserName, .healthpopUpUserAge{
+    font-weight: bold;
+    font-size:16px;
+    color:#124e78
 }
 
-.body-members{
-    background-color:rgb(46, 46, 46) ;
-    
-
+.formInputs{
+    font-weight:700;
+    color:gray;
+    font-family: 'Poppins', sans-serif;
 }
 
-.heading-members{
-color: #E54646;
-text-align: left;
-font-family: Roboto;
-font-size: 22px;
-margin-left: 18%;
-padding: 1%
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root{
+    font-family: 'Poppins', sans-serif;
+}
+
+.dialogCloseBtn{
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px;
+    color: #6e0e0a;
+    cursor: pointer;
+    border: none;
+    background: #fbf7f1;
+    border-radius: 5px;
+    margin: 15px 20px 20px 20px ;
+    font-family: 'Poppins', sans-serif;
 }
