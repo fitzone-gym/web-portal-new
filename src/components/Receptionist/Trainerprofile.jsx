@@ -10,10 +10,10 @@ function Trainerprofile() {
    <div>
     <section className="relative  w-[100%] ml-60 mt-40">
       <div className="container mx-auto px-3 mt-14">
-        <div className="relative flex flex-col min-w-0 break-words bg-neutral-300 w-full mb-6 shadow-xl rounded-lg -mt-64 text-gray-800">
-          <div className="px-6">
+        <div className="relative flex flex-col min-w-0 break-words bg-neutral-300 w-full mb-6 shadow-xl rounded-lg -mt-64 text-gray-800 w-100">
+          <div className="px-6 w-100">
             <div className="flex flex-wrap justify-center">
-              <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
+              <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center rounded-lg">
                 <div className="relative">
                   <img
                     alt="..."

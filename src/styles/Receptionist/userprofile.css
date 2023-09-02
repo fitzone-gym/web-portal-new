@@ -32,7 +32,8 @@
     }
 
     .profilephoto{
-        width: 40%;
+        width: 20%;
         margin-left: 30%;
-        margin-top: 1%;
+        margin-top: 0%;
+        border-radius: 0.5rem;
     }

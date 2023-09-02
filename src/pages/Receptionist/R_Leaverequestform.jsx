@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../../components/Receptionist/header';
 import Sidenav from '../../components/Receptionist/sidenav';
+import Leaverequestform from '../../components/Receptionist/Leaverequestform';
 
 function R_Leaverequestform() {
     return (
@@ -11,7 +12,7 @@ function R_Leaverequestform() {
             <div className="flex flex-row">
             <Sidenav />
         
-             
+             <Leaverequestform/>
         
             </div>
         
