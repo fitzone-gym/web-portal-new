@@ -153,58 +153,38 @@ function Payment() {
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
              
-                  <th scope="col" className="px-6 py-3">
-                    Payment ID
-                  </th>
+                
                   <th scope="col" className="px-6 py-3">
                     Payment Month
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Payment Date
                   </th>
+
                   <th scope="col" className="px-6 py-3">
-                    Status
+                    Salary Amount 
                   </th>
-                  <th scope="col" className="px-6 py-3">
-                    View
-                  </th>
+                 
+                 
                 </tr>
               </thead>
               <tbody>
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                   
-                
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">156</div>
-                     
-                    </div>
-                  </th>
+           
                   <td className="px-6 py-4">August, 2023</td>
                   <td className="px-6 py-4">
                     <div className="flex items-center">
                       <div className="statusBatchOff">25.08.2023</div>
                     </div>
                   </td>
+                 
                   <td className="px-6 py-4">
                     <div className="flex items-center">
-                      <div className="statusBatchOff">Completed</div>
+                      <div className="statusBatchOff">32,000.00</div>
                     </div>
                   </td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
-                      style={{textDecoration:"none"}}
-                      onClick={handleClickOpen}
-                    >
-                      View
-                    </a>
-                  </td>
+              
                 </tr>
          
   

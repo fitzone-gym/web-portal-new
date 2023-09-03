@@ -3,7 +3,7 @@ import "../../styles/Receptionist/Sidenav.css";
 function sidenav() {
   return (
     <div className="sidenavbar">
-      <ul className="flex flex-col py-5 space-y-1 font-bold text-center ml-10">
+      <ul className="flex flex-col py-5 space-y-1 font-bold text-center ml-10 ">
         <li>
           <a
             href="/Receptionist/Dashboard"

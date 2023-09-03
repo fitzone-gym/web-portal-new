@@ -30,10 +30,9 @@ export const Announcement_R = () => {
  
    
 
-    <div className='w-[85%] ml-80 mt-40'>
+    <div className='w-[85%] ml-80 mt-40 px-10'>
 
-<div className="text-gray-700 text-2xl text-allign-left ">
-  <h1> Announcements</h1></div>
+
   
 {/* {data.map((announcement, index) => { */}
                 {/* return ( */}

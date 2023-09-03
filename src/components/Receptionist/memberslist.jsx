@@ -1,201 +1,361 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import priofileimg from "../../assets/managerprofile.jpg";
+import React, { useRef, useState, useEffect } from "react";
 
-export const Memberlist = () => {
-  const [data, setData] = useState([]); // Initialize data with an empty array
-  const [searchTerm, setSearchTerm] = useState(""); // State to store the search term
-  const [searchResults, setSearchResults] = useState([]); // State to store search results
 
-  useEffect(() => {
-    const fetchMembers = async () => {
-      try {
-        const response = await axios.get("http://localhost:5400/memberDetails/getMembersDetails");
-        // console.log("tt"+ response.data.data); // Check the API response data
-        // console.log(typeof response.data.data); // Check the type of response.data
-        setData(response.data.data); // Assuming the response contains an array of trainer objects
-      } catch (error) {
-        console.log("Error:", error);
-      }
-    };
 
-    fetchMembers();
-  }, []);
 
-  const handleSearch = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.get(
-        `http://localhost:5400/members/searchMembers?searchTerm=${searchTerm}`
-      );
-      setSearchResults(response.data.data);
-    } catch (error) {
-      console.log("Error:", error);
-    }
+
+/*popup form */
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+
+
+
+function memberlist() {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
   };
-  return (
-    <div
-      className=""
-      style={{
-        position: "fixed",
-        top: 140,
-        left: 330,
-        right: 0,
-        bottom: 0,
-      }}
-    >
-      <div className="w-[97%]">
-        <div className="flex items-center">
-        <div className="w-[25%] ">
-          <h1>Gym Members</h1>
-        </div>
-        <div className="pt-4 pb-6 ml-[50%] w-[24%]">
-          <form onSubmit={handleSearch}>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-24%]">
-                <svg
-                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                  />
-                </svg>
-              </div>
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="block w-[130%] ml-[-25%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                placeholder="Search Name,Package Type..."
-                required
-              />
-              <button
-                type="submit"
-                className="mr-[-5%] text-white absolute right-2.5 w-18 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 "
-                style={{
-                  marginTop: -39,
-                }}
-              >
-                Search
-              </button>
-            </div>
-          </form>
-        </div>
-</div>
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20">
-          <table className="w-full text-sm text-left text-gray-500  ">
-            <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
-              <tr>
-                <th scope="col" className="px-20 py-3">
-                  Member name
-                </th>
-                {/* <th scope="col" className="px-6 py-3">
-                  Email
-                </th> */}
-                <th scope="col" className="px-6 py-3">
-                  Phone No
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Package Type
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Action
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {searchResults.length > 0
-                ? searchResults.map((member, index) => (
-                    <tr key={index} className="bg-white border-b">
-                      <th
-                        scope="row"
-                        className="px-6 py-4 font-medium text-gray-900  whitespace-nowrap dark:text-white"
-                      >
-                        <img
-                          className="h-10 w-10 rounded-full ml-14"
-                          src={priofileimg}
-                          alt=""
-                        />
-                        <div className="pl-12 mt-[-2%]">
-                        <div className="text-base font-semibold">
-                          {member.first_name + " " + member.last_name}{" "}
-                        </div>
-                        <div className="font-normal text-gray-500">
-                          {member.email}
-                        </div>
-                        </div>
-                      </th>
-                      {/* <td className="px-6 py-4">{member.email} </td> */}
-                      <td className="px-6 py-4">{member.phone_no}</td>{" "}
-                      <td className="px-6 py-4">{member.package}</td>
-                      <td className="px-6 py-4">
-                        <Link
-                          to="#"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                        >
-                          View
-                        </Link>
-                      </td>
-                    </tr>
-                  ))
-                : data.map((member, index) => {
-                    return (
-                      <tr
-                        key={index}
-                        className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 "
-                      >
-                        <th
-                          scope="row"
-                          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white "
-                        >
-                          <img
-                            className="h-10 w-10 rounded-full ml-14"
-                            src={priofileimg}
-                            alt=""
-                          />
-                          <div className="pl-12  mt-[-7%] ml-16">
-                          <div className="text-base font-semibold">
-                            {member.first_name + " " + member.last_name}{" "}
-                          </div>
-                          <div className="font-normal text-gray-500">
-                            {member.email}
-                          </div>
-                          </div>
-                        </th>
-                        <td className="px-6 py-4">{member.phone_no}</td>{" "}
-                        <td className="px-6 py-4">{member.package}</td>
-                        <td className="px-6 py-4">
-                          <Link
-                            to="#"
-                            className="font-medium text-blue-600 dark:text-blue-500  mr-8"
-                          >
-                            View
-                          </Link>
-                          <Link
-                            to="#"
-                            className="font-medium text-blue-600 dark:text-blue-500  "
-                          >
-                            Report
-                          </Link>
-                        </td>
-                      </tr>
-                    );
-                  })}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  );
-};  
 
-export default Memberlist
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+ 
+
+  return (
+    <>
+     
+
+        <div
+          className="mt-40"
+          style={{
+            // marginLeft: "17%",
+            marginRight: "20px",
+            marginLeft: "17%",
+            marginTop: "200px",
+            textAlign: "center",
+            width: "100%",
+          }}
+        >
+          {/* <div className="sectionHeader">
+            <h2>Members</h2>
+          </div> */}
+          <div
+            className="relative  shadow-md sm:rounded-lg"
+            style={{ margin: "0px 30px 30px 30px" }}
+          >
+            <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
+              <div>
+                <button
+                  id="dropdownActionButton"
+                  data-dropdown-toggle="dropdownAction"
+                  className="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                  type="button"
+                >
+                  <span className="sr-only">Action button</span>
+                  Action
+                  <svg
+                    className="w-2.5 h-2.5 ml-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+                <div
+                  id="dropdownAction"
+                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+                >
+                  <ul
+                    className="py-1 text-sm text-gray-700 dark:text-gray-200"
+                    aria-labelledby="dropdownActionButton"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Reward
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Promote
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Activate account
+                      </a>
+                    </li>
+                  </ul>
+                  <div className="py-1">
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Delete User
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <label for="table-search" className="sr-only">
+                Search
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg
+                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  id="table-search-users"
+                  className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search for users"
+                />
+              </div>
+            </div>
+            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+             
+                  <th scope="col" className="px-6 py-3">
+                    Member ID
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Member Name 
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Phone Number
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Address
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    View
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+               
+                  <th
+                    scope="row"
+                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                   
+                
+                    <div className="pl-3">
+                      <div className="text-base font-semibold">156</div>
+                     
+                    </div>
+                  </th>
+                  <td className="px-6 py-4">August, 2023</td>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center">
+                      <div className="statusBatchOff">25.08.2023</div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center">
+                      <div className="statusBatchOff">Completed</div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
+                      style={{textDecoration:"none"}}
+                      onClick={handleClickOpen}
+                    >
+                      View
+                    </a>
+                  </td>
+                </tr>
+         
+  
+              
+             
+              </tbody>
+            </table>
+          </div>
+        </div>
+     
+      {/* dialog popup */}
+      <Dialog open={open} onClose={handleClose}>
+        {/* <DialogTitle>Subscribe</DialogTitle> */}
+        <DialogContent>
+          <DialogContentText>
+            <p className="pt-2 healthpopUpUserName">Neil singh</p>
+            <p className="healthpopUpUserAge">25 year</p>
+          </DialogContentText>
+          <div className="pt-10">
+            <div className="flex gap-4 pb-3 formInputs">
+              <TextField
+                id="outlined-read-only-input"
+                label="Weight(kg)"
+                defaultValue="55"
+                size="small"
+                // InputLabelProps={{
+                //   style: styles.label, // Apply the style to the label
+                // }}
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-read-only-input"
+                label="Height(cm)"
+                defaultValue="180"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-read-only-input"
+                label="BMI"
+                defaultValue="20.5"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+
+            <div className="flex gap-4 pt-3">
+              <TextField
+                id="outlined-read-only-input"
+                label="Sugar(mg/dL)"
+                defaultValue="70-100"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-read-only-input"
+                label="Blood Peasure(mmHg)"
+                defaultValue="120-129"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-read-only-input"
+                label="Colestrol Level(mg/dL)"
+                defaultValue="200-239"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+
+            <div className="pt-6">
+              <TextField
+                id="outlined-read-only-input"
+                label="Inguries"
+                defaultValue="Mild abrasions and contusions on the forehead and right cheek.No signs of skull fracture or concussion observed.Recommended wound cleaning and application of antibiotic ointment."
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    width: "550px",
+                    height: "50px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+          </div>
+        </DialogContent>
+        <DialogActions>
+          <button onClick={handleClose} className="dialogCloseBtn">
+            CLOSE
+          </button>
+        </DialogActions>
+      </Dialog>
+    </>
+  );
+}
+
+export default memberlist;

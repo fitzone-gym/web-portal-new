@@ -1,384 +1,135 @@
 import React from 'react'
-import '../../styles/Doctor/paymenthistory.css'
+import '../../styles/Receptionist/memberlist.css'
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import profilephoto from '../../assets/profileimage.jpg'
 
-function Payment() {
+function Myprofile() {
   return (
- 
-    
+   <div>
+    <section className="relative  w-[100%] ml-80 mt-40 drop-shadow-lg">
+      <div className="container mx-auto px-3 mt-14">
+        <div className="relative flex flex-col min-w-0 break-words bg-neutral-100 w-full mb-6 shadow-xl rounded-lg -mt-64 text-gray-800 w-[100%]">
+          <div className="px-6 w-[100%]">
+            <div className="flex flex-wrap justify-center">
+              <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center rounded-lg">
+                <div className="relative rounded-lg">
+                  <img
+                    alt="..."
+                    src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg"
+                    className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px rounded-lg"
+                  />
+                </div>
+              </div>
+              <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
+                <div className="py-6 px-3 mt-32 sm:mt-0 ">
+                 <Link to="/Receptionist/editprofile">
+                  <button
+                    className="bg-gray-700 active:bg-gray-500 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
+                  >
+                    Edit
+                  </button> </Link>
+                </div>
+              </div>
+              <div className="w-full lg:w-3/12 px-4 lg:order-1">
+                <div className="flex justify-center py-2 lg:pt-4 pt-8">
+                  <div className="mr-0 p-3 text-left">
+                    <span className="text-xl font-bold block uppercase tracking-wide text-gray-800">
+                      My Profile
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <div
-className=""
-style={{
-position: " ",
-top: 0,
-left: 0,
-right: 0,
-bottom: 0,
-}}
->
+            <div className='profilephoto'>
+                <img src={profilephoto}/>
 
-
-<div className="w-[95%] ml-80 mt-20">
-<div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-5 mr-5 pt-6 pb-6 rounded-t-lg ">
-  <div className="text-white text-2xl "> Gym Member's Attendence</div>
-  <div
-    className=" "
-    style={{
-      marginLeft: 600,
-    }}
-  >
-    <form>
-      <div className="relative">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-          <svg
-            className="w-4 h-4 text-gray-500 dark:text-gray-400"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 20 20"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-            />
-          </svg>
+            </div>
+            <div className="text-center mt-2">
+              <h3 className="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
+                Jasitharan
+              </h3>
+              <div className="text-sm leading-normal mt-0 mb-0 text-gray-800 font-bold uppercase">
+                <i className="fas fa-map-marker-alt mr-2 text-lg text-slate-50" />
+                Receptionist , FitZone
+              </div>
+           
+              <div className="mb-2 text-gray-800">
+                <i className="fas fa-university mr-0 text-lg text-gray-800" />
+                University of Colombo School of Computing
+              </div>
+            </div>
+            <div className="mt-0 py-10 border-t border-blueGray-200 text-center w-full">
+              <div className="flex flex-wrap justify-center">
+                <div className="w-full lg:w-11/12 px-4">
+               
+              
+                 
+                <div class="bg-white p-3 shadow-sm rounded-sm">
+                    <div class="flex  space-x-2 font-semibold text-gray-900 leading-8 ">
+                        <span clas="text-green-500">
+                            <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </span>
+                        <span class="tracking-wide">About</span>
+                    </div>
+                    <div class="text-gray-700">
+                        <div class="grid md:grid-cols-2 text-m text-left">
+                            <div class="grid grid-cols-2">
+                                <div class="px-4 py-2 font-semibold">First Name</div>
+                                <div class="px-4 py-2">Jasitharan</div>
+                            </div>
+                            <div class="grid grid-cols-2">
+                                <div class="px-4 py-2 font-semibold">Last Name</div>
+                                <div class="px-4 py-2">Muralitharan</div>
+                            </div>
+                            <div class="grid grid-cols-2">
+                                <div class="px-4 py-2 font-semibold">Gender</div>
+                                <div class="px-4 py-2">Male</div>
+                            </div>
+                            <div class="grid grid-cols-2">
+                                <div class="px-4 py-2 font-semibold">Contact No.</div>
+                                <div class="px-4 py-2">+11 998001001</div>
+                            </div>
+                            <div class="grid grid-cols-2">
+                                <div class="px-4 py-2 font-semibold">Current Address</div>
+                                <div class="px-4 py-2">Dehiwala, Colombo </div>
+                            </div>
+                            <div class="grid grid-cols-2">
+                                <div class="px-4 py-2 font-semibold">Permanant Address</div>
+                                <div class="px-4 py-2">Trincomalee , Sri Lanka</div>
+                            </div>
+                            <div class="grid grid-cols-2">
+                                <div class="px-4 py-2 font-semibold">Email.</div>
+                                <div class="px-4 py-2">
+                                    <a class="text-blue-800" href="mailto:jane@example.com">jasi@fitzone.com</a>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2">
+                                <div class="px-4 py-2 font-semibold">Birthday</div>
+                                <div class="px-4 py-2">Feb 06, 1998</div>
+                            </div>
+                        </div>
+                    </div>
+               
+                </div>
+                
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <input
-         type="search"
-         id="default-search"
-         className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-         placeholder="Search Name,Level..."
-         required
-        />
-        <button
-          type="submit"
-          className="text-white absolute right-2.5 bg-gray-800 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          style={{
-            marginTop: -41,
-          }}
-        >
-          Search
-        </button>
       </div>
-    </form>
-  </div>
 
-  <div className="">
-
-    <a href='/Receptionist/memberattendence'>
-    <button
-          type="button"
-          className="text-white bg-gray-600 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          style={{
-            height: 45,
-      }}
-    >
-     
-      See All
-    </button></a>
-  </div>
-</div>
-
-<div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-5 mr-5">
-  <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 ">
-    <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
-      <tr>
-        <th scope="col" className="px-6 py-3">
-          Member Name  
-        </th>
-        <th scope="col" className="px-6 py-3">
-          Check-in Time
-        </th>
-        <th scope="col" className="px-6 py-3">
-          Check-Out Time
-        </th>
+    </section>  
         
-        <th scope="col" className="px-6 py-3">
-          View
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-        <th
-          scope="row"
-          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-        >
-          Jayani Ranasinghe
-        </th>
-        <td className="px-6 py-4">04.30 PM</td>
-        <td className="px-6 py-4">06.30 PM</td>
-     
-        <td className="px-6 py-4">
-          <a
-            href="#"
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-          >
-            View
-          </a>
-        </td>
-      </tr>
-      <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-        <th
-          scope="row"
-          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-        >
-          Selvakumaran Sk
-        </th>
-        <td className="px-6 py-4">05.30 PM</td>
-        <td className="px-6 py-4">06.00 PM</td>
-      
-        <td className="px-6 py-4">
-          <a
-            href="#"
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-          >
-            View
-          </a>
-        </td>
-      </tr>
-      <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-        <th
-          scope="row"
-          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-        >
-          Jayani Ranasinghe
-        </th>
-        <td className="px-6 py-4">04.30 PM</td>
-        <td className="px-6 py-4">06.30 PM</td>
-     
-        <td className="px-6 py-4">
-          <a
-            href="#"
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-          >
-            View
-          </a>
-        </td>
-      </tr>
-      <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-        <th
-          scope="row"
-          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-        >
-          Selvakumaran Sk
-        </th>
-        <td className="px-6 py-4">05.30 PM</td>
-        <td className="px-6 py-4">06.00 PM</td>
-      
-        <td className="px-6 py-4">
-          <a
-            href="#"
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-          >
-            View
-          </a>
-        </td>
-      </tr>
-      <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-        <th
-          scope="row"
-          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-        >
-          Jayani Ranasinghe
-        </th>
-        <td className="px-6 py-4">04.30 PM</td>
-        <td className="px-6 py-4">06.30 PM</td>
-     
-        <td className="px-6 py-4">
-          <a
-            href="#"
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-          >
-            View
-          </a>
-        </td>
-      </tr> 
-    </tbody>
-  </table>
-</div>
-</div>
-
-
-<div className="w-[95%] ml-80 mt-10">
-<div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-5 mr-5 pt-6 pb-6 rounded-t-lg ">
-  <div className="text-white text-2xl "> Gym Trainer's Attendence</div>
-  <div
-    className=" "
-    style={{
-      marginLeft: 600,
-    }}
-  >
-    <form>
-      <div className="relative">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-          <svg
-            className="w-4 h-4 text-gray-500 dark:text-gray-400"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 20 20"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-            />
-          </svg>
-        </div>
-        <input
-         type="search"
-         id="default-search"
-         className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-         placeholder="Search Name,Level..."
-         required
-        />
-        <button
-          type="submit"
-          className="text-white absolute right-2.5 bg-gray-800 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          style={{
-            marginTop: -41,
-          }}
-        >
-          Search
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <div className="">
-    <a href='/Receptionist/trainerattendence'>
-    <button
-          type="button"
-          className="text-white bg-gray-600 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          style={{
-            height: 45,
-      }}
-    >
-     
-      See All
-    </button></a>
-  </div>
-</div>
-
-<div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-5 mr-5">
-  <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 ">
-    <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
-      <tr>
-        <th scope="col" className="px-6 py-3">
-          Member Name 
-        </th>
-        <th scope="col" className="px-6 py-3">
-          Check-In Time
-        </th>
-        <th scope="col" className="px-6 py-3">
-          Check-Out Time
-        </th>
-        
-        <th scope="col" className="px-6 py-3">
-          View
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-        <th
-          scope="row"
-          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-        >
-          Rangana 
-        </th>
-        <td className="px-6 py-4">03.30 PM</td>
-        <td className="px-6 py-4">06.30 PM</td>
-       
-        <td className="px-6 py-4">
-          <a
-            href="#"
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-          >
-            View
-          </a>
-        </td>
-      </tr>
-      <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-        <th
-          scope="row"
-          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-        >
-          Vijayasooriya
-        </th>
-        <td className="px-6 py-4">03.00 PM</td>
-        <td className="px-6 py-4">-</td>
-     
-        <td className="px-6 py-4">
-          <a
-            href="#"
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-          >
-            View
-          </a>
-        </td>
-      </tr>
-      <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-        <th
-          scope="row"
-          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-        >
-          Pragash
-        </th>
-        <td className="px-6 py-4">05.00 PM</td>
-        <td className="px-6 py-4">-</td>
-      
-        <td className="px-6 py-4">
-          <a
-            href="#"
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-          >
-            View
-          </a>
-        </td>
-      </tr>
-      <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-        <th
-          scope="row"
-          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-        >
-          Kithsandu
-        </th>
-        <td className="px-6 py-4">04.46 PM</td>
-        <td className="px-6 py-4">-</td>
-     
-        <td className="px-6 py-4">
-          <a
-            href="#"
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-          >
-            View
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-
+    </div>
   )
 }
 
-export default Payment
+export default Myprofile
