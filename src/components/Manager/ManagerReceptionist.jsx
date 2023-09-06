@@ -15,13 +15,13 @@ export const ManagerReceptionist = () => {
       }}
     >
       <div>
-        <h1 className="font-bold text-red-600 text-5xl text-left ml-32 mt-10 mb-10">
+        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
           Gym Receptionists
         </h1>
       </div>
 
       <div className="w-[105%]">
-        <div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-20 pt-6 pb-6 rounded-t-lg">
+        <div className="grid grid-flow-col auto-cols-2 bg-neutral-700 ml-20 pt-6 pb-6 rounded-t-lg">
           <div className="text-white text-2xl ">Receptionists Details</div>
           <div
             className=""
@@ -163,9 +163,9 @@ export const ManagerReceptionist = () => {
               width: 700,
             }}
           >
-            <div className="text-2xl text-white ml-8 py-3">
+            <div className="text-3xl ml-8 py-5">
               <h1>New Member Appointments</h1>
-              <img className="w-[100%] h-88 mt-16 ml-12" src={images.revenueImage} alt="" /> 
+              <img className="w-[100%] h-88 mt-12 ml-12 " src={images.revenueImage} alt="" /> 
             </div>
           </div>
 

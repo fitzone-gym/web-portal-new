@@ -12,7 +12,6 @@ import { BrowserRouter,Routes, Route } from "react-router-dom";
 
 // import R_Dashboard from "./pages/Receptionist/R_Dashboard";
 
-import R_Header from './components/Receptionist/header';
 import  R_Dashboard  from "./pages/Receptionist/R_Dashboard";
 import R_Memeberlist from "./pages/Receptionist/R_Memeberlist";
 import R_Trainerlist from "./pages/Receptionist/R_Trainerlist";
@@ -21,11 +20,10 @@ import R_Userprofile from "./pages/Receptionist/R_Userprofile";
 import R_Attendence from "./pages/Receptionist/R_Attendence"
 import R_onememberattendence from "./pages/Receptionist/onememberattendence"
 import D_Dashboard from "./pages/Doctor/D_Dashboard";
-import D_Leaverequest from "./pages/Doctor/D_Leaverequest";
+import D_Leaverequest from "./pages/Doctor/D_LeaveRequest";
 import D_PaymentHistory from "./pages/Doctor/D_PaymentHistory";
 import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
 import R_Payment from './pages/Receptionist/R_Payment'
-import D_Checkupforms from "./pages/Doctor/D_Checkupforms";
 import R_Memberprofile from './pages/Receptionist/R_Memberprofile'
 import R_Trainerprofile from "./pages/Receptionist/R_Trainerprofile";
 import D_Myprofile from './pages/Doctor/D_Myprofile'
@@ -65,6 +63,8 @@ import { TrainerProfile } from "./pages/Manager/TrainerProfile";
 import { UpdateAnnoun } from "./pages/Manager/UpdateAnnoun";
 import { Messages } from "./pages/Manager/Messages";
 
+// import R_onememberattendence from "./pages/Receptionist/onememberattendence";
+import R_Contactus_submitions from "./pages/Receptionist/ContactUsSUbmitions";
 
 function App() {
   
@@ -92,6 +92,10 @@ function App() {
         />
         <Route path="/Receptionist/leaveRequest" element={<R_Leaverequest />} />
         <Route path="/Receptionist/editprofile" element={<R_Editmyprofile />} />
+        <Route
+          path="/Receptionist/contactUsSubmitions"
+          element={<R_Contactus_submitions />}
+        />
 
         <Route path="/" element={<Login />} />
 
@@ -100,9 +104,8 @@ function App() {
         <Route path="/Doctor/Payment" element={<D_PaymentHistory />} />
         <Route path="/Doctor/Myprofile" element={<D_Myprofile />} />
         <Route path="/Doctor/MembersList" element={<D_Memberslist />} />
-        <Route path="/Doctor/checkupform" element={<D_Checkupforms />} />
         <Route path="/Doctor/Appointments" element={<D_Appointments />} />
-        <Route path="/Doctor/Appointments" element={<D_Appointments />} />
+        <Route path="/Doctor/LeaveRequests" element={<D_Leaverequest />} />
 
         <Route path="/" element={<Login />} />
         <Route path="/Manager/Dashboard" element={<Dashboard />} />

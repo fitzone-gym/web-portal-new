@@ -1,8 +1,10 @@
 *{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-
+body{
+  background-color: white;
+}
 
 #root {
   max-width: 100%;
@@ -46,7 +48,8 @@
   color: #888;
 }
 
+
 .flex-col {
+  margin-top: 0%;
   margin-left: 0%;
-margin-top: 0%;
 }

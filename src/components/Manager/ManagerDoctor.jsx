@@ -15,13 +15,13 @@ export const ManagerDoctor = () => {
       }}
     >
       <div>
-        <h1 className="font-bold text-red-600 text-5xl text-left ml-32 mt-10 mb-10">
+        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
           Gym Doctor
         </h1>
       </div>
 
-      <div className="w-[105%]">
-        <div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-20 pt-6 pb-6 rounded-t-lg">
+      <div className="w-[105%] ml-3">
+        <div className="grid grid-flow-col auto-cols-2 bg-neutral-700 ml-20 pt-6 pb-6 rounded-t-lg">
           <div className="text-white text-2xl ">Doctor Details</div>
           <div
             className=""
@@ -75,7 +75,7 @@ export const ManagerDoctor = () => {
           </div>
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-28">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20">
           <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 ">
             <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
               <tr>
@@ -162,7 +162,7 @@ export const ManagerDoctor = () => {
               width: 700,
             }}
           >
-            <div className="text-2xl text-white ml-8 py-3">
+            <div className="text-3xl ml-8 py-3">
               <h1>New Member Appointments</h1>
               <img className="w-[100%] h-88 mt-16 ml-12" src={images.revenueImage} alt="" /> 
             </div>
@@ -176,7 +176,7 @@ export const ManagerDoctor = () => {
               width: 700,
             }}
           >
-            <div className="text-2xl text-white  ml-8 py-3">
+            <div className="text-3xl  ml-8 py-3">
               <h1>Monthly health checkup appointments</h1>
               <img className="w-[100%] h-88 mt-16 ml-12" src={images.revenueImage} alt="" /> 
             </div>

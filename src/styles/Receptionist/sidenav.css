@@ -2,25 +2,19 @@
 
 .sidenavbar{
     margin: 0px;
-    background-color: #c22626 ;
+    background-color: #292D36 ;
     width: 16%;
     position: fixed;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
     font-style: bold;
- 
-
+    padding-top:40px;
+    color:white;
 }
 
- /* img{
-    width: 50%;
-flex-shrink: 0;
-    border-radius: 100px;
-border: 2px solid #000;
-margin-left: 25%;
-margin-top: 10%;
-} */
-
+.sidenavbar li{
+    color:white;
+}
 h1{
     font-size: small;
 }

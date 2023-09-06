@@ -60,7 +60,7 @@ export const CreatAnnonModal = ({ onClose }) => {
         </div>
 
         <div>
-          <h1 className="font-bold text-3xl text-left py-7 px-14 mt-[-2%] mb-4">
+          <h1 className="font-bold text-3xl text-white text-left py-7 px-14 mt-[-2%] mb-4 ml-10">
             Create New Announcement
           </h1>
         </div>

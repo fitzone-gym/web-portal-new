@@ -1,123 +1,265 @@
-import React from 'react'
-import Header from '../../components/Doctor/header';
-import Sidenav from '../../components/Doctor/sidenav';
-import '../../styles/Receptionist/userprofile.css'
-import profilephoto from '../../assets/doctor.jpg'
+import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 
-function R_Userprofile() {
-  return (
-    <div>
-    <Header />
-    <Sidenav />
+import Header from "../../components/header";
+import Sidenav from "../../components/Doctor/sidenav";
+import "../../styles/Doctor/profile.css";
+import profile from "../../assets/profile2.jpg";
+
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
+import axios from "axios";
 
 
-      <div className='userprofile'>
-    <>
-  {/* component */}
-  {/* <link
-    rel="stylesheet"
-    href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
-  /> */}
- 
+/*edit popup */
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
   
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: "#0052cc",
+    },
+    secondary: {
+      main: "#898e8f",
+    },
+  },
+});
 
-    <div className='profilecard'>
-    <section className="relative py-1 ">
-      <div className="container mx-auto px-3 mt-14">
-        <div className="relative flex flex-col min-w-0 break-words bg-gray-800 w-full mb-6 shadow-xl rounded-lg -mt-64">
-          <div className="px-6">
-            <div className="flex flex-wrap justify-center">
-              <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
-                <div className="relative">
-                  <img
-                    alt="..."
-                    src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg"
-                    className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
-                  />
-                </div>
-              </div>
-              <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
-                <div className="py-6 px-3 mt-32 sm:mt-0">
-                  <button
-                    className="bg-pink-500 active:bg-gray-500 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                  >
-                    EDIT
-                  </button>
-                </div>
-              </div>
-              <div className="w-full lg:w-4/12 px-4 lg:order-1">
-                <div className="flex justify-center py-4 lg:pt-4 pt-8">
-                  <div className="mr-1 p-3 text-left">
-                    <span className="text-xl font-bold block uppercase tracking-wide text-slate-50">
-                      MY PROFILE
-                    </span>
-                  </div>
-            
-             
-                </div>
-              </div>
-            </div>
+theme = createTheme(theme, {
+  palette: {
+    info: {
+      main: theme.palette.secondary.main,
+    },
+  },
+});
 
-            <div className='profilephoto'>
-                <img src={profilephoto}/>
+function Profile() {
 
-            </div>
-            <div className="text-center mt-12">
-              <h3 className="text-4xl font-semibold leading-normal mb-2 text-slate-50 mb-2">
-                Jasitharan
-              </h3>
-              <div className="text-sm leading-normal mt-0 mb-2 text-slate-50 font-bold uppercase">
-                <i className="fas fa-map-marker-alt mr-2 text-lg text-slate-50" />
-                Doctor, FitZone
-              </div>
-              <div className="mb-2 text-slate-50 mt-10">
-                <i className="fas fa-briefcase mr-2 text-lg text-slate-50" /> 
-                
-              </div>
-              <div className="mb-2 text-slate-50">
-                <i className="fas fa-university mr-2 text-lg text-slate-50" />
-                Faculty of Medicine, Eastern University of Sri Lanka
-              </div>
-            </div>
-            <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
-              <div className="flex flex-wrap justify-center">
-                <div className="w-full lg:w-9/12 px-4">
-                  <p className="mb-4 text-lg leading-relaxed text-slate-50">
-              
-                  </p>
-                  {/* <a href="#pablo" className="font-normal text-pink-500">
-                    Show more
-                  </a> */}
+
+const [open, setOpen] = useState(false);
+
+const handleClickOpen = () => {
+  setOpen(true);
+};
+
+const handleClose = () => {
+  setOpen(false);
+};
+
+  
+const [profileDetail, setprofileDetail] = useState([]);
+
+const fetchProfileDetails = async () => {
+  try {
+    const response = await axios.get(
+      `http://localhost:5400/auth/memberProfile/${sessionStorage.getItem("user_role")}/${sessionStorage.getItem("id")}`
+    );
+    setprofileDetail(response.data.data); 
+    const profileDetailss = response.data.data;
+    console.log("profileDetails",profileDetailss);
+  } catch (error) {
+    console.log("Error:", error);
+  }
+};
+
+useEffect(() => {
+  fetchProfileDetails();
+}, []);
+
+
+  return (
+    <>
+      <div className="contactUsMessages">
+        <Header />
+        <Sidenav />
+
+        <div className="userProfile">
+          <div>
+            <div className=" profileDetails">
+              <div className="" style={{ textAlign: "right" }}>
+                <button
+                  className="bg-gray-900 hover:bg-gray-700 pl-8 pr-8 text-white font-bold py-2 px-4 rounded"
+                  onClick={handleClickOpen}
+                >
+                  Edit
+                </button>
+
+                <div className="editDialogBox">
+                  <Dialog open={open} onClose={handleClose}>
+                    <div className="editDialogBoxContent">
+                      <h3 className="pb-8 font-bold text-black">
+                        Edit Profile
+                      </h3>
+                      <ThemeProvider theme={theme}>
+                        <form>
+                          <div className="fromToMessageSection">
+                            <Grid container spacing={2}>
+                              <Grid item xs={6}>
+                                <TextField
+                                  id="outlined-controlled"
+                                  label="First Name"
+                                  name="firstname"
+                                  value={profileDetail.first_name}
+                                  size="small"
+                                  InputProps={{
+                                    style: {
+                                      fontSize: "13px",
+                                      fontFamily: "Poppins, sans-serif",
+                                      color: "gray",
+                                      fontWeight: 500,
+                                      width: "250px",
+                                      height: "40px",
+                                    },
+                                  }}
+                                />
+                              </Grid>
+                              <Grid item xs={6}>
+                                <TextField
+                                  id="outlined-controlled"
+                                  label="Last Name"
+                                  name="lastname"
+                                  value={profileDetail.last_name}
+                                  InputProps={{
+                                    style: {
+                                      fontSize: "13px",
+                                      fontFamily: "Poppins, sans-serif",
+                                      color: "gray",
+                                      fontWeight: 500,
+                                      height:"40px",
+                                      width:"250px"
+                                    },
+                                  }}
+                                />
+                              </Grid>
+                            </Grid>
+                            <br />
+                            <Grid item xs={12}>
+                              <TextField
+                                id="outlined-controlled"
+                                label="Email"
+                                name="email"
+                                value={profileDetail.email}
+                                InputProps={{
+                                  style: {
+                                    fontSize: "13px",
+                                    fontFamily: "Poppins, sans-serif",
+                                    color: "gray",
+                                    fontWeight: 500,
+                                    width: "525px",
+                                    height: "40px",
+                                  },
+                                }}
+                              />
+                            </Grid>
+                            <br />
+                            <Grid item xs={12}>
+                              <TextField
+                                id="outlined-controlled"
+                                label="Contact"
+                                name="contact"
+                                value={profileDetail.phone_no}
+                                size="small"
+                                InputProps={{
+                                  style: {
+                                    fontSize: "13px",
+                                    fontFamily: "Poppins, sans-serif",
+                                    color: "gray",
+                                    fontWeight: 500,
+                                    width: "525px",
+                                    height: "40px",
+                                  },
+                                }}
+                              />
+                            </Grid>
+                            <br />
+                            <Grid item xs={12} style={{ fontSize: "13" }}>
+                              <TextField
+                                id="outlined-controlled"
+                                label="Message"
+                                name="message"
+                                value={profileDetail.message}
+                                size="small"
+                                InputProps={{
+                                  style: {
+                                    fontSize: "13px",
+                                    fontFamily: "Poppins, sans-serif",
+                                    color: "gray",
+                                    fontWeight: 500,
+                                    width: "525px",
+                                    height: "50px",
+                                  },
+                                }}
+                              />
+                            </Grid>
+                          </div>
+                          <div className="replyMessageSection"></div>
+                        </form>
+                      </ThemeProvider>
+                    </div>
+                    <DialogActions>
+                      <button
+                        className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 mr-5 mb-5 rounded shadow"
+                        onClick={handleClose}
+                      >
+                        Save
+                      </button>
+                    </DialogActions>
+                  </Dialog>
                 </div>
+              </div>
+              <div className="p-4 text-center">
+                {/* <img src={profile} className="userProfileImage" /> */}
+                <img
+                  className="userProfileImage"
+                  src={`../assets/Users/${sessionStorage.getItem(
+                    "profile_picture"
+                  )}`}
+                  // src="../assets/Users/Janith.jpg"
+                  alt=""
+                />
+              </div>
+              <div className=" fw-600 userProfileDtails">
+                <p className="userNameProfile">
+                  {profileDetail.first_name}&nbsp;
+                  {profileDetail.last_name}
+                </p>
+                <p className="userEmailProfile">{profileDetail.email}</p>
+                <p className="qualfication"> {profileDetail.qualification}</p>
               </div>
             </div>
           </div>
+
+          <div className="flex gap-4 text-center pt-6 contactIcon">
+            <Link to={profile.facebook}>
+              <FacebookIcon className="facebookIcon" />
+            </Link>
+            <Link to={profile.twitter}>
+              <TwitterIcon className="twitterIcon" />
+            </Link>
+            <Link to={profile.instergram}>
+              <LinkedInIcon className="LinkedInIcon" />
+            </Link>
+          </div>
+
+          <div className="pl-6 text-justify  pt-12 message">
+            <span>{profileDetail.message}</span>
+          </div>
         </div>
       </div>
-
-    </section>  
-    
-    
-    
-    
-    </div>
-
-
-
-
-</>
-
-
-
-        
-    </div>
-    </div>
-  )
+    </>
+  );
 }
 
-export default R_Userprofile
+export default Profile;
