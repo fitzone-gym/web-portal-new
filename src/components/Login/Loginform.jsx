@@ -20,13 +20,10 @@ export const Loginform = () => {
       setError("");
 
       try {
-        const response = await axios.post(
-          "http://localhost:5400/auth/login",
-          {
-            email: email,
-            password: password,
-          }
-        );
+        const response = await axios.post("http://localhost:5400/auth/login", {
+          email: email,
+          password: password,
+        });
 
         console.log(response.data);
         if (response.data.success) {
