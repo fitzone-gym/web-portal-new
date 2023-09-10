@@ -9,10 +9,12 @@ function sidenav() {
             href="/Receptionist/Dashboard"
             className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
             style={{
-              border: "2px solid #E54646",
-              borderRadius: "5px",
-             marginLeft: "10px",
+              borderRadius: "50px",
+              marginLeft: "10px",
               marginRight: "20px",
+              width: "250px",
+              background: "white",
+              color:" rgb(229, 70, 70)"
             }}
           >
             <span className="inline-flex justify-center items-center ml-4">

@@ -1,62 +1,101 @@
-.top-nav-collapse {
-    background: #fff;
-    z-index: 999999;
-    top: 0px !important;
-    min-height: 58px;
-    box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.06);
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-name: fadeInDown;
-    animation-name: fadeInDown;
-    position: fixed;
+/* .max-w-7xl{
     width: 100%;
-  }
-  
-  .top-nav-collapse .nav-link {
-    color: black;
-    font-weight: bold;
-  }
-  
-  .top-nav-collapse .nav-link:hover {
-    color: var(--red);
-    cursor: pointer;
-  }
-  
-  .top-nav-collapse .active-link {
-    color: var(--red);
-  }
-  
-  .navbar .navbar_logo {
-    width: 120px;
-    height: 60px;
-  }
-  
-  .userDetails{
-    display:flex;
-    flex-direction: row;
-    gap:10px;
+    position: fixed;
+}
 
+
+
+.navbar-block{
+    width: 100%;
+    color: black;
+    height: 5%;
+}
+
+body{
+    background-color: rgb(107, 100, 100);
   }
   
-  .logUserDetails{
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .navbar-container{
+    background-color: black;
+    width: 100%;
+    
+    margin-top: 0px;
   }
   
-  .userName{
-    font-size:15px;
+  .logo-container{
+    margin: 0;
+    margin-top: 0;
+  
   }
-  
-  .userEmail{
-    font-size:13px;
-    color:gray;
+
+  img{
+    width: 20%;
   }
-  
-  
-  
-  
-  
+
+.header{
+  position: fixed;
+}
+   */
+
+
+/*Navbar*/
+.top-nav-collapse {
+  background: #fff;
+  z-index: 999999;
+  top: 0px !important;
+  min-height: 58px;
+  box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.06);
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  position: fixed;
+  width: 100%;
+}
+
+.top-nav-collapse .nav-link {
+  color: black;
+  font-weight: bold;
+}
+
+.top-nav-collapse .nav-link:hover {
+  color: var(--red);
+  cursor: pointer;
+}
+
+.top-nav-collapse .active-link {
+  color: var(--red);
+}
+
+.navbar .navbar_logo {
+  width: 120px;
+  height: 60px;
+}
+
+.userDetails{
+  display:flex;
+  flex-direction: row;
+  gap:10px;
+}
+
+.logUserDetails{
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.userName{
+  font-size:15px;
+}
+
+.userEmail{
+  font-size:13px;
+  color:gray;
+}
+
+
+
+
