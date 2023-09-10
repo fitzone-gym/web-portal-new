@@ -1,88 +1,58 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, {  useState, useEffect } from "react";
 
 
 import Header from "../../components/header";
 import Sidenav from "../../components/Doctor/sidenav";
 import "../../styles/Doctor/memberList.css";
-import profile1 from "../../assets/profile1.jpeg";
-import profile2 from "../../assets/profile2.jpg";
-import profile3 from "../../assets/profile3.jpg";
+
 
 
 
 /*popup form */
-import Button from "@mui/material/Button";
+
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+
+
+import axios from "axios";
 
 
 
 function D_MemberList() {
 
   const [open, setOpen] = React.useState(false);
+  const [selectedMember, setSelectedMember] = useState(null);
 
-  const handleClickOpen = () => {
+
+  // const handleClickOpen = (first_name, last_name, dob, weight,height, suger_level,diabetes_level,cholestirol_level, blood_pleasure,injuries) => {
+  //   setOpen(true);
+  // };
+
+  const handleClickOpen = (member) => {
+    setSelectedMember(member);
     setOpen(true);
   };
+
 
   const handleClose = () => {
     setOpen(false);
   };
 
- 
 
-  // const handleSubmit = (e, requestId) => {
-  //   e.preventDefault();
+  const [memberDetail, setMemberDetails] = useState([]);
 
-  //   const formData = new FormData(e.target);
-
-  //   const data = {};
-  //   formData.forEach((value, key) => {
-  //     data[key] = value;
-  //   });
-
-  //   data.replySubmitionID = requestId;
-
-  //   console.log("the dataset", data);
-  //   axios
-  //     .post(
-  //       "http://localhost:5400/contactUsSubmition/contactUsFormReplySubmition",
-  //       data
-  //     )
-
-  //     .then((response) => {
-  //       console.log("Data submitted successfully to backend", response.data);
-  //       // Update reply_or_not_state after successful submission
-  //       updateReplyStatus(requestId);
-
-  //       sendEmail(data, requestId);
-
-  //       setExpandedRequests((prevExpanded) => ({
-  //         ...prevExpanded,
-  //         [requestId]: false,
-  //       }));
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error submitting data", error);
-  //     });
-  // };
-
-  // const styles = {
-  //   label: {
-  //     fontSize: "13px",
-  //     fontFamily: "Poppins, sans-serif", // Change to the desired font family
-  //     color: "gray",
-  //     fontWeight: 500,
-  //   },
-  //   input: {
-  //     fontSize: "13px",
-  //   },
-  // };
-
+  useEffect(() => {
+    axios
+      .get("http://localhost:5400/membersfordoctor/")
+      .then((response) => {
+        setMemberDetails(response.data.data);
+        console.log(memberDetail);
+      })
+      .catch((error) => console.error("error fetching trainer details"));
+  }, []);
  
 
   return (
@@ -94,7 +64,6 @@ function D_MemberList() {
         <div
           className=""
           style={{
-            // marginLeft: "17%",
             marginRight: "20px",
             marginLeft: "17%",
             marginTop: "50px",
@@ -236,232 +205,99 @@ function D_MemberList() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-1"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-1" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={profile3}
-                      alt="Jese image"
-                    />
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Neil Sims</div>
-                      <div className="font-normal text-gray-500">
-                        neil.sims@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">React Developer</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatchOff">Not</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
-                      style={{textDecoration:"none"}}
-                      onClick={handleClickOpen}
+                {memberDetail.length > 0 ? (
+                  memberDetail.map((member) => (
+                    <tr
+                      className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                      key={member.id}
                     >
-                      Report
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-2"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-2" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={profile1}
-                      alt="Jese image"
-                    />
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Bonnie Green
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        bonnie@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">Designer</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatch">Update</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Report
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-2"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-2" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={profile2}
-                      alt="Jese image"
-                    />
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Jese Leos</div>
-                      <div className="font-normal text-gray-500">
-                        jese@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">Vue JS Developer</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatchOff">Not</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Report
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-2"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-2" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={profile3}
-                      alt="Jese image"
-                    />
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Thomas Lean</div>
-                      <div className="font-normal text-gray-500">
-                        thomes@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">UI/UX Engineer</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatch">Update</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Report
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-3"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-3" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={profile1}
-                      alt="Jese image"
-                    />
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Leslie Livingston
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        leslie@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">SEO Specialist</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatch">Update</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Report
-                    </a>
-                  </td>
-                </tr>
+                      <td className="w-4 p-4">
+                        <div className="flex items-center">
+                          <input
+                            id="checkbox-table-search-1"
+                            type="checkbox"
+                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                          />
+                          <label
+                            for="checkbox-table-search-1"
+                            className="sr-only"
+                          >
+                            checkbox
+                          </label>
+                        </div>
+                      </td>
+                      <th
+                        scope="row"
+                        className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        <img
+                          className="w-10 h-10 rounded-full"
+                          src={`../src/assets/Users/${member.profile_picture}`}
+                          alt="Jese image"
+                        />
+                        <div className="pl-3">
+                          <div className="text-base font-semibold">
+                            {member.first_name}&nbsp;{member.last_name}
+                          </div>
+                          <div className="font-normal text-gray-500">
+                            {member.email}
+                          </div>
+                        </div>
+                      </th>
+
+                      {
+                        // Sample date string in ISO 8601 format
+                        // const dateString =member.joined_date;
+                        // // Create a Date object from the ISO 8601 date string
+                        // const date = new Date(dateString);
+                        // // Get the year, month, and day components from the Date object
+                        // const year = date.getFullYear();
+                        // const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+                        // const day = String(date.getDate()).padStart(2, '0');
+                        // // Format the date as "YYYY-MM-DD" or in any desired format
+                        // Sample date string in ISO 8601 format
+                      }
+                      <td className="px-6 py-4">
+                        {member.joined_date_formatted}
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center">
+                          {new Date() - member.joined_date_formatted > 1 ? (
+                            <div className="statusBatchOff">Not</div>
+                          ) : (
+                            <div className="statusBatch">Update</div>
+                          )}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <a
+                          href="#"
+                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
+                          style={{ textDecoration: "none" }}
+                          // onClick={() =>
+                          //   handleClickOpen(
+                          //     member.first_name,
+                          //     member.last_name,
+                          //     member.dob,
+                          //     member.weight,
+                          //     member.height,
+                          //     member.suger_level,
+                          //     member.diabetes_level,
+                          //     member.cholestirol_level,
+                          //     member.blood_pleasure,
+                          //     member.injuries
+                          //   )
+                          // }
+                          onClick={() => handleClickOpen(member)}
+                        >
+                          Report
+                        </a>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <p>No data</p>
+                )}
               </tbody>
             </table>
           </div>
@@ -473,15 +309,17 @@ function D_MemberList() {
         {/* <DialogTitle>Subscribe</DialogTitle> */}
         <DialogContent>
           <DialogContentText>
-            <p className="pt-2 healthpopUpUserName">Neil singh</p>
-            <p className="healthpopUpUserAge">25 year</p>
+            <p className="pt-2 healthpopUpUserName">
+              {selectedMember?.first_name} {selectedMember?.last_name}
+            </p>
+            <p className="healthpopUpUserAge">{selectedMember?.age} year</p>
           </DialogContentText>
           <div className="pt-10">
             <div className="flex gap-4 pb-3 formInputs">
               <TextField
                 id="outlined-read-only-input"
                 label="Weight(kg)"
-                defaultValue="55"
+                defaultValue={selectedMember?.weight}
                 size="small"
                 // InputLabelProps={{
                 //   style: styles.label, // Apply the style to the label
@@ -500,7 +338,7 @@ function D_MemberList() {
               <TextField
                 id="outlined-read-only-input"
                 label="Height(cm)"
-                defaultValue="180"
+                defaultValue={selectedMember?.height}
                 size="small"
                 InputProps={{
                   readOnly: true,
@@ -516,7 +354,7 @@ function D_MemberList() {
               <TextField
                 id="outlined-read-only-input"
                 label="BMI"
-                defaultValue="20.5"
+                defaultValue={selectedMember?.BMI}
                 size="small"
                 InputProps={{
                   readOnly: true,
@@ -534,7 +372,7 @@ function D_MemberList() {
               <TextField
                 id="outlined-read-only-input"
                 label="Sugar(mg/dL)"
-                defaultValue="70-100"
+                defaultValue={selectedMember?.diabetes_level}
                 size="small"
                 InputProps={{
                   readOnly: true,
@@ -550,7 +388,7 @@ function D_MemberList() {
               <TextField
                 id="outlined-read-only-input"
                 label="Blood Peasure(mmHg)"
-                defaultValue="120-129"
+                defaultValue={selectedMember?.blood_presure}
                 size="small"
                 InputProps={{
                   readOnly: true,
@@ -566,7 +404,7 @@ function D_MemberList() {
               <TextField
                 id="outlined-read-only-input"
                 label="Colestrol Level(mg/dL)"
-                defaultValue="200-239"
+                defaultValue={selectedMember?.cholesterol_level}
                 size="small"
                 InputProps={{
                   readOnly: true,
@@ -584,7 +422,7 @@ function D_MemberList() {
               <TextField
                 id="outlined-read-only-input"
                 label="Inguries"
-                defaultValue="Mild abrasions and contusions on the forehead and right cheek.No signs of skull fracture or concussion observed.Recommended wound cleaning and application of antibiotic ointment."
+                defaultValue={selectedMember?.injuries}
                 size="small"
                 InputProps={{
                   readOnly: true,

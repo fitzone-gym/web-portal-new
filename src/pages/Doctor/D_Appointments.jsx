@@ -1,69 +1,104 @@
 import React, { useRef, useState, useEffect } from "react";
 
-import Header from "../../components/Doctor/header";
+import Header from "../../components/header";
 import Sidenav from "../../components/Doctor/sidenav";
 import "../../styles/Doctor/appointments.css";
-import profile from "../../assets/profile.jpeg";
+
 
 /*popup form */
-import Button from "@mui/material/Button";
+
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+
+import axios from "axios";
+
+
 
 function D_Appointments() {
 
 
     const [open, setOpen] = React.useState(false);
 
-    const handleClickOpen = () => {
+    const [appointments, setAppointments] = useState([]);
+    const [selectedAppointment, setSelectedAppointment] = useState(null);
+
+    useEffect(() => {
+      axios
+        .get("http://localhost:5400/memberdoctorappointment/")
+        .then((response) => {
+          setAppointments(response.data.data);
+          console.log(appointments);
+        })
+        .catch((error) => console.error("error fetching trainer details"));
+    }, []);
+
+    /* update profile */
+    const [weight, setweight] = useState("");
+    const [height, setheight] = useState("");
+    const [BMI, setBMI] = useState("");
+    const [diabetes_level, setdiabeteslevel] = useState("");
+    const [blood_presure, setbloodpresure] = useState("");
+    const [cholesterol_level, setcholesterollevel] = useState("");
+    const [injuries, setinjuries] = useState("");
+    const [id, setId] = useState("");
+    
+    const handleClickOpen = (appointment) => {
+      setSelectedAppointment(appointment);
+      setweight(appointment.first_name || "");
+      setheight(appointment.last_name || "");
+      setBMI(appointment.phone_no || "");
+      setdiabeteslevel(appointment.email || "");
+      setbloodpresure(appointment.message || "");
+      setcholesterollevel(appointment.email || "");
+      setinjuries(appointment.message || "");
+      setId(appointment.member_id || "");
       setOpen(true);
     };
+
+    const handleSubmit = (e) => {
+      console.log("callme");
+      setOpen(false);
+      e.preventDefault();
+      const updatedAppointment = {
+        ...selectedAppointment,
+        weight,
+        height,
+        BMI,
+        diabetes_level,
+        blood_presure,
+        cholesterol_level,
+        injuries,
+        id,
+      };
+      axios
+        .patch(
+          "http://localhost:5400/memberdoctorappointment/updateHealthDetails/",
+          {
+            updatedAppointment,
+          }
+        )
+        .then((response) => {
+          console.log("Data submitted successfully to backend", response.data);
+          // Update reply_or_not_state after successful submission
+        })
+        .catch((error) => {
+          console.log("Error submitting data", error);
+        });
+    };
+
+    
+    // const handleClickOpenNew = () => {
+    //   setOpen(true);
+    // };
 
     const handleClose = () => {
       setOpen(false);
     };
 
-
-  // const handleSubmit = (e, requestId) => {
-  //   e.preventDefault();
-
-  //   const formData = new FormData(e.target);
-
-  //   const data = {};
-  //   formData.forEach((value, key) => {
-  //     data[key] = value;
-  //   });
-
-  //   data.replySubmitionID = requestId;
-
-  //   console.log("the dataset", data);
-  //   axios
-  //     .post(
-  //       "http://localhost:5400/contactUsSubmition/contactUsFormReplySubmition",
-  //       data
-  //     )
-
-  //     .then((response) => {
-  //       console.log("Data submitted successfully to backend", response.data);
-  //       // Update reply_or_not_state after successful submission
-  //       updateReplyStatus(requestId);
-
-  //       sendEmail(data, requestId);
-
-  //       setExpandedRequests((prevExpanded) => ({
-  //         ...prevExpanded,
-  //         [requestId]: false,
-  //       }));
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error submitting data", error);
-  //     });
-  // };
-
+    
   return (
     <>
       <div className="contactUsMessages">
@@ -92,7 +127,7 @@ function D_Appointments() {
                   type="button"
                 >
                   <span className="sr-only">Action button</span>
-                  Action
+                  Next 2 weeks
                   <svg
                     className="w-2.5 h-2.5 ml-2.5"
                     aria-hidden="true"
@@ -211,205 +246,81 @@ function D_Appointments() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-1"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-1" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Neil Sims</div>
-                      <div className="font-normal text-gray-500">
-                        neil.sims@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">React Developer</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatch">Old</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                      onClick={handleClickOpen}
+                {appointments.length > 0 ? (
+                  appointments.map((appointment) => (
+                    <tr
+                      className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                      key={appointment.id}
                     >
-                      View
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-2"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-2" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Bonnie Green
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        bonnie@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">Designer</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatch">Old</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                      onClick={handleClickOpen}
-                    >
-                      View
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-2"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-2" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Jese Leos</div>
-                      <div className="font-normal text-gray-500">
-                        jese@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">Vue JS Developer</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatch">Old</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                      onClick={handleClickOpen}
-                    >
-                      View
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-2"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-2" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Thomas Lean</div>
-                      <div className="font-normal text-gray-500">
-                        thomes@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">UI/UX Engineer</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatch">Old</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      View
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-3"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-3" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Leslie Livingston
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        leslie@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">SEO Specialist</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatchOff">New</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      View
-                    </a>
-                  </td>
-                </tr>
+                      <td className="w-4 p-4">
+                        <div className="flex items-center">
+                          <input
+                            id="checkbox-table-search-2"
+                            type="checkbox"
+                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                          />
+                          <label
+                            for="checkbox-table-search-2"
+                            className="sr-only"
+                          >
+                            checkbox
+                          </label>
+                        </div>
+                      </td>
+                      <th
+                        scope="row"
+                        className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        <img
+                          className="w-10 h-10 rounded-full"
+                          src={`../src/assets/Users/${appointment.profile_picture}`}
+                          alt="Jese image"
+                        />
+                        <div className="pl-3">
+                          <div className="text-base font-semibold">
+                            {appointment.first_name} {appointment.last_name}
+                          </div>
+                          <div className="font-normal text-gray-500">
+                            {appointment.email}
+                          </div>
+                        </div>
+                      </th>
+                      <td className="px-6 py-4">{appointment.created_at}</td>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center">
+                          {appointment.reason === "Consultant purpose" ? (
+                            <div className="statusBatch">Old</div>
+                          ) : (
+                            <div className="statusBatchOff">New</div>
+                          )}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        {appointment.reason === "Consultant purpose" ? (
+                          <a
+                            href="#"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                            style={{ textDecoration: "none" }}
+                            onClick={() => handleClickOpen(appointment)}
+                          >
+                            View
+                          </a>
+                        ) : (
+                          <a
+                            href="#"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                            // onClick={handleClickOpenNew}
+                            onClick={() => handleClickOpen(appointment)}
+                          >
+                            View
+                          </a>
+                        )}
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <p>No data</p>
+                )}
               </tbody>
             </table>
           </div>
@@ -428,7 +339,7 @@ function D_Appointments() {
               <TextField
                 id="outlined-read-only-input"
                 label="Name"
-                defaultValue="Neil Slim"
+                defaultValue={selectedAppointment?.first_name}
                 size="small"
                 InputProps={{
                   readOnly: true,
@@ -440,6 +351,7 @@ function D_Appointments() {
                     fontWeight: 500,
                   },
                 }}
+                // onChange={(e) => selectedAppointment(e.target.value)}
               />
             </div>
 
@@ -447,7 +359,7 @@ function D_Appointments() {
               <TextField
                 id="outlined-read-only-input"
                 label="Age"
-                defaultValue="25"
+                defaultValue={selectedAppointment?.age}
                 size="small"
                 InputProps={{
                   readOnly: true,
@@ -459,6 +371,7 @@ function D_Appointments() {
                     fontWeight: 500,
                   },
                 }}
+                // onChange={(e) => selectedAppointment(e.target.value)}
               />
             </div>
 
@@ -466,7 +379,7 @@ function D_Appointments() {
               <TextField
                 id="outlined-read-only-input"
                 label="Reason"
-                defaultValue="To do basic heath check."
+                defaultValue={selectedAppointment?.reason}
                 size="small"
                 InputProps={{
                   readOnly: true,
@@ -478,6 +391,7 @@ function D_Appointments() {
                     fontWeight: 500,
                   },
                 }}
+                // onChange={(e) => selectedAppointment(e.target.value)}
               />
             </div>
 
@@ -485,13 +399,12 @@ function D_Appointments() {
               <TextField
                 id="outlined-input"
                 label="Weight(kg)"
-                defaultValue="55"
+                defaultValue={selectedAppointment?.weight}
                 size="small"
                 // InputLabelProps={{
                 //   style: styles.label, // Apply the style to the label
                 // }}
                 InputProps={{
-                  readOnly: true,
                   style: {
                     fontSize: "13px",
                     fontFamily: "Poppins, sans-serif",
@@ -499,15 +412,15 @@ function D_Appointments() {
                     fontWeight: 500,
                   },
                 }}
+                onChange={(e) => setweight(e.target.value)}
               />
 
               <TextField
                 id="outlined-input"
                 label="Height(cm)"
-                defaultValue="180"
+                defaultValue={selectedAppointment?.height}
                 size="small"
                 InputProps={{
-                  readOnly: true,
                   style: {
                     fontSize: "13px",
                     fontFamily: "Poppins, sans-serif",
@@ -515,15 +428,15 @@ function D_Appointments() {
                     fontWeight: 500,
                   },
                 }}
+                onChange={(e) => setheight(e.target.value)}
               />
 
               <TextField
                 id="outlined-read-only-input"
                 label="BMI"
-                defaultValue="20.5"
+                defaultValue={selectedAppointment?.BMI}
                 size="small"
                 InputProps={{
-                  readOnly: true,
                   style: {
                     fontSize: "13px",
                     fontFamily: "Poppins, sans-serif",
@@ -531,6 +444,7 @@ function D_Appointments() {
                     fontWeight: 500,
                   },
                 }}
+                onChange={(e) => setBMI(e.target.value)}
               />
             </div>
 
@@ -538,10 +452,9 @@ function D_Appointments() {
               <TextField
                 id="outlined-input"
                 label="Sugar(mg/dL)"
-                defaultValue="70-100"
+                defaultValue={selectedAppointment?.diabetes_level}
                 size="small"
                 InputProps={{
-                  readOnly: true,
                   style: {
                     fontSize: "13px",
                     fontFamily: "Poppins, sans-serif",
@@ -549,15 +462,15 @@ function D_Appointments() {
                     fontWeight: 500,
                   },
                 }}
+                onChange={(e) => setdiabeteslevel(e.target.value)}
               />
 
               <TextField
                 id="outlined-input"
                 label="Blood Peasure(mmHg)"
-                defaultValue="120-129"
+                defaultValue={selectedAppointment?.blood_presure}
                 size="small"
                 InputProps={{
-                  readOnly: true,
                   style: {
                     fontSize: "13px",
                     fontFamily: "Poppins, sans-serif",
@@ -565,15 +478,15 @@ function D_Appointments() {
                     fontWeight: 500,
                   },
                 }}
+                onChange={(e) => setbloodpresure(e.target.value)}
               />
 
               <TextField
                 id="outlined-input"
                 label="Colestrol Level(mg/dL)"
-                defaultValue="200-239"
+                defaultValue={selectedAppointment?.cholesterol_level}
                 size="small"
                 InputProps={{
-                  readOnly: true,
                   style: {
                     fontSize: "13px",
                     fontFamily: "Poppins, sans-serif",
@@ -581,6 +494,7 @@ function D_Appointments() {
                     fontWeight: 500,
                   },
                 }}
+                onChange={(e) => setcholesterollevel(e.target.value)}
               />
             </div>
 
@@ -588,10 +502,9 @@ function D_Appointments() {
               <TextField
                 id="outlined-input"
                 label="Inguries"
-                defaultValue="Mild abrasions and contusions on the forehead and right cheek.No signs of skull fracture or concussion observed.Recommended wound cleaning and application of antibiotic ointment."
+                defaultValue={selectedAppointment?.injuries}
                 size="small"
                 InputProps={{
-                  readOnly: true,
                   style: {
                     fontSize: "13px",
                     width: "550px",
@@ -601,6 +514,26 @@ function D_Appointments() {
                     fontWeight: 500,
                   },
                 }}
+                onChange={(e) => setinjuries(e.target.value)}
+              />
+
+              <TextField
+                id="outlined-input"
+                label="ID"
+                defaultValue={selectedAppointment?.id}
+                size="small"
+                InputProps={{
+                  style: {
+                    fontSize: "13px",
+                    width: "550px",
+                    height: "50px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                    display: "none",
+                  },
+                }}
+                hidden
               />
             </div>
           </div>
@@ -608,6 +541,9 @@ function D_Appointments() {
         <DialogActions>
           <button onClick={handleClose} className="dialogCloseBtn">
             CLOSE
+          </button>
+          <button onClick={handleSubmit} className="dialogCloseBtn">
+            UPDATE
           </button>
         </DialogActions>
       </Dialog>

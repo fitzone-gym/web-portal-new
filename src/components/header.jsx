@@ -35,10 +35,9 @@ function Navbar() {
             <div className="userDetails">
               <img
                 className="h-8 w-8 rounded-full"
-                src={`../assets/Users/${sessionStorage.getItem(
-                  "profile_picture"
+                src={`../src/assets/Users/${sessionStorage.getItem(
+                  "profile_image"
                 )}`}
-                // src="../assets/Users/Janith.jpg"
                 alt=""
               />
 
@@ -89,7 +88,6 @@ function Navbar() {
                             active ? "bg-gray-100" : "",
                             "block px-4 py-2 text-sm text-gray-700"
                           )}
-                          
                         >
                           <span onClick={handleLogout()}>Sign out</span>
                           <div className=""></div>

@@ -3,44 +3,47 @@ import React, { useRef, useState, useEffect } from "react";
 import Header from "../../components/header";
 import Sidenav from "../../components/Doctor/sidenav";
 import "../../styles/Doctor/paymenthistory.css";
-import profile from "../../assets/profile.jpeg";
+
+
+import axios from "axios";
+
+
+
+// Function to pick a random color from the array
+function getRandomColor() {
+  const monthColors = [
+    { color: "#ffcb00", borderColor: "yellow", backgroundColor: "#ffffe9" },
+    { color: "#003049", borderColor: "#003049", backgroundColor: "#ecedfc" },
+    { color: "green", borderColor: "green", backgroundColor: "#dff5e5" },
+    { color: "salmon", borderColor: "salmon", backgroundColor: "#faedf2" },
+    { color: "black", borderColor: "black", backgroundColor: "#faedf2" },
+
+    // Add more color options here
+  ];
+
+  const randomIndex = Math.floor(Math.random() * monthColors.length);
+  return monthColors[randomIndex];
+}
+
+
+// const randomStyle =
+//   predefinedStyles[Math.floor(Math.random() * predefinedStyles.length)];
 
 function D_Payments() {
-  // const handleSubmit = (e, requestId) => {
-  //   e.preventDefault();
+  
+  const [paymentDetails, setpaymentDetails] = useState([]);
 
-  //   const formData = new FormData(e.target);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5400/doctorpayments/")
+      .then((response) => {
+        setpaymentDetails(response.data.data);
+        console.log(paymentDetails);
+      })
+      .catch((error) => console.error("error fetching trainer details"));
+  }, []);
+ 
 
-  //   const data = {};
-  //   formData.forEach((value, key) => {
-  //     data[key] = value;
-  //   });
-
-  //   data.replySubmitionID = requestId;
-
-  //   console.log("the dataset", data);
-  //   axios
-  //     .post(
-  //       "http://localhost:5400/contactUsSubmition/contactUsFormReplySubmition",
-  //       data
-  //     )
-
-  //     .then((response) => {
-  //       console.log("Data submitted successfully to backend", response.data);
-  //       // Update reply_or_not_state after successful submission
-  //       updateReplyStatus(requestId);
-
-  //       sendEmail(data, requestId);
-
-  //       setExpandedRequests((prevExpanded) => ({
-  //         ...prevExpanded,
-  //         [requestId]: false,
-  //       }));
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error submitting data", error);
-  //     });
-  // };
 
   return (
     <>
@@ -58,9 +61,6 @@ function D_Payments() {
             textAlign: "center",
           }}
         >
-          {/* <div className="sectionHeader">
-            <h2>Appointments</h2>
-          </div> */}
           <div
             className="relative  shadow-md sm:rounded-lg"
             style={{ margin: "0px 30px 30px 30px" }}
@@ -74,7 +74,7 @@ function D_Payments() {
                   type="button"
                 >
                   <span className="sr-only">Action button</span>
-                  Action
+                  Last 12 moths
                   <svg
                     className="w-2.5 h-2.5 ml-2.5"
                     aria-hidden="true"
@@ -193,201 +193,58 @@ function D_Payments() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-1"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-1" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">#0001</div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">2023-08-23</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatch">January</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <p
-                      className="font-medium text-blue-600 dark:text-blue-500 DSalaryAmount"
+                {paymentDetails.length > 0 ? (
+                  paymentDetails.map((payment) => (
+                    <tr
+                      className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                      key={payment.id}
                     >
-                      50000.00
-                    </p>
-                  </td>
-                </tr>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-2"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-2" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Bonnie Green
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        bonnie@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">Designer</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatch">Online</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Edit user
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-2"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-2" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Jese Leos</div>
-                      <div className="font-normal text-gray-500">
-                        jese@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">Vue JS Developer</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatch">Online</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Edit user
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-2"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-2" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Thomas Lean</div>
-                      <div className="font-normal text-gray-500">
-                        thomes@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">UI/UX Engineer</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatch">Online</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Edit user
-                    </a>
-                  </td>
-                </tr>
-                <tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <td className="w-4 p-4">
-                    <div className="flex items-center">
-                      <input
-                        id="checkbox-table-search-3"
-                        type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <label for="checkbox-table-search-3" className="sr-only">
-                        checkbox
-                      </label>
-                    </div>
-                  </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Leslie Livingston
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        leslie@flowbite.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">SEO Specialist</td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      <div className="statusBatchOff">Offline</div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Edit user
-                    </a>
-                  </td>
-                </tr>
+                      <td className="w-4 p-4">
+                        <div className="flex items-center">
+                          <input
+                            id="checkbox-table-search-1"
+                            type="checkbox"
+                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                          />
+                          <label
+                            for="checkbox-table-search-1"
+                            className="sr-only"
+                          >
+                            checkbox
+                          </label>
+                        </div>
+                      </td>
+                      <th
+                        scope="row"
+                        className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        <div className="pl-3">
+                          <div className="text-base font-semibold">
+                            #{payment.id}
+                          </div>
+                        </div>
+                      </th>
+                      <td className="px-6 py-4">{payment.payment_date}</td>
+                      <td className="px-6 py-4">
+                        {/* <div className="flex items-center">
+                          <div className="statusBatch">{payment.month}</div>
+                        </div> */}
+                        <div className="flex items-center">
+                          <div style={getRandomColor()} className="statusBatch">
+                            {payment.month}
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <p className="font-medium text-blue-600 dark:text-blue-500 DSalaryAmount">
+                          {payment.amount}
+                        </p>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <p>No data</p>
+                )}
               </tbody>
             </table>
           </div>
