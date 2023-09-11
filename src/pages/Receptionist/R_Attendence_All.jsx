@@ -5,9 +5,9 @@ import '../../styles/Receptionist/memberlist.css'
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Attendence_R from '../../components/Receptionist/Attendence_R';
+import All_Attendence_R from '../../components/Receptionist/All_Attendence_R';
 
-export const R_Attendence= () => {
+export const R_Attendence_All= () => {
 
 
 
@@ -19,7 +19,7 @@ export const R_Attendence= () => {
     <div className="flex flex-row">
     <Sidenav />
 
-      <Attendence_R/>
+      <All_Attendence_R/>
 
     </div>
 
@@ -29,4 +29,4 @@ export const R_Attendence= () => {
   )
 } 
 
-export default R_Attendence
+export default R_Attendence_All

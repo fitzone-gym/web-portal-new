@@ -228,10 +228,9 @@ useEffect(() => {
               </div>
               <div className=" fw-600 userProfileDtails">
                 <p className="userNameProfile">
-                  {profileDetail.first_name}&nbsp;
-                  {profileDetail.last_name}
+                 Jasitharan
                 </p>
-                <p className="userEmailProfile">{profileDetail.email}</p>
+                <p className="userEmailProfile">muralijasi@gmail.com</p>
                 <p className="qualfication"> {profileDetail.qualification}</p>
               </div>
             </div>

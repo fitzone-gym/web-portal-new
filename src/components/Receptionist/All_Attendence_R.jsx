@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import profileimage from "../../assets/managerprofile.jpg"
 
 
 
@@ -18,7 +17,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 
 
-export const memberlist = () => {
+export const All_Attendence_R = () => {
 
   const [open, setOpen] = React.useState(false);
 
@@ -38,7 +37,7 @@ export const memberlist = () => {
     useEffect(() => {
       const fetchMembers = async () => {
         try {
-          const response = await axios.get("http://localhost:5400/memberDetails/getMembersDetails");
+          const response = await axios.get("http://localhost:5400/receptionist/alldayattendence");
           // console.log("tt"+ response.data.data); // Check the API response data
           // console.log(typeof response.data.data); // Check the type of response.data
           setData(response.data.data); // Assuming the response contains an array of trainer objects
@@ -54,7 +53,7 @@ export const memberlist = () => {
       event.preventDefault();
       try {
         const response = await axios.get(
-          `http://localhost:5400/members/searchMembers?searchTerm=${searchTerm}`
+          `http://localhost:5400/receptionist/searchattendence?searchTerm=${searchTerm}`
         );
         setSearchResults(response.data.data);
       } catch (error) {
@@ -85,11 +84,15 @@ export const memberlist = () => {
           {/* <div className="sectionHeader">
             <h2>Members</h2>
           </div> */}
+          
           <div
             className="relative  shadow-md sm:rounded-lg"
             style={{ margin: "0px 30px 30px 30px" }}
           >
+
+            
             <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
+       
               <div>
         
           
@@ -143,17 +146,15 @@ export const memberlist = () => {
                     Member Name
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    E-Mail Address
+                    Date 
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Phone Number
+                    Check-in Time
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Address
+                    Check-out Time
                   </th>
-                  <th scope="col" className="px-6 py-3">
-                    View
-                  </th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -169,20 +170,10 @@ export const memberlist = () => {
                       >
                         {member.first_name + " " + member.last_name}{" "}
                       </th>
-                      <td className="px-6 py-4">{member.email} </td>
+                      <td className="px-6 py-4">{member.Date} </td>
+                        <td className="px-6 py-4">{member.Checkin}</td>{" "}
+                        <td className="px-6 py-4">{member.Checkout}</td>
                       
-                      <td className="px-6 py-4">{member.phone_no}</td>{" "}
-                      <td className="px-6 py-4">{member.package}</td>
-                      <td className="px-6 py-4">
-                      <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
-                      style={{textDecoration:"none"}}
-                      onClick={handleClickOpen}
-                    >
-                          View
-                       </a>
-                      </td>
                     </tr>
                   ))
                 : data.map((member, index) => {
@@ -197,19 +188,10 @@ export const memberlist = () => {
                         >
                           {member.first_name + " " + member.last_name}{" "}
                         </th>
-                        <td className="px-6 py-4">{member.email} </td>
-                        <td className="px-6 py-4">{member.phone_no}</td>{" "}
-                        <td className="px-6 py-4">{member.package}</td>
-                        <td className="px-6 py-4">
-                        <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
-                      style={{textDecoration:"none"}}
-                      onClick={handleClickOpen}
-                    >
-                      View
-                    </a>
-                        </td>
+                        <td className="px-6 py-4">{member.Date} </td>
+                        <td className="px-6 py-4">{member.Checkin}</td>{" "}
+                        <td className="px-6 py-4">{member.Checkout}</td>
+                        
                       </tr>
                     );
                   })}
@@ -222,67 +204,91 @@ export const memberlist = () => {
       <Dialog open={open} onClose={handleClose}>
         {/* <DialogTitle>Subscribe</DialogTitle> */}
         <DialogContent>
-          <div className="p-2 text-center">
-                {/* <img src={profile} className="userProfileImage" /> */}
-                <img
-                  className="userProfileImage items-center"
-                  src={profileimage}
-                  // src="../assets/Users/Janith.jpg"
-                  alt=""
-                />
-              </div>
           <DialogContentText>
-            <p className="pt-2  text-center healthpopUpUserName">Neil singh</p>
-    
+            <p className="pt-2 healthpopUpUserName">Neil singh</p>
+            <p className="healthpopUpUserAge">25 year</p>
           </DialogContentText>
-          <div className="pt-8">
-
-          
-
+          <div className="pt-10">
             <div className="flex gap-4 pb-3 formInputs">
-            
-
+            <p className="healthpopUpUserAge">25 year</p>
  </div>
- <div className="flex gap-4 pb-3 ">
-            <p className="healthpopUpUserAge">Contact No:  </p>
-            <p className="healthpopUpUserAge">0763572139</p>
-
-            </div>
-<div className="flex gap-4 pt-3">
-
-            <p className="healthpopUpUserAge">Email Address:  </p>
-            <p className="healthpopUpUserAge">muralijasi@gmail.com</p>
+ <div className="flex gap-4 pb-3 formInputs">
+ <p className="healthpopUpUserAge">25 year : </p>
+            <p className="healthpopUpUserAge">25 year</p>
  </div>
 
- <div className="flex gap-4 pt-3">
-
-<p className="healthpopUpUserAge">Gender:  </p>
-<p className="healthpopUpUserAge"> Male</p>
-</div>
 
            
 
             <div className="flex gap-4 pt-3">
-            <p className="healthpopUpUserAge">Package:  </p>
-            <p className="healthpopUpUserAge">Monthly Packahge</p>
+              <TextField
+                id="outlined-read-only-input"
+                label="Sugar(mg/dL)"
+                defaultValue="70-100"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
 
-            </div>
-<div className="flex gap-4 pt-3">
-            <p className="healthpopUpUserAge">Trainer Name:  </p>
-            <p className="healthpopUpUserAge">Lasith</p>
+              <TextField
+                id="outlined-read-only-input"
+                label="Blood Peasure(mmHg)"
+                defaultValue="120-129"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-read-only-input"
+                label="Colestrol Level(mg/dL)"
+                defaultValue="200-239"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
             </div>
 
-            <div className="flex gap-4 pt-3">
-            <p className="healthpopUpUserAge">Address :  </p>
-            <p className="healthpopUpUserAge">Sampath Mawatha,Ratnapura</p>
+            <div className="pt-6">
+              <TextField
+                id="outlined-read-only-input"
+                label="Inguries"
+                defaultValue="Mild abrasions and contusions on the forehead and right cheek.No signs of skull fracture or concussion observed.Recommended wound cleaning and application of antibiotic ointment."
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    width: "550px",
+                    height: "50px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
             </div>
-
-            <div className="flex gap-4 pt-3">
-            <p className="healthpopUpUserAge">Emergency Contact :  </p>
-            <p className="healthpopUpUserAge">0773618798</p>
-            </div>
-
-      
           </div>
         </DialogContent>
         <DialogActions>
@@ -295,4 +301,4 @@ export const memberlist = () => {
   );
 }}
 
-export default memberlist;
+export default All_Attendence_R;

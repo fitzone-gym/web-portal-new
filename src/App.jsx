@@ -38,6 +38,7 @@ import R_Editmyprofile from "./components/Receptionist/editprofile";
 import R_AppointmentHistory from "./pages/Doctor/D_AppointmentHistory";
 import R_Gymmemberattendence from "./pages/Receptionist/R_Gymmemberattendence";
 import R_Gymtrainerattendence from "./pages/Receptionist/R_Gymtrainerattendence";
+import R_Attendence_All from "./pages/Receptionist/R_Attendence_All";
 
 
 
@@ -95,6 +96,7 @@ function App() {
         <Route path="/Receptionist/salarydetails" element={<Salarypopup />} />
         <Route path="/Receptionist/Myprofile" element={<R_Userprofile />} />
         <Route path="/Receptionist/attendence" element={<R_Attendence />} />
+        <Route path="/Receptionist/allattendence" element={<R_Attendence_All />} />
         <Route path="/Receptionist/memberattendence" element={<R_Gymmemberattendence />} />
         <Route path="/Receptionist/trainerattendence" element={<R_Gymtrainerattendence />} />
 
