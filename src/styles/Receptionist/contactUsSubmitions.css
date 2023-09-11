@@ -1,0 +1,165 @@
+.sectionHeader{
+    color:#003049;
+    text-align: left;
+    padding:0px 0px 40px 40px;
+    font-weight: 600;
+    font-size:25px;
+}
+.contactUsMessages{
+    width:100%;
+    height:100%;
+    padding-top:90px;
+}
+
+.contactUsCardSet{
+    margin-left:17%;
+    margin-right:20px;
+    margin-top:50px;
+    margin-bottom:20px;
+    padding-bottom:20px; /*temporary*/
+}
+
+.contactUsMessages .contactUsCardSet .individualSubmition{
+    background-color:#ffffff;
+    text-align:left;
+    margin:0px 30px 30px 30px;
+    padding:20px;
+    border-radius:10px;
+    /* border: 1px solid transparent; */
+    /* box-shadow: (0, 0, 0, 0.1) 0px 4px 12px; */
+}
+
+.contactUsMessages .contactUsCardSet .individualSubmition:hover{
+    /* border:1px solid #f0efef; */
+}
+
+.contactUsMessages .contactUsCardSet .userName {
+    color:rgb(0, 0, 0);
+    font-weight:600;
+}
+
+.contactUsMessages .contactUsCardSet .submitDate{
+    color:#000000;
+}
+
+.contactUsMessages .contactUsCardSet .sumbitProblem {
+    color:#393737;
+    line-height:28px;
+    text-align: justify;
+    font-size:13px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.contactUsMessages .contactUsCardSet .openReplySection {
+    color: rgb(185, 37, 37);
+    font-size:13px;
+}
+
+.contactUsMessages .contactUsCardSet .responseStateBtn{
+    padding:10;
+    border-radius:50px;
+    font-size:13px;
+    text-transform: lowercase;
+    color:#fcbf49;
+}
+
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-roo{
+    border:1px solid #fcbf49;
+}
+
+.contactUsMessages .contactUsCardSet .responseStateBtnPending{
+    padding: 10;
+    border-radius: 50px;
+    font-size: 13px;
+    text-transform: lowercase;
+    color:#eae2b7;
+    
+}
+
+.replySectionHeader{
+    margin-top:30px;
+    margin-bottom:20px;
+    color:rgb(143, 137, 137);
+}
+
+.fromToMessageSection .formInputs{
+    font-size:13px;
+    width:100%;
+}
+
+.sendBtnText{
+    font-size: 13px;
+    text-transform: lowercase;
+}
+
+.sendBtnTextIcon{
+    font-size:10px;
+}
+
+.fromToMessageSection .editDeleteBtn{
+    display:flex;
+    gap:10px;
+}
+.fromToMessageSection .editbtn{
+    color:white;
+    padding:8px 9px 8px 9px;
+    background-color: #1565c0;
+    border-radius: 10px;
+    font-size:20px;
+}
+
+.fromToMessageSection .deletebtn{
+    color: white;
+    padding: 8px;
+    background-color: #E54646;
+    border-radius: 10px;
+}
+
+.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input{
+    color:gray;
+    font-family: 'Poppins', sans-serif;
+    font-size:13px;
+
+}
+
+
+/*delete popup*/
+
+
+#responsive-dialog-title{
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+
+}
+
+.dialogContentSection{
+    background-color: black;
+    
+}
+
+.dialogContentText{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(208, 202, 202);
+    font-size:13px;
+}
+
+.buttonSection{
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.okBtn{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(208, 202, 202);
+}
+
+.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input{
+    color:white;
+}
+
+.css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input{
+    color:gray;
+    font-size:12px;
+}

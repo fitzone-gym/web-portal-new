@@ -1,223 +1,328 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from "react";
+
+
+
+
+
+/*popup form */
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+
+
 
 function memberlist() {
-  return (
-    <div
-    className=""
-    style={{
-      position: "relative",
-      top: -25,
-      left: 0,
-      right: 0,
-      bottom: 0,
-    }}
-  >
-    <div className="">
-      <h1 className="font-bold text-red-600 text-5xl text-left ml-60 mt-0 mb-10 ">
-        Gym Members
-      </h1>
-    </div>
 
-    <div className="w-[85%] ml-64">
-      <div className="grid grid-flow-col auto-cols-2 bg-blue-900 ml-20 pt-6 pb-6 rounded-t-lg ">
-        <div className="text-white text-2xl ">Member Details</div>
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+ 
+   {
+    const [data, setData] = useState([]); // Initialize data with an empty array
+    const [searchTerm, setSearchTerm] = useState(""); // State to store the search term
+    const [searchResults, setSearchResults] = useState([]); // State to store search results
+  
+    useEffect(() => {
+      const fetchMembers = async () => {
+        try {
+          const response = await axios.get("http://localhost:5400/members");
+          // console.log("tt"+ response.data.data); // Check the API response data
+          // console.log(typeof response.data.data); // Check the type of response.data
+          setData(response.data.data); // Assuming the response contains an array of trainer objects
+        } catch (error) {
+          console.log("Error:", error);
+        }
+      };
+  
+      fetchMembers();
+    }, []);
+  
+    const handleSearch = async (event) => {
+      event.preventDefault();
+      try {
+        const response = await axios.get(
+          `http://localhost:5400/members/searchMembers?searchTerm=${searchTerm}`
+        );
+        setSearchResults(response.data.data);
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+  return (
+    <>
+     
+
         <div
-          className=" "
+          className="mt-40"
           style={{
-            marginLeft: 600,
+            // marginLeft: "17%",
+            marginRight: "20px",
+            marginLeft: "17%",
+            marginTop: "200px",
+            textAlign: "center",
+            width: "100%",
           }}
         >
-          <form>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                  />
-                </svg>
-              </div>
-              <input
-                type="search"
-                id="default-search"
-                className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search Name,Level..."
-                required
-              />
-              <button
-                type="submit"
-                className="text-white absolute right-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                style={{
-                  marginTop: -41,
-                }}
-              >
-                Search
-              </button>
-            </div>
-          </form>
-        </div>
-
-        <div className="">
-          <button
-            type="button"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            style={{
-              height: 45,
-            }}
+          {/* <div className="sectionHeader">
+            <h2>Members</h2>
+          </div> */}
+          <div
+            className="relative  shadow-md sm:rounded-lg"
+            style={{ margin: "0px 30px 30px 30px" }}
           >
-            <svg
-              className="w-4 h-4 text-white dark:text-white mr-1"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 16 18"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"
-              />
-            </svg>
-            Export
-          </button>
+            <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
+              <div>
+               
+         
+              </div>
+              <label for="table-search" className="sr-only">
+                Search
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg
+                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  id="table-search-users"
+                  className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search for users"
+                />
+              </div>
+            </div>
+            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+             
+                  <th scope="col" className="px-6 py-3">
+                    Member ID
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Member Name 
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Phone Number
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Address
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    View
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+              
+                                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+               
+                  <th
+                    scope="row"
+                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                   
+                
+                    <div className="pl-3">
+                      <div className="text-base font-semibold">156</div>
+                     
+                    </div>
+                  </th>
+                  <td className="px-6 py-4">August, 2023</td>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center">
+                      <div className="statusBatchOff">25.08.2023</div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center">
+                      <div className="statusBatchOff">Completed</div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
+                      style={{textDecoration:"none"}}
+                      onClick={handleClickOpen}
+                    >
+                      View
+                    </a>
+                  </td>
+                </tr>
+         
+  
+              
+             
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+     
+      {/* dialog popup */}
+      <Dialog open={open} onClose={handleClose}>
+        {/* <DialogTitle>Subscribe</DialogTitle> */}
+        <DialogContent>
+          <DialogContentText>
+            <p className="pt-2 healthpopUpUserName">Neil singh</p>
+            <p className="healthpopUpUserAge">25 year</p>
+          </DialogContentText>
+          <div className="pt-10">
+            <div className="flex gap-4 pb-3 formInputs">
+              <TextField
+                id="outlined-read-only-input"
+                label="Weight(kg)"
+                defaultValue="55"
+                size="small"
+                // InputLabelProps={{
+                //   style: styles.label, // Apply the style to the label
+                // }}
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
 
-      <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20">
-        <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 ">
-          <thead className="text-xs text-gray-300 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 ">
-            <tr>
-              <th scope="col" className="px-6 py-3">
-                Member name
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Joined Date
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Package Type
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Performance level
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Jayani Ranasinghe
-              </th>
-              <td className="px-6 py-4">3 Septemebr 2023</td>
-              <td className="px-6 py-4">1 Month</td>
-              <td className="px-6 py-4">1</td>
-              <td className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  View
-                </a>
-              </td>
-            </tr>
-            <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Lasith Senadheera
-              </th>
-              <td className="px-6 py-4">30 September 2023</td>
-              <td className="px-6 py-4">6 Months</td>
-              <td className="px-6 py-4">4</td>
-              <td className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  View
-                </a>
-              </td>
-            </tr>
-            <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Kalani Ranasinghe
-              </th>
-              <td className="px-6 py-4">7th October 2022</td>
-              <td className="px-6 py-4">Annual</td>
-              <td className="px-6 py-4">2</td>
-              <td className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  View
-                </a>
-              </td>
-            </tr>
-            <tr className="border-b bg-gray-200 dark:bg-gray-800 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Damitha Senadheera
-              </th>
-              <td className="px-6 py-4">6th January 2020</td>
-              <td className="px-6 py-4">Annual</td>
-              <td className="px-6 py-4">3</td>
-              <td className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  View
-                </a>
-              </td>
-            </tr>
-            <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Walter Ranasinghe
-              </th>
-              <td className="px-6 py-4">12th September 2021</td>
-              <td className="px-6 py-4">6 Months</td>
-              <td className="px-6 py-4">3</td>
-              <td className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  View
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+              <TextField
+                id="outlined-read-only-input"
+                label="Height(cm)"
+                defaultValue="180"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
 
-  )
-}
+              <TextField
+                id="outlined-read-only-input"
+                label="BMI"
+                defaultValue="20.5"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
 
-export default memberlist
+            <div className="flex gap-4 pt-3">
+              <TextField
+                id="outlined-read-only-input"
+                label="Sugar(mg/dL)"
+                defaultValue="70-100"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-read-only-input"
+                label="Blood Peasure(mmHg)"
+                defaultValue="120-129"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+
+              <TextField
+                id="outlined-read-only-input"
+                label="Colestrol Level(mg/dL)"
+                defaultValue="200-239"
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+
+            <div className="pt-6">
+              <TextField
+                id="outlined-read-only-input"
+                label="Inguries"
+                defaultValue="Mild abrasions and contusions on the forehead and right cheek.No signs of skull fracture or concussion observed.Recommended wound cleaning and application of antibiotic ointment."
+                size="small"
+                InputProps={{
+                  readOnly: true,
+                  style: {
+                    fontSize: "13px",
+                    width: "550px",
+                    height: "50px",
+                    fontFamily: "Poppins, sans-serif",
+                    color: "gray",
+                    fontWeight: 500,
+                  },
+                }}
+              />
+            </div>
+          </div>
+        </DialogContent>
+        <DialogActions>
+          <button onClick={handleClose} className="dialogCloseBtn">
+            CLOSE
+          </button>
+        </DialogActions>
+      </Dialog>
+    </>
+  );
+}}
+
+export default memberlist;

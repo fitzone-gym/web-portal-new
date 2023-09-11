@@ -1,3 +1,11 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background-color: white;
+}
+
 #root {
   max-width: 100%;
   margin: 0 auto;
@@ -38,4 +46,10 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+.flex-col {
+  margin-top: 0%;
+  margin-left: 0%;
 }

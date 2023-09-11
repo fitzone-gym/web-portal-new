@@ -7,6 +7,9 @@ import AddTrainerModal from "./AddTrainerModal";
 export const ManagerTrainer = () => {
   const [data, setData] = useState([]); // Initialize data with an empty array
   const [showModal, setShowModal] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(""); // State to store the search term
+  const [searchResults, setSearchResults] = useState([]); // State to store search results
+
 
   const fetchTrainers = async () => {
     try {
@@ -22,6 +25,18 @@ export const ManagerTrainer = () => {
   useEffect(() => {
     fetchTrainers();
   }, []);
+
+  const handleSearch = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.get(
+        `http://localhost:5400/trainers/searchTrainers?searchTerm=${searchTerm}`
+      );
+      setSearchResults(response.data.data);
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
 
   const handleDelete = async (trainerId) => {
     try {
@@ -61,13 +76,13 @@ export const ManagerTrainer = () => {
       }}
     >
       <div>
-        <h1 className="font-bold text-red-600 text-5xl text-left ml-32 mt-10 mb-10">
+        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
           Gym Trainers
         </h1>
       </div>
 
-      <div className="w-[110%]">
-        <div className="grid grid-flow-col auto-cols-2 bg-neutral-900 ml-20 pt-6 pb-6 rounded-t-lg ">
+      <div className="w-[106%]">
+        <div className="grid grid-flow-col auto-cols-2 bg-neutral-700 ml-20 pt-6 pb-6 rounded-t-lg ">
           <div className="text-white text-2xl ml-5">Trainers Details</div>
           <div
             className=""
@@ -75,7 +90,7 @@ export const ManagerTrainer = () => {
               marginLeft: 600,
             }}
           >
-            <form>
+            <form onSubmit={handleSearch}>
               <label
                 htmlFor="default-search"
                 className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -83,7 +98,7 @@ export const ManagerTrainer = () => {
                 Search
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-7%]">
                   <svg
                     className="w-4 h-4 text-gray-500 dark:text-gray-400"
                     aria-hidden="true"
@@ -101,15 +116,16 @@ export const ManagerTrainer = () => {
                   </svg>
                 </div>
                 <input
-                  type="search"
-                  id="default-search"
-                  className="block w-[120%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Search Name,Level..."
+                   type="text"
+                   value={searchTerm}
+                   onChange={(e) => setSearchTerm(e.target.value)}
+                  className="block w-[140%] ml-[-8%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Search Name..."
                   required
                 />
                 <button
                   type="submit"
-                  className="text-white absolute right-2.5 mr-[-20%] bg-gray-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="mr-[-30%] text-white absolute right-2.5 mr-[-20%] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   style={{
                     marginTop: -41,
                   }}
@@ -195,7 +211,45 @@ export const ManagerTrainer = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((trainer, index) => {
+            {searchResults.length > 0
+                ? searchResults.map((trainer, index) => (
+                  <tr
+                  key={index}
+                  className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
+                >
+                   <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      {trainer.first_name + " " + trainer.last_name}{" "}
+                      {/* Changed variable name to "trainer" */}
+                    </th>
+                    {/* <td className="px-6 py-4">{trainer.nic}</td>{" "} */}
+                    {/* <td className="px-6 py-4">{trainer.trainer_id}</td>{" "} */}
+                    <td className="px-6 py-4">{trainer.working_experience}</td>{" "}
+                    {/* Changed variable name to "trainer" */}
+                    <td className="px-6 py-4">{trainer.email}</td>{" "}
+                    {/* Changed variable name to "trainer" */}
+                    <td className="px-6 py-4">{trainer.phone_no}</td>{" "}
+                    {/* Changed variable name to "trainer" */}
+                    <td className="px-6 py-4">
+                      <Link
+                        to={`/Manager/Staffmembers/Trainer/Trainerprofile/${trainer.trainer_id}`} /* Changed variable name to "trainer" */
+                        className="font-medium text-blue-600 dark:text-blue-500  mr-4"
+                      >
+                        View
+                      </Link>
+                      <Link
+                        onClick={() =>handleDelete(trainer.trainer_id)  } /* Pass trainer.id to handleDelete */
+                        className="font-medium text-blue-600 dark:text-blue-500"
+                      >
+                        Delete
+                      </Link>
+                    </td>
+                  </tr>
+                ))
+
+              : data.map((trainer, index) => {
                 // Changed variable name to "trainer"
                 console.log("JJJ",trainer)
                 return (

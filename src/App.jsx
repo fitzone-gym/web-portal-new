@@ -11,7 +11,7 @@ import R_Attendence from "./pages/Receptionist/R_Attendence";
 import D_Dashboard from "./pages/Doctor/D_Dashboard";
 
 import D_PaymentHistory from "./pages/Doctor/D_PaymentHistory";
-import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
+// import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
 import R_Payment from "./pages/Receptionist/R_Payment";
 import D_Checkupforms from "./pages/Doctor/D_Checkupforms";
 import R_Memberprofile from "./pages/Receptionist/R_Memberprofile";
@@ -88,35 +88,33 @@ function App() {
           <Route path="/Manager/Payment/MemberPay" element={<MemberPay />} />
 
           <Route path="/Receptionist/Dashboard" element={<R_Dashboard />} />
-          <Route path="/Receptionist/MembersList" element={<R_Memeberlist />} />
-          <Route
-            path="/Receptionist/Memberprofile"
-            element={<R_Memberprofile />}
-          />
-          <Route path="/Receptionist/Trainerlist" element={<R_Trainerlist />} />
-          <Route
-            path="/Receptionist/Trainerprofile"
-            element={<R_Trainerprofile />}
-          />
-          <Route
-            path="/Receptionist/Announcement"
-            element={<R_Announcement />}
-          />
-          <Route path="/Receptionist/Payment" element={<R_Payment />} />
-          <Route path="/Receptionist/Myprofile" element={<R_Userprofile />} />
-          <Route
-            path="/Receptionist/Memberattendence"
-            element={<R_Attendence />}
-          />
-          <Route
-            path="/Receptionist/leaveRequest"
-            element={<R_Leaverequest />}
-          />
-          <Route
-            path="/Receptionist/editprofile"
-            element={<R_Editmyprofile />}
-          />
-          <Route path="/" element={<Login />} />
+        <Route path="/Receptionist/MembersList" element={<R_Memeberlist />} />
+        <Route
+          path="/Receptionist/Memberprofile"
+          element={<R_Memberprofile />}
+        />
+        <Route path="/Receptionist/Trainerlist" element={<R_Trainerlist />} />
+        <Route
+          path="/Receptionist/Trainerprofile"
+          element={<R_Trainerprofile />}
+        />
+        <Route path="/Receptionist/Announcement" element={<R_Announcement />} />
+        <Route path="/Receptionist/Payment" element={<R_Payment />} />
+        {/* <Route path="/Receptionist/salarydetails" element={<Salarypopup />} /> */}
+        <Route path="/Receptionist/Myprofile" element={<R_Userprofile />} />
+        <Route path="/Receptionist/attendence" element={<R_Attendence />} />
+        <Route path="/Receptionist/allattendence" element={<R_Attendence_All />} />
+        <Route path="/Receptionist/memberattendence" element={<R_Gymmemberattendence />} />
+        <Route path="/Receptionist/trainerattendence" element={<R_Gymtrainerattendence />} />
+
+        <Route path="/Receptionist/leaveRequest" element={<R_Leavedetails />} />
+
+        <Route path="/Receptionist/Applyleave" element={<R_Leaverequestform />} />
+        <Route path="/Receptionist/editprofile" element={<R_Editmyprofile />} />
+        <Route
+          path="/Receptionist/contactUsSubmitions"
+          element={<R_Contactus_submitions />}
+        />
 
           {/* Doctor */}
           <Route path="/Doctor/Dashboard" element={<D_Dashboard />} />
@@ -128,8 +126,7 @@ function App() {
           <Route path="/Doctor/Appointments" element={<D_Appointments />} />
         </Routes>
       // </BrowserRouter>
-    
-  );
-}
+  )} 
 
-export default App;
+
+  export default App;

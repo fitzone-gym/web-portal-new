@@ -281,7 +281,7 @@ export const ManagerAnnouncement = () => {
       style={{ position: "relative", top: 50, left: 290, right: 0, bottom: 0 }}
     >
       <div className="grid grid-cols-2">
-        <h1 className="font-bold text-red-600 text-5xl text-left ml-32 mt-10 mb-10">
+        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
           Special Announcements
         </h1>
 
@@ -315,7 +315,7 @@ export const ManagerAnnouncement = () => {
         <tbody className="">
           {data.map((announcement, index) => {
             return (
-              <tr key={index} className="bg-gray-300 text-left text-lg">
+              <tr key={index} className="bg-white drop-shadow-lg text-left text-lg">
                 <td className="rounded-lg">
                   <div>
                     <p className="mt-2 ml-7 font-bold">{announcement.title}</p>

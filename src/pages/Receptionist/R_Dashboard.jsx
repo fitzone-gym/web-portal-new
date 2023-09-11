@@ -6,16 +6,19 @@ import Dashboard from '../../components/Receptionist/Dashboard';
 
 function R_Dashboard() {
   return (
-    <div>
+    <div className="flex flex-col h-screen w-full bg-white">
         <Header/>
+        <div className="flex flex-row">
         <Sidenav/>
         <Dashboard/>
-
+        </div>
     </div>
   )
 }
 
 export default R_Dashboard
+
+
 
 
 
