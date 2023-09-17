@@ -67,6 +67,7 @@ import { Messages } from "./pages/Manager/Messages";
 
 // import R_onememberattendence from "./pages/Receptionist/onememberattendence";
 import R_Contactus_submitions from "./pages/Receptionist/ContactUsSUbmitions";
+import { TrainerLeaveReqList } from "./pages/Manager/TrainerLeaveReqList";
 
 function App() {
   
@@ -134,6 +135,7 @@ function App() {
         {/* <Route path="/Manager/Announcement/CreateAnnoun" element={<CreateAnnoun />} /> */}
         {/* <Route path="/Manager/Announcement/UpdateAnnoun" element={<UpdateAnnoun />} /> */}
         <Route path="/Manager/Leave" element={<Leave />} />
+        <Route path="/Manager/Leave/TrainerList" element={<TrainerLeaveReqList />} />
         <Route path="/Manager/Feedback" element={<Feedback />} />
         <Route path="/Manager/Payment" element={<Payment />} />
         <Route path="/Manager/Payment/TrainerPay" element={<TrainerPay />} />

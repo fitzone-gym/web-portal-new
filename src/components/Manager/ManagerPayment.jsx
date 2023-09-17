@@ -11,19 +11,13 @@ export const ManagerPayment = () => {
     <div
       className="w-[80%]"
       style={{
-        position: "relative",
-        top: 50,
+        position: "fixed",
+        top: 140,
         left: 290,
         right: 0,
         bottom: 0,
       }}
     >
-      <div>
-        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
-          Payment Dashboard
-        </h1>
-      </div>
-
       <div className="grid grid-cols-4 gap-4 ml-40 mt-16 ">
         <div
           className="bg-white drop-shadow-md font-bold text-2xl hover:bg-gray-500 hover:underline  border border-white/[.5]"

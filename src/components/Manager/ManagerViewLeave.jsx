@@ -5,7 +5,7 @@ export const ManagerViewLeave = () => {
     <div
     className="w-[80%]"
       style={{
-        position: "relative",
+        position: "fixed",
         top: -25,
         left: 0,
         right: 0,
