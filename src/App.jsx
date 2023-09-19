@@ -26,8 +26,8 @@ import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
 import R_Payment from './pages/Receptionist/R_Payment'
 import R_Memberprofile from './pages/Receptionist/R_Memberprofile'
 import R_Trainerprofile from "./pages/Receptionist/R_Trainerprofile";
-import D_Myprofile from './pages/Doctor/D_Myprofile'
 
+import D_Myprofile from './pages/Doctor/D_Myprofile'
 import D_Memberslist from './pages/Doctor/D_Memberslist'
 import D_Appointments from "./pages/Doctor/D_Appointments";
 import R_Editmyprofile from "./components/Receptionist/editprofile";

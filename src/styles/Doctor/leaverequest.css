@@ -1,9 +1,99 @@
 .individualLeaveRequest{
     width:650px;
-    height:100px;
+    height:120px;
+    margin-bottom:30px;
 }
 
 .addNewLeaveRequest{
     text-align:right;
     padding-bottom:30px;
+}
+
+.topicSection{
+    display:flex;
+    flex-direction:row;
+    text-align: left;
+    gap:70px;
+}
+
+.reason{
+    font-weight: bold;
+}
+
+.statusBatchAccept {
+    color: #ffcb00;
+    border: 1px solid yellow;
+    padding-right: 10px;
+    padding-left: 10px;
+    /* width: 80px; */
+    border-radius: 5px;
+    background: #ffffe9;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.statusBatchReject{
+    color: #b66363;
+    border: 1px solid rgb(191, 96, 96);
+    padding-right: 10px;
+    padding-left: 10px;
+    /* width: 80px; */
+    border-radius: 5px;
+    background: #f9f0f0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.statusBatchPending {
+    color: #04094e;
+    border: 1px solid rgb(2, 2, 57);
+    padding-right: 10px;
+    padding-left: 10px;
+    /* width: 80px; */
+    border-radius: 5px;
+    background: #f8f9ff;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.otherDetails{
+    text-align: left;
+}
+
+.otherDetails {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+}
+
+.requestDate {
+    color: gray;
+    font-size: 12px;
+    text-align: left;
+}
+
+.statusBatchOff{
+    text-align: right;
+}
+.individualRequestDetails{
+    line-height: 20px;
+    padding-bottom:20px;
+}
+
+.css-dk32bg-MuiStack-root>:not(style):not(style){
+    font-family: 'Poppins', sans-serif;
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+    font-size:12px;
+}
+
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+    font-size:12px;
 }
