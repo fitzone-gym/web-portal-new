@@ -5,7 +5,7 @@ export const ReceptionistPayment = () => {
     <div
       className="w-[82%]"
       style={{
-        position: "relative",
+        position: "fixed",
         top: 50,
         left: 290,
         right: 0,

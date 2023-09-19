@@ -4,12 +4,12 @@ import React, { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
-const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
+const AddDoctorModal = ({ onClose, fetchDoctor }   ) => {
   const [first_name, setFirstname] = useState("");
   const [last_name, setLastname] = useState("");
   const [phone_no, setPhoneno] = useState("");
   const [email, setEmail] = useState("");
-  const [working_experience, setWorkingexperience] = useState("");
+  const [qualification, setQualification] = useState("");
   const [role_id, setRoleid] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,12 +23,12 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
 
     //send data to the backend
     axios
-    .post("http://localhost:5400/trainers/add", {
+    .post("http://localhost:5400/doctor/add", {
       first_name,
       last_name,
       phone_no,
       email,
-        working_experience,
+        qualification,
         role_id,
         username,
         password,
@@ -42,14 +42,14 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
         setLastname("");
         setPhoneno("");
         setEmail("");
-        setWorkingexperience("");
+        setQualification("");
         setRoleid("");
         setUsername("");
         setPassword("");
         
         console.log("Before navigation");
         onClose()
-        fetchTrainers()
+        fetchDoctor()
        })
       .catch((error) => {
         console.log("Error submitting data", error);
@@ -83,7 +83,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
         </div>
 
         <div className="text-left px-16 py-10 text-2xl mt-[-2%] text-white ">
-          <h2>Add New Trainer</h2>
+          <h2>Add New Doctor</h2>
         </div>
 
         {/* Grid */}
@@ -139,7 +139,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
           </div>
 
           <div className="col">
-            <span className="mt-52 col text-white ">Working Experience </span>
+            <span className="mt-52 col text-white ">Qualification </span>
           </div>
           <div>
             <span className="mt-52 col text-white ">Role Id</span>
@@ -148,9 +148,9 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
             <input
               className="rounded-md w-72"
               type="text"
-              name="working experience"
-              placeholder="3 yrs"
-              onChange={(e) => setWorkingexperience(e.target.value)}
+              name="qualification"
+              placeholder=""
+              onChange={(e) => setQualification(e.target.value)}
             />
           </div>
           <div>
@@ -158,7 +158,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
               className="rounded-md w-72"
               type="text"
               name="roleid"
-              placeholder="Trainer role id - 2"
+              placeholder="Doctor role id - 4"
               onChange={(e) => setRoleid(e.target.value)}
             />
           </div>
@@ -201,4 +201,4 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
   );
 };
 
-export default AddTrainerModal;
+export default AddDoctorModal;

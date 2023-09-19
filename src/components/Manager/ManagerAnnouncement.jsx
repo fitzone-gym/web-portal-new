@@ -278,20 +278,17 @@ export const ManagerAnnouncement = () => {
   return (
     <div
       className="w-[80%]"
-      style={{ position: "relative", top: 50, left: 290, right: 0, bottom: 0 }}
+      style={{ position: "fixed", top: 50, left: 290, right: 0, bottom: 0 }}
     >
-      <div className="grid grid-cols-2">
-        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
-          Special Announcements
-        </h1>
-
+      <div className="pt-6 pb-6 ml-[62%] w-[24%]">
+          <div className="ml-[115%] mt-[20%]">
         {/* <Link to="/Manager/Announcement/CreateAnnoun"> */}
-        <div>
           <button
             type=""
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-[14%]"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center inline-flex items-center mr-2 "
             style={{
-              marginRight: "-71%",
+              height: 45,
+              width: 120
             }}
             onClick={handleAddNewClick} // Call the function to show the modal
           >
@@ -307,7 +304,7 @@ export const ManagerAnnouncement = () => {
       </div>
 
       <table
-        className="font-semibold ml-44 mt-2 h-[28%] py-6 px-6 border-separate border-spacing-10"
+        className="font-semibold ml-44  h-[28%] py-6 px-6 border-separate border-spacing-10"
         style={{
           width: "81%",
         }}
@@ -332,10 +329,10 @@ export const ManagerAnnouncement = () => {
                   <div className="actions">
                     {/* <Link to="/Manager/Announcement/UpdateAnnoun"> */}
                       <button
-                        className="text-white bg-yellow-400 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-4"
+                        className="text-white bg-green-500 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-4 text-center inline-flex text-center items-center mr-2"
                         style={{
-                          height: 30,
-                          width: "10%",
+                          height: 40,
+                          width: 120,
                           marginRight: "3%",
                           marginTop: "1%",
                           marginLeft: "70%",
@@ -363,8 +360,8 @@ export const ManagerAnnouncement = () => {
                     <button
                       className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center "
                       style={{
-                        height: 30,
-                        width: "10%",
+                        height: 40,
+                        width: 120,
                         marginTop: "1%",
                       }}
                     >

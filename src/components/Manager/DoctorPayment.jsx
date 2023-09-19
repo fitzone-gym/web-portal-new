@@ -5,7 +5,7 @@ export const DoctorPayment = () => {
     <div
       className="w-[80%] "
       style={{
-        position: "relative",
+        position: "fixed",
         top: 50,
         left: 290,
         right: 0,

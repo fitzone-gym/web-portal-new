@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../../assets/logo.png";
 import Profile from "../../assets/profile.jpeg";
-import "../../styles/Receptionist/header.css";
+import "../../styles/header.css";
 
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";

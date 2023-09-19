@@ -4,33 +4,25 @@ import { BsFillPersonPlusFill } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { images } from "../../constants";
-import { MdOutlineGirl } from "react-icons/md";
-import { MdOutlineBoy } from "react-icons/md";
 
 export const ManagerStaffmembers = () => {
   return (
     <div
       className="w-[80%]"
       style={{
-        position: "relative",
-        top: 50,
+        position: "fixed",
+        top: 100,
         left: 290,
         right: 0,
         bottom: 0,
       }}
     >
-      <div>
-        <h1 className="font-bold text-5xl text-left ml-20 mt-16 mb-10">
-          Staff Members Dashboard
-        </h1>
-      </div>
-
-      <div className="w-[100%] grid grid-cols-3 gap-4 ml-[8%] mt-12">
+     <div className="w-[100%] grid grid-cols-3 gap-7 ml-[8%] mt-12">
         <div
           className="bg-white font-bold text-2xl hover:bg-gray-500 border rounded-lg drop-shadow-md "
           style={{
             height: 220,
-            width: 350,
+            width: 300,
           }}
         >
           <Link to="/Manager/Staffmembers/Trainer">
@@ -45,7 +37,7 @@ export const ManagerStaffmembers = () => {
           className="bg-white  font-bold text-2xl hover:bg-gray-500 border rounded-lg drop-shadow-md "
           style={{
             height: 220,
-            width: 350,
+            width: 300,
           }}
         >
           <Link to="/Manager/Staffmembers/Doctor">
@@ -63,7 +55,7 @@ export const ManagerStaffmembers = () => {
           className="bg-white  font-bold text-2xl hover:bg-gray-500 border rounded-lg drop-shadow-md "
           style={{
             height: 220,
-            width: 350,
+            width: 300,
           }}
         >
           <Link to="/Manager/Staffmembers/Receptionist">
@@ -76,44 +68,22 @@ export const ManagerStaffmembers = () => {
       </div>
 
         {/* 3 row */}
-        <div className="grid grid-cols-2 ml-28 mt-8">
+        <div className="grid grid-cols-3 ">
         {/* 1 box */}
-        <div
-          className="font-bold text-2xl mt-16"
-          style={{
-            height: 490,
-            width: 590,
-          }}
-        >
-          <h1 className=" font-bold text-3xl text-center">
-            Gym Staff Composition
-          </h1>
-          <img className="w-80 h-80 mt-10 ml-44" src={images.stfcompImage} alt="" />
+        <div className=" mt-16">
+          <img className="w-[58%] h-[95%]  ml-32" src={images.trainerImage} alt="" />
         </div>
 
         {/* 2 box */}
-        <div className="font-bold rounded-sm text-left max-lg:hidden w-[100%]">
-          <div className="text-3xl  ml-28 mt-[7%] py-3">
-            <h1>Gym Member Compisition</h1>
+        <div className="">
             <img
-              className="w-[50%] h-88 mt-10 ml-12"
-              src={images.memcompositionImage}
-              alt=""
-            />
-            <div className="text-5xl">
-              <div className=" mt-[-6%]">
-                <MdOutlineGirl />
-              </div>
-              <div
-                className="ml-96"
-                style={{
-                  marginTop: -40,
-                }}
-              >
-                <MdOutlineBoy />
-              </div>
-            </div>
-          </div>
+              className="w-[58%] h-[83%] mt-16 ml-[26%]" src={images.managerdoctorImage} alt=""/>
+        </div>
+
+         {/* 3 box */}
+         <div className="">
+            <img
+              className="w-[58%] h-[83%] mt-16 ml-36" src={images.recepImage} alt=""/>
         </div>
       </div>
    </div>
