@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import axios from "axios";
 
-import Header from "../../components/Receptionist/header";
+import Header from "../../components/header";
 import Sidenav from "../../components/Receptionist/sidenav";
 import "../../styles/Receptionist/contactUsSubmitions.css";
 
@@ -194,9 +194,9 @@ function Contactus_Form_Submitions() {
         <Header />
         <Sidenav />
         <div className="contactUsCardSet">
-          <div className="sectionHeader">
+          {/* <div className="sectionHeader">
             <h2>Get in Touch</h2>
-          </div>
+          </div> */}
 
           {requestDetails.length > 0 ? (
             requestDetails.map((request) => (
@@ -208,9 +208,9 @@ function Contactus_Form_Submitions() {
                 <CardHeader
                   avatar={
                     <Avatar
-                      sx={{ bgcolor: "#E54646" }}
+                      sx={{ bgcolor: "#003049" }}
                       aria-label="recipe"
-                      style={{ backgroundColor: "#E54646" }}
+                      style={{ backgroundColor: "#003049" }}
                     >
                       {request.name[0]}
                     </Avatar>

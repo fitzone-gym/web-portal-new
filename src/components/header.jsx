@@ -1,7 +1,10 @@
 import React from "react";
-import Logo from "../../assets/logo.png";
-import Profile from "../../assets/profile.jpeg";
-import "../../styles/header.css";
+import Logo from "../assets/logo.png";
+// import Profile from "../assets/{{sessionStorage.getItem("profile_image")}}";
+import "../styles/header.css";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
@@ -11,7 +14,17 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+
+
 function Navbar() {
+
+    let navigate = useNavigate();
+    const handleLogout = () => {
+      sessionStorage.clear();
+      navigate("/");
+    };
+
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-inverse fixed-top scrolling-navbar top-nav-collapse">
@@ -22,13 +35,18 @@ function Navbar() {
             <div className="userDetails">
               <img
                 className="h-8 w-8 rounded-full"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                src={`../src/assets/Users/${sessionStorage.getItem(
+                  "profile_image"
+                )}`}
                 alt=""
               />
 
               <div className="logUserDetails">
-                <p className="userName">Ruwandi Mayunika</p>
-                <p className="userEmail">ruwandimayunika01@gmail.com</p>
+                <p className="userName">
+                  {sessionStorage.getItem("first_name")}&nbsp;
+                  {sessionStorage.getItem("last_name")}
+                </p>
+                <p className="userEmail">{sessionStorage.getItem("email")}</p>
               </div>
 
               <Menu as="div" className="relative ml-3">
@@ -36,8 +54,7 @@ function Navbar() {
                   <Menu.Button className="">
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">Open user menu</span>
-                    <ArrowDropDownIcon/>
-                    
+                    <ArrowDropDownIcon />
                   </Menu.Button>
                 </div>
                 <Transition
@@ -52,41 +69,29 @@ function Navbar() {
                   <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <Menu.Item>
                       {({ active }) => (
-                        <a
-                          href="#"
+                        <Link
+                          to="/Doctor/Myprofile"
                           className={classNames(
                             active ? "bg-gray-100" : "",
                             "block px-4 py-2 text-sm text-gray-700"
                           )}
                         >
-                          Your Profile
-                        </a>
+                          My Profile
+                        </Link>
                       )}
                     </Menu.Item>
                     <Menu.Item>
                       {({ active }) => (
-                        <a
+                        <span
                           href="#"
                           className={classNames(
                             active ? "bg-gray-100" : "",
                             "block px-4 py-2 text-sm text-gray-700"
                           )}
                         >
-                          Settings
-                        </a>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href="#"
-                          className={classNames(
-                            active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-gray-700"
-                          )}
-                        >
-                          Sign out
-                        </a>
+                          <span onClick={handleLogout()}>Sign out</span>
+                          <div className=""></div>
+                        </span>
                       )}
                     </Menu.Item>
                   </Menu.Items>

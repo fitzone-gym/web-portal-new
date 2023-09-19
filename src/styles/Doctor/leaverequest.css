@@ -1,10 +1,9 @@
-.leaveform{
-    background-image: url(../../assets/dashboard_bg.png);
-    margin-left: 16%;
-    color: white;
+.individualLeaveRequest{
+    width:650px;
+    height:100px;
 }
 
-.heading-leavereq{
-    margin-left: 17%;
+.addNewLeaveRequest{
+    text-align:right;
+    padding-bottom:30px;
 }
-

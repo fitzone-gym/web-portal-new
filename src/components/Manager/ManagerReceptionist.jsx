@@ -123,6 +123,9 @@ export const ManagerReceptionist = () => {
                 <th scope="col" className="px-6 py-3">
                   Action
                 </th>
+                <th>
+                  Download
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -163,6 +166,11 @@ export const ManagerReceptionist = () => {
                           Delete
                         </Link>
                 </td>
+                <td>
+                          <Link className="font-medium text-blue-600 dark:text-blue-500">
+                            Report Generation
+                          </Link>
+                        </td>
               </tr>
                );
               })}
