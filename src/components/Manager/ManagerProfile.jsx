@@ -6,8 +6,8 @@ export const ManagerProfile = () => {
     <div
       className="w-[80%] py-12 flex items-center"
       style={{
-        position: "relative",
-        top: 10,
+        position: "fixed",
+        top: 140,
         left: 0,
         right: 0,
         bottom: 0,
@@ -19,13 +19,13 @@ export const ManagerProfile = () => {
       <img
         src={priofileimg}
         alt="Profile"
-        className="w-[43%] h-[36%] mb-4 border-white border-2"
+        className="w-[38%] h-[38%] mb-12 border-white border-2"
         style={{
           borderRadius: "50%",
         }}
       />
-      <h2 className="text-white font-semibold text-5xl mb-3">Jayani Ivanthika Ranasinghe</h2>
-      <p className="text-white font-semibold text-3xl mb-24" >
+      <h2 className=" font-semibold text-5xl mb-3">Jayani Ivanthika Ranasinghe</h2>
+      <p className=" font-semibold text-3xl mb-24" >
         Gym Manager
       </p>
       <div  className="text-lg"

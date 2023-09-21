@@ -14,7 +14,7 @@ function sidenav() {
               marginRight: "20px",
               width: "250px",
               background: "white",
-              color: " rgb(229, 70, 70)",
+              color:" rgb(229, 70, 70)"
             }}
           >
             <span className="inline-flex justify-center items-center ml-4">
