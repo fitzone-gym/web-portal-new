@@ -7,7 +7,7 @@ function sidenav() {
         <li>
           <a
             href="/Doctor/Dashboard"
-            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 hover:border-indigo-500 pr-6"
             style={{
               borderRadius: "50px",
               marginLeft: "10px",
@@ -41,7 +41,7 @@ function sidenav() {
         <li>
           <a
             href="/Doctor/Memberslist"
-            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800  pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
               <svg
@@ -62,11 +62,10 @@ function sidenav() {
             <span className="ml-2 text-sm tracking-wide truncate">Members</span>
           </a>
         </li>
-        
         <li>
           <a
             href="/Doctor/Appointments"
-            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800  pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
               <svg
@@ -93,7 +92,7 @@ function sidenav() {
         <li>
           <a
             href="/Doctor/Payment"
-            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800  pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
               <svg
@@ -120,7 +119,7 @@ function sidenav() {
         <li>
           <a
             href="/Doctor/Myprofile"
-            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800  pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
               <svg
@@ -144,7 +143,7 @@ function sidenav() {
         <li>
           <a
             href="Doctor/LeaveRequests"
-            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800  pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
               <svg
@@ -173,7 +172,6 @@ function sidenav() {
             </span>
           </a>
         </li>
-        
       </ul>
     </div>
   );

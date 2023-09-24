@@ -30,18 +30,18 @@ export const Loginform = () => {
           const currentUser = response.data.data;
           console.log(currentUser);
 
-          if(currentUser.user_role === 3){
+          if(currentUser.role_id === 3){
             sessionStorage.setItem("first_name", currentUser.first_name);
             sessionStorage.setItem("last_name", currentUser.last_name);
             sessionStorage.setItem("email", currentUser.email);
-            sessionStorage.setItem("user_role", currentUser.user_role);
-            sessionStorage.setItem("id", currentUser.id);
+            sessionStorage.setItem("role_id", currentUser.role_id);
+            sessionStorage.setItem("id", currentUser.user_id);
             sessionStorage.setItem("profile_image", currentUser.profile_picture);
             navigate("/Doctor/Dashboard");
-          }else if (currentUser.user_role === 4) {
+          }else if (currentUser.role_id === 4) {
             sessionStorage.setItem("role", "manager");
             navigate("/Manager/Dashboard");
-          } else if (currentUser.user_role === 5) {
+          } else if (currentUser.role_id === 5) {
             sessionStorage.setItem("role", "receptionist");
             navigate("/Receptionist/Dashboard");
           }

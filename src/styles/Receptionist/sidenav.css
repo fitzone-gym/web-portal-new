@@ -6,7 +6,7 @@
     width: 16%;
     position: fixed;
     height: 100%;
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
     font-style: bold;
     padding-top:40px;
     color:white;
@@ -21,4 +21,12 @@ h1{
 
 .min-h-screen{
     margin-top: 10%;
+}
+
+.border-transparent{
+    border-color: transparent;
+}
+
+.border-l-4{
+    border-left-width: 0px;
 }

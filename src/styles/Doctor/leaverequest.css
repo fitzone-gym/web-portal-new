@@ -97,3 +97,19 @@
 .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
     font-size:12px;
 }
+
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+    font-family: 'Poppins', sans-serif;
+    font-size:0.9rem;
+}
+
+.dataRangeError{
+    color:#d32f2f;
+    font-weight: bold;
+    font-size:12px;
+}
+
+.menuItemStyle{
+    font-family: 'Poppins', sans-serif;
+    font-size:13px;
+}

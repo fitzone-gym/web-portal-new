@@ -10,28 +10,31 @@ import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import Button from "@mui/material/Button";
 
 /*popup form */
-
-import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-
-// import { Datepicker, Input, initTE } from "tw-elements";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
-// import { LocalizationProvider } from "@mui/x-date-pickers-pro";
-// import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 import axios from "axios";
 
-
-
-
 function LeaveReq() {
-
- const [leaveRequests, setleaveRequests] = useState([]);
+  const [leaveRequests, setleaveRequests] = useState([]);
   const [open, setOpen] = React.useState(false);
+
+  const [reason, setReason] = React.useState("");
+  const [fromDate, setFromDate] = React.useState("");
+  const [toDate, setToDate] = React.useState("");
+  const[dateRangeError, setdateRangeError] = React.useState("");
+
+  // const handleChange = (event) => {
+  //   setReason(event.target.value);
+  // };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -39,6 +42,72 @@ function LeaveReq() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleSubmit = (e) =>{
+    console.log("call me");
+    setOpen(false);
+    e.preventDefault();
+    const newLeaveReques = {
+      fromDate,
+      toDate,
+      reason, 
+    }
+    console.log(newLeaveReques);
+    axios.post("http://localhost:5400/doctorleaverequests/createLeaveRequest", 
+      {fromDate, toDate, reason},
+    )
+    .then((response) => {
+      console.log("Data submitted successfully to backend", response.data);
+      const createdRequest = response.data;
+      setleaveRequests((leaveRequests) => [...leaveRequests, createdRequest]);
+    })
+    .catch((error)=>{
+      console.log("Error submitting data", error);
+    })
+  }
+
+  function formatDateTime(dateTimeString) {
+    const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    return formattedString.replaceAll("/", ".");
+  }
+
+  function formatDate(dateTimeString) {
+    const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    return formattedString.replaceAll("/", ".");
+  }
+
+  //date validation
+
+  const validateDateRange = (range, reason) => {
+    const maxDateRange = {
+      "Training/Professional Development": 7,
+      "Emergency Leave": 5,
+      "Other": 5,
+    };
+    const selectedReasonDateRange = maxDateRange[reason];
+    setFromDate(range[0]);
+    setToDate(range[1]);
+    const dateDifference = (range[1] - range[0]) / (1000 * 3600 * 24);
+    console.log(dateDifference, selectedReasonDateRange);
+    if (dateDifference > selectedReasonDateRange) {
+      setdateRangeError("Invalid Range");
+    }
+    console.log(dateRangeError);
+  };
+
+  const handleDateRangeChange = (range) => {
+     validateDateRange(range, reason);
   };
 
   useEffect(() => {
@@ -50,7 +119,7 @@ function LeaveReq() {
       })
       .catch((error) => console.error("error fetching leaverequests details"));
   }, []);
-  
+
   return (
     <>
       <div className="contactUsMessages">
@@ -98,8 +167,8 @@ function LeaveReq() {
                         </div>
                         <br />
                         <div className="otherDetails">
-                          <span>From : {request.from_date}</span>
-                          <span>To : {request.to_date}</span>
+                          <span>From : {formatDate(request.from_date)}</span>
+                          <span>To : {formatDate(request.to_date)}</span>
                           <span>
                             {Math.floor(
                               (new Date(request.to_date) -
@@ -110,7 +179,8 @@ function LeaveReq() {
                           </span>
                         </div>
                         <div className="requestDate">
-                          Requested on : {request.requested_date}
+                          Requested on :{" "}
+                          {formatDateTime(request.requested_date)}
                         </div>
                       </div>
                     </div>
@@ -145,6 +215,24 @@ function LeaveReq() {
             <p className="pt-2 healthpopUpUserName">Create New Request</p>
           </DialogContentText>
           <div className="pt-10">
+            <FormControl sx={{ m: 1, ml: 0, minWidth: 500 }} size="small">
+              <InputLabel id="demo-select-small-label">Reason</InputLabel>
+              <Select
+                labelId="demo-select-small-label"
+                id="demo-select-small"
+                // value={reason}
+                label="reason"
+                onChange={(e) => setReason(e.target.value)}
+                // onChange={handleChange}
+              >
+                <MenuItem value={"Training/Professional Development"}>
+                  Training/Professional Development
+                </MenuItem>
+                <MenuItem value={"Emergency Leave"}>Emergency Leave</MenuItem>
+                <MenuItem value={"Other"}>Other</MenuItem>
+              </Select>
+            </FormControl>
+
             <div className="">
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DemoContainer
@@ -160,44 +248,37 @@ function LeaveReq() {
                     style={{ height: "50px" }}
                     InputLabelProps={{
                       style: {
-                        fontFamily: "'Poppins', sans-serif", // Define your desired font family for the label
-                        // You can also set other label styles here, such as color, fontSize, etc.
+                        fontFamily: "'Poppins', sans-serif",
                       },
                     }}
                   >
                     <DateRangePicker
                       calendars={1}
+                      // onChange={(range) => {
+                      //   setFromDate(range[0]);
+                      //   setToDate(range[1]);
+                      //   handleDateRangeChange;
+                      // }}
+                      onChange={handleDateRangeChange}
                       style={{
                         fontSize: "12px",
                         fontFamily: "'Poppins', sans-serif",
                       }}
                     />
+                    {dateRangeError != "" && (
+                      <p className="dataRangeError">{dateRangeError}</p>
+                    )}
                   </DemoItem>
                 </DemoContainer>
               </LocalizationProvider>
             </div>
-            <div className="pt-6">
-              <TextField
-                id="outlined-read-only-input"
-                label="Reason"
-                defaultValue="reason"
-                size="small"
-                InputProps={{
-                  readOnly: true,
-                  style: {
-                    fontSize: "13px",
-                    width: "550px",
-                    height: "50px",
-                    fontFamily: "Poppins, sans-serif",
-                    color: "gray",
-                    fontWeight: 500,
-                  },
-                }}
-              />
-            </div>
+            <div className="pt-6"></div>
           </div>
         </DialogContent>
         <DialogActions>
+          <button onClick={handleSubmit} className="dialogCloseBtn">
+            CREATE
+          </button>
           <button onClick={handleClose} className="dialogCloseBtn">
             CLOSE
           </button>

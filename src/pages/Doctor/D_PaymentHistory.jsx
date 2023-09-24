@@ -3,12 +3,12 @@ import React, { useRef, useState, useEffect } from "react";
 import Header from "../../components/header";
 import Sidenav from "../../components/Doctor/sidenav";
 import "../../styles/Doctor/paymenthistory.css";
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 
 import axios from "axios";
-
-
-
 // Function to pick a random color from the array
 function getRandomColor() {
   const monthColors = [
@@ -17,8 +17,6 @@ function getRandomColor() {
     { color: "green", borderColor: "green", backgroundColor: "#dff5e5" },
     { color: "salmon", borderColor: "salmon", backgroundColor: "#faedf2" },
     { color: "black", borderColor: "black", backgroundColor: "#faedf2" },
-
-    // Add more color options here
   ];
 
   const randomIndex = Math.floor(Math.random() * monthColors.length);
@@ -26,12 +24,28 @@ function getRandomColor() {
 }
 
 
-// const randomStyle =
-//   predefinedStyles[Math.floor(Math.random() * predefinedStyles.length)];
 
 function D_Payments() {
   
   const [paymentDetails, setpaymentDetails] = useState([]);
+  const [query, setQuery] = useState("");
+  const [filterValue, setfilterValue] = useState("");
+  const keys = ["month", "amount","id"];
+  console.log(query);
+
+  const handleChange = (event) => {
+    setfilterValue(event.target.value);
+  };
+  console.log(filterValue);
+
+  function formatDate(dateTimeString) {
+    const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    return formattedString.replaceAll("/", ".");
+  }
 
   useEffect(() => {
     axios
@@ -67,72 +81,58 @@ function D_Payments() {
           >
             <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
               <div>
-                <button
-                  id="dropdownActionButton"
-                  data-dropdown-toggle="dropdownAction"
-                  className="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                  type="button"
-                >
-                  <span className="sr-only">Action button</span>
-                  Last 12 moths
-                  <svg
-                    className="w-2.5 h-2.5 ml-2.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6"
+                <FormControl>
+                  <Select
+                    // label="Action"
+                    placeholder="Last 12 months"
+                    value={filterValue}
+                    onChange={handleChange}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    style={{
+                      fontFamily: "'Poppins', sans-serif",
+                      height: "37px",
+                      fontWeight: 500,
+                      color: "rgb(107,114,128)",
+                      paddingTop: "0.375rem",
+                      paddingBottom: "0.375rem",
+                      fontSize: 13,
+                      borderRadius: 10,
+                    }}
+                    className="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                   >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="m1 1 4 4 4-4"
-                    />
-                  </svg>
-                </button>
-                <div
-                  id="dropdownAction"
-                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-                >
-                  <ul
-                    className="py-1 text-sm text-gray-700 dark:text-gray-200"
-                    aria-labelledby="dropdownActionButton"
-                  >
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Reward
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Promote
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Activate account
-                      </a>
-                    </li>
-                  </ul>
-                  <div className="py-1">
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    <MenuItem
+                      value={2}
+                      className="menuItemStyle"
+                      style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: 14,
+                      }}
                     >
-                      Delete User
-                    </a>
-                  </div>
-                </div>
+                      All
+                    </MenuItem>
+                    <MenuItem
+                      value={1}
+                      className="menuItemStyle"
+                      style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: 14,
+                      }}
+                    >
+                      Updated
+                    </MenuItem>
+                    <MenuItem
+                      value={0}
+                      className="menuItemStyle"
+                      style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: 14,
+                      }}
+                    >
+                      Not-updated
+                    </MenuItem>
+                  </Select>
+                </FormControl>
               </div>
               <label for="table-search" className="sr-only">
                 Search
@@ -224,7 +224,9 @@ function D_Payments() {
                           </div>
                         </div>
                       </th>
-                      <td className="px-6 py-4">{payment.payment_date}</td>
+                      <td className="px-6 py-4">
+                        {formatDate(payment.payment_date)}
+                      </td>
                       <td className="px-6 py-4">
                         {/* <div className="flex items-center">
                           <div className="statusBatch">{payment.month}</div>
