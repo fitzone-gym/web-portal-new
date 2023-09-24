@@ -194,7 +194,7 @@ export const ManagerTrainer = () => {
                             {trainer.email}
                           </div>
                         </div>
-
+     
                         {/* Changed variable name to "trainer" */}
                       </th>
                       <td className="px-6 py-4">{trainer.phone_no}</td>{" "}

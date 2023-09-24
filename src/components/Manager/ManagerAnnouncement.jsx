@@ -218,7 +218,7 @@ import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { CreatAnnonModal } from "./CreatAnnonModal";
 import { UpdateAnnonModal } from "./UpdateAnnounModal";
-
+import '../../styles/Manager/announcement.css';
 
 export const ManagerAnnouncement = () => {
   const [data, setData] = useState([]);
@@ -309,10 +309,10 @@ export const ManagerAnnouncement = () => {
           width: "81%",
         }}
       >
-        <tbody className="">
+        <tbody className="announcement-container">
           {data.map((announcement, index) => {
             return (
-              <tr key={index} className="bg-white drop-shadow-lg text-left text-lg">
+              <tr key={index} className="bg-white drop-shadow-lg text-left text-lg announcement">
                 <td className="rounded-lg">
                   <div>
                     <p className="mt-2 ml-7 font-bold">{announcement.title}</p>
@@ -320,7 +320,7 @@ export const ManagerAnnouncement = () => {
                   </div>
                   <div className="msg">
                     <p className="ml-[3%] mt-1 mr-3">
-                      Dear {announcement.for}, {announcement.description}.
+                      Dear {announcement.receiver}, {announcement.description}.
                     </p>
                     <p className="ml-[3%] mt-[1%]">Jayani</p>
                     <p className="ml-[3%] ">Gym Manager</p>

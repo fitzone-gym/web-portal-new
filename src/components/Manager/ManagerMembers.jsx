@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import priofileimg from "../../assets/managerprofile.jpg";
 // import { ViewMemberModal } from "./ViewMemberModal";
 
@@ -140,7 +140,7 @@ export const ManagerMembers = () => {
                           src={priofileimg}
                           alt=""
                         />
-                        <div className="pl-28 mt-[-8%]">
+                        <div className="pl-28 mt-[-10.5%]">
                           <div className="text-base font-semibold">
                             {member.first_name + " " + member.last_name}{" "}
                           </div>
@@ -178,7 +178,7 @@ export const ManagerMembers = () => {
                             src={priofileimg}
                             alt=""
                           />
-                          <div className="pl-12  mt-[-12%] ml-16">
+                          <div className="pl-12  mt-[-10.5%] ml-16">
                             <div className="text-base font-semibold">
                               {member.first_name + " " + member.last_name}{" "}
                             </div>

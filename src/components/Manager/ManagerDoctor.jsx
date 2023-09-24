@@ -15,7 +15,7 @@ export const ManagerDoctor = () => {
       try {
         console.log("ts");
         const response = await axios.get("http://localhost:5400/doctor");
-         console.log("tt"+ response.data.data); // Check the API response data
+        console.log("tt" + response.data.data); // Check the API response data
         // console.log(typeof response.data.data); // Check the type of response.data
         setData(response.data.data); // Assuming the response contains an array of trainer objects
       } catch (error) {
@@ -119,9 +119,6 @@ export const ManagerDoctor = () => {
                 </th>
                 <th scope="col" className="px-6 py-4">
                   Action
-                </th>
-                <th>
-                  Download
                 </th>
               </tr>
             </thead>

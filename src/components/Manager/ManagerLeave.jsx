@@ -36,18 +36,44 @@ export const ManagerLeave = () => {
     }
   };
 
+  // const handleApprove = async (leaves_request_Id) => {
+  //   try{
+  //     const apiUrl = "http://localhost:5400/leaves/";
+  //     const Url = `${apiUrl}${leaves_request_Id}`;
+  //     await axios.delete(Url);
+  //       setData((prevData) =>
+  //       prevData.filter((leaves) => leaves.leaves_request_id !== leaves_request_Id)
+  //     );
+  //     } catch (error) {
+  //       console.error("Error:", error);
+  //       alert("Approved Succesfully Done");
+  //     }
+  // };
+
   const handleApprove = async (leaves_request_Id) => {
-    try{
-      const apiUrl = "http://localhost:5400/leaves/";
-      const Url = `${apiUrl}${leaves_request_Id}`;
-      await axios.delete(Url);
-        setData((prevData) =>
+    try {
+      const apiUrl = `http://localhost:5400/leaves/${leaves_request_Id}`;
+      await axios.put(apiUrl, { status: 2 }); // Update the status to 2 (approve)
+      setData((prevData) =>
         prevData.filter((leaves) => leaves.leaves_request_id !== leaves_request_Id)
       );
-      } catch (error) {
-        console.error("Error:", error);
-        alert("Approved Succesfully Done");
-      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Approval failed.");
+    }
+  };
+
+  const handleDecline = async (leaves_request_Id) => {
+    try {
+      const apiUrl = `http://localhost:5400/leaves/${leaves_request_Id}`;
+      await axios.put(apiUrl, { status: 0 }); // Update the status to 0 (decline)
+      setData((prevData) =>
+        prevData.filter((leaves) => leaves.leaves_request_id !== leaves_request_Id)
+      );
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Decline failed.");
+    }
   };
 
   return (

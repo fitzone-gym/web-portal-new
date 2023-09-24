@@ -1,0 +1,11 @@
+.announcement-container {
+    max-height: 200px; /* Set the maximum height to show only two announcements */
+    overflow-y: auto; /* Enable vertical scrollbar */
+  }
+  
+  .announcement {
+    padding: 10px;
+    border: 1px solid red;
+    margin-bottom: 10px;
+  }
+  

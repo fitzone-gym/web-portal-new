@@ -11,7 +11,7 @@ const AddDoctorModal = ({ onClose, fetchDoctor }   ) => {
   const [email, setEmail] = useState("");
   const [qualification, setQualification] = useState("");
   const [role_id, setRoleid] = useState("");
-  const [username, setUsername] = useState("");
+  const [nic, setNic] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ const AddDoctorModal = ({ onClose, fetchDoctor }   ) => {
       email,
         qualification,
         role_id,
-        username,
+        nic,
         password,
       })
       .then((response) => {
@@ -44,7 +44,7 @@ const AddDoctorModal = ({ onClose, fetchDoctor }   ) => {
         setEmail("");
         setQualification("");
         setRoleid("");
-        setUsername("");
+        setNic("");
         setPassword("");
         
         console.log("Before navigation");
@@ -123,7 +123,7 @@ const AddDoctorModal = ({ onClose, fetchDoctor }   ) => {
             <input
               className="rounded-md w-72"
               type="text"
-              name="username"
+              name="phoneno"
               placeholder="eg-07123456789"
               onChange={(e) => setPhoneno(e.target.value)}
             />
@@ -164,7 +164,7 @@ const AddDoctorModal = ({ onClose, fetchDoctor }   ) => {
           </div>
 
           <div>
-            <span className="mt-52 col text-white ">Username</span>
+            <span className="mt-52 col text-white ">NIC</span>
           </div>
           <div>
             <span className="mt-52 col text-white ">Password</span>
@@ -173,9 +173,9 @@ const AddDoctorModal = ({ onClose, fetchDoctor }   ) => {
             <input
               className="rounded-md w-72"
               type="text"
-              name="username"
-              placeholder="username"
-              onChange={(e) => setUsername(e.target.value)}
+              name="nic"
+              placeholder="nic"
+              onChange={(e) => setNic(e.target.value)}
             />
           </div>
           <div>
