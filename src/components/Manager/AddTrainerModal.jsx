@@ -11,7 +11,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
   const [email, setEmail] = useState("");
   const [working_experience, setWorkingexperience] = useState("");
   const [role_id, setRoleid] = useState("");
-  const [username, setUsername] = useState("");
+  const [nic, setNic] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
       email,
         working_experience,
         role_id,
-        username,
+        nic,
         password,
       })
       .then((response) => {
@@ -44,7 +44,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
         setEmail("");
         setWorkingexperience("");
         setRoleid("");
-        setUsername("");
+        setNic("");
         setPassword("");
         
         console.log("Before navigation");
@@ -164,7 +164,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
           </div>
 
           <div>
-            <span className="mt-52 col text-white ">Username</span>
+            <span className="mt-52 col text-white ">NIC</span>
           </div>
           <div>
             <span className="mt-52 col text-white ">Password</span>
@@ -173,9 +173,9 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
             <input
               className="rounded-md w-72"
               type="text"
-              name="username"
-              placeholder="username"
-              onChange={(e) => setUsername(e.target.value)}
+              name="nic"
+              placeholder="nic"
+              onChange={(e) => setNic(e.target.value)}
             />
           </div>
           <div>

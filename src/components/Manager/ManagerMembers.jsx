@@ -8,13 +8,15 @@ export const ManagerMembers = () => {
   const [data, setData] = useState([]); // Initialize data with an empty array
   const [searchTerm, setSearchTerm] = useState(""); // State to store the search term
   const [searchResults, setSearchResults] = useState([]); // State to store search results
+  const [searchMonth, setSearchMonth] = useState(""); // Added state for month
+  const [searchYear, setSearchYear] = useState("");   // Added state for year
   // const [showModal, setShowModal] = useState(false);
   // const [selectedMember, setSelectedMember] = useState(null);
 
   const fetchMembers = async () => {
     try {
       const response = await axios.get("http://localhost:5400/members");
-      // console.log("tt"+ response.data.data); // Check the API response data
+       console.log("tt"+ response.data.data); // Check the API response data
       // console.log(typeof response.data.data); // Check the type of response.data
       setData(response.data.data); // Assuming the response contains an array of trainer objects
     } catch (error) {
@@ -30,7 +32,7 @@ export const ManagerMembers = () => {
     event.preventDefault();
     try {
       const response = await axios.get(
-        `http://localhost:5400/members/searchMembers?searchTerm=${searchTerm}`
+        `http://localhost:5400/members/searchMembers?searchTerm=${searchTerm}&searchMonth=${searchMonth}&searchYear=${searchYear}`
       );
       setSearchResults(response.data.data);
     } catch (error) {
@@ -38,6 +40,14 @@ export const ManagerMembers = () => {
     }
   };
 
+  function formatDate(dateTimeString) {
+    const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    return formattedString.replaceAll("/", ".");
+  }
   // const handleViewClick = (member) => {
   //   setSelectedMember(member);
   // };
@@ -103,6 +113,33 @@ export const ManagerMembers = () => {
           </form>
         </div>
 
+        <div className="flex justify-between mt-4">
+                <div className="w-1/2 mr-2">
+                  <input
+                    type="number"
+                    value={searchMonth}
+                    onChange={(e) => setSearchMonth(e.target.value)}
+                    placeholder="Enter Month (1-12)"
+                    min="1"
+                    max="12"
+                    className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                    required
+                  />
+                </div>
+                <div className="w-1/2 ml-2">
+                  <input
+                    type="number"
+                    value={searchYear}
+                    onChange={(e) => setSearchYear(e.target.value)}
+                    placeholder="Enter Year"
+                    min="1900"
+                    max="9999"
+                    className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                    required
+                  />
+                </div>
+              </div>
+
         <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20">
           <table className="w-full text-sm text-left text-gray-500  ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
@@ -149,7 +186,7 @@ export const ManagerMembers = () => {
                           </div>
                         </div>
                       </th>
-                      <td className="px-6 py-4">{member.joined_date} </td>
+                      <td className="px-6 py-4">{formatDate(member.joined_date)} </td>
                       <td className="px-6 py-4">{member.phone_no}</td>{" "}
                       <td className="px-6 py-4">{member.package}</td>
                       <td className="px-6 py-4">{member.address}</td>
@@ -169,9 +206,9 @@ export const ManagerMembers = () => {
                         key={index}
                         className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 "
                       >
-                        <th
+                        <td
                           scope="row"
-                          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white "
+                          className=" py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white "
                         >
                           <img
                             className="h-10 w-10 rounded-full ml-14"
@@ -186,8 +223,8 @@ export const ManagerMembers = () => {
                               {member.email}
                             </div>
                           </div>
-                        </th>
-                        <td className="px-6 py-4">{member.joined_date} </td>
+                        </td>
+                        <td className="px-6 py-4">{formatDate(member.joined_date)} </td>
                         <td className="px-6 py-4">{member.phone_no}</td>{" "}
                         <td className="px-6 py-4">{member.package}</td>
                         <td className="px-6 py-4">{member.address}</td>

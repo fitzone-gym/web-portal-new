@@ -166,11 +166,7 @@ export const ManagerReceptionist = () => {
                           Delete
                         </Link>
                 </td>
-                {/* <td>
-                          <Link className="font-medium text-blue-600 dark:text-blue-500">
-                            Report Generation
-                          </Link>
-                        </td> */}
+              
               </tr>
                );
               })}
