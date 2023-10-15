@@ -218,6 +218,45 @@ export const ManagerMembers = () => {
                     </tr>
                   ))
                }
+                : data.map((member, index) => {
+                    return (
+                      <tr
+                        key={index}
+                        className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 "
+                      >
+                        <td
+                          scope="row"
+                          className=" py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white "
+                        >
+                          <img
+                            className="h-10 w-10 rounded-full ml-14"
+                            src={priofileimg}
+                            alt=""
+                          />
+                          <div className="pl-12  mt-[-10.5%] ml-16">
+                            <div className="text-base font-semibold">
+                              {member.first_name + " " + member.last_name}{" "}
+                            </div>
+                            <div className="font-normal text-gray-500">
+                              {member.email}
+                            </div>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4">{formatDate(member.joined_date)} </td>
+                        <td className="px-6 py-4">{member.phone_no}</td>{" "}
+                        <td className="px-6 py-4">{member.package}</td>
+                        <td className="px-6 py-4">{member.address}</td>
+                        {/* <td>
+                          <Link
+                            to="#"
+                            className="font-medium text-blue-600 dark:text-blue-500  ml-6"
+                          >
+                            Report
+                          </Link>
+                        </td> */}
+                      </tr>
+                    );
+                  })}
             </tbody>
             {/* {selectedMember && (
               <ViewMemberModal
