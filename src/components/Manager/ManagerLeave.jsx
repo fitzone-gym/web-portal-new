@@ -13,7 +13,7 @@ export const ManagerLeave = () => {
       try {
         console.log("leave");
         const response = await axios.get("http://localhost:5400/leaves");
-         console.log("tt"+ response.data.data); // Check the API response data
+        console.log("tt" + response.data.data); // Check the API response data
         // console.log(typeof response.data.data); // Check the type of response.data
         setData(response.data.data); // Assuming the response contains an array of trainer objects
       } catch (error) {
@@ -50,12 +50,14 @@ export const ManagerLeave = () => {
   //     }
   // };
 
-  const handleApprove = async (leaves_request_Id) => {
+  const handleApprove = async (leave_request_Id) => {
     try {
-      const apiUrl = `http://localhost:5400/leaves/${leaves_request_Id}`;
+      const apiUrl = `http://localhost:5400/leaves/${leave_request_Id}`;
       await axios.put(apiUrl, { status: 2 }); // Update the status to 2 (approve)
       setData((prevData) =>
-        prevData.filter((leaves) => leaves.leaves_request_id !== leaves_request_Id)
+        prevData.filter(
+          (leaves) => leaves.leave_request_id !== leave_request_Id
+        )
       );
     } catch (error) {
       console.error("Error:", error);
@@ -63,12 +65,14 @@ export const ManagerLeave = () => {
     }
   };
 
-  const handleDecline = async (leaves_request_Id) => {
+  const handleDecline = async (leave_request_Id) => {
     try {
-      const apiUrl = `http://localhost:5400/leaves/${leaves_request_Id}`;
+      const apiUrl = `http://localhost:5400/leaves/${leave_request_Id}`;
       await axios.put(apiUrl, { status: 0 }); // Update the status to 0 (decline)
       setData((prevData) =>
-        prevData.filter((leaves) => leaves.leaves_request_id !== leaves_request_Id)
+        prevData.filter(
+          (leaves) => leaves.leave_request_id !== leave_request_Id
+        )
       );
     } catch (error) {
       console.error("Error:", error);
@@ -163,180 +167,192 @@ export const ManagerLeave = () => {
               </tr>
             </thead>
             <tbody className="">
-            {searchResults.length > 0
+              {searchResults.length > 0
                 ? searchResults.map((leaves, index) => (
-                  <tr 
-                  key={index}
-                  className="bg-white border-b">
-                    <th
-                      scope="row"
-                      className="px-6 py-4 text-gray-900  whitespace-nowrap dark:text-white ml-[10%]"
-                    >
-                      <img
-                        className="h-10 w-10 rounded-full ml-4"
-                        src={priofileimg}
-                        alt=""
-                      />
-                      <div className="pl-20 mt-[-13%]">
-                        <div className="text-base font-semibold">
-                        {leaves.first_name + " " + leaves.last_name}{" "}
-                        </div>
-                        <div className="font-normal text-gray-500">
-                        {leaves.email}
-                        </div>
-                      </div>
-                    </th>
-                    <td className="px-6 py-4 ">  {leaves.reason}</td>
-                    <td className="px-6 py-4 ">  {leaves.request_date}</td>
-                    <td className="px-6 py-4 ">  {leaves.leave_date}</td>
-                    <td className="px-6 py-4 ">  {leaves.no_remaining_leave_date}</td>
-                    <td className="px-6 py-4">
-                      
-                      <div className="">
-                      <Link
-                      onClick={() =>
-                        handleApprove(leaves.leaves_request_id)
-                      }
+                    <tr key={index} className="bg-white border-b">
+                      <th
+                        scope="row"
+                        className="px-6 py-4 text-gray-900  whitespace-nowrap dark:text-white ml-[10%]"
                       >
-                      <button
-                          type="button"
-                          className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+                        <img
+                          className="h-10 w-10 rounded-full ml-4"
+                          src={priofileimg}
+                          alt=""
+                        />
+                        <div className="pl-20 mt-[-13%]">
+                          <div className="text-base font-semibold">
+                            {leaves.first_name + " " + leaves.last_name}{" "}
+                          </div>
+                          <div className="font-normal text-gray-500">
+                            {leaves.email}
+                          </div>
+                        </div>
+                      </th>
+                      <td className="px-6 py-4 "> {leaves.reason}</td>
+                      <td className="px-6 py-4 "> {leaves.request_date}</td>
+                      <td className="px-6 py-4 "> {leaves.leave_date}</td>
+                      <td className="px-6 py-4 ">
+                        {" "}
+                        {leaves.no_remaining_leave_date}
+                      </td>
+                      <td className="px-6 py-4">
+                        <div
+                          className=""
+                          onClick={() => {
+                            console.log("asdjasnd", leaves.leave_request_id);
+                          }}
+                        >
+                          <Link
+                            onClick={() =>
+                              handleApprove(leaves.leave_request_id)
+                            }
+                          >
+                            <button
+                              type="button"
+                              className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
                         rounded-md px-2 py-2.5 inline-flex items-center "
-                          style={{
-                            height: 30,
-                            width: "50%",
-                            marginRight: "6%",
-                            marginTop: "0%",
-                          }}
-                        >
-                         
-                          <div
-                            className=""
-                            style={{
-                              marginLeft: "9%",
-                              fontSize: "90%",
-                            }}
-                          >
-                            Approve
-                          </div>
-                        </button>
-                        </Link>
+                              style={{
+                                height: 30,
+                                width: "50%",
+                                marginRight: "6%",
+                                marginTop: "0%",
+                              }}
+                            >
+                              <div
+                                className=""
+                                style={{
+                                  marginLeft: "9%",
+                                  fontSize: "90%",
+                                }}
+                              >
+                                Approve
+                              </div>
+                            </button>
+                          </Link>
 
-                        <Link
-                         onClick={() =>
-                          handleDecline(leaves.leaves_request_id)
-                        }
-                        >
-                        <button
-                          type="button"
-                          className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                          style={{
-                            height: 30,
-                            width: "50%",
-                            marginRight: "-62%",
-                            marginTop: "-3%",
-                          }}
-                        >
-                          <div
-                            style={{
-                              marginLeft: "15%",
-                              fontSize: "90%",
-                            }}
+                          <Link
+                            onClick={() =>
+                              handleDecline(leaves.leave_request_id)
+                            }
                           >
-                            Decline
+                            <button
+                              type="button"
+                              className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
+                              style={{
+                                height: 30,
+                                width: "50%",
+                                marginRight: "-62%",
+                                marginTop: "-3%",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  marginLeft: "15%",
+                                  fontSize: "90%",
+                                }}
+                              >
+                                Decline
+                              </div>
+                            </button>
+                          </Link>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                : data.map((leaves, index) => {
+                    return (
+                      <tr key={index} className="bg-white border-b">
+                        <th
+                          scope="row"
+                          className="px-6 py-4 text-gray-900  whitespace-nowrap dark:text-white ml-[10%]"
+                        >
+                          <img
+                            className="h-10 w-10 rounded-full ml-4"
+                            src={priofileimg}
+                            alt=""
+                          />
+                          <div className="pl-20 mt-[-13%]">
+                            <div className="text-base font-semibold">
+                              {leaves.first_name + " " + leaves.last_name}{" "}
+                            </div>
+                            <div className="font-normal text-gray-500">
+                              {leaves.email}
+                            </div>
                           </div>
-                        </button>
-                        </Link>
-                      </div>
-                    </td>
-                  </tr>
-                ))
-            : data.map((leaves, index) => {
-                return (
-              <tr 
-              key={index}
-              className="bg-white border-b">
-                <th
-                  scope="row"
-                  className="px-6 py-4 text-gray-900  whitespace-nowrap dark:text-white ml-[10%]"
-                >
-                  <img
-                    className="h-10 w-10 rounded-full ml-4"
-                    src={priofileimg}
-                    alt=""
-                  />
-                  <div className="pl-20 mt-[-13%]">
-                    <div className="text-base font-semibold">
-                    {leaves.first_name + " " + leaves.last_name}{" "}
-                    </div>
-                    <div className="font-normal text-gray-500">
-                    {leaves.email}
-                    </div>
-                  </div>
-                </th>
-                <td className="px-6 py-4 ">  {leaves.reason}</td>
-                <td className="px-6 py-4 ">  {leaves.request_date}</td>
-                <td className="px-6 py-4 ">  {leaves.leave_date}</td>
-                <td className="px-6 py-4 ">  {leaves.no_remaining_leave_date}</td>
-                <td className="px-6 py-4">
-                  <div className="">
-                  <button
-                      type="button"
-                      className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+                        </th>
+                        <td className="px-6 py-4 "> {leaves.reason}</td>
+                        <td className="px-6 py-4 "> {leaves.request_date}</td>
+                        <td className="px-6 py-4 "> {leaves.leave_date}</td>
+                        <td className="px-6 py-4 ">
+                          {" "}
+                          {leaves.no_remaining_leave_date}
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="">
+                            <button
+                              type="button"
+                              className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "50%",
-                        marginRight: "6%",
-                        marginTop: "0%",
-                      }}
-                    >
-                      <div
-                        className=""
-                        style={{
-                          marginLeft: "9%",
-                          fontSize: "90%",
-                        }}
-                      >
-                        Approve
-                      </div>
-                    </button>
+                              style={{
+                                height: 30,
+                                width: "50%",
+                                marginRight: "6%",
+                                marginTop: "0%",
+                              }}
+                              onClick={() =>
+                                handleApprove(leaves.leave_request_id)
+                              }
+                            >
+                              <div
+                                className=""
+                                style={{
+                                  marginLeft: "9%",
+                                  fontSize: "90%",
+                                }}
+                              >
+                                Approve
+                              </div>
+                            </button>
 
-                    <button
-                      type="button"
-                      className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "50%",
-                        marginRight: "-62%",
-                        marginTop: "-3%",
-                      }}
-                    >
-                      <div
-                        style={{
-                          marginLeft: "15%",
-                          fontSize: "90%",
-                        }}
-                      >
-                        Decline
-                      </div>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-                );
-               })}
+                            <button
+                              type="button"
+                              className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
+                              style={{
+                                height: 30,
+                                width: "50%",
+                                marginRight: "-62%",
+                                marginTop: "-3%",
+                              }}
+                              onClick={() =>
+                                handleDecline(leaves.leave_request_id)
+                              }
+                            >
+                              <div
+                                style={{
+                                  marginLeft: "15%",
+                                  fontSize: "90%",
+                                }}
+                              >
+                                Decline
+                              </div>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
             </tbody>
           </table>
         </div>
 
         <div className="ml-[70%] mt-[10%]">
-          <Link 
-          to="/Manager/Leave/TrainerList"
-          className="font-medium text-blue-600 ">
-          Trainers approved and decline leave request list
+          <Link
+            to="/Manager/Leave/TrainerList"
+            className="font-medium text-blue-600 "
+          >
+            Trainers approved and decline leave request list
           </Link>
-          </div>
+        </div>
       </div>
     </div>
   );

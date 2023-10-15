@@ -10,8 +10,8 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
   const [phone_no, setPhoneno] = useState("");
   const [email, setEmail] = useState("");
   const [working_experience, setWorkingexperience] = useState("");
-  const [role_id, setRoleid] = useState("");
-  const [username, setUsername] = useState("");
+  const [qualification, setQualification] = useState("");
+  const [nic, setNic] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
@@ -29,9 +29,12 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
       phone_no,
       email,
         working_experience,
-        role_id,
-        username,
+        qualification,
+        nic,
         password,
+        address:"",
+        expert_area:"",
+        role_id:"2"
       })
       .then((response) => {
         console.log("Data submit successfully to backend", response.data);
@@ -43,8 +46,8 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
         setPhoneno("");
         setEmail("");
         setWorkingexperience("");
-        setRoleid("");
-        setUsername("");
+        setQualification("");
+        setNic("");
         setPassword("");
         
         console.log("Before navigation");
@@ -142,7 +145,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
             <span className="mt-52 col text-white ">Working Experience </span>
           </div>
           <div>
-            <span className="mt-52 col text-white ">Role Id</span>
+            <span className="mt-52 col text-white ">Qualification</span>
           </div>
           <div className="">
             <input
@@ -157,14 +160,14 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
             <input
               className="rounded-md w-72"
               type="text"
-              name="roleid"
-              placeholder="Trainer role id - 2"
-              onChange={(e) => setRoleid(e.target.value)}
+              name="qualification"
+              placeholder="Qualification of the trainer"
+              onChange={(e) => setQualification(e.target.value)}
             />
           </div>
 
           <div>
-            <span className="mt-52 col text-white ">Username</span>
+            <span className="mt-52 col text-white ">NIC</span>
           </div>
           <div>
             <span className="mt-52 col text-white ">Password</span>
@@ -173,9 +176,9 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
             <input
               className="rounded-md w-72"
               type="text"
-              name="username"
-              placeholder="username"
-              onChange={(e) => setUsername(e.target.value)}
+              name="nic"
+              placeholder="nic"
+              onChange={(e) => setNic(e.target.value)}
             />
           </div>
           <div>
