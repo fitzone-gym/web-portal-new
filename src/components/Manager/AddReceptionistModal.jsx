@@ -4,14 +4,14 @@ import React, { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
-const AddReceptionistModal = ({ onClose, fetchReceptionist }   ) => {
+const AddReceptionistModal = ({ onClose, fetchReceptionist }) => {
   const [first_name, setFirstname] = useState("");
   const [last_name, setLastname] = useState("");
   const [phone_no, setPhoneno] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
-  const [role_id, setRoleid] = useState("");
-  const [username, setUsername] = useState("");
+  const [qualification, setQualification] = useState("");
+  const [nic, setNic] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
@@ -19,38 +19,38 @@ const AddReceptionistModal = ({ onClose, fetchReceptionist }   ) => {
   const handleSubmit = (e) => {
     console.log("call here");
     e.preventDefault();
-    
 
     //send data to the backend
     axios
-    .post("http://localhost:5400/receptionistDetails/add", {
-      first_name,
-      last_name,
-      phone_no,
-      email,
+      .post("http://localhost:5400/receptionistDetails/add", {
+        first_name,
+        last_name,
+        phone_no,
+        email,
         address,
-        role_id,
-        username,
+        role_id: 5,
+        nic,
         password,
+        qualification,
       })
       .then((response) => {
         console.log("Data submit successfully to backend", response.data);
-        
+
         alert("Data submitted successfully!");
-        
+
         setFirstname("");
         setLastname("");
         setPhoneno("");
         setEmail("");
         setAddress("");
-        setRoleid("");
-        setUsername("");
+        setQualification("");
+        setNic("");
         setPassword("");
-        
+
         console.log("Before navigation");
-        onClose()
-        fetchReceptionist()
-       })
+        onClose();
+        fetchReceptionist();
+      })
       .catch((error) => {
         console.log("Error submitting data", error);
         alert("Error submitting data");
@@ -142,7 +142,7 @@ const AddReceptionistModal = ({ onClose, fetchReceptionist }   ) => {
             <span className="mt-52 col text-white ">Address </span>
           </div>
           <div>
-            <span className="mt-52 col text-white ">Role Id</span>
+            <span className="mt-52 col text-white ">Qualification</span>
           </div>
           <div className="">
             <input
@@ -157,14 +157,14 @@ const AddReceptionistModal = ({ onClose, fetchReceptionist }   ) => {
             <input
               className="rounded-md w-72"
               type="text"
-              name="roleid"
-              placeholder="Receptionist role id - 5"
-              onChange={(e) => setRoleid(e.target.value)}
+              name="qualification"
+              placeholder="Qualifications"
+              onChange={(e) => setQualification(e.target.value)}
             />
           </div>
 
           <div>
-            <span className="mt-52 col text-white ">Username</span>
+            <span className="mt-52 col text-white ">NIC</span>
           </div>
           <div>
             <span className="mt-52 col text-white ">Password</span>
@@ -173,9 +173,9 @@ const AddReceptionistModal = ({ onClose, fetchReceptionist }   ) => {
             <input
               className="rounded-md w-72"
               type="text"
-              name="username"
-              placeholder="username"
-              onChange={(e) => setUsername(e.target.value)}
+              name="nic"
+              placeholder="nic"
+              onChange={(e) => setNic(e.target.value)}
             />
           </div>
           <div>

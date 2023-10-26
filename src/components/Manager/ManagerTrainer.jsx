@@ -53,6 +53,15 @@ export const ManagerTrainer = () => {
     }
   };
 
+  function formatDate(dateTimeString) {
+    const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    return formattedString.replaceAll("/", ".");
+  }
+
   const handleAddNewClick = () => {
     setShowModal(true);
   };
@@ -198,7 +207,7 @@ export const ManagerTrainer = () => {
                         {/* Changed variable name to "trainer" */}
                       </th>
                       <td className="px-6 py-4">{trainer.phone_no}</td>{" "}
-                      <td className="px-6 py-4">{trainer.joined_date}</td>
+                      <td className="px-6 py-4"> {formatDate(trainer.joined_date)}</td>
                       <td className="px-6 py-4">{trainer.qualification}</td>
                       <td className="px-6 py-4">
                         {trainer.working_experience}
@@ -247,7 +256,7 @@ export const ManagerTrainer = () => {
                           </div>
                         </th>
                         <td className="px-6 py-4">{trainer.phone_no}</td>{" "}
-                        <td className="px-6 py-4">{trainer.joined_date}</td>
+                        <td className="px-6 py-4">{formatDate(trainer.joined_date)}</td>
                         <td className="px-6 py-4">{trainer.qualification}</td>
                         <td className="px-6 py-4">
                           {trainer.working_experience}

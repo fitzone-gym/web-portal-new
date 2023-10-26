@@ -1,8 +1,7 @@
-import React from 'react'
-import { TrainerPayment } from '../../components/Manager/TrainerPayment'
-import { ManagerHeader } from '../../components/Manager/ManagerHeader'
-import { ManagerSidebar } from '../../components/Manager/ManagerSidebar'
-
+import React from "react";
+import { TrainerPayment } from "../../components/Manager/TrainerPayment";
+import { ManagerHeader } from "../../components/Manager/ManagerHeader";
+import { ManagerSidebar } from "../../components/Manager/ManagerSidebar";
 
 export const TrainerPay = () => {
   return (
@@ -13,5 +12,5 @@ export const TrainerPay = () => {
         <TrainerPayment />
       </div>
     </div>
-    )
-}
+  );
+};
