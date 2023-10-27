@@ -5,7 +5,7 @@ import priofileimg from "../../assets/managerprofile.jpg";
 export const ManagerProfile = () => {
   const [data, setData] = useState();
   useEffect(() => {
-    axios.get("http://localhost:5400/profile/10001").then((res) => {
+    axios.get("http://localhost:5400/profile/10013").then((res) => {
       console.log(res.data.data[0]);
       setData(res.data.data[0]);
     });
@@ -43,7 +43,7 @@ export const ManagerProfile = () => {
         }}
       />
       <h2 className=" font-semibold text-5xl mb-3">
-        {data.first_name + " " + data.last_name}
+        {data?.first_name + " " + data?.last_name}
       </h2>
       <p className=" font-semibold text-3xl mb-24">Gym Manager</p>
       <div
@@ -63,8 +63,8 @@ export const ManagerProfile = () => {
           }}
         >
           <h3 className="font-semibold">Contact</h3>
-          <p>Email: {data.email}</p>
-          <p>Phone: {data.phone_no}</p>
+          <p>Email: {data?.email}</p>
+          <p>Phone: {data?.phone_no}</p>
         </div>
         <div
           style={{
@@ -74,8 +74,8 @@ export const ManagerProfile = () => {
           }}
         >
           <h3 className="font-semibold">Information</h3>
-          <p>NIC: {data.nic}</p>
-          <p>DOB: {formatDate(data.DOB)}</p>
+          <p>NIC: {data?.nic}</p>
+          <p>DOB: {formatDate(data?.DOB || new Date())}</p>
         </div>
         <div
           style={{
@@ -85,7 +85,7 @@ export const ManagerProfile = () => {
           }}
         >
           <h3 className="font-semibold">Location</h3>
-          <p>City: {data.address}</p>
+          <p>City: {data?.address}</p>
           {/* <p>Colombo</p> */}
         </div>
       </div>

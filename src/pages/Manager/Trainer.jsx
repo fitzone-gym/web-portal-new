@@ -6,7 +6,7 @@ import { ManagerTrainer } from '../../components/Manager/ManagerTrainer'
 
 export const Trainer = () => {
   return (
-    <div className="flex flex-col h-screen w-full bg-white">
+    <div className="flex h-screen w-full bg-white">
     <ManagerHeader />
     <div className="flex flex-row">
       <ManagerSidebar />
