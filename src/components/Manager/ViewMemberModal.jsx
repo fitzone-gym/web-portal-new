@@ -17,8 +17,6 @@ export const ViewMemberModal = ({ member, onClose }) => {
           <p>Sugar Level: {member.suger_level}</p>
           <p>Cholestrol Level: {member.cholestrol_level}</p>
           <p>Blood Presure: {member.blood_presure}</p>
-          {/* <p>Diabe: {member.}</p> */}
-          {/* Add more member details here */}
         </div>
       </div>
     </div>

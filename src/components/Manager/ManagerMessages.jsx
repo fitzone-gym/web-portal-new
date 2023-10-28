@@ -113,9 +113,8 @@ export const ManagerMessages = () => {
               </div>
             </td>
 
-            {/* Add more columns for trainers */}
+          
           </tr>
-          {/* Add more rows for trainers */}
         </tbody>
 
         <thead>
@@ -148,9 +147,7 @@ export const ManagerMessages = () => {
                 <h1 className="mt-2">Win</h1>
               </div>
             </td>
-            {/* Add more columns for receptionists */}
           </tr>
-          {/* Add more rows for receptionists */}
         </tbody>
 
         <thead>
@@ -172,9 +169,7 @@ export const ManagerMessages = () => {
                 <h1 className="mt-2">Tine</h1>
               </div>
             </td>
-            {/* Add more columns for doctors */}
           </tr>
-          {/* Add more rows for doctors */}
         </tbody>
       </table>
       <hr className='mt-2 w-[90%] ml-52'></hr>

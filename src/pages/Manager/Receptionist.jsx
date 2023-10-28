@@ -8,7 +8,7 @@ export const Receptionist = () => {
     <div className="flex h-screen w-full bg-white">
       <ManagerHeader />
       <div className="flex flex-row">
-        <ManagerSidebar />
+        <ManagerSidebar selected="staff"/>
         <ManagerReceptionist />
       </div>
     </div>

@@ -74,15 +74,7 @@ export const ManagerReceptionist = () => {
         </div>
 
         <div className="pt-6 pb-6 ml-[62%] w-[24%]">
-          {/* <div
-            className=""
-            style={{
-              marginLeft: 600,
-            }}
-          ></div> */}
-
           <div className="ml-[115%] ">
-            {/* <Link to="/Manager/Staffmembers/Trainer/Addtrainer"> */}
             <button
               type="button"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center inline-flex items-center mr-2  "
@@ -127,9 +119,6 @@ export const ManagerReceptionist = () => {
                 <th scope="col" className="px-6 py-3">
                   Action
                 </th>
-                {/* <th>
-                  Download
-                </th> */}
               </tr>
             </thead>
             <tbody>
@@ -160,13 +149,12 @@ export const ManagerReceptionist = () => {
                       </div>
                     </th>
                     <td className="px-6 py-4">{receptionist.address}</td>
-                    {/* <td className="px-6 py-4">{receptionist.email}</td> */}
                     <td className="px-6 py-4">{receptionist.phone_no}</td>{" "}
                     <td className="px-6 py-4">
                       <Link
                         onClick={() =>
                           handleDelete(receptionist.receptionist_id)
-                        } /* Pass trainer.id to handleDelete */
+                        }
                         className="font-medium text-blue-600 dark:text-blue-500"
                       >
                         Delete
@@ -179,36 +167,6 @@ export const ManagerReceptionist = () => {
           </table>
         </div>
       </div>
-
-      {/* <div className="grid grid-cols-2 ml-20 mt-8">
-          1 box 
-          <div
-            className="font-bold rounded-md text-left"
-            style={{
-              height: 490,
-              width: 700,
-            }}
-          >
-            <div className="text-3xl ml-8 py-5">
-              <h1>New Member Appointments</h1>
-              <img className="w-[100%] h-88 mt-12 ml-12 " src={images.revenueImage} alt="" /> 
-            </div>
-          </div>
-
-          2 box
-          <div
-            className="bg-[#222222] font-bold rounded-md text-left"
-            style={{
-              height: 490,
-              width: 740,
-            }}
-          >
-            <div className="text-2xl text-white  ml-8 py-3">
-              <h1>Monthly health checkup appointments</h1>
-            </div>
-          </div>
-      
-      </div> */}
     </div>
   );
 };

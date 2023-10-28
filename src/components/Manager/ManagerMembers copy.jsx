@@ -114,7 +114,7 @@ export const ManagerMembers = () => {
           </form>
         </div>
 
-        <div className="flex justify-between mt-4">
+        <div className="flex justify-between">
                 <div className="w-1/2 mr-2">
                   <input
                     type="number"

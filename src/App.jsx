@@ -69,24 +69,18 @@ function App() {
         path="/Manager/Staffmembers/Receptionist"
         element={<Receptionist />}
       />
-      {/* <Route
-            path="/Manager/Staffmembers/Trainer/Addtrainer"
-            element={<Addtrainer />}
-          /> */}
       <Route
         path="/Manager/Staffmembers/Trainer/TrainerProfile"
         element={TrainerProfile}
       />
       <Route path="/Manager/Announcement" element={<Announcement />} />
-      {/* <Route path="/Manager/Announcement/CreateAnnoun" element={<CreateAnnoun />} /> */}
-      {/* <Route path="/Manager/Announcement/UpdateAnnoun" element={<UpdateAnnoun />} /> */}
       <Route path="/Manager/Leave" element={<Leave />} />
       <Route
         path="/Manager/Leave/TrainerList"
         element={<TrainerLeaveReqList />}
       />
       <Route path="/Manager/Feedback" element={<Feedback />} />
-      <Route path="/Manager/Payment" element={<Payment />} />
+      <Route path="/Manager/Payment" element={<Test />} />
       <Route path="/Manager/Payment/TrainerPay" element={<TrainerPay />} />
       <Route path="/Manager/Payment/DoctorPay" element={<DoctorPay />} />
       <Route

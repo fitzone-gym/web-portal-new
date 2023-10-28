@@ -177,9 +177,6 @@ export const ManagerMembers = () => {
                 <th scope="col" className="px-6 py-3">
                   Address
                 </th>
-                {/* <th scope="col" className="px-6 py-3">
-                  Download
-                </th> */}
               </tr>
             </thead>
             <tbody>
@@ -207,24 +204,10 @@ export const ManagerMembers = () => {
                       <td className="px-6 py-4">{member.phone_no}</td>{" "}
                       <td className="px-6 py-4">{member.package}</td>
                       <td className="px-6 py-4">{member.address}</td>
-                      {/* <td>
-                        <Link
-                          to="#"
-                          className="font-medium text-blue-600 dark:text-blue-500  ml-6 "
-                        >
-                          Report
-                        </Link>
-                      </td> */}
                     </tr>
                   ))
                }
             </tbody>
-            {/* {selectedMember && (
-              <ViewMemberModal
-                member={selectedMember}
-                onClose={() => setSelectedMember(null)}
-              />
-            )} */}
           </table>
         </div>
       </div>

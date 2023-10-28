@@ -8,7 +8,7 @@ export const Trainer = () => {
     <div className="flex h-screen w-full bg-white">
       <ManagerHeader />
       <div className="flex flex-row">
-        <ManagerSidebar />
+        <ManagerSidebar selected="staff"/>
         <ManagerTrainer />
       </div>
     </div>

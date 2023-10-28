@@ -36,20 +36,6 @@ export const ManagerLeave = () => {
     }
   };
 
-  // const handleApprove = async (leaves_request_Id) => {
-  //   try{
-  //     const apiUrl = "http://localhost:5400/leaves/";
-  //     const Url = `${apiUrl}${leaves_request_Id}`;
-  //     await axios.delete(Url);
-  //       setData((prevData) =>
-  //       prevData.filter((leaves) => leaves.leaves_request_id !== leaves_request_Id)
-  //     );
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //       alert("Approved Succesfully Done");
-  //     }
-  // };
-
   const handleApprove = async (leave_request_Id) => {
     try {
       const apiUrl = `http://localhost:5400/leaves/${leave_request_Id}`;
@@ -92,6 +78,10 @@ export const ManagerLeave = () => {
       }}
     >
       <div className="w-[93%]">
+        <div className="text-4xl mr-[58%] mt-12">
+          <h4>Leave Requests Details</h4>
+        </div>
+
         <div className="pt-6 pb-6 ml-[77%] w-[20%]">
           <form onSubmit={handleSearch}>
             <div className="relative">
