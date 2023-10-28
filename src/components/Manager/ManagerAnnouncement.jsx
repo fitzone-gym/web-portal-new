@@ -314,7 +314,7 @@ export const ManagerAnnouncement = () => {
       </div>
 
       <table
-        className="font-semibold ml-44  h-[28%] py-6 px-6 border-separate border-spacing-10"
+        className="font-semibold ml-48  h-[28%] py-6 px-6 border-separate border-spacing-10 mt-24"
         style={{
           width: "81%",
         }}
