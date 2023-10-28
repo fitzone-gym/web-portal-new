@@ -152,7 +152,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
               className="rounded-md w-72"
               type="text"
               name="working experience"
-              placeholder="3 yrs"
+              placeholder="3"
               onChange={(e) => setWorkingexperience(e.target.value)}
             />
           </div>

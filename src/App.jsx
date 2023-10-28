@@ -86,7 +86,7 @@ function App() {
         element={<TrainerLeaveReqList />}
       />
       <Route path="/Manager/Feedback" element={<Feedback />} />
-      <Route path="/Manager/Payment" element={<Test />} />
+      <Route path="/Manager/Payment" element={<Payment />} />
       <Route path="/Manager/Payment/TrainerPay" element={<TrainerPay />} />
       <Route path="/Manager/Payment/DoctorPay" element={<DoctorPay />} />
       <Route

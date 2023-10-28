@@ -5,7 +5,7 @@ import priofileimg from "../../assets/managerprofile.jpg";
 export const ManagerProfile = () => {
   const [data, setData] = useState();
   useEffect(() => {
-    axios.get("http://localhost:5400/profile/10001").then((res) => {
+    axios.get("http://localhost:5400/profile/10013").then((res) => {
       console.log(res.data.data[0]);
       setData(res.data.data[0]);
     });

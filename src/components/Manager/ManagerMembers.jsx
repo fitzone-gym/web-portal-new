@@ -131,8 +131,8 @@ export const ManagerMembers = () => {
           </form>
         </div>
 
-        <div className="flex justify-between mt-4">
-                <div className="w-1/2 mr-2">
+        <div className="mt-4 ml-24 ">
+                <div className="w-1/4 mr-2">
                   <input
                     type="number"
                     value={searchMonth}
@@ -144,7 +144,7 @@ export const ManagerMembers = () => {
                     required
                   />
                 </div>
-                <div className="w-1/2 ml-2">
+                <div className="w-1/4 ml-96 mt-[-3.1%]">
                   <input
                     type="number"
                     value={searchYear}
@@ -158,7 +158,7 @@ export const ManagerMembers = () => {
                 </div>
               </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20 mt-16">
           <table className="w-full text-sm text-left text-gray-500  ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>
