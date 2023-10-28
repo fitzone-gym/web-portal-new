@@ -292,8 +292,8 @@ export const ManagerAnnouncement = () => {
       className="w-[80%]"
       style={{ position: "absolute", top: 50, left: 290, right: 0, bottom: 0 }}
     >
-      <div className="relative pt-6 pb-6 ml-[62%] w-[24%]">
-        <div className="fixed ml-[25%] mt-[3%]">
+      <div className="relative pt-6 pb-6 ml-[55%] w-[24%]">
+        <div className="fixed ml-[25%] mt-[4%]">
           {/* <Link to="/Manager/Announcement/CreateAnnoun"> */}
           <button
             type=""
@@ -314,7 +314,7 @@ export const ManagerAnnouncement = () => {
       </div>
 
       <table
-        className="font-semibold ml-44  h-[28%] py-6 px-6 border-separate border-spacing-10"
+        className="font-semibold ml-48  h-[28%] py-6 px-6 border-separate border-spacing-10 mt-24"
         style={{
           width: "81%",
         }}
@@ -352,7 +352,7 @@ export const ManagerAnnouncement = () => {
                         width: 120,
                         marginRight: "3%",
                         marginTop: "1%",
-                        marginLeft: "50%",
+                        marginLeft: "40%",
                       }}
                       onClick={() => handleEditClick(announcement)}
                     >
