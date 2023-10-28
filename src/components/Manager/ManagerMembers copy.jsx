@@ -19,9 +19,6 @@ export const ManagerMembers = () => {
        console.log("tt"+ response.data.data); // Check the API response data
       // console.log(typeof response.data.data); // Check the type of response.data
       setData(response.data.data); // Assuming the response contains an array of trainer objects
-      // added to remove the redundant print statements
-      setSearchResults(response.data.data);
-      console.log("search Results is ",searchResults)
     } catch (error) {
       console.log("Error:", error);
     }
@@ -51,20 +48,6 @@ export const ManagerMembers = () => {
       day: "2-digit",
     });
     return formattedString.replaceAll("/", ".");
-  }
-
-  function filterMonthYear(data){
-    if(searchMonth===""||searchYear===""){
-      return true;
-    }else{
-      let year = parseInt(data.joined_date.split("-")[0])
-      let month = parseInt(data.joined_date.split("-")[1])
-      console.log(searchYear,searchMonth,year,month,year === parseInt(searchMonth),month === parseInt(searchMonth))
-      if(year === parseInt(searchYear) && month === parseInt(searchMonth)){
-        return true;
-      }
-      return false;
-    }
   }
   // const handleViewClick = (member) => {
   //   setSelectedMember(member);
@@ -183,7 +166,8 @@ export const ManagerMembers = () => {
               </tr>
             </thead>
             <tbody>
-              {searchResults.filter((i)=> filterMonthYear(i)).map((member, index) => (
+              {searchResults.length > 0
+                ? searchResults.map((member, index) => (
                     <tr key={index} className="bg-white border-b">
                       <th
                         scope="row"
@@ -217,7 +201,45 @@ export const ManagerMembers = () => {
                       </td> */}
                     </tr>
                   ))
-               }
+                : data.map((member, index) => {
+                    return (
+                      <tr
+                        key={index}
+                        className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 "
+                      >
+                        <td
+                          scope="row"
+                          className=" py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white "
+                        >
+                          <img
+                            className="h-10 w-10 rounded-full ml-14"
+                            src={priofileimg}
+                            alt=""
+                          />
+                          <div className="pl-12  mt-[-10.5%] ml-16">
+                            <div className="text-base font-semibold">
+                              {member.first_name + " " + member.last_name}{" "}
+                            </div>
+                            <div className="font-normal text-gray-500">
+                              {member.email}
+                            </div>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4">{formatDate(member.joined_date)} </td>
+                        <td className="px-6 py-4">{member.phone_no}</td>{" "}
+                        <td className="px-6 py-4">{member.package}</td>
+                        <td className="px-6 py-4">{member.address}</td>
+                        {/* <td>
+                          <Link
+                            to="#"
+                            className="font-medium text-blue-600 dark:text-blue-500  ml-6"
+                          >
+                            Report
+                          </Link>
+                        </td> */}
+                      </tr>
+                    );
+                  })}
             </tbody>
             {/* {selectedMember && (
               <ViewMemberModal

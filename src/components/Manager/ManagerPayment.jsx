@@ -20,7 +20,7 @@ export const ManagerPayment = () => {
     >
       <div className="grid grid-cols-4 gap-4 ml-40 mt-16 ">
         <div
-          className="bg-white drop-shadow-md font-bold text-2xl hover:bg-gray-500 hover:underline  border border-white/[.5]"
+          className="bg-white drop-shadow-md font-bold text-2xl hover:bg-gray-500   border border-white/[.5]"
           style={{
             height: 210,
             width: 260,
@@ -35,7 +35,7 @@ export const ManagerPayment = () => {
         </div>
 
         <div
-          className="bg-white drop-shadow-md font-bold text-2xl hover:bg-gray-500 hover:underline border border-white/[.5]"
+          className="bg-white drop-shadow-md font-bold text-2xl hover:bg-gray-500  border border-white/[.5]"
           style={{
             height: 210,
             width: 260,
@@ -55,7 +55,7 @@ export const ManagerPayment = () => {
         </div>
 
         <div
-          className="bg-white drop-shadow-md font-bold text-2xl hover:bg-gray-500 hover:underline border border-white/[.5]"
+          className="bg-white drop-shadow-md font-bold text-2xl hover:bg-gray-500  border border-white/[.5]"
           style={{
             height: 210,
             width: 260,
@@ -70,7 +70,7 @@ export const ManagerPayment = () => {
         </div>
 
         <div
-          className="bg-white drop-shadow-md font-bold text-2xl hover:bg-gray-500 hover:underline border border-white/[.5] "
+          className="bg-white drop-shadow-md font-bold text-2xl hover:bg-gray-500  border border-white/[.5] "
           style={{
             height: 210,
             width: 260,

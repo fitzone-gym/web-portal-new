@@ -1,34 +1,36 @@
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import {images} from '../../constants';
+import { images } from "../../constants";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import priofileimg from "../../assets/managerprofile.jpg";
-import AddReceptionistModal from "./AddReceptionistModal"
+import AddReceptionistModal from "./AddReceptionistModal";
 
 export const ManagerReceptionist = () => {
   const [data, setData] = useState([]); // Initialize data with an empty array
   const [showModal, setShowModal] = useState(false);
 
-    const fetchReceptionist = async () => {
-      try {
-        console.log("ts");
-        const response = await axios.get("http://localhost:5400/receptionistDetails");
-         console.log("tt"+ response.data.data); // Check the API response data
-        // console.log(typeof response.data.data); // Check the type of response.data
-        setData(response.data.data); // Assuming the response contains an array of trainer objects
-      } catch (error) {
-        console.log("Error:", error);
-      }
-    };
+  const fetchReceptionist = async () => {
+    try {
+      console.log("ts");
+      const response = await axios.get(
+        "http://localhost:5400/receptionistDetails"
+      );
+      console.log("tt" + response.data.data); // Check the API response data
+      // console.log(typeof response.data.data); // Check the type of response.data
+      setData(response.data.data); // Assuming the response contains an array of trainer objects
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
 
-    useEffect(() => {
+  useEffect(() => {
     fetchReceptionist();
   }, []);
 
   const handleDelete = async (receptionistId) => {
     try {
-      const apiUrl = "http://localhost:5400/receptionist/";
+      const apiUrl = "http://localhost:5400/receptionistDetails/";
       const deleteUrl = `${apiUrl}${receptionistId}`;
       await axios.delete(deleteUrl);
       // Perform any additional actions (e.g., refreshing the list) after successful deletion
@@ -36,7 +38,9 @@ export const ManagerReceptionist = () => {
       alert("Receptionist deleted successfully");
       // Update the state after successful deletion
       setData((prevData) =>
-        prevData.filter((receptionist) => receptionist.receptionist_id !== receptionistId)
+        prevData.filter(
+          (receptionist) => receptionist.receptionist_id !== receptionistId
+        )
       );
     } catch (error) {
       console.error("Error deleting trainer:", error);
@@ -65,7 +69,7 @@ export const ManagerReceptionist = () => {
       }}
     >
       <div className="w-[90%]">
-      <div className="text-4xl mr-[53%]">
+        <div className="text-4xl mr-[53%]">
           <h4>Receptionists Details</h4>
         </div>
 
@@ -77,31 +81,31 @@ export const ManagerReceptionist = () => {
             }}
           ></div> */}
 
-        <div className="ml-[115%] ">
-          {/* <Link to="/Manager/Staffmembers/Trainer/Addtrainer"> */}
-          <button
-            type="button"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center inline-flex items-center mr-2  "
-            style={{
-              height: 45,
-              width:120
-            }}
-            onClick={handleAddNewClick} // Call the function to show the modal
-          >
-            <div className="mr-2">
-              <FaPlus />
-            </div>
-            Add New
-          </button>
+          <div className="ml-[115%] ">
+            {/* <Link to="/Manager/Staffmembers/Trainer/Addtrainer"> */}
+            <button
+              type="button"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center inline-flex items-center mr-2  "
+              style={{
+                height: 45,
+                width: 120,
+              }}
+              onClick={handleAddNewClick} // Call the function to show the modal
+            >
+              <div className="mr-2">
+                <FaPlus />
+              </div>
+              Add New
+            </button>
 
             {/* Render the modal conditionally */}
             {showModal && (
-            <AddReceptionistModal
-              fetchReceptionist={fetchReceptionist}
-              onClose={handleCloseModal}
-            />
-          )}
-        </div>
+              <AddReceptionistModal
+                fetchReceptionist={fetchReceptionist}
+                onClose={handleCloseModal}
+              />
+            )}
+          </div>
         </div>
 
         <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-36">
@@ -129,57 +133,54 @@ export const ManagerReceptionist = () => {
               </tr>
             </thead>
             <tbody>
-            {data.map((receptionist, index) => {
+              {data.map((receptionist, index) => {
                 return (
-              <tr
-              key={index}
-              className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                   <img
-                            className="h-10 w-10 rounded-full ml-14 "
-                            src={priofileimg}
-                            alt=""
-                          />
-                          <div className="pl-12 mt-[-9%] ml-16">
-                            <div className="text-base font-semibold">
-                            {receptionist.first_name + " " + receptionist.last_name}{" "}
-                            </div>
-                            <div className="font-normal text-gray-500">
-                            {receptionist.email}
-                            </div>
-                          </div>
-                 
-                </th>
-                <td className="px-6 py-4">{receptionist.address}</td>
-                {/* <td className="px-6 py-4">{receptionist.email}</td> */}
-                <td className="px-6 py-4">{receptionist.phone_no}</td>{" "}
-                <td className="px-6 py-4">
-                <Link
-                          onClick={() =>
-                            handleDelete(receptionist.receptionist_id)
-                          } /* Pass trainer.id to handleDelete */
-                          className="font-medium text-blue-600 dark:text-blue-500"
-                        >
-                          Delete
-                        </Link>
-                </td>
-                {/* <td>
-                          <Link className="font-medium text-blue-600 dark:text-blue-500">
-                            Report Generation
-                          </Link>
-                        </td> */}
-              </tr>
-               );
+                  <tr
+                    key={index}
+                    className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
+                  >
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      <img
+                        className="h-10 w-10 rounded-full ml-14 "
+                        src={priofileimg}
+                        alt=""
+                      />
+                      <div className="pl-12 mt-[-9%] ml-16">
+                        <div className="text-base font-semibold">
+                          {receptionist.first_name +
+                            " " +
+                            receptionist.last_name}{" "}
+                        </div>
+                        <div className="font-normal text-gray-500">
+                          {receptionist.email}
+                        </div>
+                      </div>
+                    </th>
+                    <td className="px-6 py-4">{receptionist.address}</td>
+                    {/* <td className="px-6 py-4">{receptionist.email}</td> */}
+                    <td className="px-6 py-4">{receptionist.phone_no}</td>{" "}
+                    <td className="px-6 py-4">
+                      <Link
+                        onClick={() =>
+                          handleDelete(receptionist.receptionist_id)
+                        } /* Pass trainer.id to handleDelete */
+                        className="font-medium text-blue-600 dark:text-blue-500"
+                      >
+                        Delete
+                      </Link>
+                    </td>
+                  </tr>
+                );
               })}
             </tbody>
           </table>
         </div>
-        </div>
+      </div>
 
-        {/* <div className="grid grid-cols-2 ml-20 mt-8">
+      {/* <div className="grid grid-cols-2 ml-20 mt-8">
           1 box 
           <div
             className="font-bold rounded-md text-left"

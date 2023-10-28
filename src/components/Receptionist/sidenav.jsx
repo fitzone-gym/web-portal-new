@@ -1,4 +1,4 @@
-import "../../styles/Receptionist/Sidenav.css";
+import "../../styles/Receptionist/sidenav.css";
 
 function sidenav() {
   return (
