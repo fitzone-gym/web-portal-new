@@ -22,9 +22,13 @@ export const ManagerTrainer = () => {
     }
   };
 
+  const [reloadVariable, setReloadVariable] = useState(true);
+  const reload = () => {
+    setReloadVariable(!reloadVariable);
+  };
   useEffect(() => {
     fetchTrainers();
-  }, []);
+  }, [reloadVariable]);
 
   const handleSearch = async (event) => {
     event.preventDefault();
@@ -53,6 +57,15 @@ export const ManagerTrainer = () => {
     }
   };
 
+  function formatDate(dateTimeString) {
+    const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    return formattedString.replaceAll("/", ".");
+  }
+
   const handleAddNewClick = () => {
     setShowModal(true);
   };
@@ -74,7 +87,7 @@ export const ManagerTrainer = () => {
       }}
     >
       <div className="w-[93%]">
-      <div className="text-4xl mr-[66%]">
+        <div className="text-4xl mr-[66%]">
           <h4>Trainers Details</h4>
         </div>
 
@@ -194,11 +207,14 @@ export const ManagerTrainer = () => {
                             {trainer.email}
                           </div>
                         </div>
-     
+
                         {/* Changed variable name to "trainer" */}
                       </th>
                       <td className="px-6 py-4">{trainer.phone_no}</td>{" "}
-                      <td className="px-6 py-4">{trainer.joined_date}</td>
+                      <td className="px-6 py-4">
+                        {" "}
+                        {formatDate(trainer.joined_date)}
+                      </td>
                       <td className="px-6 py-4">{trainer.qualification}</td>
                       <td className="px-6 py-4">
                         {trainer.working_experience}
@@ -247,7 +263,9 @@ export const ManagerTrainer = () => {
                           </div>
                         </th>
                         <td className="px-6 py-4">{trainer.phone_no}</td>{" "}
-                        <td className="px-6 py-4">{trainer.joined_date}</td>
+                        <td className="px-6 py-4">
+                          {formatDate(trainer.joined_date)}
+                        </td>
                         <td className="px-6 py-4">{trainer.qualification}</td>
                         <td className="px-6 py-4">
                           {trainer.working_experience}

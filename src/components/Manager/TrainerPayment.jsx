@@ -84,12 +84,12 @@ export const TrainerPayment = () => {
                   Jayani Ranasinghe
                 </th>
                 <td className="px-6 py-4">3 Septemebr 2023</td>
-                <td className="px-6 py-4">200 000</td>
+                <td className="px-6 py-4">400 000</td>
                 <td className="px-6 py-4">paid</td>
                 <td className="px-6 py-4">
                   <a
                     href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    className="font-medium text-blue-600 dark:text-blue-500 "
                   >
                     View
                   </a>
@@ -103,12 +103,12 @@ export const TrainerPayment = () => {
                   Lasith Senadheera
                 </th>
                 <td className="px-6 py-4">30 September 2023</td>
-                <td className="px-6 py-4">200 000</td>
+                <td className="px-6 py-4">300 000</td>
                 <td className="px-6 py-4">paid</td>
                 <td className="px-6 py-4">
                   <a
                     href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    className="font-medium text-blue-600 dark:text-blue-500 "
                   >
                     View
                   </a>
@@ -127,7 +127,7 @@ export const TrainerPayment = () => {
                 <td className="px-6 py-4">
                   <a
                     href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    className="font-medium text-blue-600 dark:text-blue-500 "
                   >
                     View
                   </a>
@@ -141,12 +141,12 @@ export const TrainerPayment = () => {
                   Damitha Senadheera
                 </th>
                 <td className="px-6 py-4">6th January 2020</td>
-                <td className="px-6 py-4">200 000</td>
+                <td className="px-6 py-4">150 000</td>
                 <td className="px-6 py-4">paid</td>
                 <td className="px-6 py-4">
                   <a
                     href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    className="font-medium text-blue-600 dark:text-blue-500 "
                   >
                     View
                   </a>
@@ -160,12 +160,12 @@ export const TrainerPayment = () => {
                   Walter Ranasinghe
                 </th>
                 <td className="px-6 py-4">12th September 2021</td>
-                <td className="px-6 py-4">200 000</td>
+                <td className="px-6 py-4">250 000</td>
                 <td className="px-6 py-4">paid</td>
                 <td className="px-6 py-4">
                   <a
                     href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    className="font-medium text-blue-600 dark:text-blue-500 "
                   >
                     View
                   </a>

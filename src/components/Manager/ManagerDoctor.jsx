@@ -47,6 +47,15 @@ export const ManagerDoctor = () => {
     }
   };
 
+  function formatDate(dateTimeString) {
+    const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    return formattedString.replaceAll("/", ".");
+  }
+
   const handleAddNewClick = () => {
     setShowModal(true);
   };
@@ -145,10 +154,13 @@ export const ManagerDoctor = () => {
                         <div className="font-normal text-gray-500">
                           {doctor.email}
                         </div>
+                        <div className="font-normal text-red-500">
+                          {doctor.doctor_type}
+                        </div>
                       </div>
                     </th>
                     <td className="px-6 py-4">{doctor.address}</td>
-                    <td className="px-6 py-4">{doctor.joined_date} </td>
+                    <td className="px-6 py-4">{formatDate(doctor.joined_date)} </td>
                     <td className="px-6 py-4">{doctor.phone_no}</td>{" "}
                     <td className="px-6 py-4">{doctor.qualification} </td>
                     <td className="px-6 py-4">

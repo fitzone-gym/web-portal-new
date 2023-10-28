@@ -1,7 +1,25 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import priofileimg from "../../assets/managerprofile.jpg";
 
 export const ManagerProfile = () => {
+  const [data, setData] = useState();
+  useEffect(() => {
+    axios.get("http://localhost:5400/profile/10001").then((res) => {
+      console.log(res.data.data[0]);
+      setData(res.data.data[0]);
+    });
+  }, []);
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = new Intl.DateTimeFormat("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+
+    return formattedDate;
+  };
   return (
     <div
       className="w-[80%] py-12 flex items-center"
@@ -24,11 +42,12 @@ export const ManagerProfile = () => {
           borderRadius: "50%",
         }}
       />
-      <h2 className=" font-semibold text-5xl mb-3">Jayani Ivanthika Ranasinghe</h2>
-      <p className=" font-semibold text-3xl mb-24" >
-        Gym Manager
-      </p>
-      <div  className="text-lg"
+      <h2 className=" font-semibold text-5xl mb-3">
+        {data?.first_name + " " + data?.last_name}
+      </h2>
+      <p className=" font-semibold text-3xl mb-24">Gym Manager</p>
+      <div
+        className="text-lg"
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr 1fr",
@@ -44,8 +63,8 @@ export const ManagerProfile = () => {
           }}
         >
           <h3 className="font-semibold">Contact</h3>
-          <p>Email: jayanirana@gmail.com</p>
-          <p>Phone: (123) 456-7890</p>
+          <p>Email: {data?.email}</p>
+          <p>Phone: {data?.phone_no}</p>
         </div>
         <div
           style={{
@@ -55,8 +74,8 @@ export const ManagerProfile = () => {
           }}
         >
           <h3 className="font-semibold">Information</h3>
-          <p>NIC: 2000093093</p>
-          <p>DOB: 30 th Sep 2000</p>
+          <p>NIC: {data?.nic}</p>
+          <p>DOB: {formatDate(data?.DOB || new Date())}</p>
         </div>
         <div
           style={{
@@ -66,8 +85,8 @@ export const ManagerProfile = () => {
           }}
         >
           <h3 className="font-semibold">Location</h3>
-          <p>City: Flower road,Hidellana</p>
-          <p>Colombo</p>
+          <p>City: {data?.address}</p>
+          {/* <p>Colombo</p> */}
         </div>
       </div>
     </div>

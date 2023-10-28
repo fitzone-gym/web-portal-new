@@ -1,7 +1,7 @@
 
 import Header from '../../components/Receptionist/header';
 import Sidenav from '../../components/Receptionist/sidenav';
-import Announcement_R from '../../components/Receptionist/announcement_R';
+import Announcement_R from '../../components/Receptionist/Announcement_R';
 import '../../styles/Receptionist/announcement.css'
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";

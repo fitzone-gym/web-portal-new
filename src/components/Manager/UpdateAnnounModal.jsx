@@ -48,20 +48,21 @@ export const UpdateAnnonModal = ({ onClose, announcement }) => {
 
       const updatedData = {
         title: values.heading,
-        for: values.recipients.join(','), // Use the heading as the new 'for'
+        recepients: values.recipients.join(","), // Use the heading as the new 'for'
         description: values.body, // Use the body as the new 'description'
       };
       // console.log(updatedData);
       const apiUrl = "http://localhost:5400/announcement/update/";
       const updateUrl = `${apiUrl}${announcement_id}`;
-      await axios.put(updateUrl, updatedData);  
-    
+      await axios.put(updateUrl, updatedData);
+
       console.log("Announcement updated successfully");
 
       alert("Announcement updated successfully");
       // setData((prevData) => prevData.filter((announcement) => announcement.announcement_id !== announcement_id));
       onClose();
-      navigate("/Staffmembers/Trainer");
+      window.location.reload();
+      // navigate("/Manager/Announcement");
     } catch (error) {
       console.error("Error updating announcement:", error);
       alert("Error editing announcement");
@@ -79,7 +80,7 @@ export const UpdateAnnonModal = ({ onClose, announcement }) => {
           width: "65%",
         }}
       >
-        <div className="mr-[-90%]">
+        <div className="mr-[-30%]">
           <button
             onClick={onClose}
             className="ml-[50%] text-gray-500 hover:text-gray-800 mt-4"
@@ -192,7 +193,9 @@ export const UpdateAnnonModal = ({ onClose, announcement }) => {
           <button
             type="submit"
             className="ml-auto mr-auto mt-9 text-white bg-green-500 w-60 rounded-xl hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-sm px-5 py-2.5 text-center"
-            onClick={handleEdit(announcement.announcement_id)}
+            onClick={() => {
+              handleEdit(announcement.announcement_id);
+            }}
           >
             Submit
           </button>

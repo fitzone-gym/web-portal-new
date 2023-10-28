@@ -50,85 +50,90 @@ import { Messages } from "./pages/Manager/Messages";
 // import R_onememberattendence from "./pages/Receptionist/onememberattendence";
 import R_Contactus_submitions from "./pages/Receptionist/ContactUsSUbmitions";
 import { TrainerLeaveReqList } from "./pages/Manager/TrainerLeaveReqList";
+import { Test } from "./pages/test";
 
 function App() {
   return (
-      // <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/Manager/Dashboard" element={<Dashboard />} />
-          <Route path="/Manager/Profile" element={<Profile />} />
-          <Route path="/Manager/Messages" element={<Messages />} />
-          <Route path="/Manager/Members" element={<Members />} />
-          <Route path="/Manager/Staffmembers" element={<Staffmembers />} />
-          <Route path="/Manager/Staffmembers/Trainer" element={<Trainer />} />
-          <Route path="/Manager/Staffmembers/Doctor" element={<Doctor />} />
-          <Route
-            path="/Manager/Staffmembers/Receptionist"
-            element={<Receptionist />}
-          />
-          {/* <Route
+    // <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/test" element={<Payment />} />
+      <Route path="/Manager/Dashboard" element={<Dashboard />} />
+      <Route path="/Manager/Profile" element={<Profile />} />
+      <Route path="/Manager/Messages" element={<Messages />} />
+      <Route path="/Manager/Members" element={<Members />} />
+      <Route path="/Manager/Staffmembers" element={<Staffmembers />} />
+      <Route path="/Manager/Staffmembers/Trainer" element={<Trainer />} />
+      <Route path="/Manager/Staffmembers/Doctor" element={<Doctor />} />
+      <Route
+        path="/Manager/Staffmembers/Receptionist"
+        element={<Receptionist />}
+      />
+      {/* <Route
             path="/Manager/Staffmembers/Trainer/Addtrainer"
             element={<Addtrainer />}
           /> */}
-          <Route
-            path="/Manager/Staffmembers/Trainer/TrainerProfile"
-            element={TrainerProfile}
-          />
-          <Route path="/Manager/Announcement" element={<Announcement />} />
-          {/* <Route path="/Manager/Announcement/CreateAnnoun" element={<CreateAnnoun />} /> */}
-          {/* <Route path="/Manager/Announcement/UpdateAnnoun" element={<UpdateAnnoun />} /> */}
-          <Route path="/Manager/Leave" element={<Leave />} />
-          <Route path="/Manager/Leave/TrainerList" element={<TrainerLeaveReqList />} />
-          <Route path="/Manager/Feedback" element={<Feedback />} />
-          <Route path="/Manager/Payment" element={<Payment />} />
-          <Route path="/Manager/Payment/TrainerPay" element={<TrainerPay />} />
-          <Route path="/Manager/Payment/DoctorPay" element={<DoctorPay />} />
-          <Route
-            path="/Manager/Payment/ReceptionistPay"
-            element={<ReceptionistPay />}
-          />
-          <Route path="/Manager/Payment/MemberPay" element={<MemberPay />} />
+      <Route
+        path="/Manager/Staffmembers/Trainer/TrainerProfile"
+        element={TrainerProfile}
+      />
+      <Route path="/Manager/Announcement" element={<Announcement />} />
+      {/* <Route path="/Manager/Announcement/CreateAnnoun" element={<CreateAnnoun />} /> */}
+      {/* <Route path="/Manager/Announcement/UpdateAnnoun" element={<UpdateAnnoun />} /> */}
+      <Route path="/Manager/Leave" element={<Leave />} />
+      <Route
+        path="/Manager/Leave/TrainerList"
+        element={<TrainerLeaveReqList />}
+      />
+      <Route path="/Manager/Feedback" element={<Feedback />} />
+      <Route path="/Manager/Payment" element={<Test />} />
+      <Route path="/Manager/Payment/TrainerPay" element={<TrainerPay />} />
+      <Route path="/Manager/Payment/DoctorPay" element={<DoctorPay />} />
+      <Route
+        path="/Manager/Payment/ReceptionistPay"
+        element={<ReceptionistPay />}
+      />
+      <Route path="/Manager/Payment/MemberPay" element={<MemberPay />} />
 
-          <Route path="/Receptionist/Dashboard" element={<R_Dashboard />} />
-        <Route path="/Receptionist/MembersList" element={<R_Memeberlist />} />
-        <Route
-          path="/Receptionist/Memberprofile"
-          element={<R_Memberprofile />}
-        />
-        <Route path="/Receptionist/Trainerlist" element={<R_Trainerlist />} />
-        <Route
-          path="/Receptionist/Trainerprofile"
-          element={<R_Trainerprofile />}
-        />
-        <Route path="/Receptionist/Announcement" element={<R_Announcement />} />
-        <Route path="/Receptionist/Payment" element={<R_Payment />} />
-        {/* <Route path="/Receptionist/salarydetails" element={<Salarypopup />} /> */}
-        <Route path="/Receptionist/Myprofile" element={<R_Userprofile />} />
-        <Route path="/Receptionist/attendence" element={<R_Attendence />} />
-        <Route path="/Receptionist/allattendence" element={<R_Attendence_All />} />
-        {/* <Route path="/Receptionist/memberattendence" element={<R_Gymmemberattendence />} />
+      <Route path="/Receptionist/Dashboard" element={<R_Dashboard />} />
+      <Route path="/Receptionist/MembersList" element={<R_Memeberlist />} />
+      <Route path="/Receptionist/Memberprofile" element={<R_Memberprofile />} />
+      <Route path="/Receptionist/Trainerlist" element={<R_Trainerlist />} />
+      <Route
+        path="/Receptionist/Trainerprofile"
+        element={<R_Trainerprofile />}
+      />
+      <Route path="/Receptionist/Announcement" element={<R_Announcement />} />
+      <Route path="/Receptionist/Payment" element={<R_Payment />} />
+      {/* <Route path="/Receptionist/salarydetails" element={<Salarypopup />} /> */}
+      <Route path="/Receptionist/Myprofile" element={<R_Userprofile />} />
+      <Route path="/Receptionist/attendence" element={<R_Attendence />} />
+      <Route
+        path="/Receptionist/allattendence"
+        element={<R_Attendence_All />}
+      />
+      {/* <Route path="/Receptionist/memberattendence" element={<R_Gymmemberattendence />} />
         <Route path="/Receptionist/trainerattendence" element={<R_Gymtrainerattendence />} />
 
         <Route path="/Receptionist/leaveRequest" element={<R_Leavedetails />} />
 
         <Route path="/Receptionist/Applyleave" element={<R_Leaverequestform />} /> */}
-        <Route path="/Receptionist/editprofile" element={<R_Editmyprofile />} />
-        <Route
-          path="/Receptionist/contactUsSubmitions"
-          element={<R_Contactus_submitions />}
-        />
+      <Route path="/Receptionist/editprofile" element={<R_Editmyprofile />} />
+      <Route
+        path="/Receptionist/contactUsSubmitions"
+        element={<R_Contactus_submitions />}
+      />
 
-          {/* Doctor */}
-          {/* <Route path="/Doctor/Dashboard" element={<D_Dashboard />} /> */}
-          {/* <Route path="/Doctor/Payment" element={<D_PaymentHistory />} /> */}
-          <Route path="/Doctor/Myprofile" element={<D_Myprofile />} />
-          <Route path="/Doctor/MembersList" element={<D_Memberslist />} />
-          <Route path="/Doctor/Appointments" element={<D_Appointments />} />
-          <Route path="/Doctor/LeaveRequests" element={<D_Leaverequest/>} />
-        </Routes>
-      // </BrowserRouter>
-  )} 
+      {/* Doctor */}
+      {/* <Route path="/Doctor/Dashboard" element={<D_Dashboard />} /> */}
+      {/* <Route path="/Doctor/Payment" element={<D_PaymentHistory />} /> */}
+      <Route path="/Doctor/Myprofile" element={<D_Myprofile />} />
+      <Route path="/Doctor/MembersList" element={<D_Memberslist />} />
+      <Route path="/Doctor/Appointments" element={<D_Appointments />} />
+      <Route path="/Doctor/LeaveRequests" element={<D_Leaverequest />} />
+    </Routes>
+    // </BrowserRouter>
+  );
+}
 
-
-  export default App;
+export default App;
