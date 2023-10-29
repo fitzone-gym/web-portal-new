@@ -8,6 +8,9 @@ import brightImage from '../assets/bright.jpg'
 import brightsecImage from '../assets/bright2.jpg'
 import winImage from '../assets/win.jpg'
 import starsImage from '../assets/start.png'
+import recepImage from '../assets/recep.jpg'
+import trainerImage from '../assets/trainer.jpeg'
+import managerdoctorImage from '../assets/managerdoctor.jpg'
 
 export default {
     logo,
@@ -20,4 +23,7 @@ export default {
     brightsecImage,
     winImage,
     starsImage,
+    recepImage,
+    trainerImage,
+    managerdoctorImage
 }

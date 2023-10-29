@@ -19,25 +19,12 @@ import R_Announcement from "./pages/Receptionist/R_Announcement";
 import R_Userprofile from "./pages/Receptionist/R_Userprofile";
 import R_Attendence from "./pages/Receptionist/R_Attendence"
 import R_onememberattendence from "./pages/Receptionist/onememberattendence"
-import D_Dashboard from "./pages/Doctor/D_Dashboard";
-import D_Leaverequest from "./pages/Doctor/D_LeaveRequest";
-import D_PaymentHistory from "./pages/Doctor/D_PaymentHistory";
 import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
 import R_Payment from './pages/Receptionist/R_Payment'
 import R_Memberprofile from './pages/Receptionist/R_Memberprofile'
 import R_Trainerprofile from "./pages/Receptionist/R_Trainerprofile";
-
-import D_Myprofile from './pages/Doctor/D_Myprofile'
-import D_Memberslist from './pages/Doctor/D_Memberslist'
-import D_Appointments from "./pages/Doctor/D_Appointments";
 import R_Editmyprofile from "./components/Receptionist/editprofile";
-import R_AppointmentHistory from "./pages/Doctor/D_AppointmentHistory";
-
-
-
-
-
-
+// import R_AppointmentHistory from "./pages/Doctor/D_AppointmentHistory";
 import { Login } from "./pages/Login/Login";
 import { Members } from "./pages/Manager/Members";
 import { Staffmembers } from "./pages/Manager/Staffmembers";
@@ -62,13 +49,20 @@ import { Feedback } from "./pages/Manager/Feedback";
 import { TrainerProfile } from "./pages/Manager/TrainerProfile";
 import { UpdateAnnoun } from "./pages/Manager/UpdateAnnoun";
 import { Messages } from "./pages/Manager/Messages";
-
 // import R_onememberattendence from "./pages/Receptionist/onememberattendence";
 import R_Contactus_submitions from "./pages/Receptionist/ContactUsSUbmitions";
+import { TrainerLeaveReqList } from "./pages/Manager/TrainerLeaveReqList";
+
+
+import D_Dashboard from "./pages/Doctor/D_Dashboard";
+import D_Leaverequest from "./pages/Doctor/D_LeaveRequest";
+import D_PaymentHistory from "./pages/Doctor/D_PaymentHistory";
+import D_Myprofile from "./pages/Doctor/D_Myprofile";
+import D_Memberslist from "./pages/Doctor/D_Memberslist";
+import D_Appointments from "./pages/Doctor/D_Appointments";
+
 
 function App() {
-  
-
   return (
     <>
       <Routes>
@@ -131,6 +125,7 @@ function App() {
         {/* <Route path="/Manager/Announcement/CreateAnnoun" element={<CreateAnnoun />} /> */}
         {/* <Route path="/Manager/Announcement/UpdateAnnoun" element={<UpdateAnnoun />} /> */}
         <Route path="/Manager/Leave" element={<Leave />} />
+        <Route path="/Manager/Leave/TrainerList" element={<TrainerLeaveReqList />} />
         <Route path="/Manager/Feedback" element={<Feedback />} />
         <Route path="/Manager/Payment" element={<Payment />} />
         <Route path="/Manager/Payment/TrainerPay" element={<TrainerPay />} />
@@ -146,61 +141,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <Login />  */
-}
-{
-  /* <Dashboard />  */
-}
-{
-  /* <Members />  */
-}
-{
-  /* <Trainer /> */
-}
-{
-  /* <Doctor /> */
-}
-{
-  /* <Receptionist /> */
-}
-{
-  /* <Staffmembers /> */
-}
-{
-  /* <Addtrainer /> */
-}
-{
-  /* <AddDoctor /> */
-}
-{
-  /* <AddReceptionist /> */
-}
-{
-  /* <Announcement /> */
-}
-{
-  /* <CreateAnnoun /> */
-}
-{
-  /* <Leave /> */
-}
-{
-  /* <Viewleave /> */
-}
-{
-  /* <Payment /> */
-}
-{
-  /* <TrainerPay /> */
-}
-{
-  /* <ReceptionistPay /> */
-}
-{
-  /* <DoctorPay /> */
-}
-{
-  /* <MemberPay /> */
-}

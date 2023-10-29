@@ -1,139 +1,212 @@
-import React from "react";
-import { RxDashboard } from "react-icons/rx";
-import { BsPeople } from "react-icons/bs";
-import { MdPeopleOutline } from "react-icons/md";
-import { MdOutlineAnnouncement } from "react-icons/md";
-import { MdOutlineStickyNote2 } from "react-icons/md";
-import { VscFeedback } from "react-icons/Vsc";
-import { MdOutlinePayments } from "react-icons/md";
-import { TbLogout } from "react-icons/Tb";
-//import priofileimg from "../../assets/managerprofile.jpg";
-import { Link } from "react-router-dom";
+import "../../styles/Receptionist/Sidenav.css";
 
 export const ManagerSidebar = () => {
   return (
-    <div className="sidenavbar font-bold rounded-tr-lg bg-[#E54646] w-[15%] mt-[4%] h-[92%] fixed">
-      {/* <div className="profileimage max-lg:hidden">
-        <img
-          src={priofileimg}
-          alt=""
-          className="w-40 h-40 mt-[20%]  ml-[21%] rounded-full"
-          style={{ borderRadius: "100%" }}
-        />
-        <h1>Jayani Ranasinghe</h1>
-        <h2> Manager</h2>
-      </div> */}
+    <div className="sidenavbar" style={{marginTop:80}}>
+      <ul className="flex flex-col py-5 space-y-1 font-bold text-center ml-10 ">
+        <li>
+          <a
+            href="/Manager/Dashboard"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 hover:border-indigo-500 pr-6"
+            style={{
+              borderRadius: "50px",
+              marginLeft: "10px",
+              marginRight: "20px",
+              width: "250px",
+              background: "white",
+              color: " rgb(229, 70, 70)",
+            }}
+          >
+            <span className="inline-flex justify-center items-center ml-4">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                ></path>
+              </svg>
+            </span>
+            <span className="ml-2 text-sm tracking-wide truncate">
+              Dashboard
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/Manager/Members"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800  pr-6"
+          >
+            <span className="inline-flex justify-center items-center ml-4">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+                ></path>
+              </svg>
+            </span>
+            <span className="ml-2 text-sm tracking-wide truncate">Members</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/Manager/Staffmembers"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800  pr-6"
+          >
+            <span className="inline-flex justify-center items-center ml-4">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                ></path>
+              </svg>
+            </span>
+            <span className="ml-2 text-sm tracking-wide truncate">
+              Staff Members
+            </span>
+          </a>
+        </li>
 
-      <div className="ml-12 mt-8">
-        <ul className="flex flex-col py-4 space-y-1">
-          <li>
-            <Link
-              to="/Manager/Dashboard"
-              className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-            >
-              <div className="max-lg:w-6">
-                <RxDashboard />
-              </div>
-              <span className="max-lg:hidden ml-[3%] text-md tracking-wide truncate">
-                DASHBOARD
-              </span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/Manager/Members"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-            >
-              <div className="max-lg:w-6">
-                <BsPeople />
-              </div>
-              <span className="max-lg:hidden ml-[3%] text-md tracking-wide truncate">
-                MEMBERS
-              </span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/Manager/Staffmembers"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-            >
-              <div className="max-lg:w-6">
-                <MdPeopleOutline />
-              </div>
-              <span className="max-lg:hidden ml-[3%] text-md tracking-wide truncate">
-                STAFF MEMBERS
-              </span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/Manager/Announcement"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-            >
-              <div className="max-lg:w-6">
-                <MdOutlineAnnouncement />
-              </div>
-              <span className="max-lg:hidden ml-[3%] text-md tracking-wide truncate">
-                ANNOUNCEMENTS
-              </span>
-            </Link>
-          </li>
+        <li>
+          <a
+            href="/Manager/Announcement"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800  pr-6"
+          >
+            <span className="inline-flex justify-center items-center ml-4">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                ></path>
+              </svg>
+            </span>
+            <span className="ml-2 text-sm tracking-wide truncate">
+              Announcement
+            </span>
+          </a>
+        </li>
 
-          <li>
-            <Link
-              to="/Manager/Leave"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-            >
-              <div className="max-lg:w-6">
-                <MdOutlineStickyNote2 />
-              </div>
-              <span className="max-lg:hidden ml-2 text-md tracking-wide truncate">
-                LEAVES
-              </span>
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/Manager/Feedback"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-            >
-              <div className="max-lg:w-6">
-                <VscFeedback />
-              </div>
-              <span className="max-lg:hidden ml-2 text-md tracking-wide truncate">
-                FEEDBACK
-              </span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/Manager/Payment"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
-            >
-              <div className="max-lg:w-6">
-                <MdOutlinePayments />
-              </div>
-              <span className="max-lg:hidden ml-[3%] text-md tracking-wide truncate">
-                PAYMENTS
-              </span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/"
-              className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6 mt-[120%]"
-            >
-              <div className="max-lg:w-6">
-                <TbLogout />
-              </div>
-              <span className="max-lg:hidden ml-[3%] text-md tracking-wide truncate">
-                LOGOUT
-              </span>
-            </Link>
-          </li>
-        </ul>
-      </div>
+        <li>
+          <a
+            href="/Manager/Leave"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800  pr-6"
+          >
+            <span className="inline-flex justify-center items-center ml-4">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                ></path>
+              </svg>
+            </span>
+            <span className="ml-2 text-sm tracking-wide truncate">Leaves</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/Manager/Feedback"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800  pr-6"
+          >
+            <span className="inline-flex justify-center items-center ml-4">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+              </svg>
+            </span>
+            <span className="ml-2 text-sm tracking-wide truncate">
+              Feedback
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/Manager/Payment"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800  pr-6"
+          >
+            <span className="inline-flex justify-center items-center ml-4">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+              </svg>
+            </span>
+            <span className="ml-2 text-sm tracking-wide truncate">
+              Payments
+            </span>
+          </a>
+        </li>
+      </ul>
     </div>
   );
 };
+
+

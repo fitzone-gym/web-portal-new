@@ -6,21 +6,17 @@ export const ManagerFeedback = () => {
     <div
       className="w-[80%]"
       style={{
-        position: "fixed",
-        top: 130,
-        left: 290,
-        right: 0,
-        bottom: 0,
+        marginRight: "20px",
+        marginLeft: "17%",
+        marginTop: "130px",
+        textAlign: "center",
       }}
     >
       <div>
         <div
           className="border drop-shadow-md font-bold text-2xl rounded-xl ml-44 mt-16"
-          style={{
-            height: "30%",
-            width: "83%",
-          }}
         >
+          
           <p
             className="text-left text-lg py-4 px-6 ml-7"
             style={{
@@ -53,15 +49,18 @@ export const ManagerFeedback = () => {
           </p>
 
           <div>
-            <p className="text-base ml-[-86%] mt-2 text-blue-900">Rate for us</p>
+            <p className="text-base ml-[-86%] mt-2 text-blue-900">
+              Rate for us
+            </p>
             <img
               className="w-[12%] h-18 mt-[-3%] ml-8 mb-[-5%]"
               src={images.starsImage}
               alt=""
             />
-              <a className="text-base underline ml-[78%] mt-[-12%] text-blue-900">Reply</a>
+            <a className="text-base underline ml-[78%] mt-[-12%] text-blue-900">
+              Reply
+            </a>
           </div>
-        
         </div>
 
         <div
@@ -103,15 +102,18 @@ export const ManagerFeedback = () => {
           </p>
 
           <div>
-            <p className="text-base ml-[-86%] mt-2 text-blue-900">Rate for us</p>
+            <p className="text-base ml-[-86%] mt-2 text-blue-900">
+              Rate for us
+            </p>
             <img
               className="w-[12%] h-18 mt-[-3%] ml-8 mb-[-5%]"
               src={images.starsImage}
               alt=""
             />
-              <a className="text-base underline ml-[78%] mt-[-12%] text-blue-900">Reply</a>
+            <a className="text-base underline ml-[78%] mt-[-12%] text-blue-900">
+              Reply
+            </a>
           </div>
-        
         </div>
 
         <div
@@ -153,15 +155,18 @@ export const ManagerFeedback = () => {
           </p>
 
           <div>
-            <p className="text-base ml-[-86%] mt-2 text-blue-900">Rate for us</p>
+            <p className="text-base ml-[-86%] mt-2 text-blue-900">
+              Rate for us
+            </p>
             <img
               className="w-[12%] h-18 mt-[-3%] ml-8 mb-[-5%]"
               src={images.starsImage}
               alt=""
             />
-              <a className="text-base underline ml-[78%] mt-[-12%] text-blue-900">Reply</a>
+            <a className="text-base underline ml-[78%] mt-[-12%] text-blue-900">
+              Reply
+            </a>
           </div>
-        
         </div>
       </div>
     </div>

@@ -277,18 +277,23 @@ export const ManagerAnnouncement = () => {
 
   return (
     <div
-      className="w-[80%]"
-      style={{ position: "fixed", top: 50, left: 290, right: 0, bottom: 0 }}
+      className=""
+      style={{
+        marginRight: "20px",
+        marginLeft: "15%",
+        marginTop: "120px",
+        textAlign: "center",
+      }}
     >
-      <div className="pt-6 pb-6 ml-[62%] w-[24%]">
-          <div className="ml-[115%] mt-[20%]">
-        {/* <Link to="/Manager/Announcement/CreateAnnoun"> */}
+      <div className="pt-6 ml-[57%] w-[24%]">
+        <div className="ml-[115%] mt-[0ss%]">
           <button
             type=""
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center inline-flex items-center mr-2 "
             style={{
               height: 45,
-              width: 120
+              width: 120,
+              backgroundColor: "#ad2828",
             }}
             onClick={handleAddNewClick} // Call the function to show the modal
           >
@@ -297,53 +302,55 @@ export const ManagerAnnouncement = () => {
             </div>
             Add New
           </button>
-        {/* </Link> */}
-        {/* Render the modal conditionally */}
-        {showModal && <CreatAnnonModal onClose={handleCloseModal} />}
+          {showModal && <CreatAnnonModal onClose={handleCloseModal} />}
         </div>
       </div>
 
-      <table
-        className="font-semibold ml-44  h-[28%] py-6 px-6 border-separate border-spacing-10"
-        style={{
-          width: "81%",
-        }}
-      >
+      <table className="font-semibold h-[28%] py-3 px-6 border-separate border-spacing-10">
         <tbody className="">
           {data.map((announcement, index) => {
             return (
-              <tr key={index} className="bg-white drop-shadow-lg text-left text-lg">
+              <tr
+                key={index}
+                className="bg-white drop-shadow-lg text-left text-lg"
+              >
                 <td className="rounded-lg">
                   <div>
                     <p className="mt-2 ml-7 font-bold">{announcement.title}</p>
-                    <hr className="ml-7 w-1/2 border-t-1 border-black"></hr>
+                    {/* <hr className="ml-7 w-1/2 border-t-1 border-black"></hr> */}
                   </div>
-                  <div className="msg">
+                  <br />
+                  <div
+                    className="msg"
+                    style={{ fontWeight: 300, fontSize: 14 }}
+                  >
                     <p className="ml-[3%] mt-1 mr-3">
                       Dear {announcement.for}, {announcement.description}.
                     </p>
-                    <p className="ml-[3%] mt-[1%]">Jayani</p>
-                    <p className="ml-[3%] ">Gym Manager</p>
+                    {/* <p className="ml-[3%] mt-[1%]">Jayani</p>
+                    <p className="ml-[3%] ">Gym Manager</p> */}
                   </div>
 
                   <div className="actions">
                     {/* <Link to="/Manager/Announcement/UpdateAnnoun"> */}
-                      <button
-                        className="text-white bg-yellow-400 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-4"
-                        style={{
-                          height: 30,
-                          width: "10%",
-                          marginRight: "3%",
-                          marginTop: "1%",
-                          marginLeft: "70%",
-                        }}
-                        onClick={()=>handleEditClick(announcement)}
-                      >
-                        <div className="mr-1 ml-3">
-                          <FiEdit />
-                        </div>
-                        Edit
-                      </button>
+                    <button
+                      className="text-white bg-green-500 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-4 text-center inline-flex text-center items-center mr-2"
+                      style={{
+                        height: 30,
+                        width: 100,
+                        marginRight: "3%",
+                        marginTop: "1%",
+                        marginLeft: "70%",
+                        fontSize: 15,
+                        backgroundColor: "#363062",
+                      }}
+                      onClick={() => handleEditClick(announcement)}
+                    >
+                      <div className="mr-1 ml-3">
+                        <FiEdit />
+                      </div>
+                      Edit
+                    </button>
                     {/* </Link> */}
                     {/* Render the update modal conditionally */}
                     {editingAnnouncement && (
@@ -356,22 +363,28 @@ export const ManagerAnnouncement = () => {
                       />
                     )}
 
-                    <Link onClick={() => handleDelete(announcement.announcement_id)}>
-                    <button
-                      className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center "
-                      style={{
-                        height: 30,
-                        width: "10%",
-                        marginTop: "1%",
-                      }}
+                    <Link
+                      onClick={() => handleDelete(announcement.announcement_id)}
                     >
-                      <div className="ml-[-6%]">
-                        <MdDelete />
-                      </div>
-                      Remove
-                    </button>
+                      <button
+                        className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center "
+                        style={{
+                          height: 30,
+                          width: 110,
+                          marginTop: "1%",
+                          fontSize: 15,
+                          backgroundColor: "#E4DCCF",
+                          color: "#363062",
+                        }}
+                      >
+                        <div className="ml-[-6%]">
+                          <MdDelete />
+                        </div>
+                        Remove
+                      </button>
                     </Link>
                   </div>
+                  <br />
                 </td>
               </tr>
             );

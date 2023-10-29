@@ -26,15 +26,10 @@ import axios from "axios";
 function LeaveReq() {
   const [leaveRequests, setleaveRequests] = useState([]);
   const [open, setOpen] = React.useState(false);
-
   const [reason, setReason] = React.useState("");
   const [fromDate, setFromDate] = React.useState("");
   const [toDate, setToDate] = React.useState("");
   const[dateRangeError, setdateRangeError] = React.useState("");
-
-  // const handleChange = (event) => {
-  //   setReason(event.target.value);
-  // };
 
   const handleClickOpen = () => {
     setOpen(true);

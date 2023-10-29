@@ -23,16 +23,6 @@ import Select from '@mui/material/Select';
 
 import axios from "axios";
 
-
-// document
-//   .getElementById("dropdownActionButton")
-//   .addEventListener("click", function () {
-//     const dropdown = document.getElementById("dropdownAction");
-//     dropdown.classList.toggle("hidden");
-//   });
-
-
-
 function D_MemberList() {
   const [open, setOpen] = React.useState(false);
   const [selectedMember, setSelectedMember] = useState(null);
@@ -46,10 +36,6 @@ function D_MemberList() {
     setfilterValue(event.target.value);
   };
   console.log(filterValue);
-
-  // const handleClickOpen = (first_name, last_name, dob, weight,height, suger_level,diabetes_level,cholestirol_level, blood_pleasure,injuries) => {
-  //   setOpen(true);
-  // };
 
   const handleClickOpen = (member) => {
     setSelectedMember(member);
@@ -69,9 +55,6 @@ function D_MemberList() {
     });
     return formattedString.replaceAll("/", ".");
   }
-
-
-  
 
   useEffect(() => {
     axios
@@ -224,14 +207,6 @@ function D_MemberList() {
               <tbody>
                 {memberDetail.length > 0 ? (
                   memberDetail
-                    // .filter(
-                    //   (member) =>
-                    //     // member.first_name.toLowerCase().includes(query) ||
-                    //     // member.email.toLowerCase().includes(query)
-                    //     keys.some((key) =>
-                    //       member[key].toLowerCase().includes(query)
-                    //     )
-                    // )
                     .filter((member) => {
                       if (filterValue === 1) {
                         // Show members where new Date() - member.joined_date_formatted > 1
@@ -284,7 +259,7 @@ function D_MemberList() {
                           <img
                             className="w-10 h-10 rounded-full"
                             src={`../src/assets/Users/${member.profile_picture}`}
-                            alt="Jese image"
+                            alt="prof. image"
                           />
                           <div className="pl-3">
                             <div className="text-base font-semibold">
@@ -331,11 +306,11 @@ function D_MemberList() {
 
       {/* dialog popup */}
       <Dialog open={open} onClose={handleClose}>
-        {/* <DialogTitle>Subscribe</DialogTitle> */}
         <DialogContent>
           <DialogContentText>
             <p className="pt-2 healthpopUpUserName">
-              {selectedMember?.first_name} {selectedMember?.last_name}
+              {selectedMember?.first_name} 
+              
             </p>
             <p className="healthpopUpUserAge">{selectedMember?.age} year</p>
           </DialogContentText>
@@ -346,9 +321,6 @@ function D_MemberList() {
                 label="Weight(kg)"
                 defaultValue={selectedMember?.weight}
                 size="small"
-                // InputLabelProps={{
-                //   style: styles.label, // Apply the style to the label
-                // }}
                 InputProps={{
                   readOnly: true,
                   style: {

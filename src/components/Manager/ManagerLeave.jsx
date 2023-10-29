@@ -1,21 +1,68 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import priofileimg from "../../assets/managerprofile.jpg";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const ManagerLeave = () => {
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(""); // State to store the search term
+  const [searchResults, setSearchResults] = useState([]); // State to store search results
+
+  useEffect(() => {
+    const fetchLeave = async () => {
+      try {
+        console.log("leave");
+        const response = await axios.get("http://localhost:5400/leaves");
+         console.log("tt"+ response.data.data); // Check the API response data
+        // console.log(typeof response.data.data); // Check the type of response.data
+        setData(response.data.data); // Assuming the response contains an array of trainer objects
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+
+    fetchLeave();
+  }, []);
+
+  const handleSearch = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.get(
+        `http://localhost:5400/leaves/searchLeaves?searchTerm=${searchTerm}`
+      );
+      setSearchResults(response.data.data);
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
+
+  const handleApprove = async (leaves_request_Id) => {
+    try{
+      const apiUrl = "http://localhost:5400/leaves/";
+      const Url = `${apiUrl}${leaves_request_Id}`;
+      await axios.delete(Url);
+        setData((prevData) =>
+        prevData.filter((leaves) => leaves.leaves_request_id !== leaves_request_Id)
+      );
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Approved Succesfully Done");
+      }
+  };
+
   return (
     <div
-      className="w-[80%]"
+      className="w-[86%]"
       style={{
-        position: "fixed",
-        top: 160,
-        left: 300,
-        right: 0,
-        bottom: 0,
+        marginRight: "20px",
+        marginLeft: "17%",
+        marginTop: "130px",
+        textAlign: "center",
       }}
     >
-      <div className="w-[93%]">
-        <div className="pt-6 pb-6 ml-[73%] w-[20%]">
-          <form>
+      <div className="">
+        <div className="pt-6 pb-6 ml-[77%] w-[20%]">
+          <form onSubmit={handleSearch}>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-24%]">
                 <svg
@@ -36,15 +83,15 @@ export const ManagerLeave = () => {
               </div>
               <input
                 type="text"
-                // value={searchTerm}
-                // onChange={(e) => setSearchTerm(e.target.value)}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 className="block w-[130%] ml-[-25%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                placeholder="Search Name,Package Type..."
+                placeholder="Search by name,reason"
                 required
               />
               <button
                 type="submit"
-                className="mr-[-5%] text-white absolute right-2.5 w-18 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-xs px-3 py-2 "
+                className="mr-[-5%] text-white absolute right-2.5 w-18 bg-gray-200 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-xs px-3 py-2 "
                 style={{
                   marginTop: -39,
                 }}
@@ -55,7 +102,7 @@ export const ManagerLeave = () => {
           </form>
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-8 mt-8">
           <table
             className="w-full text-sm text-left text-gray-500  "
             // style={{
@@ -68,8 +115,8 @@ export const ManagerLeave = () => {
           >
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>
-                <th scope="col" className="px-20 py-3">
-                  Name
+                <th scope="col" className="px-10 py-3">
+                  Trainer Name
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Reason
@@ -89,539 +136,199 @@ export const ManagerLeave = () => {
               </tr>
             </thead>
             <tbody className="">
-              <tr className="bg-white border-b">
-                <th
-                  scope="row"
-                  className="px-6 py-4 text-gray-900  whitespace-nowrap dark:text-white ml-[10%]"
-                >
-                  <img
-                    className="h-10 w-10 rounded-full ml-14"
-                    src={priofileimg}
-                    alt=""
-                  />
-                  <div className="pl-28 mt-[-12%]">
-                    <div className="text-base font-semibold">
-                      Jayani Ranasinghe
-                    </div>
-                    <div className="font-normal text-gray-500">
-                      jayaniranasingh@gmail.com
-                    </div>
-                  </div>
-                </th>
-                <td className="px-6 py-4 ">Sick leave</td>
-                <td className="px-6 py-4 ">30 September</td>
-                <td className="px-6 py-4 ">3rd to 6th October</td>
-                <td className="px-6 py-4 ">5 days</td>
-                <td className="px-6 py-4">
-                  <div className="">
-                    {/* <button
-                    type="button"
-                    className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
-                    rounded-md px-6 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                    style={{
-                      height: 30,
-                      width: "23%",
-                      marginRight: "6%",
-                      marginTop: "0%",
-                    }}
-                  >
-                    <div
-                      className=""
-                      style={{
-                        marginLeft: "30%",
-                        fontSize: "99%",
-                      }}
-                    >
-                      View
-                    </div>
-                  </button> */}
+              {searchResults.length > 0
+                ? searchResults.map((leaves, index) => (
+                    <tr key={index} className="bg-white border-b">
+                      <th
+                        scope="row"
+                        className="px-6 py-4 text-gray-900  whitespace-nowrap dark:text-white ml-[10%]"
+                      >
+                        <img
+                          className="h-10 w-10 rounded-full ml-4"
+                          src={priofileimg}
+                          alt=""
+                        />
+                        <div className="pl-20 mt-[-13%]">
+                          <div className="text-base font-semibold">
+                            {leaves.first_name + " " + leaves.last_name}{" "}
+                          </div>
+                          <div className="font-normal text-gray-500">
+                            {leaves.email}
+                          </div>
+                        </div>
+                      </th>
+                      <td className="px-6 py-4 "> {leaves.reason}</td>
+                      <td className="px-6 py-4 "> {leaves.request_date}</td>
+                      <td className="px-6 py-4 "> {leaves.leave_date}</td>
+                      <td className="px-6 py-4 ">
+                        {" "}
+                        {leaves.no_remaining_leave_date}
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="">
+                          <Link
+                            onClick={() =>
+                              handleApprove(leaves.leaves_request_id)
+                            }
+                          >
+                            <button
+                              type="button"
+                              className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
+                        rounded-md px-2 py-2.5 inline-flex items-center "
+                              style={{
+                                height: 30,
+                                width: "50%",
+                                marginRight: "6%",
+                                marginTop: "0%",
+                                backgroundColor: "#363062",
+                              }}
+                            >
+                              <div
+                                className=""
+                                style={{
+                                  marginLeft: "9%",
+                                  fontSize: "90%",
+                                  backgroundColor: "#363062",
+                                }}
+                              >
+                                Approve
+                              </div>
+                            </button>
+                          </Link>
 
-                    <button
-                      type="button"
-                      className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+                          <Link
+                            onClick={() =>
+                              handleDecline(leaves.leaves_request_id)
+                            }
+                          >
+                            <button
+                              type="button"
+                              className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
+                              style={{
+                                height: 30,
+                                width: "50%",
+                                marginRight: "-62%",
+                                marginTop: "-3%",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  marginLeft: "15%",
+                                  fontSize: "90%",
+                                }}
+                              >
+                                Decline
+                              </div>
+                            </button>
+                          </Link>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                : data.map((leaves, index) => {
+                    return (
+                      <tr key={index} className="bg-white border-b">
+                        <th
+                          scope="row"
+                          className="px-6 py-4 text-gray-900  whitespace-nowrap dark:text-white ml-[10%]"
+                        >
+                          <img
+                            className="h-10 w-10 rounded-full ml-4"
+                            src={priofileimg}
+                            alt=""
+                          />
+                          <div className="pl-20 mt-[-13%]">
+                            <div className="text-base font-semibold">
+                              {leaves.first_name + " " + leaves.last_name}{" "}
+                            </div>
+                            <div className="font-normal text-gray-500">
+                              {leaves.email}
+                            </div>
+                          </div>
+                        </th>
+                        <td className="px-6 py-4 "> {leaves.reason}</td>
+                        <td className="px-6 py-4 "> {leaves.request_date}</td>
+                        <td className="px-6 py-4 "> {leaves.leave_date}</td>
+                        <td className="px-6 py-4 ">
+                          {" "}
+                          {leaves.no_remaining_leave_date}
+                        </td>
+                        <td className="px-4 py-4">
+                          <div className="">
+                            <button
+                              type="button"
+                              className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "40%",
-                        marginRight: "6%",
-                        marginTop: "0%",
-                      }}
-                    >
-                      <div
-                        className=""
-                        style={{
-                          marginLeft: "9%",
-                          fontSize: "99%",
-                        }}
-                      >
-                        Approve
-                      </div>
-                    </button>
+                              style={{
+                                height: 30,
 
-                    <button
-                      type="button"
-                      className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "40%",
-                        marginRight: "-62%",
-                        marginTop: "-3%",
-                      }}
-                    >
-                      <div
-                        style={{
-                          marginLeft: "15%",
-                        }}
-                      >
-                        Decline
-                      </div>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="bg-white border-b">
-                <th
-                  scope="row"
-                  className="px-6 py-4  whitespace-nowrap dark:text-white"
-                >
-                 <img
-                    className="h-10 w-10 rounded-full ml-14"
-                    src={priofileimg}
-                    alt=""
-                  />
-                  <div className="pl-28 mt-[-12%]">
-                    <div className="text-base font-semibold">
-                      Jayani Ranasinghe
-                    </div>
-                    <div className="font-normal text-gray-500">
-                      jayaniranasingh@gmail.com
-                    </div>
-                  </div>
-                </th>
-                <td className="px-6 py-4">Sick leave</td>
-                <td className="px-6 py-4">30 September</td>
-                <td className="px-6 py-4">3rd to 6th October</td>
-                <td className="px-6 py-4">5 days</td>
-                <td className="px-6 py-4 ">
-                  <div className="">
-                    {/* <button
-                    type="button"
-                    className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
-                    rounded-md px-6 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                    style={{
-                      height: 30,
-                      width: "23%",
-                      marginRight: "6%",
-                      marginTop: "0%",
-                    }}
-                  >
-                    <div
-                      className=""
-                      style={{
-                        marginLeft: "30%",
-                        fontSize: "99%",
-                      }}
-                    >
-                      View
-                    </div>
-                  </button> */}
+                                marginTop: "0%",
+                                backgroundColor: "#363062",
+                              }}
+                            >
+                              <div
+                                className=""
+                                style={{
+                                  // marginLeft: "9%",
+                                  fontSize: 12,
+                                }}
+                              >
+                                Approve
+                              </div>
+                            </button>
+                            <br />
+                            <br />
 
-                    <button
-                      type="button"
-                      className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "40%",
-                        marginRight: "6%",
-                        marginTop: "0%",
-                      }}
-                    >
-                      <div
-                        className=""
-                        style={{
-                          marginLeft: "9%",
-                        }}
-                      >
-                        Approve
-                      </div>
-                    </button>
-
-                    <button
-                      type="button"
-                      className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "40%",
-                        marginRight: "-62%",
-                        marginTop: "-3%",
-                      }}
-                    >
-                      <div
-                        style={{
-                          marginLeft: "15%",
-                        }}
-                      >
-                        Decline
-                      </div>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="bg-white border-b">
-                <th
-                  scope="row"
-                  className="px-6 py-4  whitespace-nowrap dark:text-white "
-                >
-                 <img
-                    className="h-10 w-10 rounded-full ml-14"
-                    src={priofileimg}
-                    alt=""
-                  />
-                  <div className="pl-28 mt-[-12%]">
-                    <div className="text-base font-semibold">
-                      Jayani Ranasinghe
-                    </div>
-                    <div className="font-normal text-gray-500">
-                      jayaniranasingh@gmail.com
-                    </div>
-                  </div>
-                </th>
-                <td className="px-6 py-4">Sick leave</td>
-                <td className="px-6 py-4">30 September</td>
-                <td className="px-6 py-4">3rd to 6th October</td>
-                <td className="px-6 py-4">5 days</td>
-                <td className="px-6 py-4">
-                  <div className="">
-                    {/* <button
-                    type="button"
-                    className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
-                    rounded-md px-6 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                    style={{
-                      height: 30,
-                      width: "40%",
-                      marginRight: "6%",
-                      marginTop: "0%",
-                    }}
-                  >
-                    <div
-                      className=""
-                      style={{
-                        marginLeft: "30%",
-                        fontSize: "99%",
-                      }}
-                    >
-                      View
-                    </div>
-                  </button> */}
-
-                    <button
-                      type="button"
-                      className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "40%",
-                        marginRight: "6%",
-                        marginTop: "0%",
-                      }}
-                    >
-                      <div
-                        className=""
-                        style={{
-                          marginLeft: "9%",
-                        }}
-                      >
-                        Approve
-                      </div>
-                    </button>
-
-                    <button
-                      type="button"
-                      className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "40%",
-                        marginRight: "-62%",
-                        marginTop: "-3%",
-                      }}
-                    >
-                      <div
-                        style={{
-                          marginLeft: "15%",
-                        }}
-                      >
-                        Decline
-                      </div>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="bg-white border-b">
-                <th
-                  scope="row"
-                  className="px-6 py-4  whitespace-nowrap dark:text-white"
-                >
-                 <img
-                    className="h-10 w-10 rounded-full ml-14"
-                    src={priofileimg}
-                    alt=""
-                  />
-                  <div className="pl-28 mt-[-12%]">
-                    <div className="text-base font-semibold">
-                      Jayani Ranasinghe
-                    </div>
-                    <div className="font-normal text-gray-500">
-                      jayaniranasingh@gmail.com
-                    </div>
-                  </div>
-                </th>
-                <td className="px-6 py-4">Sick leave</td>
-                <td className="px-6 py-4">30 September</td>
-                <td className="px-6 py-4">3rd to 6th October</td>
-                <td className="px-6 py-4">5 days</td>
-                <td className="px-6 py-4">
-                  <div className="">
-                    {/* <button
-                    type="button"
-                    className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
-                    rounded-md px-6 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                    style={{
-                      height: 30,
-                      width: "40%",
-                      marginRight: "6%",
-                      marginTop: "0%",
-                    }}
-                  >
-                    <div
-                      className=""
-                      style={{
-                        marginLeft: "30%",
-                        fontSize: "99%",
-                      }}
-                    >
-                      View
-                    </div>
-                  </button> */}
-
-                    <button
-                      type="button"
-                      className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "40%",
-                        marginRight: "6%",
-                        marginTop: "0%",
-                      }}
-                    >
-                      <div
-                        className=""
-                        style={{
-                          marginLeft: "9%",
-                        }}
-                      >
-                        Approve
-                      </div>
-                    </button>
-
-                    <button
-                      type="button"
-                      className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "40%",
-                        marginRight: "-62%",
-                        marginTop: "-3%",
-                      }}
-                    >
-                      <div
-                        style={{
-                          marginLeft: "15%",
-                        }}
-                      >
-                        Decline
-                      </div>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="bg-white border-b">
-                <th
-                  scope="row"
-                  className="px-6 py-4  whitespace-nowrap dark:text-white"
-                >
-                 <img
-                    className="h-10 w-10 rounded-full ml-14"
-                    src={priofileimg}
-                    alt=""
-                  />
-                  <div className="pl-28 mt-[-12%]">
-                    <div className="text-base font-semibold">
-                      Jayani Ranasinghe
-                    </div>
-                    <div className="font-normal text-gray-500">
-                      jayaniranasingh@gmail.com
-                    </div>
-                  </div>
-                </th>
-                <td className="px-6 py-4">Sick leave</td>
-                <td className="px-6 py-4">30 September</td>
-                <td className="px-6 py-4">3rd to 6th October</td>
-                <td className="px-6 py-4">5 days</td>
-                <td className="px-6 py-4">
-                  <div className="">
-                    {/* <button
-                    type="button"
-                    className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
-                    rounded-md px-6 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                    style={{
-                      height: 30,
-                      width: "40%",
-                      marginRight: "6%",
-                      marginTop: "0%",
-                    }}
-                  >
-                    <div
-                      className=""
-                      style={{
-                        marginLeft: "30%",
-                        fontSize: "99%",
-                      }}
-                    >
-                      View
-                    </div>
-                  </button> */}
-
-                    <button
-                      type="button"
-                      className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "40%",
-                        marginRight: "6%",
-                        marginTop: "0%",
-                      }}
-                    >
-                      <div
-                        className=""
-                        style={{
-                          marginLeft: "9%",
-                        }}
-                      >
-                        Approve
-                      </div>
-                    </button>
-
-                    <button
-                      type="button"
-                      className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "40%",
-                        marginRight: "-62%",
-                        marginTop: "-3%",
-                      }}
-                    >
-                      <div
-                        style={{
-                          marginLeft: "15%",
-                        }}
-                      >
-                        Decline
-                      </div>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="bg-white border-b">
-                <th
-                  scope="row"
-                  className="px-6 py-4  whitespace-nowrap dark:text-white"
-                >
-                 <img
-                    className="h-10 w-10 rounded-full ml-14"
-                    src={priofileimg}
-                    alt=""
-                  />
-                  <div className="pl-28 mt-[-12%]">
-                    <div className="text-base font-semibold">
-                      Jayani Ranasinghe
-                    </div>
-                    <div className="font-normal text-gray-500">
-                      jayaniranasingh@gmail.com
-                    </div>
-                  </div>
-                </th>
-                <td className="px-6 py-4">Sick leave</td>
-                <td className="px-6 py-4">30 September</td>
-                <td className="px-6 py-4">3rd to 6th October</td>
-                <td className="px-6 py-4">5 days</td>
-                <td className="px-6 py-4 ">
-                  <div className="">
-                    {/* <button
-                    type="button"
-                    className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
-                    rounded-md px-6 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                    style={{
-                      height: 30,
-                      width: "23%",
-                      marginRight: "6%",
-                      marginTop: "0%",
-                    }}
-                  >
-                    <div
-                      className=""
-                      style={{
-                        marginLeft: "30%",
-                        fontSize: "99%",
-                      }}
-                    >
-                      View
-                    </div>
-                  </button> */}
-
-                    <button
-                      type="button"
-                      className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "40%",
-                        marginRight: "6%",
-                        marginTop: "0%",
-                      }}
-                    >
-                      <div
-                        className=""
-                        style={{
-                          marginLeft: "9%",
-                        }}
-                      >
-                        Approve
-                      </div>
-                    </button>
-
-                    <button
-                      type="button"
-                      className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-                      style={{
-                        height: 30,
-                        width: "40%",
-                        marginRight: "-62%",
-                        marginTop: "-3%",
-                      }}
-                    >
-                      <div
-                        style={{
-                          marginLeft: "%",
-                        }}
-                      >
-                        Decline
-                      </div>
-                    </button>
-                  </div>
-                </td>
-              </tr>
+                            <button
+                              type="button"
+                              className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
+                              style={{
+                                height: 30,
+                                marginTop: "-3%",
+                                paddingRight: 20,
+                              }}
+                            >
+                              <div
+                                style={{
+                                  marginLeft: "15%",
+                                  fontSize: "12px",
+                                }}
+                              >
+                                Decline
+                              </div>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
             </tbody>
           </table>
         </div>
+      <div style={{ paddingLeft:1000, marginTop:50}}>
+        {/* <button
+          style={{
+            backgroundColor: "#edebeb",
+            width: "100px",
+            marginTop: "20px",
+            paddingTop: 10,
+            paddingBottom: 10,
+            borderRadius:10,
+            borderWidth:"1px",
+            borderColor:"gray",
+          }}
+        > */}
+          <div className="">
+            <Link
+              to="/Manager/Leave/TrainerList"
+              className="font-medium text-blue-600 "
+              style={{ fontSize: 12, color: "black", fontWeight: "bold" , marginTop:"50px"}}
+            >
+              View More 
+            </Link>
+          </div>
+        {/* </button> */}
+      </div>
       </div>
     </div>
   );

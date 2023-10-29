@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaPlus } from "react-icons/fa";
@@ -43,16 +44,12 @@ export const ManagerTrainer = () => {
       const apiUrl = "http://localhost:5400/trainers/";
       const deleteUrl = `${apiUrl}${trainerId}`;
       await axios.delete(deleteUrl);
-      // Perform any additional actions (e.g., refreshing the list) after successful deletion
-      // You can call the fetchTrainers function here to refresh the data after deletion
       alert("Trainer deleted successfully");
-      // Update the state after successful deletion
       setData((prevData) =>
         prevData.filter((trainer) => trainer.trainer_id !== trainerId)
       );
     } catch (error) {
       console.error("Error deleting trainer:", error);
-      // Handle errors if necessary
       alert("Error deleting trainer");
     }
   };
@@ -70,15 +67,27 @@ export const ManagerTrainer = () => {
     <div
       className=""
       style={{
-        position: "fixed",
-        top: 140,
-        left: 330,
-        right: 0,
-        bottom: 0,
+        arginRight: "0px",
+        marginLeft: "14%",
+        marginTop: "160px",
+        textAlign: "center",
       }}
     >
-      <div className="w-[90%]">
-        <div className="pt-6 pb-6 ml-[62%] w-[24%]">
+      <div className="">
+        <div
+          className="pt-6 pb-6 ml-100 w-[24%]"
+          style={{ display: "flex", gap: 100 }}
+        >
+          <h3
+            style={{
+              color: "#3A4D39",
+              fontWeight: "bold",
+              fontSize: "25px",
+              marginLeft: "80px",
+            }}
+          >
+            Manager
+          </h3>
           <form onSubmit={handleSearch}>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-24%]">
@@ -98,17 +107,19 @@ export const ManagerTrainer = () => {
                   />
                 </svg>
               </div>
+              
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="block w-[130%] ml-[-25%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                placeholder="Search Name,Package Type..."
+                className="block w-[600%] ml-[-125%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                placeholder="Search by name "
                 required
               />
               <button
                 type="submit"
-                className="mr-[-5%] text-white absolute right-2.5 w-18 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 "
+                className="text-black
+                 absolute right-2.5 w-18 bg-gray-200 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 "
                 style={{
                   marginTop: -39,
                 }}
@@ -119,13 +130,14 @@ export const ManagerTrainer = () => {
           </form>
         </div>
 
-        <div className="ml-[90%] mt-[-4.9%]">
+        <div className="ml-[85%] mt-[-4.9%]">
           {/* <Link to="/Manager/Staffmembers/Trainer/Addtrainer"> */}
           <button
             type="button"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center inline-flex items-center mr-2  "
             style={{
               height: 45,
+              backgroundColor: "#3A4D39",
             }}
             onClick={handleAddNewClick} // Call the function to show the modal
           >
@@ -149,27 +161,25 @@ export const ManagerTrainer = () => {
           <table className="w-full text-sm text-left text-gray-500 ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>
-                <th scope="col" className="px-20 py-3">
+                <th scope="col" className="px-14 py-3">
                   Trainer name
                 </th>
-                {/* <th scope="col" className="px-6 py-3">
-                  NIC
-                </th> */}
-                <th scope="col" className="px-6 py-3">
-                  Working Experience
-                </th>
-                {/* <th scope="col" className="px-6 py-3">
-                  Email
-                </th> */}
                 <th scope="col" className="px-6 py-3">
                   Phone No
                 </th>
                 <th scope="col" className="px-6 py-3">
+                  Joined Date
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Qualifications
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Working Experience
+                </th>
+                <th scope="col" className="px-6 py-3">
                   Action
                 </th>
-                <th>
-                  Download
-                </th>
+                {/* <th>Download</th> */}
               </tr>
             </thead>
             <tbody>
@@ -184,11 +194,11 @@ export const ManagerTrainer = () => {
                         className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                       >
                         <img
-                          className="h-10 w-10 rounded-full ml-14"
+                          className="h-10 w-10 rounded-full ml-8"
                           src={priofileimg}
                           alt=""
                         />
-                        <div className="pl-12 mt-[-2%]">
+                        <div className="pl-10 mt-[-17%] ">
                           <div className="text-base font-semibold">
                             {trainer.first_name + " " + trainer.last_name}{" "}
                           </div>
@@ -199,23 +209,13 @@ export const ManagerTrainer = () => {
 
                         {/* Changed variable name to "trainer" */}
                       </th>
-                      {/* <td className="px-6 py-4">{trainer.nic}</td>{" "} */}
-                      {/* <td className="px-6 py-4">{trainer.trainer_id}</td>{" "} */}
+                      <td className="px-6 py-4">{trainer.phone_no}</td>{" "}
+                      <td className="px-6 py-4">{trainer.joined_date}</td>
+                      <td className="px-6 py-4">{trainer.qualification}</td>
                       <td className="px-6 py-4">
                         {trainer.working_experience}
-                      </td>{" "}
-                      {/* Changed variable name to "trainer" */}
-                      {/* <td className="px-6 py-4"></td>{" "} */}
-                      {/* Changed variable name to "trainer" */}
-                      <td className="px-6 py-4">{trainer.phone_no}</td>{" "}
-                      {/* Changed variable name to "trainer" */}
+                      </td>
                       <td className="px-6 py-4">
-                        <Link
-                          to={`/Manager/Staffmembers/Trainer/Trainerprofile/${trainer.trainer_id}`} /* Changed variable name to "trainer" */
-                          className="font-medium text-blue-600 dark:text-blue-500  mr-4"
-                        >
-                          View
-                        </Link>
                         <Link
                           onClick={() =>
                             handleDelete(trainer.trainer_id)
@@ -225,11 +225,11 @@ export const ManagerTrainer = () => {
                           Delete
                         </Link>
                       </td>
-                      <td>
+                      {/* <td>
                         <Link className="font-medium text-blue-600 dark:text-blue-500">
                           Report
                         </Link>
-                      </td>
+                      </td> */}
                     </tr>
                   ))
                 : data.map((trainer, index) => {
@@ -240,16 +240,31 @@ export const ManagerTrainer = () => {
                         key={index}
                         className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
                       >
+                        {/* <th scope="col" className="p-4">
+                          <div className="flex items-center">
+                            <input
+                              id="checkbox-all-search"
+                              type="checkbox"
+                              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                              for="checkbox-all-search"
+                              className="sr-only"
+                            >
+                              checkbox
+                            </label>
+                          </div>
+                        </th> */}
                         <th
                           scope="row"
                           className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                         >
                           <img
-                            className="h-10 w-10 rounded-full ml-14 "
+                            className="h-10 w-10 rounded-full ml-7 "
                             src={priofileimg}
                             alt=""
                           />
-                          <div className="pl-12 mt-[-11%] ml-16">
+                          <div className="pl-5 mt-[-15%] ml-16">
                             <div className="text-base font-semibold">
                               {trainer.first_name + " " + trainer.last_name}{" "}
                             </div>
@@ -258,23 +273,13 @@ export const ManagerTrainer = () => {
                             </div>
                           </div>
                         </th>
-                        {/* <td className="px-6 py-4">{trainer.nic}</td>{" "} */}
-                        {/* <td className="px-6 py-4">{trainer.trainer_id}</td>{" "} */}
+                        <td className="px-6 py-4">{trainer.phone_no}</td>{" "}
+                        <td className="px-6 py-4">{trainer.joined_date}</td>
+                        <td className="px-6 py-4">{trainer.qualification}</td>
                         <td className="px-6 py-4">
                           {trainer.working_experience}
-                        </td>{" "}
-                        {/* Changed variable name to "trainer" */}
-                        {/* <td className="px-6 py-4">{trainer.email}</td>{" "} */}
-                        {/* Changed variable name to "trainer" */}
-                        <td className="px-6 py-4">{trainer.phone_no}</td>{" "}
-                        {/* Changed variable name to "trainer" */}
+                        </td>
                         <td className="px-6 py-4">
-                          <Link
-                            to={`/Manager/Staffmembers/Trainer/Trainerprofile/${trainer.trainer_id}`} /* Changed variable name to "trainer" */
-                            className="font-medium text-blue-600 dark:text-blue-500  mr-4"
-                          >
-                            View
-                          </Link>
                           <Link
                             onClick={() =>
                               handleDelete(trainer.trainer_id)
@@ -284,11 +289,11 @@ export const ManagerTrainer = () => {
                             Delete
                           </Link>
                         </td>
-                        <td>
+                        {/* <td>
                           <Link className="font-medium text-blue-600 dark:text-blue-500">
                             Report
                           </Link>
-                        </td>
+                        </td> */}
                       </tr>
                     );
                   })}
