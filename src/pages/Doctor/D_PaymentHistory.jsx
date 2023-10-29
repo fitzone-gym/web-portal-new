@@ -81,7 +81,7 @@ function D_Payments() {
           >
             <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
               <div>
-                <FormControl>
+                {/* <FormControl>
                   <Select
                     // label="Action"
                     placeholder="Last 12 months"
@@ -132,7 +132,7 @@ function D_Payments() {
                       Not-updated
                     </MenuItem>
                   </Select>
-                </FormControl>
+                </FormControl> */}
               </div>
               <label for="table-search" className="sr-only">
                 Search

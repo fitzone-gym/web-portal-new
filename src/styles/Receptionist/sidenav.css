@@ -30,3 +30,12 @@ h1{
 .border-l-4{
     border-left-width: 0px;
 }
+
+.active {
+    border-radius: 50px;
+    margin-left: 10px;
+    margin-right: 20px;
+    width: 250px;
+    background: white;
+    color: rgb(229, 70, 70);
+}

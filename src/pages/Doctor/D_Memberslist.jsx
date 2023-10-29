@@ -27,7 +27,7 @@ function D_MemberList() {
   const [open, setOpen] = React.useState(false);
   const [selectedMember, setSelectedMember] = useState(null);
   const[query, setQuery] = useState("");
-  const[filterValue, setfilterValue] = useState("");
+  const[filterValue, setfilterValue] = useState(2);
   const [memberDetail, setMemberDetails] = useState([]);
   const keys = ["first_name", "last_name", "email"];
   console.log(query);

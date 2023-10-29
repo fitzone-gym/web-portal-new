@@ -276,7 +276,13 @@ useEffect(() => {
                   {lastname}
                 </p>
                 <p className="userEmailProfile">{email}</p>
-                <p className="qualfication"> {profileDetail.qualification}</p>
+                <p className="qualfication">
+                  {" "}
+                  {profileDetail.qualification}-5557
+                </p>
+                <p className="qualfication">
+                  Specialized in Surgeons, Dermatologists, and Urologists
+                </p>
               </div>
             </div>
           </div>
