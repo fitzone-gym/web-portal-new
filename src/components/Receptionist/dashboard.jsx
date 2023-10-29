@@ -1,16 +1,36 @@
 import { CheckIcon } from '@heroicons/react/20/solid'
 import '../../styles/Receptionist/dashboard.css'
 import background_image from '../../assets/dashboard_bg.png';
+import React, { useRef, useState, useEffect } from "react";
 
 
-const includedFeatures = [
-  'Private forum access',
-  'Member resources',
-  'Entry to annual conference',
-  'Official member t-shirt',
-]
+
 
 function Dashboard() {
+    const [counts, setCounts] = useState({
+        TotalMemberCount: 0,
+        NewMemberCount: 0,
+        TotalTrainerCount: 0,
+        newTrainersCount: 0,
+        todayAttendenceCount: 0,
+        currentAttendenceCount: 0
+    });
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:5400/dashboard/getCount'); 
+                const data = await response.json();
+                if (data.success && data.data) { // Assuming your generateResponse format is {success: true/false, data: {...}}
+                    setCounts(data.data);
+                }
+            } catch (error) {
+                console.error('Error fetching counts:', error);
+            }
+        }
+
+        fetchData();
+    }, []);
   return (
     
     <div className='dashboard'>
@@ -28,7 +48,7 @@ function Dashboard() {
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">273</p>
+          <p className="text-5xl ml-8 mt-4 text-white">{counts.TotalMemberCount}</p>
           <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
         </div>
         </div>
@@ -42,7 +62,7 @@ function Dashboard() {
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 text-white">New Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">18</p>
+          <p className="text-5xl ml-8 mt-4 text-white">{counts.NewMemberCount}</p>
           <p className="text-medium ml-8 mt-4 text-red-500">New Gym Members</p>
         </div>
         </div>
@@ -55,7 +75,7 @@ function Dashboard() {
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Trainers</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">26</p>
+          <p className="text-5xl ml-8 mt-4 text-white">{counts.TotalTrainerCount}</p>
           <p className="text-medium ml-8 mt-4 text-red-500">Gym Trainers</p>
         </div>
         </div>
@@ -68,7 +88,7 @@ function Dashboard() {
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 text-white">New Trainers</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">5</p>
+          <p className="text-5xl ml-8 mt-4 text-white">{counts.newTrainersCount}</p>
           <p className="text-medium ml-8 mt-4 text-red-500">Newly joined gym trainers</p>
         </div>
         </div>
@@ -84,7 +104,7 @@ function Dashboard() {
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Attendence Today</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">126</p>
+          <p className="text-5xl ml-8 mt-4 text-white">{counts. todayAttendenceCount}</p>
           <p className="text-medium ml-8 mt-4 text-red-500">Gym Members presnet today</p>
         </div>
         </div>
@@ -98,7 +118,7 @@ function Dashboard() {
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Current Presence</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">24</p>
+          <p className="text-5xl ml-8 mt-4 text-white">{counts.currentAttendenceCount}</p>
           <p className="text-medium ml-8 mt-4 text-red-500">Members at the time</p>
         </div>
             
@@ -112,7 +132,7 @@ function Dashboard() {
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-5xl ml-8 mt-4 text-white">{counts.TotalMemberCount}</p>
           <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
         </div>
             
@@ -126,7 +146,7 @@ function Dashboard() {
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">865</p>
+          <p className="text-5xl ml-8 mt-4 text-white">{counts.TotalMemberCount}</p>
           <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
         </div>
         </div>
@@ -147,10 +167,9 @@ function Dashboard() {
   <div class="flex flex-col justify-start p-1 text-left	">
     <h5
       class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
- Gym Class Schedule Update: New Classes Added!    </h5>
+{counts.announcementtitle} </h5>
     <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-    Attention all gym members! We are excited to announce the addition of new classes to our schedule. From high-energy cardio sessions to relaxing yoga, there's something for everyone. Check out the updated schedule on our website or at the front desk and book your spot today!
-    </p>
+    {counts.announcementbody}    </p>
     <p class="text-xs text-neutral-500 dark:text-neutral-300">
       Last updated 3 mins ago
     </p>
@@ -176,7 +195,7 @@ function Dashboard() {
                   name="email"
                   type="text"
                   autoComplete="email"
-                  required
+                  onChange={(e) => setmemberId(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -194,7 +213,7 @@ function Dashboard() {
                   id="password"
                   name="password"
                   type="time"
-                  
+                  onChange={(e) => setCheckIn(e.target.value)}
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -213,7 +232,7 @@ function Dashboard() {
                   id="password"
                   name="password"
                   type="time"
-                  
+                  onChange={(e) => setCheckOut(e.target.value)}
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />

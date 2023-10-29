@@ -19,10 +19,12 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 
 export const memberlist = () => {
-
+  const [selectedMemberId, setSelectedMemberId] = useState(null);
+  const [selectedMemberData, setSelectedMemberData] = useState({});
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (id) => {
+    setSelectedMemberId(id);
     setOpen(true);
   };
 
@@ -50,6 +52,20 @@ export const memberlist = () => {
       fetchMembers();
     }, []);
   
+    const fetchMemberDetails = async () => {
+      if (selectedMemberId) {
+        try {
+          const response = await axios.get(`http://localhost:5400/memberDetails/${selectedMemberId}`);
+          setSelectedMemberData(response.data); // Assuming response.data has the member details
+        } catch (error) {
+          console.log("Error fetching member details:", error);
+        }
+      }
+    };
+  
+    fetchMemberDetails();
+   [selectedMemberId];
+
     const handleSearch = async (event) => {
       event.preventDefault();
       try {
@@ -89,11 +105,8 @@ export const memberlist = () => {
             className="relative  shadow-md sm:rounded-lg"
             style={{ margin: "0px 30px 30px 30px" }}
           >
-            <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
-              <div>
-        
-          
-              </div>
+            <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900 ">
+             
               <label for="table-search" className="sr-only">
                 Search
               </label>
@@ -149,11 +162,11 @@ export const memberlist = () => {
                     Phone Number
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Address
+                    Package
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                   <th scope="col" className="px-6 py-3">
                     View
-                  </th>
+                  </th> 
                 </tr>
               </thead>
               <tbody>
@@ -174,14 +187,14 @@ export const memberlist = () => {
                       <td className="px-6 py-4">{member.phone_no}</td>{" "}
                       <td className="px-6 py-4">{member.package}</td>
                       <td className="px-6 py-4">
-                      <a
+                      {/* <a
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
                       style={{textDecoration:"none"}}
                       onClick={handleClickOpen}
                     >
                           View
-                       </a>
+                       </a> */}
                       </td>
                     </tr>
                   ))
@@ -201,14 +214,14 @@ export const memberlist = () => {
                         <td className="px-6 py-4">{member.phone_no}</td>{" "}
                         <td className="px-6 py-4">{member.package}</td>
                         <td className="px-6 py-4">
-                        <a
+                         <a
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
                       style={{textDecoration:"none"}}
-                      onClick={handleClickOpen}
+                      onClick={handleClickOpen} input value = {member.id}
                     >
                       View
-                    </a>
+                    </a> 
                         </td>
                       </tr>
                     );

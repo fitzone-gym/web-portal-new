@@ -38,7 +38,7 @@ export const R_Trainerlists = () => {
     useEffect(() => {
       const fetchMembers = async () => {
         try {
-          const response = await axios.get("http://localhost:5400/trainers/");
+          const response = await axios.get("http://localhost:5400/trainerdet/getTrainerDetails");
           // console.log("tt"+ response.data.data); // Check the API response data
           // console.log(typeof response.data.data); // Check the type of response.data
           setData(response.data.data); // Assuming the response contains an array of trainer objects
@@ -146,9 +146,9 @@ export const R_Trainerlists = () => {
                   <th scope="col" className="px-6 py-3">
                     Availability
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                   <th scope="col" className="px-6 py-3">
                     View
-                  </th>
+                  </th> 
                 </tr>
               </thead>
               <tbody>
@@ -169,14 +169,14 @@ export const R_Trainerlists = () => {
                       <td className="px-6 py-4"></td>{" "}
                       <td className="px-6 py-4">{member.package}</td>
                       <td className="px-6 py-4">
-                      <a
+                      {/* <a
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
                       style={{textDecoration:"none"}}
                       onClick={handleClickOpen}
                     >
                           View
-                       </a>
+                       </a> */}
                       </td>
                     </tr>
                   ))
@@ -193,17 +193,20 @@ export const R_Trainerlists = () => {
                           {member.first_name + " " + member.last_name}{" "}
                         </th>
                         <td className="px-6 py-4">{member.phone_no} </td>
-                        <td className="px-6 py-4">{member.working_experience}</td>{" "}
-                        <td className="px-6 py-4">{member.package}</td>
+                        <td className="px-6 py-4">{member.working_experience} Years</td>{" "}
                         <td className="px-6 py-4">
-                        <a
+                               {member.status === 1 ? "Available" : "Unavailable"}
+                         </td>
+
+                        <td className="px-6 py-4">
+                         <a
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
                       style={{textDecoration:"none"}}
                       onClick={handleClickOpen}
                     >
                       View
-                    </a>
+                    </a> 
                         </td>
                       </tr>
                     );
