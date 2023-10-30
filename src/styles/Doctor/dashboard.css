@@ -1,0 +1,10 @@
+.todayAppointments {
+    color: #d32f2f;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.nextWeekAppointment {
+    font-size: 30px;
+    font-weight: bold;
+}

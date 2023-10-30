@@ -244,13 +244,12 @@ export const ManagerMembers = () => {
                           </Link>
                         </td> */}
                     </tr>
-                  ))
-                }
+                  )
+                )}
           </tbody>
         </table>
       </div>
       {/* </div> */}
     </div>
     </div>
-  );
-};
+  )}

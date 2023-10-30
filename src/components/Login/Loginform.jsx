@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const Loginform = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const handleSubmit = async (e) => {
+  let navigate = useNavigate();
+
+  const handleLogin = async (e) => {
     e.preventDefault();
     //simulating a simple login logic
     if (email === "" || password === "") {
@@ -24,15 +29,18 @@ export const Loginform = () => {
           const currentUser = response.data.data;
           console.log(currentUser);
 
-          if(currentUser.role_id === 3){
+          if (currentUser.role_id === 3) {
             sessionStorage.setItem("first_name", currentUser.first_name);
             sessionStorage.setItem("last_name", currentUser.last_name);
             sessionStorage.setItem("email", currentUser.email);
             sessionStorage.setItem("role_id", currentUser.role_id);
             sessionStorage.setItem("id", currentUser.user_id);
-            sessionStorage.setItem("profile_image", currentUser.profile_picture);
+            sessionStorage.setItem(
+              "profile_image",
+              currentUser.profile_picture
+            );
             navigate("/Doctor/Dashboard");
-          }else if (currentUser.role_id === 4) {
+          } else if (currentUser.role_id === 4) {
             sessionStorage.setItem("first_name", currentUser.first_name);
             sessionStorage.setItem("last_name", currentUser.last_name);
             sessionStorage.setItem("email", currentUser.email);
@@ -69,7 +77,8 @@ export const Loginform = () => {
       }
     }
   };
-  return(
+
+  return (<>
     <div className="flex items-center py-8 justify-between mx-40 md:h-screen lg:py-0 max-w-fit pb-20 ">
       <div className="max-lg:hidden lg:block pr-20 lg:pr-40 ml-8 md:ml-20 text-left">
         <div>
@@ -175,7 +184,7 @@ export const Loginform = () => {
               Sign in
             </button>
             {/* </Link> */}
-            <p className="text-xs md:text-sm font-light text-white dark:text-gray-400">
+            {/* <p className="text-xs md:text-sm font-light text-white dark:text-gray-400">
               Don’t have an account yet?{" "}
               <a
                 href="#"
@@ -183,7 +192,7 @@ export const Loginform = () => {
               >
                 Sign up
               </a>
-            </p>
+            </p> */}
           </form>
         </div>
       </div>
@@ -198,7 +207,7 @@ export const Loginform = () => {
         This application can improve yourself to have exercise smartly and be physically active
       </h4>
     </div>
-  </div>
+  
 
 
   <div className="w-[150%] bg-black opacity-80 rounded-3xl sm:max-w-xl xl:py-4 md:mr-[10%] h-[60%]">
@@ -283,6 +292,5 @@ export const Loginform = () => {
       </form>
     </div>
   </div>
-</div>
-  );
+  </>);
 };

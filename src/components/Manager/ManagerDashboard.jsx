@@ -53,36 +53,45 @@ export const ManagerDashboard = () => {
     <div
       className=""
       style={{
-        position: "fixed",
-        top: 60,
-        left: 270,
-        right: 0,
-        bottom: 0,
+        marginRight: "20px",
+        marginLeft: "17%",
+        marginTop: "150px",
+        textAlign: "center",
       }}
     >
-      <div className="grid grid-cols-4 gap-2 ml-12 mt-12 ">
+      <div className="grid grid-cols-3 gap-3 ml-12 mt-12 ">
         <div
           className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md"
           style={{
-            height: 160,
-            width: 360,
+            height: 120,
+            width: 300,
+            // borderWidth:2,
+            // borderColor:"yellow"
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 ">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 ">{data?.allMemberCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+          <p className="text-4xl ml-8 mt-4 ">{data?.allMemberCount}</p>
+          <p
+            className="text-sm ml-8 mt-4"
+            style={{ color: "#062C30", fontWeight: 500 }}
+          >
+            Gym Members
+          </p>
         </div>
 
         <div
           className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md "
           style={{
-            height: 160,
-            width: 360,
+            height: 120,
+            width: 300,
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 ">New Memberships</h1>
           <p className="text-5xl ml-8 mt-4 ">{data?.newMemberCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">
+          <p
+            className="text-sm ml-8 mt-4"
+            style={{ color: "#062C30", fontWeight: 500 }}
+          >
             Monthly membership acquired{" "}
           </p>
         </div>
@@ -104,53 +113,71 @@ export const ManagerDashboard = () => {
         <div
           className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md "
           style={{
-            height: 160,
-            width: 360,
+            height: 120,
+            width: 300,
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 ">Total Staff Members</h1>
           <p className="text-5xl ml-8 mt-4 ">{data?.staffCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">
+          <p
+            className="text-sm ml-8 mt-4 "
+            style={{ color: "#062C30", fontWeight: 500 }}
+          >
             Gym Staff Members
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-2 ml-12 mt-16 mt-8">
+      <div className="grid grid-cols-3 gap-2 ml-12 mt-16 mt-8">
         <div
           className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md "
           style={{
-            height: 160,
-            width: 360,
+            height: 120,
+            width: 300,
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 ">Total Doctor</h1>
           <p className="text-5xl ml-8 mt-4 ">{data?.doctorCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Doctors</p>
+          <p
+            className="text-sm ml-8 mt-4"
+            style={{ color: "#062C30", fontWeight: 500 }}
+          >
+            Gym Doctors
+          </p>
         </div>
 
         <div
           className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md "
           style={{
-            height: 160,
-            width: 360,
+            height: 120,
+            width: 300,
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 ">Total Trainers</h1>
           <p className="text-5xl ml-8 mt-4 ">{data?.trainerCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Trainers</p>
+          <p
+            className="text-sm ml-8 mt-4"
+            style={{ color: "#062C30", fontWeight: 500 }}
+          >
+            Gym Trainers
+          </p>
         </div>
 
         <div
           className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md "
           style={{
-            height: 160,
-            width: 360,
+            height: 120,
+            width: 300,
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 ">Total Receptionist</h1>
           <p className="text-5xl ml-8 mt-4 ">{data?.receptionistCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Receptionist</p>
+          <p
+            className="text-sm ml-8 mt-4"
+            style={{ color: "#062C30", fontWeight: 500 }}
+          >
+            Gym Receptionist
+          </p>
         </div>
 
         {/* <div
@@ -175,20 +202,22 @@ export const ManagerDashboard = () => {
             height: 460,
           }}
         >
-          <div className="text-2xl  py-3">
+          {/* <div className="text-2xl  py-3">
             <h1>Total Revenue(weekly)</h1>
             <img
               className=" h-96 mt-10 ml-8"
               src={images.revenueImage}
               alt=""
             />
-          </div>
+          </div> */}
         </div>
 
         {/* 2 box */}
         <div className="font-bold rounded-sm text-left max-lg:hidden w-[100%]">
           <div className="text-2xl  ml-28 py-3">
-            <h1>Gym Member Compisition</h1>
+            <h1 style={{ color: "#5a5c5c", fontWeight: 500 }}>
+              Gym Member Compisition
+            </h1>
             <div className="w-[50%] h-88 ml-12">
               {" "}
               <Doughnut data={chartData} />
