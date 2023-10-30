@@ -16,6 +16,13 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
 
+function formatDate(dateTimeString) {
+  const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+  return formattedString.replaceAll("/",".");}
 
 export const All_Attendence_R = () => {
 
@@ -170,7 +177,8 @@ export const All_Attendence_R = () => {
                       >
                         {member.first_name + " " + member.last_name}{" "}
                       </th>
-                      <td className="px-6 py-4">{member.Date} </td>
+                      <td className="px-6 py-4">
+                        {formatDate(member.date)}</td>
                         <td className="px-6 py-4">{member.Checkin}</td>{" "}
                         <td className="px-6 py-4">{member.Checkout}</td>
                       

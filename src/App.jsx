@@ -6,20 +6,22 @@ import R_Memeberlist from "./pages/Receptionist/R_Memeberlist";
 import R_Trainerlist from "./pages/Receptionist/R_Trainerlist";
 import R_Announcement from "./pages/Receptionist/R_Announcement";
 import R_Userprofile from "./pages/Receptionist/R_Userprofile";
-import R_Attendence from "./pages/Receptionist/R_Attendence";
+import R_Attendence from "./pages/Receptionist/R_Attendence"
 import D_Dashboard from "./pages/Doctor/D_Dashboard";
 import D_Leaverequest from "./pages/Doctor/D_LeaveRequest";
 import D_PaymentHistory from "./pages/Doctor/D_PaymentHistory";
-// import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
-import R_Payment from "./pages/Receptionist/R_Payment";
-import R_Memberprofile from "./pages/Receptionist/R_Memberprofile";
+import R_Payment from './pages/Receptionist/R_Payment'
+import R_Memberprofile from './pages/Receptionist/R_Memberprofile'
 import R_Trainerprofile from "./pages/Receptionist/R_Trainerprofile";
-import D_Myprofile from "./pages/Doctor/D_Myprofile";
-// import { Login } from "./pages/login";
-import D_Memberslist from "./pages/Doctor/D_Memberslist";
+import D_Myprofile from './pages/Doctor/D_Myprofile'
+
+
+import D_Memberslist from './pages/Doctor/D_Memberslist'
 import D_Appointments from "./pages/Doctor/D_Appointments";
 import R_Editmyprofile from "./components/Receptionist/editprofile";
 import R_Attendence_All from "./pages/Receptionist/R_Attendence_All";
+import Feedback_R from './pages/Receptionist/Feedback'
+
 
 //manager
 import { Login } from "./pages/Login/Login";
@@ -109,25 +111,26 @@ function App() {
       {/* <Route path="/Receptionist/memberattendence" element={<R_Gymmemberattendence />} />
         <Route path="/Receptionist/trainerattendence" element={<R_Gymtrainerattendence />} />
 
-        <Route path="/Receptionist/leaveRequest" element={<R_Leavedetails />} />
 
-        <Route path="/Receptionist/Applyleave" element={<R_Leaverequestform />} /> */}
-      <Route path="/Receptionist/editprofile" element={<R_Editmyprofile />} />
-      <Route
-        path="/Receptionist/contactUsSubmitions"
-        element={<R_Contactus_submitions />}
-      />
+        <Route path="/Receptionist/editprofile" element={<R_Editmyprofile />} />
+        <Route path="/Receptionist/feedback" element={<Feedback_R />} />
 
-      {/* Doctor */}
-      {/* <Route path="/Doctor/Dashboard" element={<D_Dashboard />} /> */}
-      {/* <Route path="/Doctor/Payment" element={<D_PaymentHistory />} /> */}
-      <Route path="/Doctor/Myprofile" element={<D_Myprofile />} />
-      <Route path="/Doctor/MembersList" element={<D_Memberslist />} />
-      <Route path="/Doctor/Appointments" element={<D_Appointments />} />
-      <Route path="/Doctor/LeaveRequests" element={<D_Leaverequest />} />
-    </Routes>
-    // </BrowserRouter>
-  );
-}
+        <Route
+          path="/Receptionist/contactUsSubmitions"
+          element={<R_Contactus_submitions />}
+        />
+
+          {/* Doctor */}
+          <Route path="/Doctor/Dashboard" element={<D_Dashboard />} />
+          <Route path="/Doctor/Payment" element={<D_PaymentHistory />} />
+          <Route path="/Doctor/Myprofile" element={<D_Myprofile />} />
+          <Route path="/Doctor/MembersList" element={<D_Memberslist />} />
+          {/* <Route path="/Doctor/checkupform" element={<D_Checkupforms />} /> */}
+          <Route path="/Doctor/Appointments" element={<D_Appointments />} />
+          <Route path="/Doctor/Appointments" element={<D_Appointments />} />
+        </Routes>
+      // </BrowserRouter>
+  )} 
+
 
 export default App;

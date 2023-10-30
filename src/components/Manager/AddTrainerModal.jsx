@@ -103,7 +103,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
               type="text"
               name="firstname"
               placeholder="first name"
-              onChange={(e) => setFirstname(e.target.value)}
+               
             />
           </div>
           <div>
