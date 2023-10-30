@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import moment from 'moment';
+import profileimage from "../../assets/managerprofile.jpg"
+
 
 
 
@@ -17,9 +18,17 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 
 
-export const Payment = () => {
+export const Events_R = () => {
 
-  
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   {
     const [data, setData] = useState([]); // Initialize data with an empty array
@@ -29,7 +38,7 @@ export const Payment = () => {
     useEffect(() => {
       const fetchMembers = async () => {
         try {
-          const response = await axios.get("http://localhost:5400/receptionist/Payment");
+          const response = await axios.get("http://localhost:5400/events/");
           // console.log("tt"+ response.data.data); // Check the API response data
           // console.log(typeof response.data.data); // Check the type of response.data
           setData(response.data.data); // Assuming the response contains an array of trainer objects
@@ -53,12 +62,10 @@ export const Payment = () => {
       }
     };
 
-    function DateFormatComponent(props) {
-      const formattedDate = moment(props.isoDate).format('MMMM D, YYYY h:mm A');
+
+    const memberprofilepopup = async (event) => {
       
-      return <div>{formattedDate}</div>;
     }
-    
 
   return (
     <>
@@ -75,8 +82,9 @@ export const Payment = () => {
             width: "100%",
           }}
         >
-         
-
+          {/* <div className="sectionHeader">
+            <h2>Members</h2>
+          </div> */}
           <div
             className="relative  shadow-md sm:rounded-lg"
             style={{ margin: "0px 30px 30px 30px" }}
@@ -113,7 +121,7 @@ export const Payment = () => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                   id="table-search-users"
                   className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Search for Payment Details"
+                  placeholder="Search for users"
                 />
                  <button
                   type="submit"
@@ -129,59 +137,54 @@ export const Payment = () => {
             </div>
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-              <tr>
-             
+                <tr>
                 
-             <th scope="col" className="px-6 py-3">
-               Payment Month
-             </th>
-             <th scope="col" className="px-6 py-3">
-               Payment Date
-             </th>
-
-             <th scope="col" className="px-6 py-3">
-               Salary Amount 
-             </th>
-            
-            
-           </tr>
+                  <th scope="col" className="px-6 py-3">
+                    Event Name
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Event Date
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Event Time
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                  Event Dscription
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Event Status
+                  </th>
+                </tr>
               </thead>
               <tbody>
               {searchResults.length > 0
-                ? searchResults.map((Payment, index) => (
+                ? searchResults.map((event, index) => (
                     <tr
                       key={index}
                       className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
                     >
-                      <th
-                        scope="row"
-                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                      >
-                        {Payment.payment_month}
-                      </th>
-                      <td className="px-6 py-4"> <DateFormatComponent isoDate={Payment.payment_made_date}/> </td>
-                      
-                      <td className="px-6 py-4">{Payment.amount}</td>{" "}
                     
-                      
+                        <td className="px-6 py-4">{event.name} </td>
+                        <td className="px-6 py-4">{event.date}</td>{" "}
+                        <td className="px-6 py-4">{event.time}</td>
+                        <td className="px-6 py-4">
+                        {event.description}
+                        </td>
                     </tr>
                   ))
-                : data.map((Payment, index) => {
+                : data.map((event, index) => {
                     return (
                       <tr
                         key={index}
                         className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
                       >
-                        <th
-                          scope="row"
-                          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                        >
-                           {Payment.payment_month}
-                        </th>
-                        <td className="px-6 py-4">{Payment.payment_made_date}  </td>
-                        <td className="px-6 py-4">{Payment.amount}</td>{" "}
-                      
-                       
+                         
+                         <td className="px-6 py-4">{event.name} </td>
+                        <td className="px-6 py-4">{event.date}</td>{" "}
+                        <td className="px-6 py-4">{event.time}</td>
+                        <td className="px-6 py-4">
+                        {event.description}
+                        </td>
                       </tr>
                     );
                   })}
@@ -189,10 +192,8 @@ export const Payment = () => {
             </table>
           </div>
         </div>
-     
-    
     </>
   );
 }}
 
-export default Payment;
+export default Events_R;
