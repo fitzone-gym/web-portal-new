@@ -244,8 +244,8 @@ export const ManagerMembers = () => {
                           </Link>
                         </td> */}
                     </tr>
-                  );
-                })}
+                  )
+                )}
           </tbody>
           {/* {selectedMember && (
               <ViewMemberModal
@@ -257,5 +257,5 @@ export const ManagerMembers = () => {
       </div>
       {/* </div> */}
     </div>
-  );
-};
+    </div>
+  )}

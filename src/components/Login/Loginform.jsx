@@ -4,7 +4,7 @@ export const Loginform = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     //simulating a simple login logic
     if (email === "" || password === "") {
@@ -70,6 +70,7 @@ export const Loginform = () => {
     }
   };
   return (
+    <>
     <div className="flex items-center py-8 justify-between mx-40 md:h-screen lg:py-0 max-w-fit pb-20 ">
       <div className="max-lg:hidden lg:block pr-20 lg:pr-40 ml-8 md:ml-20 text-left">
         <div>
@@ -189,6 +190,7 @@ export const Loginform = () => {
       </div>
     </div>
     <div>
+
       <h3 className="text-red-700 text-3xl 2xl:text-4xl font-semibold mb-5 md:mb-10">
         Increase your target to be healthier to continue exercising
       </h3>
@@ -283,5 +285,6 @@ export const Loginform = () => {
     </div>
   </div>
 </div>
+</>
   );
 };
