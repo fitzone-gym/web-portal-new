@@ -146,9 +146,9 @@ export const R_Trainerlists = () => {
                   <th scope="col" className="px-6 py-3">
                     Availability
                   </th>
-                   <th scope="col" className="px-6 py-3">
-                    View
-                  </th> 
+                  <th>
+                    No of Members
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -199,14 +199,7 @@ export const R_Trainerlists = () => {
                          </td>
 
                         <td className="px-6 py-4">
-                         <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
-                      style={{textDecoration:"none"}}
-                      onClick={handleClickOpen}
-                    >
-                      View
-                    </a> 
+                   
                         </td>
                       </tr>
                     );

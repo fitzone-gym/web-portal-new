@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import moment from 'moment';
 
 
 
@@ -52,6 +52,13 @@ export const Payment = () => {
         console.log("Error:", error);
       }
     };
+
+    function DateFormatComponent(props) {
+      const formattedDate = moment(props.isoDate).format('MMMM D, YYYY h:mm A');
+      
+      return <div>{formattedDate}</div>;
+    }
+    
 
   return (
     <>
@@ -152,7 +159,7 @@ export const Payment = () => {
                       >
                         {Payment.payment_month}
                       </th>
-                      <td className="px-6 py-4">{Payment.payment_made_date} </td>
+                      <td className="px-6 py-4"> <DateFormatComponent isoDate={Payment.payment_made_date}/> </td>
                       
                       <td className="px-6 py-4">{Payment.amount}</td>{" "}
                     

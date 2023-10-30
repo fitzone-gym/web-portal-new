@@ -38,7 +38,8 @@ function Dashboard() {
       <div className='statistics'>
 
 <div className="max-w-full mx-4 py-6  bg-grey-600 sm:mx-auto sm:px-6 lg:px-8 mt-20">
-    <div className="sm:flex sm:space-x-4">
+    <div className="sm:flex sm:space-x-4"href="/Receptionist/Memberslist">
+      
         <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
             <div
           class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left rounded-md"
@@ -51,7 +52,7 @@ function Dashboard() {
           <p className="text-5xl ml-8 mt-4 text-white">{counts.TotalMemberCount}</p>
           <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
         </div>
-        </div>
+        </div> 
 
         <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
         <div
@@ -131,9 +132,9 @@ function Dashboard() {
             width: 360,
           }}
         >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">{counts.TotalMemberCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">On Call Doctors</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">{counts.TotalonCallDocCount}</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Available doctors for emergency</p>
         </div>
             
         </div>
@@ -145,9 +146,9 @@ function Dashboard() {
             width: 360,
           }}
         >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">{counts.TotalMemberCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
+          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Workshops</h1>
+          <p className="text-5xl ml-8 mt-4 text-white">{counts.EventsCount}</p>
+          <p className="text-medium ml-8 mt-4 text-red-500">Workshop planned this month</p>
         </div>
         </div>
 
@@ -191,8 +192,8 @@ function Dashboard() {
               </label>
               <div className="mt-2">
                 <input
-                  id="email"
-                  name="email"
+                  id="memberid"
+                  name="memberid"
                   type="text"
                   autoComplete="email"
                   onChange={(e) => setmemberId(e.target.value)}

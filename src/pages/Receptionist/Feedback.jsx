@@ -26,7 +26,9 @@ import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import Rating from '@mui/material/Rating';
-
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 // import { makeStyles } from "@mui/styles";
 
 let theme = createTheme({
@@ -199,14 +201,14 @@ function Feedback_R() {
           {/* <div className="sectionHeader">
             <h2>Get in Touch</h2>
           </div> */}
-                               <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900 ">
+                           {/*    <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900 ">
              
              <label for="table-search" className="sr-only">
                Search
              </label>
              <form onSubmit={handleSearch}>
              <div className="relative">
-               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                  <svg
                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
                    aria-hidden="true"
@@ -238,11 +240,30 @@ function Feedback_R() {
                  }}
                >
                  Search
-               </button>
+               </button> 
+
+
              </div>
              </form>
-           </div>
-
+           </div>*/}
+<div className="">
+<FormControl>
+<label for="cars">Filter the reviews</label>
+       <Select
+         labelId="demo-simple-select-label"
+         id="demo-simple-select"
+       
+         label="Age"
+         onChange={handleSearch}
+       >
+         <MenuItem value={1}>1-star Review</MenuItem>
+         <MenuItem value={2}>2-star Review</MenuItem>
+         <MenuItem value={3}>3-star Review</MenuItem>
+         <MenuItem value={4}>4-star Reviewy</MenuItem>
+         <MenuItem value={5}>5-star Review</MenuItem>
+       </Select>
+     </FormControl>
+</div>
           {requestDetails.length > 0 ? (
             requestDetails.map((request) => (
               <Card
