@@ -7,16 +7,10 @@ import R_Trainerlist from "./pages/Receptionist/R_Trainerlist";
 import R_Announcement from "./pages/Receptionist/R_Announcement";
 import R_Userprofile from "./pages/Receptionist/R_Userprofile";
 import R_Attendence from "./pages/Receptionist/R_Attendence"
-import D_Dashboard from "./pages/Doctor/D_Dashboard";
-import D_Leaverequest from "./pages/Doctor/D_LeaveRequest";
-import D_PaymentHistory from "./pages/Doctor/D_PaymentHistory";
+
 import R_Payment from './pages/Receptionist/R_Payment'
 import R_Memberprofile from './pages/Receptionist/R_Memberprofile'
 import R_Trainerprofile from "./pages/Receptionist/R_Trainerprofile";
-import D_Myprofile from './pages/Doctor/D_Myprofile'
-
-
-import D_Memberslist from './pages/Doctor/D_Memberslist'
 import D_Appointments from "./pages/Doctor/D_Appointments";
 import R_Editmyprofile from "./components/Receptionist/editprofile";
 import R_Attendence_All from "./pages/Receptionist/R_Attendence_All";
@@ -25,7 +19,7 @@ import Feedback_R from './pages/Receptionist/Feedback'
 
 //manager
 import R_onememberattendence from "./pages/Receptionist/onememberattendence"
-import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
+//import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
 
 
 // import R_AppointmentHistory from "./pages/Doctor/D_AppointmentHistory";
@@ -60,11 +54,11 @@ import { Test } from "./pages/test";
 
 
 import D_Dashboard from "./pages/Doctor/D_Dashboard";
-import D_Leaverequest from "./pages/Doctor/D_LeaveRequest";
+// import D_Leaverequest from "./pages/Doctor/D_LeaveRequest";
 import D_PaymentHistory from "./pages/Doctor/D_PaymentHistory";
 import D_Myprofile from "./pages/Doctor/D_Myprofile";
 import D_Memberslist from "./pages/Doctor/D_Memberslist";
-import D_Appointments from "./pages/Doctor/D_Appointments";
+
 
 
 function App() {

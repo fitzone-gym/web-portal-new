@@ -4,7 +4,7 @@ export const Loginform = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     //simulating a simple login logic
     if (email === "" || password === "") {

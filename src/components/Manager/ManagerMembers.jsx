@@ -244,18 +244,13 @@ export const ManagerMembers = () => {
                           </Link>
                         </td> */}
                     </tr>
-                  );
-                })}
+                  ))
+                }
           </tbody>
-          {/* {selectedMember && (
-              <ViewMemberModal
-                member={selectedMember}
-                onClose={() => setSelectedMember(null)}
-              />
-            )} */}
         </table>
       </div>
       {/* </div> */}
+    </div>
     </div>
   );
 };
