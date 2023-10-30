@@ -69,7 +69,7 @@ export const Loginform = () => {
       }
     }
   };
-  return (
+  return(
     <div className="flex items-center py-8 justify-between mx-40 md:h-screen lg:py-0 max-w-fit pb-20 ">
       <div className="max-lg:hidden lg:block pr-20 lg:pr-40 ml-8 md:ml-20 text-left">
         <div>
@@ -199,6 +199,7 @@ export const Loginform = () => {
       </h4>
     </div>
   </div>
+
 
   <div className="w-[150%] bg-black opacity-80 rounded-3xl sm:max-w-xl xl:py-4 md:mr-[10%] h-[60%]">
     <div className="p-6 space-y-4 md:space-y-10 sm:px-24 ">
