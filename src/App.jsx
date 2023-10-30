@@ -24,6 +24,11 @@ import Feedback_R from './pages/Receptionist/Feedback'
 
 
 //manager
+import R_onememberattendence from "./pages/Receptionist/onememberattendence"
+import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
+
+
+// import R_AppointmentHistory from "./pages/Doctor/D_AppointmentHistory";
 import { Login } from "./pages/Login/Login";
 import { Members } from "./pages/Manager/Members";
 import { Staffmembers } from "./pages/Manager/Staffmembers";
@@ -48,11 +53,19 @@ import { Feedback } from "./pages/Manager/Feedback";
 import { TrainerProfile } from "./pages/Manager/TrainerProfile";
 //import { UpdateAnnoun } from "./pages/Manager/UpdateAnnoun";
 import { Messages } from "./pages/Manager/Messages";
-
 // import R_onememberattendence from "./pages/Receptionist/onememberattendence";
 import R_Contactus_submitions from "./pages/Receptionist/ContactUsSUbmitions";
 import { TrainerLeaveReqList } from "./pages/Manager/TrainerLeaveReqList";
 import { Test } from "./pages/test";
+
+
+import D_Dashboard from "./pages/Doctor/D_Dashboard";
+import D_Leaverequest from "./pages/Doctor/D_LeaveRequest";
+import D_PaymentHistory from "./pages/Doctor/D_PaymentHistory";
+import D_Myprofile from "./pages/Doctor/D_Myprofile";
+import D_Memberslist from "./pages/Doctor/D_Memberslist";
+import D_Appointments from "./pages/Doctor/D_Appointments";
+
 
 function App() {
   return (

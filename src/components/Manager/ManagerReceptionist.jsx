@@ -61,26 +61,41 @@ export const ManagerReceptionist = () => {
     <div
       className=""
       style={{
-        position: "fixed",
-        top: 140,
-        left: 290,
-        right: 0,
-        bottom: 0,
+        arginRight: "0px",
+        marginLeft: "14%",
+        marginTop: "140px",
+        textAlign: "center",
       }}
     >
-      <div className="w-[90%]">
-        <div className="text-4xl mr-[53%]">
-          <h4>Receptionists Details</h4>
-        </div>
+      <div className="">
+        {/* <div className="text-4xl mr-[53%]">
+          <h4>Receptionists</h4>
+        </div> */}
 
-        <div className="pt-6 pb-6 ml-[62%] w-[24%]">
-          <div className="ml-[115%] ">
+        <div
+          className="pt-6 pb-6 ml-100 w-[24%]"
+          style={{ display: "flex", gap: 500 }}
+        >
+          <h3
+            style={{
+              color: "#303010",
+              fontWeight: "bold",
+              fontSize: "25px",
+              marginLeft: "80px",
+            }}
+          >
+            Receptionists
+          </h3>
+
+          <div className="ml-[95%] ">
+            {/* <Link to="/Manager/Staffmembers/Trainer/Addtrainer"> */}
             <button
               type="button"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center inline-flex items-center mr-2  "
               style={{
                 height: 45,
                 width: 120,
+                backgroundColor: "#303010",
               }}
               onClick={handleAddNewClick} // Call the function to show the modal
             >
@@ -100,24 +115,39 @@ export const ManagerReceptionist = () => {
           </div>
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-36">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-16">
           <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50">
               <tr>
+                <th scope="col" className="p-4">
+                  <div className="flex items-center">
+                    <input
+                      id="checkbox-all-search"
+                      type="checkbox"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    />
+                    <label for="checkbox-all-search" className="sr-only">
+                      checkbox
+                    </label>
+                  </div>
+                </th>
                 <th scope="col" className="px-20 py-3">
                   Receptionist name
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-10 py-3">
                   Address
                 </th>
                 {/* <th scope="col" className="px-6 py-3">
                   Email
                 </th> */}
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-20 py-3">
                   Phone No
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-20 py-3">
                   Action
+                </th>
+                <th scope="col" className="px-10 py-3">
+                  Download
                 </th>
               </tr>
             </thead>
@@ -128,16 +158,28 @@ export const ManagerReceptionist = () => {
                     key={index}
                     className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
                   >
+                    <th scope="col" className="p-4">
+                      <div className="flex items-center">
+                        <input
+                          id="checkbox-all-search"
+                          type="checkbox"
+                          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <label for="checkbox-all-search" className="sr-only">
+                          checkbox
+                        </label>
+                      </div>
+                    </th>
                     <th
                       scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      className=" py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                     >
                       <img
                         className="h-10 w-10 rounded-full ml-14 "
                         src={priofileimg}
                         alt=""
                       />
-                      <div className="pl-12 mt-[-9%] ml-16">
+                      <div className="pl-12 mt-[-12%] ml-16">
                         <div className="text-base font-semibold">
                           {receptionist.first_name +
                             " " +
@@ -148,13 +190,14 @@ export const ManagerReceptionist = () => {
                         </div>
                       </div>
                     </th>
-                    <td className="px-6 py-4">{receptionist.address}</td>
-                    <td className="px-6 py-4">{receptionist.phone_no}</td>{" "}
-                    <td className="px-6 py-4">
+                    <td className="px-10 py-4">{receptionist.address}</td>
+                    {/* <td className="px-6 py-4">{receptionist.email}</td> */}
+                    <td className="px-20 py-4">{receptionist.phone_no}</td>{" "}
+                    <td className="px-20 py-4">
                       <Link
                         onClick={() =>
                           handleDelete(receptionist.receptionist_id)
-                        }
+                        } /* Pass trainer.id to handleDelete */
                         className="font-medium text-blue-600 dark:text-blue-500"
                       >
                         Delete

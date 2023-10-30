@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaPlus } from "react-icons/fa";
@@ -82,19 +83,27 @@ export const ManagerTrainer = () => {
     <div
       className=""
       style={{
-        position: "fixed",
-        top: 140,
-        left: 330,
-        right: 0,
-        bottom: 0,
+        arginRight: "0px",
+        marginLeft: "14%",
+        marginTop: "160px",
+        textAlign: "center",
       }}
     >
-      <div className="w-[93%]">
-        <div className="text-4xl mr-[66%]">
-          <h4>Trainers Details</h4>
-        </div>
-
-        <div className="pt-6 pb-6 ml-[62%] w-[24%]">
+      <div className="">
+        <div
+          className="pt-6 pb-6 ml-100 w-[24%]"
+          style={{ display: "flex", gap: 100 }}
+        >
+          <h3
+            style={{
+              color: "#3A4D39",
+              fontWeight: "bold",
+              fontSize: "25px",
+              marginLeft: "80px",
+            }}
+          >
+            Manager
+          </h3>
           <form onSubmit={handleSearch}>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-24%]">
@@ -114,17 +123,19 @@ export const ManagerTrainer = () => {
                   />
                 </svg>
               </div>
+              
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="block w-[130%] ml-[-25%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block w-[600%] ml-[-125%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 placeholder="Search by name "
                 required
               />
               <button
                 type="submit"
-                className="mr-[-5%] text-white absolute right-2.5 w-18 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 "
+                className="text-black
+                 absolute right-2.5 w-18 bg-gray-200 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 "
                 style={{
                   marginTop: -39,
                 }}
@@ -135,13 +146,14 @@ export const ManagerTrainer = () => {
           </form>
         </div>
 
-        <div className="ml-[90%] mt-[-4.9%]">
+        <div className="ml-[85%] mt-[-4.9%]">
           {/* <Link to="/Manager/Staffmembers/Trainer/Addtrainer"> */}
           <button
             type="button"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center inline-flex items-center mr-2  "
             style={{
               height: 45,
+              backgroundColor: "#3A4D39",
             }}
             onClick={handleAddNewClick} // Call the function to show the modal
           >
@@ -195,6 +207,21 @@ export const ManagerTrainer = () => {
                         key={index}
                         className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
                       >
+                        {/* <th scope="col" className="p-4">
+                          <div className="flex items-center">
+                            <input
+                              id="checkbox-all-search"
+                              type="checkbox"
+                              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                              for="checkbox-all-search"
+                              className="sr-only"
+                            >
+                              checkbox
+                            </label>
+                          </div>
+                        </th> */}
                         <th
                           scope="row"
                           className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"

@@ -60,7 +60,7 @@ const [profileDetail, setprofileDetail] = useState([]);
 const fetchProfileDetails = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:5400/auth/memberProfile/${sessionStorage.getItem("user_role")}/${sessionStorage.getItem("id")}`
+      `http://localhost:5400/auth/memberProfile/${sessionStorage.getItem("role_id")}/${sessionStorage.getItem("id")}`
     );
     setprofileDetail(response.data.data); 
     const profileDetailss = response.data.data;
@@ -276,7 +276,13 @@ useEffect(() => {
                   {lastname}
                 </p>
                 <p className="userEmailProfile">{email}</p>
-                <p className="qualfication"> {profileDetail.qualification}</p>
+                <p className="qualfication">
+                  {" "}
+                  {profileDetail.qualification}-5557
+                </p>
+                <p className="qualfication">
+                  Specialized in Surgeons, Dermatologists, and Urologists
+                </p>
               </div>
             </div>
           </div>

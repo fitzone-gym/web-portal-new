@@ -100,17 +100,14 @@ export const ManagerMembers = () => {
     <div
       className=""
       style={{
-        position: "fixed",
-        top: 140,
-        left: 330,
-        right: 0,
-        bottom: 0,
+        marginRight: "20px",
+        marginLeft: "17%",
+        marginTop: "120px",
+        textAlign: "center",
       }}
     >
-      <div className="w-[93%]">
-        <div className="text-4xl mr-[66%]">
-          <h4>Members Details</h4>
-        </div>
+      <div className="w-[100%]" style={{ margin: "0px 30px 0px 30px" }}>
+        <div className="text-4xl">{/* <h4>Members Details</h4> */}</div>
         <div className="pt-6 pb-6 ml-[74%] w-[24%]">
           <form onSubmit={handleSearch}>
             <div className="relative">
@@ -136,12 +133,13 @@ export const ManagerMembers = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="block w-[130%] ml-[-25%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                placeholder="Search by name, package type ..."
+                placeholder="Search by name, package"
+                style={{fontSize:12}}
                 required
               />
               <button
                 type="submit"
-                className="mr-[-5%] text-white absolute right-2.5 w-18 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 "
+                className="mr-[-5%] text-black absolute right-2.5 w-18 bg-gray-200 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-xs px-3 py-2 "
                 style={{
                   marginTop: -39,
                 }}
@@ -183,6 +181,18 @@ export const ManagerMembers = () => {
           <table className="w-full text-sm text-left text-gray-500  ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>
+                <th scope="col" className="p-4">
+                <div className="flex items-center">
+                  <input
+                    id="checkbox-all-search"
+                    type="checkbox"
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  />
+                  <label for="checkbox-all-search" className="sr-only">
+                    checkbox
+                  </label>
+                </div>
+              </th>
                 <th scope="col" className="px-20 py-3">
                   Member name
                 </th>
@@ -205,7 +215,7 @@ export const ManagerMembers = () => {
                     <tr key={index} className="bg-white border-b">
                       <th
                         scope="row"
-                        className="px-6 py-4 font-medium text-gray-900  whitespace-nowrap dark:text-white"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white "
                       >
                         <img
                           className="h-10 w-10 rounded-full ml-14"
@@ -225,13 +235,27 @@ export const ManagerMembers = () => {
                       <td className="px-6 py-4">{member.phone_no}</td>{" "}
                       <td className="px-6 py-4">{member.package}</td>
                       <td className="px-6 py-4">{member.address}</td>
+                      {/* <td>
+                          <Link
+                            to="#"
+                            className="font-medium text-blue-600 dark:text-blue-500  ml-6"
+                          >
+                            Report
+                          </Link>
+                        </td> */}
                     </tr>
-                  ))
-               }
-            </tbody>
-          </table>
-        </div>
+                  );
+                })}
+          </tbody>
+          {/* {selectedMember && (
+              <ViewMemberModal
+                member={selectedMember}
+                onClose={() => setSelectedMember(null)}
+              />
+            )} */}
+        </table>
       </div>
+      {/* </div> */}
     </div>
   );
 };

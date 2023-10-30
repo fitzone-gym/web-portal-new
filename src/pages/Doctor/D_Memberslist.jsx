@@ -16,20 +16,26 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
 
 import axios from "axios";
 
-
-
 function D_MemberList() {
-
   const [open, setOpen] = React.useState(false);
   const [selectedMember, setSelectedMember] = useState(null);
+  const[query, setQuery] = useState("");
+  const[filterValue, setfilterValue] = useState(2);
+  const [memberDetail, setMemberDetails] = useState([]);
+  const keys = ["first_name", "last_name", "email"];
+  console.log(query);
 
-
-  // const handleClickOpen = (first_name, last_name, dob, weight,height, suger_level,diabetes_level,cholestirol_level, blood_pleasure,injuries) => {
-  //   setOpen(true);
-  // };
+  const handleChange = (event) => {
+    setfilterValue(event.target.value);
+  };
+  console.log(filterValue);
 
   const handleClickOpen = (member) => {
     setSelectedMember(member);
@@ -41,8 +47,14 @@ function D_MemberList() {
     setOpen(false);
   };
 
-
-  const [memberDetail, setMemberDetails] = useState([]);
+  function formatDate(dateTimeString) {
+    const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    return formattedString.replaceAll("/", ".");
+  }
 
   useEffect(() => {
     axios
@@ -79,73 +91,60 @@ function D_MemberList() {
           >
             <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
               <div>
-                <button
-                  id="dropdownActionButton"
-                  data-dropdown-toggle="dropdownAction"
-                  className="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                  type="button"
-                >
-                  <span className="sr-only">Action button</span>
-                  Action
-                  <svg
-                    className="w-2.5 h-2.5 ml-2.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6"
+                <FormControl>
+                  <Select
+                    // label="Action"
+                    placeholder="Action"
+                    value={filterValue}
+                    onChange={handleChange}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    style={{
+                      fontFamily: "'Poppins', sans-serif",
+                      height: "37px",
+                      fontWeight: 500,
+                      color: "rgb(107,114,128)",
+                      paddingTop: "0.375rem",
+                      paddingBottom: "0.375rem",
+                      fontSize: 13,
+                      borderRadius: 10,
+                    }}
+                    className="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                   >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="m1 1 4 4 4-4"
-                    />
-                  </svg>
-                </button>
-                <div
-                  id="dropdownAction"
-                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-                >
-                  <ul
-                    className="py-1 text-sm text-gray-700 dark:text-gray-200"
-                    aria-labelledby="dropdownActionButton"
-                  >
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Reward
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Promote
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Activate account
-                      </a>
-                    </li>
-                  </ul>
-                  <div className="py-1">
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    <MenuItem
+                      value={2}
+                      className="menuItemStyle"
+                      style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: 14,
+                      }}
                     >
-                      Delete User
-                    </a>
-                  </div>
-                </div>
+                      All
+                    </MenuItem>
+                    <MenuItem
+                      value={1}
+                      className="menuItemStyle"
+                      style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: 14,
+                      }}
+                    >
+                      Updated
+                    </MenuItem>
+                    <MenuItem
+                      value={0}
+                      className="menuItemStyle"
+                      style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: 14,
+                      }}
+                    >
+                      Not-updated
+                    </MenuItem>
+                  </Select>
+                </FormControl>
               </div>
+
               <label for="table-search" className="sr-only">
                 Search
               </label>
@@ -172,6 +171,7 @@ function D_MemberList() {
                   id="table-search-users"
                   className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Search for users"
+                  onChange={(e) => setQuery(e.target.value)}
                 />
               </div>
             </div>
@@ -206,95 +206,95 @@ function D_MemberList() {
               </thead>
               <tbody>
                 {memberDetail.length > 0 ? (
-                  memberDetail.map((member) => (
-                    <tr
-                      className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-                      key={member.id}
-                    >
-                      <td className="w-4 p-4">
-                        <div className="flex items-center">
-                          <input
-                            id="checkbox-table-search-1"
-                            type="checkbox"
-                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                          />
-                          <label
-                            for="checkbox-table-search-1"
-                            className="sr-only"
-                          >
-                            checkbox
-                          </label>
-                        </div>
-                      </td>
-                      <th
-                        scope="row"
-                        className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                      >
-                        <img
-                          className="w-10 h-10 rounded-full"
-                          src={`../src/assets/Users/${member.profile_picture}`}
-                          alt="Jese image"
-                        />
-                        <div className="pl-3">
-                          <div className="text-base font-semibold">
-                            {member.first_name}&nbsp;{member.last_name}
-                          </div>
-                          <div className="font-normal text-gray-500">
-                            {member.email}
-                          </div>
-                        </div>
-                      </th>
-
-                      {
-                        // Sample date string in ISO 8601 format
-                        // const dateString =member.joined_date;
-                        // // Create a Date object from the ISO 8601 date string
-                        // const date = new Date(dateString);
-                        // // Get the year, month, and day components from the Date object
-                        // const year = date.getFullYear();
-                        // const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-                        // const day = String(date.getDate()).padStart(2, '0');
-                        // // Format the date as "YYYY-MM-DD" or in any desired format
-                        // Sample date string in ISO 8601 format
+                  memberDetail
+                    .filter((member) => {
+                      if (filterValue === 1) {
+                        // Show members where new Date() - member.joined_date_formatted > 1
+                        const currentDate = new Date();
+                        const joinedDate = new Date(
+                          member.joined_date_formatted
+                        );
+                        return currentDate - joinedDate > 1;
+                      } else if (filterValue === 0) {
+                        // Show members where new Date() - member.joined_date_formatted <= 1
+                        const currentDate = new Date();
+                        const joinedDate = new Date(
+                          member.joined_date_formatted
+                        );
+                        return currentDate - joinedDate <= 1;
+                      } else {
+                        // Show all members for filterValue === 2
+                        return true;
                       }
-                      <td className="px-6 py-4">
-                        {member.joined_date_formatted}
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="flex items-center">
-                          {new Date() - member.joined_date_formatted > 1 ? (
-                            <div className="statusBatchOff">Not</div>
-                          ) : (
-                            <div className="statusBatch">Update</div>
-                          )}
-                        </div>
-                      </td>
-                      <td className="px-6 py-4">
-                        <a
-                          href="#"
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
-                          style={{ textDecoration: "none" }}
-                          // onClick={() =>
-                          //   handleClickOpen(
-                          //     member.first_name,
-                          //     member.last_name,
-                          //     member.dob,
-                          //     member.weight,
-                          //     member.height,
-                          //     member.suger_level,
-                          //     member.diabetes_level,
-                          //     member.cholestirol_level,
-                          //     member.blood_pleasure,
-                          //     member.injuries
-                          //   )
-                          // }
-                          onClick={() => handleClickOpen(member)}
+                    })
+                    .filter((member) =>
+                      keys.some((key) =>
+                        member[key].toLowerCase().includes(query.toLowerCase())
+                      )
+                    )
+                    .map((member) => (
+                      <tr
+                        className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                        key={member.user_id}
+                      >
+                        <td className="w-4 p-4">
+                          <div className="flex items-center">
+                            <input
+                              id="checkbox-table-search-1"
+                              type="checkbox"
+                              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                              for="checkbox-table-search-1"
+                              className="sr-only"
+                            >
+                              checkbox
+                            </label>
+                          </div>
+                        </td>
+                        <th
+                          scope="row"
+                          className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                         >
-                          Report
-                        </a>
-                      </td>
-                    </tr>
-                  ))
+                          <img
+                            className="w-10 h-10 rounded-full"
+                            src={`../src/assets/Users/${member.profile_picture}`}
+                            alt="prof. image"
+                          />
+                          <div className="pl-3">
+                            <div className="text-base font-semibold">
+                              {member.first_name}&nbsp;{member.last_name}
+                            </div>
+                            <div className="font-normal text-gray-500">
+                              {member.email}
+                            </div>
+                          </div>
+                        </th>
+                        {}
+                        <td className="px-6 py-4">
+                          {formatDate(member.joined_date_formatted)}
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="flex items-center">
+                            {new Date() - member.joined_date_formatted > 1 ? (
+                              <div className="statusBatchOff">Not</div>
+                            ) : (
+                              <div className="statusBatch">Updated</div>
+                            )}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <a
+                            href="#"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
+                            style={{ textDecoration: "none" }}
+                            onClick={() => handleClickOpen(member)}
+                          >
+                            Report
+                          </a>
+                        </td>
+                      </tr>
+                    ))
                 ) : (
                   <p>No data</p>
                 )}
@@ -306,11 +306,11 @@ function D_MemberList() {
 
       {/* dialog popup */}
       <Dialog open={open} onClose={handleClose}>
-        {/* <DialogTitle>Subscribe</DialogTitle> */}
         <DialogContent>
           <DialogContentText>
             <p className="pt-2 healthpopUpUserName">
-              {selectedMember?.first_name} {selectedMember?.last_name}
+              {selectedMember?.first_name} 
+              
             </p>
             <p className="healthpopUpUserAge">{selectedMember?.age} year</p>
           </DialogContentText>
@@ -321,9 +321,6 @@ function D_MemberList() {
                 label="Weight(kg)"
                 defaultValue={selectedMember?.weight}
                 size="small"
-                // InputLabelProps={{
-                //   style: styles.label, // Apply the style to the label
-                // }}
                 InputProps={{
                   readOnly: true,
                   style: {

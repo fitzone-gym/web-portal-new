@@ -3,16 +3,15 @@ import React from "react";
 export const TrainerPayment = () => {
   return (
     <div
-      className="w-[80%]"
+      className="w-[100%]"
       style={{
-        position: "fixed",
-        top: 140,
-        left: 290,
-        right: 0,
-        bottom: 0,
+        marginRight: "20px",
+        marginLeft: "11%",
+        marginTop: "130px",
+        textAlign: "center",
       }}
     >
-    <div className="w-[99%]">
+      <div className="w-[99%]">
         <div className="pt-6 pb-6 ml-[74%] w-[24%]">
           <form>
             <div className="relative">
@@ -38,12 +37,12 @@ export const TrainerPayment = () => {
                 // value={searchTerm}
                 // onChange={(e) => setSearchTerm(e.target.value)}
                 className="block w-[130%] ml-[-25%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                placeholder="Search Name,Package Type..."
+                placeholder="Search Name,Package Type"
                 required
               />
               <button
                 type="submit"
-                className="mr-[-5%] text-white absolute right-2.5 w-18 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 "
+                className="mr-[-5%] text-black absolute right-2.5 w-18 bg-gray-200 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 "
                 style={{
                   marginTop: -39,
                 }}
@@ -68,7 +67,7 @@ export const TrainerPayment = () => {
                   Total Amount
                 </th>
                 <th scope="col" className="px-6 py-3">
-                 Status
+                  Status
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Action
