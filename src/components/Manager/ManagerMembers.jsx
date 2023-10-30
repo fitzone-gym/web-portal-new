@@ -212,13 +212,13 @@ export const ManagerMembers = () => {
                           src={priofileimg}
                           alt=""
                         />
-                        <div className="pl-28 mt-[-10.5%]">
+                        <div className="pl-28 mt-[-8.7%]">
                           <div className="text-base font-semibold">
                             {member.first_name + " " + member.last_name}{" "}
                           </div>
                           <div className="font-normal text-gray-500">
                             {member.email}
-                          </div>
+                          </div> 
                         </div>
                       </th>
                       <td className="px-6 py-4">{formatDate(member.joined_date)} </td>
