@@ -7,7 +7,7 @@ export const PaymentBody = (props) => {
           <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Trainer name
+                Name
               </th>
               <th scope="col" className="px-6 py-3">
                 Paid Date
@@ -15,9 +15,9 @@ export const PaymentBody = (props) => {
               <th scope="col" className="px-6 py-3">
                 Total Amount
               </th>
-              <th scope="col" className="px-6 py-3">
+              {/* <th scope="col" className="px-6 py-3">
                 Status
-              </th>
+              </th> */}
               {/* <th scope="col" className="px-6 py-3">
                 Action
               </th> */}
@@ -38,7 +38,7 @@ export const PaymentBody = (props) => {
                   </th>
                   <td className="px-6 py-4">{i.paid_date}</td>
                   <td className="px-6 py-4">{i.amount}</td>
-                  <td className="px-6 py-4">{i.status}</td>
+                  {/* <td className="px-6 py-4">{i.status}</td> */}
                   {/* <td className="px-6 py-4">
                     <a
                       href="#"

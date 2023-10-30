@@ -96,7 +96,7 @@ export const ManagerSidebar = (props) => {
               </span>
             </Link>
           </li>
-
+{/* 
           <li>
             <Link
               to="/Manager/Feedback"
@@ -110,7 +110,7 @@ export const ManagerSidebar = (props) => {
                 Feedback
               </span>
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link
               to="/Manager/Payment"
@@ -121,7 +121,7 @@ export const ManagerSidebar = (props) => {
                 <MdOutlinePayments />
               </div>
               <span className="max-lg:hidden ml-2 text-sm tracking-wide truncate">
-                Payments
+                Salary Records
               </span>
             </Link>
           </li>

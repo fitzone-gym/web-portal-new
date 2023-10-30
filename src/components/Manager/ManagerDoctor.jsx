@@ -47,14 +47,17 @@ export const ManagerDoctor = () => {
     }
   };
 
-  function formatDate(dateTimeString) {
-    const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = new Intl.DateTimeFormat("en-GB", {
+      day: "numeric",
+      month: "long",
       year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    });
-    return formattedString.replaceAll("/", ".");
-  }
+    }).format(date);
+
+    return formattedDate;
+  };
+
 
   const handleAddNewClick = () => {
     setShowModal(true);

@@ -71,7 +71,7 @@ export const UpdateAnnonModal = ({ onClose, announcement }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-10">
-      <div className="fixed inset-0 flex items-center justify-center bg-black opacity-10"></div>
+      <div className="fixed inset-0 flex items-center justify-center bg-black opacity-80"></div>
       <form
         onSubmit={handleEdit}
         className="bg-[#555555] rounded-3xl border-white/[1.5] opacity-100 z-10"
@@ -188,6 +188,23 @@ export const UpdateAnnonModal = ({ onClose, announcement }) => {
           <label className="text-white ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             Doctor
           </label>
+
+          <div className="flex  ml-16">
+            <input
+              type="checkbox"
+              className="w-4 h-4 border border-white rounded bg-gray-400 focus:ring-3 focus:ring-green-300"
+              value="receptionist"
+              required
+              checked={values.recipients.includes("receptionist")} // Check if value is in the array
+              onChange={handleCheckboxChange} // Attach the change handler
+              // checked
+            />
+          </div>
+          <label className="text-white ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            Receptionist
+          </label>
+
+          
         </div>
         <div className="flex mr-auto ml-auto">
           <button

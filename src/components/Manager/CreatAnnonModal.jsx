@@ -44,16 +44,7 @@ export const CreatAnnonModal = ({ onClose }) => {
   };
 
   return (
-    // <div
-    //   className="text-white z-10"
-    //   style={{
-    //     position: "fixed",
-    //     top: 135,
-    //     left: 450,
-    //     right: 0,
-    //     bottom: 0,
-    //   }}
-    // >
+  
     <div className="fixed inset-0 flex items-center justify-center z-100">
       <div className="fixed inset-0 flex items-center justify-center bg-black opacity-80"></div>
       <form
@@ -172,11 +163,22 @@ export const CreatAnnonModal = ({ onClose }) => {
           <label className="text-white ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             Doctor
           </label>
+
+          <div className="flex  ml-16">
+            <input
+              name="doctor"
+              onChange={handleCheckBox}
+              type="checkbox"
+              className="w-4 h-4 border border-white rounded bg-gray-400 focus:ring-3 focus:ring-green-300 dark:bg-green-700 dark:border-green-600 dark:focus:ring-green-600 dark:ring-offset-green-800 dark:focus:ring-offset-green-800"
+            />
+          </div>
+          <label className="text-white ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            Receptionist
+          </label>
         </div>
         <div className="flex ml-32 mt-5">
           <label
             className="text-white block mb-2 text-lg font-medium dark:text-white mr-10"
-            for="from"
           >
             From:
           </label>
