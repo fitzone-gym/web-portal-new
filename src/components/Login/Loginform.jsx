@@ -182,7 +182,7 @@ export const Loginform = () => {
               Sign in
             </button>
             {/* </Link> */}
-            <p className="text-xs md:text-sm font-light text-white dark:text-gray-400">
+            {/* <p className="text-xs md:text-sm font-light text-white dark:text-gray-400">
               Don’t have an account yet?{" "}
               <a
                 href="#"
@@ -190,7 +190,7 @@ export const Loginform = () => {
               >
                 Sign up
               </a>
-            </p>
+            </p> */}
           </form>
         </div>
       </div>

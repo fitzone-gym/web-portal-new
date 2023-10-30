@@ -26,3 +26,16 @@
     margin: 15px 20px 20px 20px ;
     font-family: 'Poppins', sans-serif;
 }
+
+.downloadBtn {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px;
+    color: #116A7B;
+    cursor: pointer;
+    border: none;
+    background: #f7f8fa;
+    border-radius: 5px;
+    margin: 15px 20px 20px 20px;
+    font-family: 'Poppins', sans-serif;
+}

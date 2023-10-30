@@ -15,6 +15,34 @@ import DialogContentText from "@mui/material/DialogContentText";
 
 import axios from "axios";
 
+import jsPDF from "jspdf";
+
+import html2canvas from "html2canvas";
+
+// const handleDownloadPDF = () => {
+//   console.log("download call")
+//   const doc = new jsPDF("landscape", "px", "a4", "false");
+//   // doc.text(120,219,"Download");
+//   const content = document.getElementById("popup-content");
+
+  
+//   doc.fromHTML(content, 15, 15); // Convert content to PDF
+//   doc.save("popup.pdf"); // Download the PDF
+// };
+
+const handleDownloadPDF = () => {
+  const content = document.getElementById("popup-content");
+
+  html2canvas(content).then((canvas) => {
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF("p", "mm", "a4");
+    const width = pdf.internal.pageSize.getWidth();
+    const height = (canvas.height * width)*1.2 / canvas.width;
+    pdf.addImage(imgData, "PNG", 0, 0, width, height);
+    pdf.save("popup.pdf");
+  });
+};
+
 
 
 function D_Appointments() {
@@ -328,7 +356,7 @@ function D_Appointments() {
       </div>
 
       {/* dialog popup */}
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose} id="popup-content">
         {/* <DialogTitle>Subscribe</DialogTitle> */}
         <DialogContent>
           <DialogContentText>
@@ -539,6 +567,13 @@ function D_Appointments() {
           </div>
         </DialogContent>
         <DialogActions>
+          <button
+            // onClick={handleClose}
+            className="downloadBtn"
+            onClick={handleDownloadPDF}
+          >
+            Downloard
+          </button>
           <button onClick={handleClose} className="dialogCloseBtn">
             CLOSE
           </button>
