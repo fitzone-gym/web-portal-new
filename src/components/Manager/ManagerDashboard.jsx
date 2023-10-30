@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { MdOutlineGirl } from "react-icons/md";
-import { MdOutlineBoy } from "react-icons/md";
+// import { MdOutlineGirl } from "react-icons/md";
+// import { MdOutlineBoy } from "react-icons/md";
 import { images } from "../../constants";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
@@ -189,29 +189,10 @@ export const ManagerDashboard = () => {
         <div className="font-bold rounded-sm text-left max-lg:hidden w-[100%]">
           <div className="text-2xl  ml-28 py-3">
             <h1>Gym Member Compisition</h1>
-            {/* <img
-              className="w-[50%] h-88 mt-16 ml-12"
-              src={images.memcompositionImage}
-              alt=""
-            /> */}
             <div className="w-[50%] h-88 ml-12">
               {" "}
               <Doughnut data={chartData} />
             </div>
-
-            {/* <div className="text-5xl">
-              <div className=" mt-[-6%]">
-                <MdOutlineGirl />
-              </div>
-              <div
-                className="ml-96"
-                style={{
-                  marginTop: -40,
-                }}
-              >
-                <MdOutlineBoy />
-              </div>
-            </div> */}
           </div>
         </div>
       </div>
