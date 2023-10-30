@@ -28,7 +28,7 @@ export const ManagerSidebar = (props) => {
           <li>
             <Link
               to="/Manager/Dashboard"
-              className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+              className="relative flex flex-row items-center h-11 focus:outline-none  pr-6"
               style={props.selected === "dashboard" ? selectedStyle : {}}
             >
               <div className="inline-flex justify-center items-center ml-4">
@@ -42,7 +42,7 @@ export const ManagerSidebar = (props) => {
           <li>
             <Link
               to="/Manager/Members"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none pr-6"
               style={props.selected === "members" ? selectedStyle : {}}
             >
               <div className="inline-flex justify-center items-center ml-4">
@@ -56,7 +56,7 @@ export const ManagerSidebar = (props) => {
           <li>
             <Link
               to="/Manager/Staffmembers"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none  pr-6"
               style={props.selected === "staff" ? selectedStyle : {}}
             >
               <div className="inline-flex justify-center items-center ml-4">
@@ -70,7 +70,7 @@ export const ManagerSidebar = (props) => {
           <li>
             <Link
               to="/Manager/Announcement"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none  pr-6"
               style={props.selected === "announcements" ? selectedStyle : {}}
             >
               <div className="inline-flex justify-center items-center ml-4">
@@ -85,7 +85,7 @@ export const ManagerSidebar = (props) => {
           <li>
             <Link
               to="/Manager/Leave"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none pr-6"
               style={props.selected === "leaves" ? selectedStyle : {}}
             >
               <div className="inline-flex justify-center items-center ml-4">
@@ -114,7 +114,7 @@ export const ManagerSidebar = (props) => {
           <li>
             <Link
               to="/Manager/Payment"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800  pr-6"
               style={props.selected === "payments" ? selectedStyle : {}}
             >
               <div className="inline-flex justify-center items-center ml-4">
@@ -128,14 +128,14 @@ export const ManagerSidebar = (props) => {
           <li>
             <Link
               to="/"
-              className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6 mt-[90%]"
+              className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800  pr-6 mt-[90%]"
             >
               <div className="inline-flex justify-center items-center ml-4">
                 <TbLogout />
               </div>
-              <span className="max-lg:hidden ml-2 text-sm tracking-wide truncate">
+              {/* <span className="max-lg:hidden ml-2 text-sm tracking-wide truncate">
                 Logout
-              </span>
+              </span> */}
             </Link>
           </li>
         </ul>
