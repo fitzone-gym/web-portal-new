@@ -83,7 +83,7 @@ export const ManagerAnnouncement = () => {
       style={{ position: "absolute", top: 50, left: 290, right: 0, bottom: 0 }}
     >
         <div className="text-4xl mr-[60%] mt-24">
-          <h4>Payment Details</h4>
+          <h4>Announcement Details</h4>
         </div>
 
       <div className="relative pt-6 pb-6 ml-[62%] w-[24%]">

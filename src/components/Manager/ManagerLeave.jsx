@@ -24,6 +24,17 @@ export const ManagerLeave = () => {
     fetchLeave();
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = new Intl.DateTimeFormat("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+
+    return formattedDate;
+  };
+
   const handleSearch = async (event) => {
     event.preventDefault();
     try {
@@ -146,7 +157,7 @@ export const ManagerLeave = () => {
                   Request Date
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Duration
+                Duration(days)
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Remaining leaves
@@ -179,8 +190,8 @@ export const ManagerLeave = () => {
                         </div>
                       </th>
                       <td className="px-6 py-4 "> {leaves.reason}</td>
-                      <td className="px-6 py-4 "> {leaves.request_date}</td>
-                      <td className="px-6 py-4 "> {leaves.leave_date}</td>
+                      <td className="px-6 py-4 "> {formatDate(leaves.request_date)}</td>
+                      <td className="px-6 py-4 "> {leaves.no_of_leave_dates}</td>
                       <td className="px-6 py-4 ">
                         {" "}
                         {leaves.no_remaining_leave_date}
@@ -271,8 +282,8 @@ export const ManagerLeave = () => {
                           </div>
                         </th>
                         <td className="px-6 py-4 "> {leaves.reason}</td>
-                        <td className="px-6 py-4 "> {leaves.request_date}</td>
-                        <td className="px-6 py-4 "> {leaves.leave_date}</td>
+                        <td className="px-6 py-4 "> {formatDate(leaves.request_date)}</td>
+                      <td className="px-6 py-4 "> {leaves.no_of_leave_dates}</td>
                         <td className="px-6 py-4 ">
                           {" "}
                           {leaves.no_remaining_leave_date}
@@ -296,7 +307,7 @@ export const ManagerLeave = () => {
                               <div
                                 className=""
                                 style={{
-                                  marginLeft: "9%",
+                                  marginLeft: "14%",
                                   fontSize: "90%",
                                 }}
                               >
@@ -319,7 +330,7 @@ export const ManagerLeave = () => {
                             >
                               <div
                                 style={{
-                                  marginLeft: "15%",
+                                  marginLeft: "20%",
                                   fontSize: "90%",
                                 }}
                               >
@@ -340,7 +351,7 @@ export const ManagerLeave = () => {
             to="/Manager/Leave/TrainerList"
             className="font-medium text-blue-600 "
           >
-            Trainers approved and decline leave request list
+            Trainers approved and declined leave request list
           </Link>
         </div>
       </div>

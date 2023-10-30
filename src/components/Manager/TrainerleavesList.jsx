@@ -29,6 +29,17 @@ export const TrainerleavesList = () => {
     fetchLeaves();
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = new Intl.DateTimeFormat("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+
+    return formattedDate;
+  };
+
   const handleApproveSearch = async (event) => {
     event.preventDefault();
     try {
@@ -122,7 +133,7 @@ export const TrainerleavesList = () => {
                   Request Date
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Duration
+                  Duration(days)
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Remaining leaves
@@ -154,8 +165,8 @@ export const TrainerleavesList = () => {
                     </div>
                   </th>
                   <td className="px-6 py-4">{leaves.reason}</td>
-                  <td className="px-6 py-4">{leaves.request_date}</td>
-                  <td className="px-6 py-4">{leaves.leave_date}</td>
+                   <td className="px-6 py-4 "> {formatDate(leaves.request_date)}</td>
+                      <td className="px-6 py-4 ">{leaves.no_of_leave_dates}</td>
                   <td className="px-6 py-4">
                     {leaves.no_remaining_leave_date}
                   </td>
@@ -230,7 +241,7 @@ export const TrainerleavesList = () => {
                   Request Date
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Duration
+                  Duration(days)
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Remaining leaves
@@ -259,8 +270,8 @@ export const TrainerleavesList = () => {
                     </div>
                   </th>
                   <td className="px-6 py-4">{leaves.reason}</td>
-                  <td className="px-6 py-4">{leaves.request_date}</td>
-                  <td className="px-6 py-4">{leaves.leave_date}</td>
+                  <td className="px-6 py-4 "> {formatDate(leaves.request_date)}</td>
+                      <td className="px-6 py-4 ">{leaves.no_of_leave_dates}</td>
                   <td className="px-6 py-4">
                     {leaves.no_remaining_leave_date}
                   </td>

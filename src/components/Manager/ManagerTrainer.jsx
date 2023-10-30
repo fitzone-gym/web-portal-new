@@ -36,7 +36,7 @@ export const ManagerTrainer = () => {
       const response = await axios.get(
         `http://localhost:5400/trainers/searchTrainers?searchTerm=${searchTerm}`
       );
-      setSearchResults(response.data.data);
+      setData(response.data.data);
     } catch (error) {
       console.log("Error:", error);
     }
@@ -57,14 +57,17 @@ export const ManagerTrainer = () => {
     }
   };
 
-  function formatDate(dateTimeString) {
-    const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = new Intl.DateTimeFormat("en-GB", {
+      day: "numeric",
+      month: "long",
       year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    });
-    return formattedString.replaceAll("/", ".");
-  }
+    }).format(date);
+
+    return formattedDate;
+  };
+
 
   const handleAddNewClick = () => {
     setShowModal(true);
@@ -184,59 +187,7 @@ export const ManagerTrainer = () => {
               </tr>
             </thead>
             <tbody>
-              {searchResults.length > 0
-                ? searchResults.map((trainer, index) => (
-                    <tr
-                      key={index}
-                      className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
-                    >
-                      <th
-                        scope="row"
-                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                      >
-                        <img
-                          className="h-10 w-10 rounded-full ml-8"
-                          src={priofileimg}
-                          alt=""
-                        />
-                        <div className="pl-10 mt-[-17%] ">
-                          <div className="text-base font-semibold">
-                            {trainer.first_name + " " + trainer.last_name}{" "}
-                          </div>
-                          <div className="font-normal text-gray-500">
-                            {trainer.email}
-                          </div>
-                        </div>
-
-                        {/* Changed variable name to "trainer" */}
-                      </th>
-                      <td className="px-6 py-4">{trainer.phone_no}</td>{" "}
-                      <td className="px-6 py-4">
-                        {" "}
-                        {formatDate(trainer.joined_date)}
-                      </td>
-                      <td className="px-6 py-4">{trainer.qualification}</td>
-                      <td className="px-6 py-4">
-                        {trainer.working_experience}
-                      </td>
-                      <td className="px-6 py-4">
-                        <Link
-                          onClick={() =>
-                            handleDelete(trainer.trainer_id)
-                          } /* Pass trainer.id to handleDelete */
-                          className="font-medium text-blue-600 dark:text-blue-500"
-                        >
-                          Delete
-                        </Link>
-                      </td>
-                      {/* <td>
-                        <Link className="font-medium text-blue-600 dark:text-blue-500">
-                          Report
-                        </Link>
-                      </td> */}
-                    </tr>
-                  ))
-                : data.map((trainer, index) => {
+                {data.map((trainer, index) => {
                     // Changed variable name to "trainer"
                     console.log("JJJ", trainer);
                     return (
@@ -248,11 +199,14 @@ export const ManagerTrainer = () => {
                           scope="row"
                           className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                         >
-                          <img
-                            className="h-10 w-10 rounded-full ml-7 "
-                            src={priofileimg}
-                            alt=""
-                          />
+                         <img
+                        className="h-10 w-10 rounded-full ml-7 "
+                        src={`/manager/users/${trainer.profile_picture}`}
+                        onError={(e) => {
+                          e.target.src = "/manager/users/placeholder.png";
+                        }}
+                        alt=""
+                      />
                           <div className="pl-5 mt-[-15%] ml-16">
                             <div className="text-base font-semibold">
                               {trainer.first_name + " " + trainer.last_name}{" "}

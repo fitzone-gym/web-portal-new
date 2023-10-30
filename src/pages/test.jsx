@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ManagerHeader } from "../components/Manager/ManagerHeader";
 import { ManagerSidebar } from "../components/Manager/ManagerSidebar";
@@ -92,6 +92,9 @@ export const Test = (props) => {
               bottom: 0,
             }}
           >
+            <div className="text-4xl mr-[66%]">
+              <h4>Salary Details</h4>
+            </div>
             <div className="flex flex-row">
               <Slider
                 types={types}

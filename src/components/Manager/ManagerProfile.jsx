@@ -26,7 +26,7 @@ export const ManagerProfile = () => {
       style={{
         position: "fixed",
         top: 140,
-        left: 0,
+        left: 300,
         right: 0,
         bottom: 0,
         maxWidth: "800px",

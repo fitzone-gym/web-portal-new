@@ -31,6 +31,18 @@ export const ManagerMembers = () => {
     fetchMembers();
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = new Intl.DateTimeFormat("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+
+    return formattedDate;
+  };
+
+
   const handleSearch = async (event) => {
     event.preventDefault();
     try {
@@ -44,19 +56,28 @@ export const ManagerMembers = () => {
     }
   };
 
-  function formatDate(dateTimeString) {
-    const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    });
-    return formattedString.replaceAll("/", ".");
-  }
-
   function filterMonthYear(data){
-    if(searchMonth===""||searchYear===""){
+    console.log("filtermonth",searchMonth,searchYear,searchMonth==="", searchYear==="",!searchMonth==="" && searchYear==="",searchMonth==="" && !searchYear==="");
+    if(searchMonth==="" && searchYear===""){
       return true;
-    }else{
+    }
+    else if(!(searchMonth==="") && searchYear===""){
+      let month = parseInt(data.joined_date.split("-")[1])
+      if(month === parseInt(searchMonth)){
+        return true;
+      }
+      return false;
+    }
+    else if(searchMonth==="" && !(searchYear==="")){
+      console.log("elseif2");
+      let year = parseInt(data.joined_date.split("-")[0])
+      if(year === parseInt(searchYear)){
+        return true;
+      }
+      return false;
+    }
+    else{
+      console.log("else");
       let year = parseInt(data.joined_date.split("-")[0])
       let month = parseInt(data.joined_date.split("-")[1])
       console.log(searchYear,searchMonth,year,month,year === parseInt(searchMonth),month === parseInt(searchMonth))
