@@ -32,7 +32,7 @@ import D_Appointments from "./pages/Doctor/D_Appointments";
 import R_Editmyprofile from "./components/Receptionist/editprofile";
 import R_Attendence_All from "./pages/Receptionist/R_Attendence_All";
 import Feedback_R from './pages/Receptionist/Feedback'
-
+import R_events from "./pages/Receptionist/R_events";
 
 //manager
 import { Login } from "./pages/Login/Login";
@@ -63,6 +63,7 @@ import { Messages } from "./pages/Manager/Messages";
 // import R_onememberattendence from "./pages/Receptionist/onememberattendence";
 import R_Contactus_submitions from "./pages/Receptionist/ContactUsSUbmitions";
 import { TrainerLeaveReqList } from "./pages/Manager/TrainerLeaveReqList";
+
 
 function App() {
   
@@ -125,6 +126,7 @@ function App() {
 
         <Route path="/Receptionist/editprofile" element={<R_Editmyprofile />} />
         <Route path="/Receptionist/feedback" element={<Feedback_R />} />
+        <Route path="/Receptionist/events" element={<R_events />} />
 
         <Route
           path="/Receptionist/contactUsSubmitions"

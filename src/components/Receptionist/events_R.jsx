@@ -18,7 +18,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 
 
-export const memberlist = () => {
+export const Events_R = () => {
 
   const [open, setOpen] = React.useState(false);
 
@@ -38,7 +38,7 @@ export const memberlist = () => {
     useEffect(() => {
       const fetchMembers = async () => {
         try {
-          const response = await axios.get("http://localhost:5400/memberDetails/getMembersDetails");
+          const response = await axios.get("http://localhost:5400/events/");
           // console.log("tt"+ response.data.data); // Check the API response data
           // console.log(typeof response.data.data); // Check the type of response.data
           setData(response.data.data); // Assuming the response contains an array of trainer objects
@@ -138,67 +138,52 @@ export const memberlist = () => {
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                <th scope="col" className="px-6 py-3">
-                    Member ID
+                
+                  <th scope="col" className="px-6 py-3">
+                    Event Name
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Member Name
+                    Event Date
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    E-Mail Address
+                    Event Time
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Phone Number
+                  Event Dscription
                   </th>
                   <th scope="col" className="px-6 py-3">
-                  Package Type
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Emergency Contact
+                    Event Status
                   </th>
                 </tr>
               </thead>
               <tbody>
               {searchResults.length > 0
-                ? searchResults.map((member, index) => (
+                ? searchResults.map((event, index) => (
                     <tr
                       key={index}
                       className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
                     >
-                     <td className="px-6 py-4">{member.user_id} </td>
-                        <th
-                          scope="row"
-                          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                        >
-                          {member.first_name + " " + member.last_name}{" "}
-                        </th>
-                        <td className="px-6 py-4">{member.email} </td>
-                        <td className="px-6 py-4">{member.phone_no}</td>{" "}
-                        <td className="px-6 py-4">{member.package}</td>
+                    
+                        <td className="px-6 py-4">{event.name} </td>
+                        <td className="px-6 py-4">{event.date}</td>{" "}
+                        <td className="px-6 py-4">{event.time}</td>
                         <td className="px-6 py-4">
-                        {member.emergency_contact}
+                        {event.description}
                         </td>
                     </tr>
                   ))
-                : data.map((member, index) => {
+                : data.map((event, index) => {
                     return (
                       <tr
                         key={index}
                         className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
                       >
-                         <td className="px-6 py-4">{member.user_id} </td>
-                        <th
-                          scope="row"
-                          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                        >
-                          {member.first_name + " " + member.last_name}{" "}
-                        </th>
-                        <td className="px-6 py-4">{member.email} </td>
-                        <td className="px-6 py-4">{member.phone_no}</td>{" "}
-                        <td className="px-6 py-4">{member.package}</td>
-                        
+                         
+                         <td className="px-6 py-4">{event.name} </td>
+                        <td className="px-6 py-4">{event.date}</td>{" "}
+                        <td className="px-6 py-4">{event.time}</td>
                         <td className="px-6 py-4">
-                        {member.emergency_contact}
+                        {event.description}
                         </td>
                       </tr>
                     );
@@ -207,82 +192,8 @@ export const memberlist = () => {
             </table>
           </div>
         </div>
-     
-      {/* dialog popup */}
-      <Dialog open={open} onClose={handleClose}>
-        {/* <DialogTitle>Subscribe</DialogTitle> */}
-        <DialogContent>
-          <div className="p-2 text-center">
-                {/* <img src={profile} className="userProfileImage" /> */}
-                <img
-                  className="userProfileImage items-center"
-                  src={profileimage}
-                  // src="../assets/Users/Janith.jpg"
-                  alt=""
-                />
-              </div>
-          <DialogContentText>
-            <p className="pt-2  text-center healthpopUpUserName">Neil singh</p>
-    
-          </DialogContentText>
-          <div className="pt-8">
-
-          
-
-            <div className="flex gap-4 pb-3 formInputs">
-            
-
- </div>
- <div className="flex gap-4 pb-3 ">
-            <p className="healthpopUpUserAge">Contact No:  </p>
-            <p className="healthpopUpUserAge">0763572139</p>
-
-            </div>
-<div className="flex gap-4 pt-3">
-
-            <p className="healthpopUpUserAge">Email Address:  </p>
-            <p className="healthpopUpUserAge">muralijasi@gmail.com</p>
- </div>
-
- <div className="flex gap-4 pt-3">
-
-<p className="healthpopUpUserAge">Gender:  </p>
-<p className="healthpopUpUserAge"> Male</p>
-</div>
-
-           
-
-            <div className="flex gap-4 pt-3">
-            <p className="healthpopUpUserAge">Package:  </p>
-            <p className="healthpopUpUserAge">Monthly Packahge</p>
-
-            </div>
-<div className="flex gap-4 pt-3">
-            <p className="healthpopUpUserAge">Trainer Name:  </p>
-            <p className="healthpopUpUserAge">Lasith</p>
-            </div>
-
-            <div className="flex gap-4 pt-3">
-            <p className="healthpopUpUserAge">Address :  </p>
-            <p className="healthpopUpUserAge">Sampath Mawatha,Ratnapura</p>
-            </div>
-
-            <div className="flex gap-4 pt-3">
-            <p className="healthpopUpUserAge">Emergency Contact :  </p>
-            <p className="healthpopUpUserAge">0773618798</p>
-            </div>
-
-      
-          </div>
-        </DialogContent>
-        <DialogActions>
-          <button onClick={handleClose} className="dialogCloseBtn">
-            CLOSE
-          </button>
-        </DialogActions>
-      </Dialog>
     </>
   );
 }}
 
-export default memberlist;
+export default Events_R;
