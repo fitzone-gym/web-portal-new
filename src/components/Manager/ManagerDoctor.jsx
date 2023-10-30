@@ -71,26 +71,31 @@ export const ManagerDoctor = () => {
     <div
       className=""
       style={{
-        position: "fixed",
-        top: 140,
-        left: 330,
-        right: 0,
-        bottom: 0,
+        arginRight: "0px",
+        marginLeft: "19%",
+        marginTop: "160px",
+        textAlign: "center",
       }}
     >
-      <div className="w-[90%]">
-      <div className="text-4xl mr-[66%]">
-          <h4>Doctors Details</h4>
-        </div>
+      <div className="">
+        {/* <div className="text-4xl mr-[66%]">
+          <h4>Doctors</h4>
+        </div> */}
 
-        <div className="pt-6 pb-6 ml-[62%] w-[24%]">
-          <div className="ml-[115%] mt-[-5%]">
+        <div className="">
+          <div className="" style={{ display: "flex", gap: 830 }}>
+            <h3
+              style={{ color: "#124e78", fontWeight: "bold", fontSize: "25px" }}
+            >
+              Doctors
+            </h3>
             <button
               type="button"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 text-center inline-flex items-center mr-2 "
               style={{
                 height: 45,
                 width: 120,
+                backgroundColor: "#124e78",
               }}
               onClick={handleAddNewClick} // Call the function to show the modal
             >
@@ -100,21 +105,33 @@ export const ManagerDoctor = () => {
               Add New
             </button>
 
-             {/* Render the modal conditionally */}
-          {showModal && (
-            <AddDoctorModal
-              fetchDoctor={fetchDoctor}
-              onClose={handleCloseModal}
-            />
-          )}
+            {/* Render the modal conditionally */}
+            {showModal && (
+              <AddDoctorModal
+                fetchDoctor={fetchDoctor}
+                onClose={handleCloseModal}
+              />
+            )}
           </div>
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg mt-5">
           <table className="w-full text-sm text-left text-gray-500 ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>
-                <th scope="col" className="px-20 py-4">
+                <th scope="col" className="p-4">
+                  <div className="flex items-center">
+                    <input
+                      id="checkbox-all-search"
+                      type="checkbox"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    />
+                    <label for="checkbox-all-search" className="sr-only">
+                      checkbox
+                    </label>
+                  </div>
+                </th>
+                <th scope="col" className="px-6 py-4">
                   Doctor name
                 </th>
                 <th scope="col" className="px-6 py-4">
@@ -132,6 +149,7 @@ export const ManagerDoctor = () => {
                 <th scope="col" className="px-6 py-4">
                   Action
                 </th>
+                <th>Download</th>
               </tr>
             </thead>
             <tbody>
@@ -141,16 +159,28 @@ export const ManagerDoctor = () => {
                     key={index}
                     className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
                   >
+                    <th scope="col" className="p-4">
+                      <div className="flex items-center">
+                        <input
+                          id="checkbox-all-search"
+                          type="checkbox"
+                          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <label for="checkbox-all-search" className="sr-only">
+                          checkbox
+                        </label>
+                      </div>
+                    </th>
                     <th
                       scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      className=" py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                     >
                       <img
-                        className="h-10 w-10 rounded-full ml-14 "
+                        className="h-10 w-10 rounded-full ml-5 "
                         src={priofileimg}
                         alt=""
                       />
-                      <div className="pl-12 mt-[-11%] ml-16">
+                      <div className="pl-12 mt-[-11%] ml-8">
                         <div className="text-base font-semibold">
                           {doctor.first_name + " " + doctor.last_name}{" "}
                         </div>
@@ -180,7 +210,6 @@ export const ManagerDoctor = () => {
             </tbody>
           </table>
         </div>
-
       </div>
     </div>
   );

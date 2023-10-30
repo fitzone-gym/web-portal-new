@@ -28,11 +28,10 @@ export const ManagerFeedback = () => {
     <div
       className="w-[80%]"
       style={{
-        position: "relative",
-        top: 130,
-        left: 290,
-        right: 0,
-        bottom: 0,
+        marginRight: "20px",
+        marginLeft: "17%",
+        marginTop: "130px",
+        textAlign: "center",
       }}
     >  
     
@@ -46,14 +45,8 @@ export const ManagerFeedback = () => {
         
         <div
           className="border drop-shadow-md font-bold text-2xl rounded-xl ml-44 mt-16"
-          style={{
-            height: "30%",
-            width: "83%",
-           
-          }} key={index}
         >
-  
-  
+          
           <p
             className="text-left text-lg py-4 px-6 ml-7"
             style={{
@@ -93,7 +86,6 @@ export const ManagerFeedback = () => {
             
               <a className="text-base underline ml-[78%] mt-[-12%] mb-[2%] text-blue-900">Reply</a>
           </div>
-        
         </div>
 
        

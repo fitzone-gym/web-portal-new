@@ -81,18 +81,14 @@ export const ManagerLeave = () => {
     <div
       className="w-[86%]"
       style={{
-        position: "fixed",
-        top: 140,
-        left: 300,
-        right: 0,
-        bottom: 0,
+        marginRight: "20px",
+        marginLeft: "17%",
+        marginTop: "130px",
+        textAlign: "center",
       }}
     >
-      <div className="w-[93%]">
-        <div className="text-4xl mr-[58%] mt-12">
-          <h4>Leave Requests Details</h4>
-        </div>
-
+      <div className="">
+        <h4>Leave Requests Details</h4>
         <div className="pt-6 pb-6 ml-[77%] w-[20%]">
           <form onSubmit={handleSearch}>
             <div className="relative">
@@ -118,12 +114,12 @@ export const ManagerLeave = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="block w-[130%] ml-[-25%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                placeholder="Search by name, reason..."
+                placeholder="Search by name,reason"
                 required
               />
               <button
                 type="submit"
-                className="mr-[-5%] text-white absolute right-2.5 w-18 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-xs px-3 py-2 "
+                className="mr-[-5%] text-white absolute right-2.5 w-18 bg-gray-200 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-xs px-3 py-2 "
                 style={{
                   marginTop: -39,
                 }}
@@ -134,7 +130,7 @@ export const ManagerLeave = () => {
           </form>
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20 mt-8">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-8 mt-8">
           <table
             className="w-full text-sm text-left text-gray-500  "
             // style={{
@@ -210,13 +206,14 @@ export const ManagerLeave = () => {
                           >
                             <button
                               type="button"
-                              className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+                              className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                         rounded-md px-2 py-2.5 inline-flex items-center "
                               style={{
                                 height: 30,
                                 width: "50%",
                                 marginRight: "6%",
                                 marginTop: "0%",
+                                backgroundColor: "#363062",
                               }}
                             >
                               <div
@@ -224,6 +221,7 @@ export const ManagerLeave = () => {
                                 style={{
                                   marginLeft: "9%",
                                   fontSize: "90%",
+                                  backgroundColor: "#363062",
                                 }}
                               >
                                 Approve
@@ -233,7 +231,7 @@ export const ManagerLeave = () => {
 
                           <Link
                             onClick={() =>
-                              handleDecline(leaves.leave_request_id)
+                              handleDecline(leaves.leaves_request_id)
                             }
                           >
                             <button
@@ -288,17 +286,17 @@ export const ManagerLeave = () => {
                           {" "}
                           {leaves.no_remaining_leave_date}
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="px-4 py-4">
                           <div className="">
                             <button
                               type="button"
-                              className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+                              className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
                               style={{
                                 height: 30,
-                                width: "50%",
-                                marginRight: "6%",
+
                                 marginTop: "0%",
+                                backgroundColor: "#363062",
                               }}
                               onClick={() =>
                                 handleApprove(leaves.leave_request_id)
@@ -307,22 +305,23 @@ export const ManagerLeave = () => {
                               <div
                                 className=""
                                 style={{
-                                  marginLeft: "14%",
-                                  fontSize: "90%",
+                                  // marginLeft: "9%",
+                                  fontSize: 12,
                                 }}
                               >
                                 Approve
                               </div>
                             </button>
+                            <br />
+                            <br />
 
                             <button
                               type="button"
                               className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-medium px-2 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
                               style={{
                                 height: 30,
-                                width: "50%",
-                                marginRight: "-62%",
                                 marginTop: "-3%",
+                                paddingRight: 20,
                               }}
                               onClick={() =>
                                 handleDecline(leaves.leave_request_id)
@@ -330,8 +329,8 @@ export const ManagerLeave = () => {
                             >
                               <div
                                 style={{
-                                  marginLeft: "20%",
-                                  fontSize: "90%",
+                                  marginLeft: "15%",
+                                  fontSize: "12px",
                                 }}
                               >
                                 Decline
@@ -345,15 +344,30 @@ export const ManagerLeave = () => {
             </tbody>
           </table>
         </div>
-
-        <div className="ml-[70%] mt-[10%]">
-          <Link
-            to="/Manager/Leave/TrainerList"
-            className="font-medium text-blue-600 "
-          >
-            Trainers approved and declined leave request list
-          </Link>
-        </div>
+      <div style={{ paddingLeft:1000, marginTop:50}}>
+        {/* <button
+          style={{
+            backgroundColor: "#edebeb",
+            width: "100px",
+            marginTop: "20px",
+            paddingTop: 10,
+            paddingBottom: 10,
+            borderRadius:10,
+            borderWidth:"1px",
+            borderColor:"gray",
+          }}
+        > */}
+          <div className="">
+            <Link
+              to="/Manager/Leave/TrainerList"
+              className="font-medium text-blue-600 "
+              style={{ fontSize: 12, color: "black", fontWeight: "bold" , marginTop:"50px"}}
+            >
+              View More 
+            </Link>
+          </div>
+        {/* </button> */}
+      </div>
       </div>
     </div>
   );
