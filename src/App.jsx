@@ -206,11 +206,11 @@ import { TrainerLeaveReqList } from "./pages/Manager/TrainerLeaveReqList";
 
 
 import D_Dashboard from "./pages/Doctor/D_Dashboard";
-import D_Leaverequest from "./pages/Doctor/D_LeaveRequest";
+// import D_Leaverequest from "./pages/Doctor/D_LeaveRequest";
 import D_PaymentHistory from "./pages/Doctor/D_PaymentHistory";
 import D_Myprofile from "./pages/Doctor/D_Myprofile";
 import D_Memberslist from "./pages/Doctor/D_Memberslist";
-import D_Appointments from "./pages/Doctor/D_Appointments";
+
 
 
 function App() {

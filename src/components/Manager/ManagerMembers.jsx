@@ -222,13 +222,13 @@ export const ManagerMembers = () => {
                           src={priofileimg}
                           alt=""
                         />
-                        <div className="pl-12  mt-[-12%] ml-16">
+                        <div className="pl-28 mt-[-8.7%]">
                           <div className="text-base font-semibold">
                             {member.first_name + " " + member.last_name}{" "}
                           </div>
                           <div className="font-normal text-gray-500">
                             {member.email}
-                          </div>
+                          </div> 
                         </div>
                       </th>
                       <td className="px-6 py-4">{formatDate(member.joined_date)} </td>
@@ -247,12 +247,6 @@ export const ManagerMembers = () => {
                   )
                 )}
           </tbody>
-          {/* {selectedMember && (
-              <ViewMemberModal
-                member={selectedMember}
-                onClose={() => setSelectedMember(null)}
-              />
-            )} */}
         </table>
       </div>
       {/* </div> */}
