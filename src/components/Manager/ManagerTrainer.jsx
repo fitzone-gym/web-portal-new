@@ -102,7 +102,7 @@ export const ManagerTrainer = () => {
               marginLeft: "80px",
             }}
           >
-            Manager
+            Trainer Details
           </h3>
           <form onSubmit={handleSearch}>
             <div className="relative">

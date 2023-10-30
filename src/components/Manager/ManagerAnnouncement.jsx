@@ -87,6 +87,11 @@ export const ManagerAnnouncement = () => {
         textAlign: "center",
       }}
     >
+        <h3
+              style={{ color: "#124e78", fontWeight: "bold", fontSize: "25px" }}
+            >
+              Announcements
+            </h3>
       <div className="pt-6 ml-[57%] w-[24%]">
         <div className="ml-[115%] mt-[0ss%]">
           <button

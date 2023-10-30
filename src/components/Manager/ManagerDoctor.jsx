@@ -87,7 +87,7 @@ export const ManagerDoctor = () => {
             <h3
               style={{ color: "#124e78", fontWeight: "bold", fontSize: "25px" }}
             >
-              Doctors
+              Doctors Details
             </h3>
             <button
               type="button"

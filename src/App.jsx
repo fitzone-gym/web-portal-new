@@ -28,10 +28,6 @@ import { Leave } from "./pages/Manager/Leave";
 import { Receptionist } from "./pages/Manager/Receptionist";
 
 import { Test } from "./pages/test";
-import { TrainerPay } from "./pages/Manager/TrainerPay";
-import { ReceptionistPay } from "./pages/Manager/ReceptionistPay";
-import { DoctorPay } from "./pages/Manager/DoctorPay";
-import { MemberPay } from "./pages/Manager/MemberPay";
 import { Profile } from "./pages/Manager/Profile";
 import { Feedback } from "./pages/Manager/Feedback";
 import { TrainerProfile } from "./pages/Manager/TrainerProfile";
@@ -111,13 +107,6 @@ function App() {
         />
         <Route path="/Manager/Feedback" element={<Feedback />} />
         <Route path="/Manager/Payment" element={<Test />} />
-        <Route path="/Manager/Payment/TrainerPay" element={<TrainerPay />} />
-        <Route path="/Manager/Payment/DoctorPay" element={<DoctorPay />} />
-        <Route
-          path="/Manager/Payment/ReceptionistPay"
-          element={<ReceptionistPay />}
-        />
-        <Route path="/Manager/Payment/MemberPay" element={<MemberPay />} />
       </Routes>
     </>
   );

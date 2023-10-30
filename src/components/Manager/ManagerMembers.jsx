@@ -9,19 +9,19 @@ export const ManagerMembers = () => {
   const [searchTerm, setSearchTerm] = useState(""); // State to store the search term
   const [searchResults, setSearchResults] = useState([]); // State to store search results
   const [searchMonth, setSearchMonth] = useState(""); // Added state for month
-  const [searchYear, setSearchYear] = useState("");   // Added state for year
+  const [searchYear, setSearchYear] = useState(""); // Added state for year
   // const [showModal, setShowModal] = useState(false);
   // const [selectedMember, setSelectedMember] = useState(null);
 
   const fetchMembers = async () => {
     try {
       const response = await axios.get("http://localhost:5400/members");
-       console.log("tt"+ response.data.data); // Check the API response data
+      console.log("tt" + response.data.data); // Check the API response data
       // console.log(typeof response.data.data); // Check the type of response.data
       setData(response.data.data); // Assuming the response contains an array of trainer objects
       // added to remove the redundant print statements
       setSearchResults(response.data.data);
-      console.log("search Results is ",searchResults)
+      console.log("search Results is ", searchResults);
     } catch (error) {
       console.log("Error:", error);
     }
@@ -42,46 +42,57 @@ export const ManagerMembers = () => {
     return formattedDate;
   };
 
-
   const handleSearch = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.get(
         `http://localhost:5400/members/searchMembers?searchTerm=${searchTerm}&searchMonth=${searchMonth}&searchYear=${searchYear}`
       );
-      console.log(response.data.data)
+      console.log(response.data.data);
       setSearchResults(response.data.data);
     } catch (error) {
       console.log("Error:", error);
     }
   };
 
-  function filterMonthYear(data){
-    console.log("filtermonth",searchMonth,searchYear,searchMonth==="", searchYear==="",!searchMonth==="" && searchYear==="",searchMonth==="" && !searchYear==="");
-    if(searchMonth==="" && searchYear===""){
+  function filterMonthYear(data) {
+    console.log(
+      "filtermonth",
+      searchMonth,
+      searchYear,
+      searchMonth === "",
+      searchYear === "",
+      !searchMonth === "" && searchYear === "",
+      searchMonth === "" && !searchYear === ""
+    );
+    if (searchMonth === "" && searchYear === "") {
       return true;
-    }
-    else if(!(searchMonth==="") && searchYear===""){
-      let month = parseInt(data.joined_date.split("-")[1])
-      if(month === parseInt(searchMonth)){
+    } else if (!(searchMonth === "") && searchYear === "") {
+      let month = parseInt(data.joined_date.split("-")[1]);
+      if (month === parseInt(searchMonth)) {
         return true;
       }
       return false;
-    }
-    else if(searchMonth==="" && !(searchYear==="")){
+    } else if (searchMonth === "" && !(searchYear === "")) {
       console.log("elseif2");
-      let year = parseInt(data.joined_date.split("-")[0])
-      if(year === parseInt(searchYear)){
+      let year = parseInt(data.joined_date.split("-")[0]);
+      if (year === parseInt(searchYear)) {
         return true;
       }
       return false;
-    }
-    else{
+    } else {
       console.log("else");
-      let year = parseInt(data.joined_date.split("-")[0])
-      let month = parseInt(data.joined_date.split("-")[1])
-      console.log(searchYear,searchMonth,year,month,year === parseInt(searchMonth),month === parseInt(searchMonth))
-      if(year === parseInt(searchYear) && month === parseInt(searchMonth)){
+      let year = parseInt(data.joined_date.split("-")[0]);
+      let month = parseInt(data.joined_date.split("-")[1]);
+      console.log(
+        searchYear,
+        searchMonth,
+        year,
+        month,
+        year === parseInt(searchMonth),
+        month === parseInt(searchMonth)
+      );
+      if (year === parseInt(searchYear) && month === parseInt(searchMonth)) {
         return true;
       }
       return false;
@@ -107,7 +118,10 @@ export const ManagerMembers = () => {
       }}
     >
       <div className="w-[100%]" style={{ margin: "0px 30px 0px 30px" }}>
-        <div className="text-4xl">{/* <h4>Members Details</h4> */}</div>
+        <div className="text-4xl">
+          {" "}
+          <h4>Members Details</h4>
+        </div>
         <div className="pt-6 pb-6 ml-[74%] w-[24%]">
           <form onSubmit={handleSearch}>
             <div className="relative">
@@ -134,7 +148,7 @@ export const ManagerMembers = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="block w-[130%] ml-[-25%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 placeholder="Search by name, package"
-                style={{fontSize:12}}
+                style={{ fontSize: 12 }}
                 required
               />
               <button
@@ -151,48 +165,48 @@ export const ManagerMembers = () => {
         </div>
 
         <div className="mt-4 ml-24 ">
-                <div className="w-1/4 mr-2">
-                  <input
-                    type="number"
-                    value={searchMonth}
-                    onChange={(e) => setSearchMonth(e.target.value)}
-                    placeholder="Enter Month (1-12)"
-                    min="1"
-                    max="12"
-                    className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-                <div className="w-1/4 ml-96 mt-[-3.1%]">
-                  <input
-                    type="number"
-                    value={searchYear}
-                    onChange={(e) => setSearchYear(e.target.value)}
-                    placeholder="Enter Year"
-                    min="1900"
-                    max="9999"
-                    className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-              </div>
+          <div className="w-1/4 mr-2">
+            <input
+              type="number"
+              value={searchMonth}
+              onChange={(e) => setSearchMonth(e.target.value)}
+              placeholder="Enter Month (1-12)"
+              min="1"
+              max="12"
+              className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+          <div className="w-1/4 ml-96 mt-[-3.1%]">
+            <input
+              type="number"
+              value={searchYear}
+              onChange={(e) => setSearchYear(e.target.value)}
+              placeholder="Enter Year"
+              min="1900"
+              max="9999"
+              className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+        </div>
 
         <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20 mt-16">
           <table className="w-full text-sm text-left text-gray-500  ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>
                 <th scope="col" className="p-4">
-                <div className="flex items-center">
-                  <input
-                    id="checkbox-all-search"
-                    type="checkbox"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label for="checkbox-all-search" className="sr-only">
-                    checkbox
-                  </label>
-                </div>
-              </th>
+                  <div className="flex items-center">
+                    <input
+                      id="checkbox-all-search"
+                      type="checkbox"
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    />
+                    <label for="checkbox-all-search" className="sr-only">
+                      checkbox
+                    </label>
+                  </div>
+                </th>
                 <th scope="col" className="px-20 py-3">
                   Member name
                 </th>
@@ -211,31 +225,35 @@ export const ManagerMembers = () => {
               </tr>
             </thead>
             <tbody>
-              {searchResults.filter((i)=> filterMonthYear(i)).map((member, index) => (
-                    <tr key={index} className="bg-white border-b">
-                      <th
-                        scope="row"
-                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white "
-                      >
-                        <img
-                          className="h-10 w-10 rounded-full ml-14"
-                          src={priofileimg}
-                          alt=""
-                        />
-                        <div className="pl-28 mt-[-8.7%]">
-                          <div className="text-base font-semibold">
-                            {member.first_name + " " + member.last_name}{" "}
-                          </div>
-                          <div className="font-normal text-gray-500">
-                            {member.email}
-                          </div> 
+              {searchResults
+                .filter((i) => filterMonthYear(i))
+                .map((member, index) => (
+                  <tr key={index} className="bg-white border-b">
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white "
+                    >
+                      <img
+                        className="h-10 w-10 rounded-full ml-14"
+                        src={priofileimg}
+                        alt=""
+                      />
+                      <div className="pl-28 mt-[-8.7%]">
+                        <div className="text-base font-semibold">
+                          {member.first_name + " " + member.last_name}{" "}
                         </div>
-                      </th>
-                      <td className="px-6 py-4">{formatDate(member.joined_date)} </td>
-                      <td className="px-6 py-4">{member.phone_no}</td>{" "}
-                      <td className="px-6 py-4">{member.package}</td>
-                      <td className="px-6 py-4">{member.address}</td>
-                      {/* <td>
+                        <div className="font-normal text-gray-500">
+                          {member.email}
+                        </div>
+                      </div>
+                    </th>
+                    <td className="px-6 py-4">
+                      {formatDate(member.joined_date)}{" "}
+                    </td>
+                    <td className="px-6 py-4">{member.phone_no}</td>{" "}
+                    <td className="px-6 py-4">{member.package}</td>
+                    <td className="px-6 py-4">{member.address}</td>
+                    {/* <td>
                           <Link
                             to="#"
                             className="font-medium text-blue-600 dark:text-blue-500  ml-6"
@@ -243,13 +261,13 @@ export const ManagerMembers = () => {
                             Report
                           </Link>
                         </td> */}
-                    </tr>
-                  )
-                )}
-          </tbody>
-        </table>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+        {/* </div> */}
       </div>
-      {/* </div> */}
     </div>
-    </div>
-  )}
+  );
+};
