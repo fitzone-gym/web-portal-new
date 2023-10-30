@@ -149,7 +149,6 @@ export const ManagerDoctor = () => {
                 <th scope="col" className="px-6 py-4">
                   Action
                 </th>
-                <th>Download</th>
               </tr>
             </thead>
             <tbody>

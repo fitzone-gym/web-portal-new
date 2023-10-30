@@ -146,9 +146,6 @@ export const ManagerReceptionist = () => {
                 <th scope="col" className="px-20 py-3">
                   Action
                 </th>
-                <th scope="col" className="px-10 py-3">
-                  Download
-                </th>
               </tr>
             </thead>
             <tbody>
