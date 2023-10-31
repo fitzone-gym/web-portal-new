@@ -147,7 +147,7 @@ function Dashboard() {
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Workshops</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">{counts.EventsCount}</p>
+       <a href = "/Receptionist/events">  <p className="text-5xl ml-8 mt-4 text-white">{counts.EventsCount}</p></a> 
           <p className="text-medium ml-8 mt-4 text-red-500">Workshop planned this month</p>
         </div>
         </div>
