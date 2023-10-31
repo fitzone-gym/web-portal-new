@@ -87,7 +87,7 @@ export const ManagerDoctor = () => {
             <h3
               style={{ color: "#124e78", fontWeight: "bold", fontSize: "25px" }}
             >
-              Doctors
+              Doctors Details
             </h3>
             <button
               type="button"
@@ -149,7 +149,6 @@ export const ManagerDoctor = () => {
                 <th scope="col" className="px-6 py-4">
                   Action
                 </th>
-                <th>Download</th>
               </tr>
             </thead>
             <tbody>

@@ -9,19 +9,19 @@ export const ManagerMembers = () => {
   const [searchTerm, setSearchTerm] = useState(""); // State to store the search term
   const [searchResults, setSearchResults] = useState([]); // State to store search results
   const [searchMonth, setSearchMonth] = useState(""); // Added state for month
-  const [searchYear, setSearchYear] = useState("");   // Added state for year
+  const [searchYear, setSearchYear] = useState(""); // Added state for year
   // const [showModal, setShowModal] = useState(false);
   // const [selectedMember, setSelectedMember] = useState(null);
 
   const fetchMembers = async () => {
     try {
       const response = await axios.get("http://localhost:5400/members");
-       console.log("tt"+ response.data.data); // Check the API response data
+      console.log("tt" + response.data.data); // Check the API response data
       // console.log(typeof response.data.data); // Check the type of response.data
       setData(response.data.data); // Assuming the response contains an array of trainer objects
       // added to remove the redundant print statements
       setSearchResults(response.data.data);
-      console.log("search Results is ",searchResults)
+      console.log("search Results is ", searchResults);
     } catch (error) {
       console.log("Error:", error);
     }
@@ -42,46 +42,57 @@ export const ManagerMembers = () => {
     return formattedDate;
   };
 
-
   const handleSearch = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.get(
         `http://localhost:5400/members/searchMembers?searchTerm=${searchTerm}&searchMonth=${searchMonth}&searchYear=${searchYear}`
       );
-      console.log(response.data.data)
+      console.log(response.data.data);
       setSearchResults(response.data.data);
     } catch (error) {
       console.log("Error:", error);
     }
   };
 
-  function filterMonthYear(data){
-    console.log("filtermonth",searchMonth,searchYear,searchMonth==="", searchYear==="",!searchMonth==="" && searchYear==="",searchMonth==="" && !searchYear==="");
-    if(searchMonth==="" && searchYear===""){
+  function filterMonthYear(data) {
+    console.log(
+      "filtermonth",
+      searchMonth,
+      searchYear,
+      searchMonth === "",
+      searchYear === "",
+      !searchMonth === "" && searchYear === "",
+      searchMonth === "" && !searchYear === ""
+    );
+    if (searchMonth === "" && searchYear === "") {
       return true;
-    }
-    else if(!(searchMonth==="") && searchYear===""){
-      let month = parseInt(data.joined_date.split("-")[1])
-      if(month === parseInt(searchMonth)){
+    } else if (!(searchMonth === "") && searchYear === "") {
+      let month = parseInt(data.joined_date.split("-")[1]);
+      if (month === parseInt(searchMonth)) {
         return true;
       }
       return false;
-    }
-    else if(searchMonth==="" && !(searchYear==="")){
+    } else if (searchMonth === "" && !(searchYear === "")) {
       console.log("elseif2");
-      let year = parseInt(data.joined_date.split("-")[0])
-      if(year === parseInt(searchYear)){
+      let year = parseInt(data.joined_date.split("-")[0]);
+      if (year === parseInt(searchYear)) {
         return true;
       }
       return false;
-    }
-    else{
+    } else {
       console.log("else");
-      let year = parseInt(data.joined_date.split("-")[0])
-      let month = parseInt(data.joined_date.split("-")[1])
-      console.log(searchYear,searchMonth,year,month,year === parseInt(searchMonth),month === parseInt(searchMonth))
-      if(year === parseInt(searchYear) && month === parseInt(searchMonth)){
+      let year = parseInt(data.joined_date.split("-")[0]);
+      let month = parseInt(data.joined_date.split("-")[1]);
+      console.log(
+        searchYear,
+        searchMonth,
+        year,
+        month,
+        year === parseInt(searchMonth),
+        month === parseInt(searchMonth)
+      );
+      if (year === parseInt(searchYear) && month === parseInt(searchMonth)) {
         return true;
       }
       return false;
@@ -258,4 +269,5 @@ export const ManagerMembers = () => {
         {/* </div> */}
       </div>
     </div>
-  );}
+  );
+}

@@ -133,9 +133,9 @@ export const ManagerSidebar = (props) => {
               <div className="inline-flex justify-center items-center ml-4">
                 <TbLogout />
               </div>
-              {/* <span className="max-lg:hidden ml-2 text-sm tracking-wide truncate">
+              <span className="max-lg:hidden ml-2 text-sm tracking-wide truncate">
                 Logout
-              </span> */}
+              </span>
             </Link>
           </li>
         </ul>
