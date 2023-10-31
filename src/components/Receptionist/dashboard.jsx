@@ -3,9 +3,6 @@ import '../../styles/Receptionist/dashboard.css'
 import background_image from '../../assets/dashboard_bg.png';
 import React, { useRef, useState, useEffect } from "react";
 
-
-
-
 function Dashboard() {
     const [counts, setCounts] = useState({
         TotalMemberCount: 0,

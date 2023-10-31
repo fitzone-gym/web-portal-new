@@ -1,5 +1,5 @@
 
-import Header from '../../components/Receptionist/header';
+import Header from "../../components/header";
 import Sidenav from '../../components/Receptionist/sidenav';
 import '../../styles/Receptionist/memberlist.css'
 import { Link } from "react-router-dom";

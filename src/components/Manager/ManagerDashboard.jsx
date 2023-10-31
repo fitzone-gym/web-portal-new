@@ -76,7 +76,7 @@ export const ManagerDashboard = () => {
               className="text-4xl ml-8 mt-4"
               style={{ transform: "translateY(16px)", color: "#141E46" }}
             >
-              25
+              {data?.allMemberCount}
             </p>
           </div>
           <p
@@ -101,7 +101,7 @@ export const ManagerDashboard = () => {
               className="text-4xl ml-8 mt-4"
               style={{ transform: "translate(20px,16px)", color: "#B3A492" }}
             >
-              25
+              {data?.doctorCount}
             </p>
           </div>
           <p
@@ -126,7 +126,7 @@ export const ManagerDashboard = () => {
               className="text-4xl ml-8 mt-4"
               style={{ transform: "translateY(16px)", color: "#4D4C7D" }}
             >
-              25
+              {data?.trainerCount}
             </p>
           </div>
           <p
@@ -153,7 +153,7 @@ export const ManagerDashboard = () => {
               className="text-4xl ml-8 mt-4"
               style={{ transform: "translate(-20px,16px)", color: "#F99417" }}
             >
-              25
+              {data?.receptionistCount}
             </p>
           </div>
           <p
@@ -178,7 +178,7 @@ export const ManagerDashboard = () => {
               className="text-4xl ml-8 mt-4"
               style={{ transform: "translate(-18px,16px)", color: "#C70039" }}
             >
-              25
+              {data?.newMemberCount}
             </p>
           </div>
           <p
@@ -244,9 +244,10 @@ export const ManagerDashboard = () => {
             <h1 style={{ color: "#5a5c5c", fontWeight: 500 }}>
               Gym Member Compisition
             </h1>
-            <div className="w-[50%] h-88 ml-12">
-              {" "}
-              <Doughnut data={chartData} />
+
+            <div className="w-full h-90
+             ml-2">
+              <Doughnut data={chartData}  />
             </div>
           </div>
         </div>
