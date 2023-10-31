@@ -108,7 +108,7 @@ export const ManagerAnnouncement = () => {
                 <td className="rounded-lg">
                   <div>
                     <p className="mt-2 ml-7 font-bold">{announcement.title}</p>
-                    {/* <hr className="ml-7 w-1/2 border-t-1 border-black"></hr> */}
+          
                   </div>
                   <br />
                   <div
