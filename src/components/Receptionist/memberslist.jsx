@@ -154,7 +154,7 @@ export const memberlist = () => {
                   Package Type
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Address
+                    Emergency Contact
                   </th>
                 </tr>
               </thead>
@@ -176,7 +176,7 @@ export const memberlist = () => {
                         <td className="px-6 py-4">{member.phone_no}</td>{" "}
                         <td className="px-6 py-4">{member.package}</td>
                         <td className="px-6 py-4">
-                        {member.address}
+                        {member.emergency_contact}
                         </td>
                     </tr>
                   ))
@@ -196,8 +196,9 @@ export const memberlist = () => {
                         <td className="px-6 py-4">{member.email} </td>
                         <td className="px-6 py-4">{member.phone_no}</td>{" "}
                         <td className="px-6 py-4">{member.package}</td>
+                        
                         <td className="px-6 py-4">
-                        {member.address}
+                        {member.emergency_contact}
                         </td>
                       </tr>
                     );
