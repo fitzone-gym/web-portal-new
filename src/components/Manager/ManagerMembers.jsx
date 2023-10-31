@@ -101,14 +101,14 @@ export const ManagerMembers = () => {
       className=""
       style={{
         marginRight: "20px",
-        marginLeft: "17%",
-        marginTop: "120px",
+        marginLeft: "16%",
+        marginTop: "150px",
         textAlign: "center",
       }}
     >
-      <div className="w-[100%]" style={{ margin: "0px 30px 0px 30px" }}>
+      <div className="" >
         <div className="text-4xl">{/* <h4>Members Details</h4> */}</div>
-        <div className="pt-6 pb-6 ml-[74%] w-[24%]">
+        <div className="pt-6 pb-6 ml-[75%] w-[24%]">
           <form onSubmit={handleSearch}>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-24%]">
@@ -134,7 +134,7 @@ export const ManagerMembers = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="block w-[130%] ml-[-25%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 placeholder="Search by name, package"
-                style={{fontSize:12}}
+                style={{ fontSize: 12 }}
                 required
               />
               <button
@@ -150,38 +150,41 @@ export const ManagerMembers = () => {
           </form>
         </div>
 
-        <div className="mt-4 ml-24 ">
-                <div className="w-1/4 mr-2">
-                  <input
-                    type="number"
-                    value={searchMonth}
-                    onChange={(e) => setSearchMonth(e.target.value)}
-                    placeholder="Enter Month (1-12)"
-                    min="1"
-                    max="12"
-                    className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-                <div className="w-1/4 ml-96 mt-[-3.1%]">
-                  <input
-                    type="number"
-                    value={searchYear}
-                    onChange={(e) => setSearchYear(e.target.value)}
-                    placeholder="Enter Year"
-                    min="1900"
-                    max="9999"
-                    className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-              </div>
+        <div className="mt-4 ml-24 " style={{transform:"translateY(-80px)"}}>
+          <div className="w-1/4 mr-2">
+            <input
+              type="number"
+              value={searchMonth}
+              onChange={(e) => setSearchMonth(e.target.value)}
+              placeholder="Enter Month (1-12)"
+              min="1"
+              max="12"
+              className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+          <div
+            className="w-1/4 ml-64"
+            style={{ transform: "translatey(-49px)" }}
+          >
+            <input
+              type="number"
+              value={searchYear}
+              onChange={(e) => setSearchYear(e.target.value)}
+              placeholder="Enter Year"
+              min="1900"
+              max="9999"
+              className="block w-full p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+        </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20 mt-16">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20 " style={{transform:"translateY(-90px)"}}>
           <table className="w-full text-sm text-left text-gray-500  ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>
-                <th scope="col" className="p-4">
+                {/* <th scope="col" className="">
                 <div className="flex items-center">
                   <input
                     id="checkbox-all-search"
@@ -192,17 +195,17 @@ export const ManagerMembers = () => {
                     checkbox
                   </label>
                 </div>
-              </th>
+              </th> */}
                 <th scope="col" className="px-20 py-3">
                   Member name
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-20 py-3">
                   Joined Date
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-10 py-3">
                   Phone No
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-10 py-3">
                   Package Type
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -211,31 +214,35 @@ export const ManagerMembers = () => {
               </tr>
             </thead>
             <tbody>
-              {searchResults.filter((i)=> filterMonthYear(i)).map((member, index) => (
-                    <tr key={index} className="bg-white border-b">
-                      <th
-                        scope="row"
-                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white "
-                      >
-                        <img
-                          className="h-10 w-10 rounded-full ml-14"
-                          src={priofileimg}
-                          alt=""
-                        />
-                        <div className="pl-28 mt-[-8.7%]">
-                          <div className="text-base font-semibold">
-                            {member.first_name + " " + member.last_name}{" "}
-                          </div>
-                          <div className="font-normal text-gray-500">
-                            {member.email}
-                          </div> 
+              {searchResults
+                .filter((i) => filterMonthYear(i))
+                .map((member, index) => (
+                  <tr key={index} className="bg-white border-b">
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white "
+                    >
+                      <img
+                        className="h-10 w-10 rounded-full ml-14"
+                        src={priofileimg}
+                        alt=""
+                      />
+                      <div className="pl-28 mt-[-8.7%]">
+                        <div className="text-base font-semibold">
+                          {member.first_name + " " + member.last_name}{" "}
                         </div>
-                      </th>
-                      <td className="px-6 py-4">{formatDate(member.joined_date)} </td>
-                      <td className="px-6 py-4">{member.phone_no}</td>{" "}
-                      <td className="px-6 py-4">{member.package}</td>
-                      <td className="px-6 py-4">{member.address}</td>
-                      {/* <td>
+                        <div className="font-normal text-gray-500">
+                          {member.email}
+                        </div>
+                      </div>
+                    </th>
+                    <td className="px-20 py-4">
+                      {formatDate(member.joined_date)}{" "}
+                    </td>
+                    <td className="px-10 py-4">{member.phone_no}</td>{" "}
+                    <td className="px-10 py-4">{member.package}</td>
+                    <td className="px-6 py-4">{member.address}</td>
+                    {/* <td>
                           <Link
                             to="#"
                             className="font-medium text-blue-600 dark:text-blue-500  ml-6"
@@ -243,13 +250,12 @@ export const ManagerMembers = () => {
                             Report
                           </Link>
                         </td> */}
-                    </tr>
-                  )
-                )}
-          </tbody>
-        </table>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+        {/* </div> */}
       </div>
-      {/* </div> */}
     </div>
-    </div>
-  )}
+  );}

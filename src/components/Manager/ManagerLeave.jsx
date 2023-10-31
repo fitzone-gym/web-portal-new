@@ -88,7 +88,7 @@ export const ManagerLeave = () => {
       }}
     >
       <div className="">
-        <h4>Leave Requests Details</h4>
+        {/* <h4>Leave Requests Details</h4> */}
         <div className="pt-6 pb-6 ml-[77%] w-[20%]">
           <form onSubmit={handleSearch}>
             <div className="relative">
