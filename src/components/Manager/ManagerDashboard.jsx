@@ -27,6 +27,7 @@ ChartJS.register(
 );
 export const ManagerDashboard = () => {
   const [data, setData] = useState();
+  const [labels, setLabels] = useState([]);
   const chartData = {
     labels: ["Members", "Trainers", "Doctors", "Receptionists"],
     datasets: [
@@ -61,6 +62,21 @@ export const ManagerDashboard = () => {
       .then((res) => {
         console.log(res.data);
         setData(res.data.data);
+        const labelData = res.data.data.staffPaymentStats?.map((i) => {
+          const date = new Date();
+          date.setMonth(i.month - 1);
+          return {
+            label:
+              date.toLocaleString("en-US", {
+                month: "long",
+              }) +
+              "-" +
+              i.year,
+            year: i.year,
+            month: i.month,
+          };
+        });
+        setLabels(labelData);
       })
       .catch((err) => {
         console.error(err);
@@ -77,20 +93,36 @@ export const ManagerDashboard = () => {
     },
   };
 
-  const labels = ["July", "August", "September", "October"];
+ 
+
+  const getLabelArray = (array) => {
+    return array.map((i) => i.label);
+  };
 
   const lineData = {
-    labels,
+    labels: getLabelArray(labels),
     datasets: [
       {
-        label: "Member Payments",
-        data: [500000, 350000, 460000, 400500],
+        label: "Staff Payment Stats",
+        data: labels.map((i) => {
+          return (
+            data.staffPaymentStats.filter(
+              (a) => a.month === i.month && a.year === i.year
+            )[0]?.amount || 0
+          );
+        }),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
       {
-        label: "Staff Salaries",
-        data: [400000, 510000, 380000, 490500],
+        label: "Member Salary Payments",
+        data: labels.map((i) => {
+          return (
+            data.memberPaymentStats.filter(
+              (a) => a.month === i.month && a.year === i.year
+            )[0]?.amount || 0
+          );
+        }),
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",
       },
