@@ -1,13 +1,30 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import { MdOutlineGirl } from "react-icons/md";
-// import { MdOutlineBoy } from "react-icons/md";
 import { images } from "../../constants";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+} from "chart.js";
+import { Doughnut, Line } from "react-chartjs-2";
+
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 export const ManagerDashboard = () => {
   const [data, setData] = useState();
   const chartData = {
@@ -49,6 +66,37 @@ export const ManagerDashboard = () => {
         console.error(err);
       });
   }, []);
+
+  const lineOptions = {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: "Chart.js Line Chart",
+      },
+    },
+  };
+
+  const labels = ["July", "August", "September", "October"];
+
+  const lineData = {
+    labels,
+    datasets: [
+      {
+        label: "Member Payments",
+        data: [500000, 350000, 460000, 400500],
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+      {
+        label: "Staff Salaries",
+        data: [400000, 510000, 380000, 490500],
+        borderColor: "rgb(53, 162, 235)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
+      },
+    ],
+  };
+
   return (
     <div
       className=""
@@ -212,17 +260,7 @@ export const ManagerDashboard = () => {
           </p>
         </div>
 
-        {/* <div
-          className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md "
-          style={{
-            height: 160,
-            width: 360,
-          }}
-        >
-          <h1 className="text-xl mt-4 ml-8 mt-2 ">Total Revenue</h1>
-          <p className="text-5xl ml-8 mt-4 ">865</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Monthly</p>
-        </div> */}
+       
       </div>
 
       {/* 3 row */}
@@ -234,6 +272,7 @@ export const ManagerDashboard = () => {
             height: 460,
           }}
         >
+          <Line options={lineOptions} data={lineData} />
         </div>
 
         {/* 2 box */}
@@ -243,9 +282,11 @@ export const ManagerDashboard = () => {
               Gym Member Compisition
             </h1>
 
-            <div className="w-full h-90
-             ml-2">
-              <Doughnut data={chartData}  />
+            <div
+              className="w-full h-90
+             ml-2"
+            >
+              <Doughnut data={chartData} />
             </div>
           </div>
         </div>
