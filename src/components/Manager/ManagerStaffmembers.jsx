@@ -40,7 +40,7 @@ export const ManagerStaffmembers = () => {
         </div>
 
         <div
-          className="bg-white  font-bold text-2xl hover:bg-blue-50 border rounded-lg drop-shadow-md "
+          className="bg-white  font-bold text-2xl  border rounded-lg drop-shadow-md "
           style={{
             height: 150,
             width: 300,
@@ -51,11 +51,11 @@ export const ManagerStaffmembers = () => {
           <Link to="/Manager/Staffmembers/Doctor">
             <div
               className="mt-7 text-6xl flex justify-center items-center"
-              style={{ color: "#8e989e" }}
+              style={{ color: "#124e78" }}
             >
-              <BsFillPersonPlusFill className="icon ml-3" />
+              <BsFillPersonFill className="icon ml-3" />
             </div>
-            <h1 className=" " style={{ color: "#8e989e" }}>
+            <h1 className=" " style={{ color: "#124e78" }}>
               Doctor
             </h1>
           </Link>
@@ -75,7 +75,7 @@ export const ManagerStaffmembers = () => {
               className="mt-7 text-6xl flex justify-center items-center"
               style={{ color: "#d0d1ab" }}
             >
-              <BsFillPersonFill className="icon" />
+              <BsFillPersonPlusFill className="icon" />
             </div>
             <h1 className="text-center " style={{ color: "#d0d1ab" }}>
               Receptionist

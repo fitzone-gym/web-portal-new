@@ -3,11 +3,13 @@
 import React from "react";
 import { RxDashboard } from "react-icons/rx";
 import { BsPeople } from "react-icons/bs";
-import { MdPeopleOutline } from "react-icons/md";
+import { FaDollarSign } from "react-icons/fa";
+import { FaFile } from "react-icons/fa";
+// import { MdPeopleOutline } from "react-icons/md";
 import { MdOutlineAnnouncement } from "react-icons/md";
 import { MdOutlineStickyNote2 } from "react-icons/md";
-import { VscFeedback } from "react-icons/vsc";
-import { MdOutlinePayments } from "react-icons/md";
+// import { VscFeedback } from "react-icons/vsc";
+// import { MdOutlinePayments } from "react-icons/md";
 import { TbLogout } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import "../../styles/Receptionist/sidenav.css";
@@ -31,7 +33,7 @@ export const ManagerSidebar = (props) => {
               className="relative flex flex-row items-center h-11 focus:outline-none  pr-6"
               style={props.selected === "dashboard" ? selectedStyle : {}}
             >
-              <div className="inline-flex justify-center items-center ml-4">
+              <div className="inline-flex justify-center items-center ml-3">
                 <RxDashboard />
               </div>
               <span className="ml-2 text-sm tracking-wide truncate">
@@ -42,7 +44,7 @@ export const ManagerSidebar = (props) => {
           <li>
             <Link
               to="/Manager/Members"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none pr-6"
+              className="relative flex flex-row items-center h-11 focus:outline-none pr-6"
               style={props.selected === "members" ? selectedStyle : {}}
             >
               <div className="inline-flex justify-center items-center ml-4">
@@ -56,11 +58,11 @@ export const ManagerSidebar = (props) => {
           <li>
             <Link
               to="/Manager/Staffmembers"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none  pr-6"
+              className=" relative flex flex-row items-center h-11 focus:outline-none  pr-6"
               style={props.selected === "staff" ? selectedStyle : {}}
             >
               <div className="inline-flex justify-center items-center ml-4">
-                <MdPeopleOutline />
+                <BsPeople />
               </div>
               <span className="max-lg:hidden ml-2 text-sm tracking-wide truncate">
                 Staff Members
@@ -70,11 +72,11 @@ export const ManagerSidebar = (props) => {
           <li>
             <Link
               to="/Manager/Announcement"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none  pr-6"
+              className="relative flex flex-row items-center h-11 focus:outline-none  pr-6"
               style={props.selected === "announcements" ? selectedStyle : {}}
             >
               <div className="inline-flex justify-center items-center ml-4">
-                <MdOutlineAnnouncement />
+                <FaFile />
               </div>
               <span className="max-lg:hidden ml-2 text-sm tracking-wide truncate">
                 Announcement
@@ -85,7 +87,7 @@ export const ManagerSidebar = (props) => {
           <li>
             <Link
               to="/Manager/Leave"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none pr-6"
+              className=" relative flex flex-row items-center h-11 focus:outline-none pr-6"
               style={props.selected === "leaves" ? selectedStyle : {}}
             >
               <div className="inline-flex justify-center items-center ml-4">
@@ -96,7 +98,7 @@ export const ManagerSidebar = (props) => {
               </span>
             </Link>
           </li>
-{/* 
+          {/* 
           <li>
             <Link
               to="/Manager/Feedback"
@@ -114,11 +116,11 @@ export const ManagerSidebar = (props) => {
           <li>
             <Link
               to="/Manager/Payment"
-              className="mt-[5%] relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800  pr-6"
+              className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800  pr-8"
               style={props.selected === "payments" ? selectedStyle : {}}
             >
               <div className="inline-flex justify-center items-center ml-4">
-                <MdOutlinePayments />
+                <FaDollarSign />
               </div>
               <span className="max-lg:hidden ml-2 text-sm tracking-wide truncate">
                 Salary Records
@@ -133,9 +135,9 @@ export const ManagerSidebar = (props) => {
               <div className="inline-flex justify-center items-center ml-4">
                 <TbLogout />
               </div>
-              <span className="max-lg:hidden ml-2 text-sm tracking-wide truncate">
+              {/* <span className="max-lg:hidden ml-2 text-sm tracking-wide truncate">
                 Logout
-              </span>
+              </span> */}
             </Link>
           </li>
         </ul>

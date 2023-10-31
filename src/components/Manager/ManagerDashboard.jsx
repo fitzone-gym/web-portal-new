@@ -54,8 +54,8 @@ export const ManagerDashboard = () => {
       className=""
       style={{
         marginRight: "20px",
-        marginLeft: "17%",
-        marginTop: "150px",
+        marginLeft: "20%",
+        marginTop: "130px",
         textAlign: "center",
       }}
     >
@@ -69,8 +69,16 @@ export const ManagerDashboard = () => {
             // borderColor:"yellow"
           }}
         >
-          <h1 className="text-xl mt-2 ml-8 mt-2 ">Total Members</h1>
-          <p className="text-4xl ml-8 mt-4 ">{data?.allMemberCount}</p>
+          <div className="" style={{ display: "flex" }}>
+            <h1 className="text-xl mt-4 ml-8 mt-2 ">Total Members</h1>
+            {/* <p className="text-4xl ml-8 mt-4 ">{data?.allMemberCount}</p> */}
+            <p
+              className="text-4xl ml-8 mt-4"
+              style={{ transform: "translateY(16px)", color: "#141E46" }}
+            >
+              25
+            </p>
+          </div>
           <p
             className="text-sm ml-8 mt-4"
             style={{ color: "#062C30", fontWeight: 500 }}
@@ -86,58 +94,16 @@ export const ManagerDashboard = () => {
             width: 300,
           }}
         >
-          <h1 className="text-xl mt-2 ml-8 mt-2 ">New Memberships</h1>
-          <p className="text-5xl ml-8 mt-4 ">{data?.newMemberCount}</p>
-          <p
-            className="text-sm ml-8 mt-4"
-            style={{ color: "#062C30", fontWeight: 500 }}
-          >
-            Monthly membership acquired{" "}
-          </p>
-        </div>
-
-        {/* <div
-          className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md "
-          style={{
-            height: 160,
-            width: 360,
-          }}
-        >
-          <h1 className="text-xl mt-2 ml-8 mt-2 ">Membership Cancellations</h1>
-          <p className="text-5xl ml-8 mt-4 ">865</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">
-            Members cancelled their membership
-          </p>
-        </div> */}
-
-        <div
-          className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md "
-          style={{
-            height: 120,
-            width: 300,
-          }}
-        >
-          <h1 className="text-xl mt-2 ml-8 mt-2 ">Total Staff Members</h1>
-          <p className="text-5xl ml-8 mt-4 ">{data?.staffCount}</p>
-          <p
-            className="text-sm ml-8 mt-4 "
-            style={{ color: "#062C30", fontWeight: 500 }}
-          >
-            Gym Staff Members
-          </p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-3 gap-2 ml-12 mt-16 mt-8">
-        <div
-          className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md "
-          style={{
-            height: 120,
-            width: 300,
-          }}
-        >
-          <h1 className="text-xl mt-2 ml-8 mt-2 ">Total Doctor</h1>
-          <p className="text-5xl ml-8 mt-4 ">{data?.doctorCount}</p>
+          <div className="" style={{ display: "flex" }}>
+            <h1 className="text-xl mt-4 ml-8 mt-2 ">Total Doctor</h1>
+            {/* <p className="text-5xl ml-8 mt-4 ">{data?.doctorCount}</p> */}
+            <p
+              className="text-4xl ml-8 mt-4"
+              style={{ transform: "translate(20px,16px)", color: "#B3A492" }}
+            >
+              25
+            </p>
+          </div>
           <p
             className="text-sm ml-8 mt-4"
             style={{ color: "#062C30", fontWeight: 500 }}
@@ -153,13 +119,48 @@ export const ManagerDashboard = () => {
             width: 300,
           }}
         >
-          <h1 className="text-xl mt-2 ml-8 mt-2 ">Total Trainers</h1>
-          <p className="text-5xl ml-8 mt-4 ">{data?.trainerCount}</p>
+          <div className="" style={{ display: "flex" }}>
+            <h1 className="text-xl mt-4 ml-8 mt-2 ">Total Trainers</h1>
+            {/* <p className="text-5xl ml-8 mt-4 ">{data?.trainerCount}</p> */}
+            <p
+              className="text-4xl ml-8 mt-4"
+              style={{ transform: "translateY(16px)", color: "#4D4C7D" }}
+            >
+              25
+            </p>
+          </div>
           <p
             className="text-sm ml-8 mt-4"
             style={{ color: "#062C30", fontWeight: 500 }}
           >
             Gym Trainers
+          </p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 ml-12 mt-16 mt-8">
+        <div
+          className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md "
+          style={{
+            height: 120,
+            width: 300,
+          }}
+        >
+          <div className="" style={{ display: "flex" }}>
+            <h1 className="text-xl mt-4 ml-8 mt-2 ">Total Receptionist</h1>
+            {/* <p className="text-5xl ml-8 mt-4 ">{data?.receptionistCount}</p> */}
+            <p
+              className="text-4xl ml-8 mt-4"
+              style={{ transform: "translate(-20px,16px)", color: "#F99417" }}
+            >
+              25
+            </p>
+          </div>
+          <p
+            className="text-sm ml-8 mt-4"
+            style={{ color: "#062C30", fontWeight: 500 }}
+          >
+            Gym Receptionist
           </p>
         </div>
 
@@ -170,13 +171,46 @@ export const ManagerDashboard = () => {
             width: 300,
           }}
         >
-          <h1 className="text-xl mt-2 ml-8 mt-2 ">Total Receptionist</h1>
-          <p className="text-5xl ml-8 mt-4 ">{data?.receptionistCount}</p>
+          <div className="" style={{ display: "flex" }}>
+            <h1 className="text-xl mt-4 ml-8 mt-2 ">New Memberships</h1>
+            {/* <p className="text-5xl ml-8 mt-4 ">{data?.newMemberCount}</p> */}
+            <p
+              className="text-4xl ml-8 mt-4"
+              style={{ transform: "translate(-18px,16px)", color: "#C70039" }}
+            >
+              25
+            </p>
+          </div>
           <p
             className="text-sm ml-8 mt-4"
             style={{ color: "#062C30", fontWeight: 500 }}
           >
-            Gym Receptionist
+            Monthly membership acquired{" "}
+          </p>
+        </div>
+
+        <div
+          className="bg-white  border drop-shadow-md font-bold rounded-lg text-left rounded-md "
+          style={{
+            height: 120,
+            width: 300,
+          }}
+        >
+          <div className="" style={{ display: "flex" }}>
+            <h1 className="text-xl mt-4 ml-8 mt-2 ">Total Staff Members</h1>
+            {/* <p className="text-5xl ml-8 mt-4 ">{data?.staffCount}</p> */}
+            <p
+              className="text-4xl ml-8 mt-4"
+              style={{ transform: "translate(-35px,16px)", color: "#FF6969" }}
+            >
+              25
+            </p>
+          </div>
+          <p
+            className="text-sm ml-8 mt-4 "
+            style={{ color: "#062C30", fontWeight: 500 }}
+          >
+            Gym Staff Members
           </p>
         </div>
 
@@ -187,7 +221,7 @@ export const ManagerDashboard = () => {
             width: 360,
           }}
         >
-          <h1 className="text-xl mt-2 ml-8 mt-2 ">Total Revenue</h1>
+          <h1 className="text-xl mt-4 ml-8 mt-2 ">Total Revenue</h1>
           <p className="text-5xl ml-8 mt-4 ">865</p>
           <p className="text-medium ml-8 mt-4 text-red-500">Monthly</p>
         </div> */}

@@ -70,7 +70,7 @@ export const TrainerleavesList = () => {
       style={{
         marginRight: "20px",
         marginLeft: "13%",
-        marginTop: "130px",
+        marginTop: "300px",
         textAlign: "center",
       }}
     >

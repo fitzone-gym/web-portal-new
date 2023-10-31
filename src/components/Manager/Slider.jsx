@@ -17,7 +17,7 @@ export const Slider = (props) => {
   };
   const data = props?.types || [];
   return (
-    <div className={props.className}>
+    <div className={props.className} style={{paddingLeft:"50px"}}>
       <div className="slider-container">
         {data.map((i, index) => {
           if (index === selectedValue) {

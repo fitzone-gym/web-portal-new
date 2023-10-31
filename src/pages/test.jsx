@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ManagerHeader } from "../components/Manager/ManagerHeader";
+import Header from "../components/header";
 import { ManagerSidebar } from "../components/Manager/ManagerSidebar";
 import { PaymentBody } from "../components/Manager/PaymentBody";
 import { Slider } from "../components/Manager/Slider";
@@ -78,22 +78,21 @@ export const Test = (props) => {
   return (
     <div className={props.className}>
       <div className="flex h-screen w-full bg-white">
-        <ManagerHeader />
+        <Header />
 
         <div className="flex flex-row">
           <ManagerSidebar selected="payments" />
           <div
-            className="w-[80%]"
+            className=""
             style={{
-              position: "fixed",
-              top: 140,
-              left: 290,
-              right: 0,
-              bottom: 0,
+              marginRight: "20px",
+              marginLeft: "15%",
+              marginTop: "160px",
+              textAlign: "center",
             }}
           >
             <div className="text-4xl mr-[66%]">
-              <h4>Salary Details</h4>
+              {/* <h4>Salary Details</h4> */}
             </div>
             <div className="flex flex-row">
               <Slider
@@ -102,7 +101,7 @@ export const Test = (props) => {
                 selectedValue={selected}
                 className="ml-[6%] py-6"
               />
-              <div className="pt-6 pb-6 ml-[40%] w-[24%]">
+              <div className="pt-6 pb-6 ml-[30%] w-[24%]">
                 <form onSubmit={handleSearch}>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-24%]">
@@ -127,11 +126,11 @@ export const Test = (props) => {
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                       className="block w-[130%] ml-[-25%] p-3 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                      placeholder="Search Name,Package Type..."
+                      placeholder="Search Name,Packages "
                     />
                     <button
                       type="submit"
-                      className="mr-[-5%] text-white absolute right-2.5 w-18 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 "
+                      className="mr-[-5%] text-black absolute right-2.5 w-18 bg-gray-200 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 "
                       style={{
                         marginTop: -39,
                       }}
