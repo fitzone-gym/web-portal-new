@@ -153,7 +153,7 @@ export const ManagerLeave = () => {
                   Request Date
                 </th>
                 <th scope="col" className="px-4 py-3">
-                Duration(days)
+                  Duration(days)
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Remaining leaves
@@ -186,12 +186,26 @@ export const ManagerLeave = () => {
                         </div>
                       </th>
                       <td className="px-6 py-4 "> {leaves.reason}</td>
-                      <td className="px-6 py-4 "> {formatDate(leaves.request_date)}</td>
-                      <td className="px-6 py-4 "> {leaves.no_of_leave_dates}</td>
                       <td className="px-6 py-4 ">
                         {" "}
+                        {formatDate(leaves.request_date)}
+                      </td>
+                      <td className="px-6 py-4 ">
+                        {" "}
+                        {leaves.no_of_leave_dates}
+                      </td>
+                      <td
+                        className="px-6 py-4"
+                        style={{
+                          color:
+                            leaves.no_remaining_leave_date === 0
+                              ? "red"
+                              : "inherit",
+                        }}
+                      >
                         {leaves.no_remaining_leave_date}
                       </td>
+
                       <td className="px-6 py-4">
                         <div
                           className=""
@@ -280,8 +294,14 @@ export const ManagerLeave = () => {
                           </div>
                         </th>
                         <td className="px-6 py-4 "> {leaves.reason}</td>
-                        <td className="px-6 py-4 "> {formatDate(leaves.request_date)}</td>
-                      <td className="px-6 py-4 "> {leaves.no_of_leave_dates}</td>
+                        <td className="px-6 py-4 ">
+                          {" "}
+                          {formatDate(leaves.request_date)}
+                        </td>
+                        <td className="px-6 py-4 ">
+                          {" "}
+                          {leaves.no_of_leave_dates}
+                        </td>
                         <td className="px-6 py-4 ">
                           {" "}
                           {leaves.no_remaining_leave_date}
@@ -344,8 +364,8 @@ export const ManagerLeave = () => {
             </tbody>
           </table>
         </div>
-      <div style={{ paddingLeft:1000, marginTop:50}}>
-        {/* <button
+        <div style={{ paddingLeft: 1000, marginTop: 50 }}>
+          {/* <button
           style={{
             backgroundColor: "#edebeb",
             width: "100px",
@@ -361,13 +381,18 @@ export const ManagerLeave = () => {
             <Link
               to="/Manager/Leave/TrainerList"
               className="font-medium text-blue-600 "
-              style={{ fontSize: 12, color: "black", fontWeight: "bold" , marginTop:"50px"}}
+              style={{
+                fontSize: 12,
+                color: "black",
+                fontWeight: "bold",
+                marginTop: "50px",
+              }}
             >
-              View More 
+              View More
             </Link>
           </div>
-        {/* </button> */}
-      </div>
+          {/* </button> */}
+        </div>
       </div>
     </div>
   );

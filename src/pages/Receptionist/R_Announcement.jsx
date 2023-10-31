@@ -1,5 +1,5 @@
 
-import Header from '../../components/Receptionist/header';
+import Header from "../../components/header";
 import Sidenav from '../../components/Receptionist/sidenav';
 import Announcement_R from '../../components/Receptionist/Announcement_R';
 import '../../styles/Receptionist/announcement.css'

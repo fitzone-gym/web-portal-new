@@ -115,7 +115,7 @@ export const ManagerReceptionist = () => {
           </div>
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-16">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-16" style={{width:"1050px"}}>
           <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50">
               <tr>

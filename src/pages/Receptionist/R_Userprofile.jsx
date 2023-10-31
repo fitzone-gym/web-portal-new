@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../styles/Receptionist/userprofile.css'
-import Header from '../../components/Receptionist/header';
+import Header from "../../components/header";
 import Sidenav from '../../components/Receptionist/sidenav';
 import Myprofile from '../../components/Receptionist/Myprofile';
 import profilephoto from '../../assets/profileimage.jpg'
