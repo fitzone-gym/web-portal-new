@@ -2,7 +2,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+
 
 const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
   const [first_name, setFirstname] = useState("");
@@ -12,12 +12,13 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
   const [working_experience, setWorkingexperience] = useState("");
   const [qualification, setQualification] = useState("");
   const [nic, setNic] = useState("");
-  const [password, setPassword] = useState("");
+  // const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
+
 
   const handleSubmit = (e) => {
-    console.log("call here");
+    console.log("call here"
+        );
     e.preventDefault();
     
 
@@ -31,7 +32,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
         working_experience,
         qualification,
         nic,
-        password,
+        // password,
         address:"",
         expert_area:"",
         role_id:"2"
@@ -48,7 +49,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
         setWorkingexperience("");
         setQualification("");
         setNic("");
-        setPassword("");
+        // setPassword("");
         
         console.log("Before navigation");
         onClose()
@@ -103,7 +104,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
               type="text"
               name="firstname"
               placeholder="first name"
-               
+              onChange={(e) => setFirstname(e.target.value)}
             />
           </div>
           <div>
@@ -169,9 +170,9 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
           <div>
             <span className="mt-52 col text-white ">NIC</span>
           </div>
-          <div>
+          {/* <div>
             <span className="mt-52 col text-white ">Password</span>
-          </div>
+          </div> */}
           <div>
             <input
               className="rounded-md w-72"
@@ -181,7 +182,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
               onChange={(e) => setNic(e.target.value)}
             />
           </div>
-          <div>
+          {/* <div>
             <input
               className="rounded-md w-72"
               type="password"
@@ -189,7 +190,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
               placeholder="password"
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
+          </div> */}
         </div>
 
         <button

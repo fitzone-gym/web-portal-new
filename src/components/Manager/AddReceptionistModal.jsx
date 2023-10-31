@@ -12,7 +12,7 @@ const AddReceptionistModal = ({ onClose, fetchReceptionist }) => {
   const [address, setAddress] = useState("");
   const [qualification, setQualification] = useState("");
   const [nic, setNic] = useState("");
-  const [password, setPassword] = useState("");
+  // const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ const AddReceptionistModal = ({ onClose, fetchReceptionist }) => {
         address,
         role_id: 5,
         nic,
-        password,
+        // password,
         qualification,
       })
       .then((response) => {
@@ -45,7 +45,7 @@ const AddReceptionistModal = ({ onClose, fetchReceptionist }) => {
         setAddress("");
         setQualification("");
         setNic("");
-        setPassword("");
+        // setPassword("");
 
         console.log("Before navigation");
         onClose();
@@ -166,9 +166,9 @@ const AddReceptionistModal = ({ onClose, fetchReceptionist }) => {
           <div>
             <span className="mt-52 col text-white ">NIC</span>
           </div>
-          <div>
+          {/* <div>
             <span className="mt-52 col text-white ">Password</span>
-          </div>
+          </div> */}
           <div>
             <input
               className="rounded-md w-72"
@@ -178,7 +178,7 @@ const AddReceptionistModal = ({ onClose, fetchReceptionist }) => {
               onChange={(e) => setNic(e.target.value)}
             />
           </div>
-          <div>
+          {/* <div>
             <input
               className="rounded-md w-72"
               type="password"
@@ -186,7 +186,7 @@ const AddReceptionistModal = ({ onClose, fetchReceptionist }) => {
               placeholder="password"
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
+          </div> */}
         </div>
 
         <button

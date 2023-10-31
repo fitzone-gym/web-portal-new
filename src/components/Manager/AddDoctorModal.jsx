@@ -171,9 +171,9 @@ const AddDoctorModal = ({ onClose, fetchDoctor }) => {
           <div>
             <span className="mt-52 col text-white ">NIC</span>
           </div>
-          <div>
+          {/* <div>
             <span className="mt-52 col text-white ">Password</span>
-          </div>
+          </div> */}
           <div>
             <input
               className="rounded-md w-72"
@@ -183,7 +183,7 @@ const AddDoctorModal = ({ onClose, fetchDoctor }) => {
               onChange={(e) => setNic(e.target.value)}
             />
           </div>
-          <div>
+          {/* <div>
             <input
               className="rounded-md w-72"
               type="password"
@@ -191,7 +191,7 @@ const AddDoctorModal = ({ onClose, fetchDoctor }) => {
               placeholder="password"
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
+          </div> */}
         </div>
 
         <button
