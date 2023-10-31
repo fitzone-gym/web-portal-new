@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
 
 
 
@@ -163,6 +164,10 @@ export const Attendence_R = () => {
                   <th scope="col" className="px-6 py-3">
                     Check-out Time
                   </th>
+
+                  <th scope="col" className="px-6 py-3">
+                    Status
+                  </th>
                   
                 </tr>
               </thead>
@@ -182,7 +187,9 @@ export const Attendence_R = () => {
                       <td className="px-6 py-4">{member.Date} </td>
                         <td className="px-6 py-4">{member.Checkin}</td>{" "}
                         <td className="px-6 py-4">{member.Checkout}</td>
-                      
+                        <td className="px-6 py-4">
+                               {member.Checkout === null ? "Available" : "Unavailable"}
+                         </td>
                     </tr>
                   ))
                 : data.map((member, index) => {
@@ -200,7 +207,14 @@ export const Attendence_R = () => {
                         <td className="px-6 py-4">{member.Date} </td>
                         <td className="px-6 py-4">{member.Checkin}</td>{" "}
                         <td className="px-6 py-4">{member.Checkout}</td>
-                        
+                        <td className="px-6 py-4">
+                               {member.Checkout === null ? (
+                            <div> <ClearIcon/> </div>
+                          ) : 
+                          (
+                            <div> <CheckIcon/> </div>
+                          )}
+                         </td>
                       </tr>
                     );
                   })}

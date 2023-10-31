@@ -13,7 +13,12 @@ import R_Payment from "./pages/Receptionist/R_Payment";
 import R_Memberprofile from "./pages/Receptionist/R_Memberprofile";
 import R_Trainerprofile from "./pages/Receptionist/R_Trainerprofile";
 import R_Editmyprofile from "./components/Receptionist/editprofile";
+import R_Attendence_All from "./pages/Receptionist/R_Attendence_All";
+import Feedback_R from './pages/Receptionist/Feedback'
+import R_events from "./pages/Receptionist/R_events";
+import R_Oncalldoctor from "./pages/Receptionist/R_Oncalldoctor";
 
+//manager
 import { Login } from "./pages/Login/Login";
 import { Members } from "./pages/Manager/Members";
 import { Staffmembers } from "./pages/Manager/Staffmembers";
@@ -68,6 +73,10 @@ function App() {
         />
         {/* <Route path="/Receptionist/leaveRequest" element={<R_Leaverequest />} /> */}
         <Route path="/Receptionist/editprofile" element={<R_Editmyprofile />} />
+        <Route path="/Receptionist/feedback" element={<Feedback_R />} />
+        <Route path="/Receptionist/events" element={<R_events />} />
+        <Route path="/Receptionist/onCallDoctor" element={<R_Oncalldoctor/>} />
+
         <Route
           path="/Receptionist/contactUsSubmitions"
           element={<R_Contactus_submitions />}

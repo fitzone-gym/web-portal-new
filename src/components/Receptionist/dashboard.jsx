@@ -3,9 +3,6 @@ import '../../styles/Receptionist/dashboard.css'
 import background_image from '../../assets/dashboard_bg.png';
 import React, { useRef, useState, useEffect } from "react";
 
-
-
-
 function Dashboard() {
     const [counts, setCounts] = useState({
         TotalMemberCount: 0,
@@ -14,19 +11,91 @@ function Dashboard() {
         newTrainersCount: 0,
         todayAttendenceCount: 0,
         currentAttendenceCount: 0
+
     });
+
+    const [memberName, setMemberName] = useState("");
+    const [checkIn, setCheckIn] = useState("");
+    const [checkOut, setCheckOut] = useState("");
+
+
+    const handlesubmit = (e) => {
+      console.log ("Call here");
+
+      //send data to the backend
+
+      if (checkOut == null) {
+    axios
+    .post("http://localhost:5400/receptionist/attendence/add", {
+      memberid,
+      checkin_time,
+      })
+
+      .then((response) => {
+        console.log("Data submit successfully to backend", response.data);
+        
+        alert("Data submitted successfully!"); 
+
+        setmemberId("");
+        setCheckIn("");
+        
+        console.log("Before navigation");
+        fetchReceptionist()
+       })
+
+       .catch((error) => {
+        console.log("Error submitting data", error);
+        alert("Error submitting data");
+      });  }
+      
+      else 
+      {
+        axios
+        .post("http://localhost:5400/receptionist/attendence/add", {
+          memberid,
+          checkout,
+          })
+    
+          .then((response) => {
+            console.log("Data submit successfully to backend", response.data);
+            
+            alert("Data submitted successfully!"); 
+    
+            setmemberId("");
+            setCheckIn("");
+            
+            console.log("Before navigation");
+            fetchReceptionist()
+           })
+    
+           .catch((error) => {
+            console.log("Error submitting data", error);
+            alert("Error submitting data");
+          }); 
+      }
+
+
+
+    };
 
     useEffect(() => {
         async function fetchData() {
-            try {
                 const response = await fetch('http://localhost:5400/dashboard/getCount'); 
                 const data = await response.json();
                 if (data.success && data.data) { // Assuming your generateResponse format is {success: true/false, data: {...}}
                     setCounts(data.data);
                 }
-            } catch (error) {
-                console.error('Error fetching counts:', error);
-            }
+                
+                const response2 = await fetch('http://localhost:5400/receptionist/alldayattendence'); 
+                const data2 = await response2.json();
+    
+                if (data2.success) {
+                    setMemberName(data2.data.memberName);
+                    setCheckIn(data2.data.checkIn);
+                    setCheckOut(data2.data.checkOut);
+                }
+          
+      
         }
 
         fetchData();
@@ -147,7 +216,7 @@ function Dashboard() {
           }}
         >
           <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Workshops</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">{counts.EventsCount}</p>
+       <a href = "/Receptionist/events">  <p className="text-5xl ml-8 mt-4 text-white">{counts.EventsCount}</p></a> 
           <p className="text-medium ml-8 mt-4 text-red-500">Workshop planned this month</p>
         </div>
         </div>
@@ -175,6 +244,8 @@ function Dashboard() {
       Last updated 3 mins ago
     </p>
   </div>
+
+ 
   
 </div>
                     </div>
@@ -185,7 +256,7 @@ function Dashboard() {
 
         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8 h-120">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handlesubmit} method="POST">
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Member ID
@@ -195,12 +266,13 @@ function Dashboard() {
                   id="memberid"
                   name="memberid"
                   type="text"
-                  autoComplete="email"
                   onChange={(e) => setmemberId(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
+
+           
 
             <div>
               <div className="flex items-center justify-between">
@@ -211,9 +283,10 @@ function Dashboard() {
               </div>
               <div className="mt-2">
                 <input
-                  id="password"
-                  name="password"
+                  id="checkin_time"
+                  name="checkin_time"
                   type="time"
+                  value={checkIn}
                   onChange={(e) => setCheckIn(e.target.value)}
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -226,15 +299,16 @@ function Dashboard() {
                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                   Check-out time 
                 </label>
-            
+              
               </div>
               <div className="mt-2">
                 <input
-                  id="password"
-                  name="password"
+                  id="checkout_time"
+                  name="checkout_time"
                   type="time"
+                  value={checkOut}
                   onChange={(e) => setCheckOut(e.target.value)}
-                  required
+                  
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>

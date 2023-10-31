@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../components/Receptionist/header';
+import Header from "../../components/header";
 import Sidenav from '../../components/Receptionist/sidenav';
 import Dashboard from '../../components/Receptionist/dashboard';
 

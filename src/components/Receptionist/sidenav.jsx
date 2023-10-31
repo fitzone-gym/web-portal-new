@@ -2,8 +2,8 @@ import "../../styles/Receptionist/sidenav.css";
 
 function sidenav() {
   return (
-    <div className="sidenavbar">
-      <ul className="flex flex-col py-5 space-y-1 font-bold text-center ml-10 ">
+    <div className="sidenavbar" style={{paddingTop:"150px"}}>
+      <ul className="flex flex-col py-5 space-y-1 font-bold text-center ml-10">
         <li>
           <a
             href="/Receptionist/Dashboard"
@@ -91,7 +91,7 @@ function sidenav() {
 
         <li>
           <a
-            href="/Receptionist/Announcement"
+            href="/Receptionist/onCallDoctor"
             className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
@@ -144,7 +144,7 @@ function sidenav() {
 
         <li>
           <a
-            href="/Receptionist/Announcement"
+            href="/Receptionist/events"
             className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
           >
             <span className="inline-flex justify-center items-center ml-4">
@@ -198,7 +198,7 @@ function sidenav() {
           </a>
         </li>
 
-        <li>
+        {/* <li>
           <a
             href="/Receptionist/Myprofile"
             className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
@@ -221,7 +221,7 @@ function sidenav() {
             </span>
             <span className="ml-2 text-sm tracking-wide truncate">Profile</span>
           </a>
-        </li>
+        </li> */}
         <li>
           <a
             href="/Receptionist/attendence"

@@ -1,13 +1,13 @@
 
-import Header from "../../components/header";
+import Header from '../../components/Receptionist/header';
 import Sidenav from '../../components/Receptionist/sidenav';
+import Events_R from '../../components/Receptionist/events_R';
 import '../../styles/Receptionist/memberlist.css'
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Gymmemberattendence from '../../components/Receptionist/Gymmemberattendence';
 
-export const R_Gymmemberattendence = () => {
+export const R_events = () => {
 
 
 
@@ -19,7 +19,7 @@ export const R_Gymmemberattendence = () => {
     <div className="flex flex-row">
     <Sidenav />
 
-      <Gymmemberattendence/>
+      <Events_R/>
 
     </div>
 
@@ -29,4 +29,4 @@ export const R_Gymmemberattendence = () => {
   )
 } 
 
-export default R_Gymmemberattendence
+export default R_events

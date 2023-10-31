@@ -69,7 +69,13 @@ export const ManagerDashboard = () => {
         >
           <div className="" style={{ display: "flex" }}>
             <h1 className="text-xl mt-4 ml-8 mt-2 ">Total Members</h1>
-            <p className="text-4xl ml-8 mt-4 ">{data?.allMemberCount}</p>
+            {/* <p className="text-4xl ml-8 mt-4 ">{data?.allMemberCount}</p> */}
+            <p
+              className="text-4xl ml-8 mt-4"
+              style={{ transform: "translateY(16px)", color: "#141E46" }}
+            >
+              {data?.allMemberCount}
+            </p>
           </div>
           <p
             className="text-sm ml-8 mt-4"
@@ -236,9 +242,10 @@ export const ManagerDashboard = () => {
             <h1 style={{ color: "#5a5c5c", fontWeight: 500 }}>
               Gym Member Compisition
             </h1>
-            <div className="w-[50%] h-88 ml-12">
-              {" "}
-              <Doughnut data={chartData} />
+
+            <div className="w-full h-90
+             ml-2">
+              <Doughnut data={chartData}  />
             </div>
           </div>
         </div>
