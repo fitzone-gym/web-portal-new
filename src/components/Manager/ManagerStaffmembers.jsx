@@ -83,6 +83,26 @@ export const ManagerStaffmembers = () => {
           </Link>
         </div>
       </div>
+
+        {/* 3 row */}
+        <div className="grid grid-cols-3 ">
+        {/* 1 box */}
+        <div className=" mt-16">
+          <img className="w-[58%] h-[95%]  ml-32" src={images.trainerImage} alt="" />
+        </div>
+
+        {/* 2 box */}
+        <div className="">
+            <img
+              className="w-[58%] h-[83%] mt-16 ml-[26%]" src={images.managerdoctorImage} alt=""/>
+        </div>
+
+         {/* 3 box */}
+         <div className="">
+            <img
+              className="w-[58%] h-[83%] mt-16 ml-36" src={images.recepImage} alt=""/>
+        </div>
+      </div>
     </div>
   );
 };
