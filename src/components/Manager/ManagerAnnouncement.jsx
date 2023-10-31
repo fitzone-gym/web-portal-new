@@ -44,6 +44,7 @@ export const ManagerAnnouncement = () => {
       // Perform any additional actions (e.g., refreshing the list) after successful deletion
       // You can call the fetchTrainers function here to refresh the data after deletion
       alert("Announcement deleted successfully");
+      console.log(data)
       // Update the state after successful deletion
       setData((prevData) =>
         prevData.filter(

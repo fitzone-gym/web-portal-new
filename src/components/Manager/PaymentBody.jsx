@@ -1,7 +1,7 @@
 export const PaymentBody = (props) => {
   const data = props.data || [];
   return (
-    <div className="w-[99%]">
+    <div className="" style={{width:"1100px"}}>
       <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-28">
         <table className="w-full text-sm text-left text-gray-500  ">
           <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">

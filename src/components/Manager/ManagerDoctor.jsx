@@ -83,7 +83,7 @@ export const ManagerDoctor = () => {
         </div> */}
 
         <div className="">
-          <div className="" style={{ display: "flex", gap: 830 }}>
+          <div className="" style={{ display: "flex", gap: 750 }}>
             <h3
               style={{ color: "#124e78", fontWeight: "bold", fontSize: "25px" }}
             >
