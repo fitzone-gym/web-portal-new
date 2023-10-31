@@ -112,17 +112,14 @@ export const ManagerMembers = () => {
       className=""
       style={{
         marginRight: "20px",
-        marginLeft: "17%",
-        marginTop: "120px",
+        marginLeft: "16%",
+        marginTop: "150px",
         textAlign: "center",
       }}
     >
-      <div className="w-[100%]" style={{ margin: "0px 30px 0px 30px" }}>
-        <div className="text-4xl">
-          {" "}
-          <h4>Members Details</h4>
-        </div>
-        <div className="pt-6 pb-6 ml-[74%] w-[24%]">
+      <div className="" >
+        <div className="text-4xl">{/* <h4>Members Details</h4> */}</div>
+        <div className="pt-6 pb-6 ml-[75%] w-[24%]">
           <form onSubmit={handleSearch}>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-24%]">
@@ -164,7 +161,7 @@ export const ManagerMembers = () => {
           </form>
         </div>
 
-        <div className="mt-4 ml-24 ">
+        <div className="mt-4 ml-24 " style={{transform:"translateY(-80px)"}}>
           <div className="w-1/4 mr-2">
             <input
               type="number"
@@ -177,7 +174,10 @@ export const ManagerMembers = () => {
               required
             />
           </div>
-          <div className="w-1/4 ml-96 mt-[-3.1%]">
+          <div
+            className="w-1/4 ml-64"
+            style={{ transform: "translatey(-49px)" }}
+          >
             <input
               type="number"
               value={searchYear}
@@ -191,32 +191,32 @@ export const ManagerMembers = () => {
           </div>
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20 mt-16">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20 " style={{transform:"translateY(-90px)"}}>
           <table className="w-full text-sm text-left text-gray-500  ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>
-                <th scope="col" className="p-4">
-                  <div className="flex items-center">
-                    <input
-                      id="checkbox-all-search"
-                      type="checkbox"
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label for="checkbox-all-search" className="sr-only">
-                      checkbox
-                    </label>
-                  </div>
-                </th>
+                {/* <th scope="col" className="">
+                <div className="flex items-center">
+                  <input
+                    id="checkbox-all-search"
+                    type="checkbox"
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  />
+                  <label for="checkbox-all-search" className="sr-only">
+                    checkbox
+                  </label>
+                </div>
+              </th> */}
                 <th scope="col" className="px-20 py-3">
                   Member name
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-20 py-3">
                   Joined Date
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-10 py-3">
                   Phone No
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-10 py-3">
                   Package Type
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -247,11 +247,11 @@ export const ManagerMembers = () => {
                         </div>
                       </div>
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="px-20 py-4">
                       {formatDate(member.joined_date)}{" "}
                     </td>
-                    <td className="px-6 py-4">{member.phone_no}</td>{" "}
-                    <td className="px-6 py-4">{member.package}</td>
+                    <td className="px-10 py-4">{member.phone_no}</td>{" "}
+                    <td className="px-10 py-4">{member.package}</td>
                     <td className="px-6 py-4">{member.address}</td>
                     {/* <td>
                           <Link
@@ -270,4 +270,4 @@ export const ManagerMembers = () => {
       </div>
     </div>
   );
-};
+}

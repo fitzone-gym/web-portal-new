@@ -6,7 +6,6 @@ import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { CreatAnnonModal } from "./CreatAnnonModal";
 import { UpdateAnnonModal } from "./UpdateAnnounModal";
-import "../../styles/Manager/announcement.css";
 
 export const ManagerAnnouncement = () => {
   const [data, setData] = useState([]);
@@ -63,20 +62,10 @@ export const ManagerAnnouncement = () => {
 
   const handleEditClick = (announcement) => {
     setEditingAnnouncement(announcement);
-    // setShowModal(true); // Open the update modal
+    setShowModal(true); // Open the update modal
     console.log("This is announcement to select", announcement.announcement_id);
   };
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const formattedDate = new Intl.DateTimeFormat("en-GB", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }).format(date);
-
-    return formattedDate;
-  };
   return (
     <div
       className=""
@@ -87,12 +76,7 @@ export const ManagerAnnouncement = () => {
         textAlign: "center",
       }}
     >
-        <h3
-              style={{ color: "#124e78", fontWeight: "bold", fontSize: "25px" }}
-            >
-              Announcements
-            </h3>
-      <div className="pt-6 ml-[57%] w-[24%]">
+      <div className="pt-6 ml-[57%] w-[24%]" >
         <div className="ml-[115%] mt-[0ss%]">
           <button
             type=""
@@ -113,7 +97,7 @@ export const ManagerAnnouncement = () => {
         </div>
       </div>
 
-      <table className="font-semibold h-[28%] py-3 px-6 border-separate border-spacing-10">
+      <table className="font-semibold h-[28%] py-3 px-6 border-separate border-spacing-10" style={{width:"1150px"}}>
         <tbody className="">
           {data.map((announcement, index) => {
             return (
@@ -132,13 +116,13 @@ export const ManagerAnnouncement = () => {
                     style={{ fontWeight: 300, fontSize: 14 }}
                   >
                     <p className="ml-[3%] mt-1 mr-3">
-                      Dear {announcement.receiver}, {announcement.description}.
+                      Dear {announcement.for}, {announcement.description}.
                     </p>
                     {/* <p className="ml-[3%] mt-[1%]">Jayani</p>
                     <p className="ml-[3%] ">Gym Manager</p> */}
                   </div>
 
-                  <div className="actions py-5">
+                  <div className="actions">
                     {/* <Link to="/Manager/Announcement/UpdateAnnoun"> */}
                     <button
                       className="text-white bg-green-500 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-4 text-center inline-flex text-center items-center mr-2"
@@ -198,17 +182,6 @@ export const ManagerAnnouncement = () => {
           })}
         </tbody>
       </table>
-      {/* Render the modal conditionally */}
-      {showModal && <CreatAnnonModal onClose={handleCloseModal} />}
-      {editingAnnouncement && (
-        <UpdateAnnonModal
-          onClose={() => {
-            setEditingAnnouncement(null); // Close the modal
-            handleCloseModal();
-          }}
-          announcement={editingAnnouncement} // Pass the announcement data
-        />
-      )}
     </div>
   );
 };

@@ -102,11 +102,11 @@ export const ManagerTrainer = () => {
               marginLeft: "80px",
             }}
           >
-            Trainer Details
+            Managers
           </h3>
           <form onSubmit={handleSearch}>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-24%]">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-120%]">
                 <svg
                   className="w-4 h-4 text-gray-500 dark:text-gray-400"
                   aria-hidden="true"
@@ -138,6 +138,7 @@ export const ManagerTrainer = () => {
                  absolute right-2.5 w-18 bg-gray-200 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 "
                 style={{
                   marginTop: -39,
+                  transform:"translateX(200px)"
                 }}
               >
                 Search
@@ -173,11 +174,11 @@ export const ManagerTrainer = () => {
           )}
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20 mt-12">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20 mt-12 w-[90%]">
           <table className="w-full text-sm text-left text-gray-500 ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>
-                <th scope="col" className="px-14 py-3">
+                <th scope="col" className="px-10 py-3">
                   Trainer name
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -192,7 +193,7 @@ export const ManagerTrainer = () => {
                 <th scope="col" className="px-6 py-3">
                   Working Experience
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-4 py-3">
                   Action
                 </th>
                 {/* <th>Download</th> */}
@@ -251,7 +252,7 @@ export const ManagerTrainer = () => {
                         <td className="px-6 py-4">
                           {trainer.working_experience}
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="px-4 py-4">
                           <Link
                             onClick={() =>
                               handleDelete(trainer.trainer_id)
