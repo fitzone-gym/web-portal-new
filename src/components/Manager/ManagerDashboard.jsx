@@ -236,14 +236,6 @@ export const ManagerDashboard = () => {
             height: 460,
           }}
         >
-          {/* <div className="text-2xl  py-3">
-            <h1>Total Revenue(weekly)</h1>
-            <img
-              className=" h-96 mt-10 ml-8"
-              src={images.revenueImage}
-              alt=""
-            />
-          </div> */}
         </div>
 
         {/* 2 box */}
