@@ -281,7 +281,7 @@ export const ManagerDashboard = () => {
               className="text-4xl ml-8 mt-4"
               style={{ transform: "translate(-35px,16px)", color: "#FF6969" }}
             >
-              {data?.staffCount}25
+              {data?.staffCount}
             </p>
           </div>
           <p
