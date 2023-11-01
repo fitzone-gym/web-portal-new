@@ -174,13 +174,13 @@ export const ManagerDashboard = () => {
         >
           <div className="" style={{ display: "flex" }}>
             <h1 className="text-xl mt-4 ml-8 mt-2 ">Total Doctor</h1>
-            <p className="text-5xl ml-8 mt-4 ">{data?.doctorCount}</p>
-            {/* <p
+            {/* <p className="text-5xl ml-8 mt-4 ">{data?.doctorCount}</p> */}
+            <p
               className="text-4xl ml-8 mt-4"
               style={{ transform: "translate(20px,16px)", color: "#B3A492" }}
             >
-              25
-            </p> */}
+              {data?.doctorCount}
+            </p>
           </div>
           <p
             className="text-sm ml-8 mt-4"
@@ -199,13 +199,13 @@ export const ManagerDashboard = () => {
         >
           <div className="" style={{ display: "flex" }}>
             <h1 className="text-xl mt-4 ml-8 mt-2 ">Total Trainers</h1>
-            <p className="text-5xl ml-8 mt-4 ">{data?.trainerCount}</p>
-            {/* <p
+            {/* <p className="text-5xl ml-8 mt-4 ">{data?.trainerCount}</p> */}
+            <p
               className="text-4xl ml-8 mt-4"
               style={{ transform: "translateY(16px)", color: "#4D4C7D" }}
             >
-              25
-            </p> */}
+              {data?.trainerCount}
+            </p>
           </div>
           <p
             className="text-sm ml-8 mt-4"
@@ -226,13 +226,13 @@ export const ManagerDashboard = () => {
         >
           <div className="" style={{ display: "flex" }}>
             <h1 className="text-xl mt-4 ml-8 mt-2 ">Total Receptionist</h1>
-            <p className="text-5xl ml-8 mt-4 ">{data?.receptionistCount}</p>
-            {/* <p
+            {/* <p className="text-5xl ml-8 mt-4 ">{data?.receptionistCount}</p> */}
+            <p
               className="text-4xl ml-8 mt-4"
               style={{ transform: "translate(-20px,16px)", color: "#F99417" }}
             >
-              25
-            </p> */}
+              {data?.receptionistCount}
+            </p>
           </div>
           <p
             className="text-sm ml-8 mt-4"
@@ -251,13 +251,13 @@ export const ManagerDashboard = () => {
         >
           <div className="" style={{ display: "flex" }}>
             <h1 className="text-xl mt-4 ml-8 mt-2 ">New Memberships</h1>
-            <p className="text-5xl ml-8 mt-4 ">{data?.newMemberCount}</p>
-            {/* <p
+            {/* <p className="text-5xl ml-8 mt-4 ">{data?.newMemberCount}</p> */}
+            <p
               className="text-4xl ml-8 mt-4"
               style={{ transform: "translate(-18px,16px)", color: "#C70039" }}
             >
-              25
-            </p> */}
+              {data?.newMemberCount}
+            </p>
           </div>
           <p
             className="text-sm ml-8 mt-4"
@@ -276,13 +276,13 @@ export const ManagerDashboard = () => {
         >
           <div className="" style={{ display: "flex" }}>
             <h1 className="text-xl mt-4 ml-8 mt-2 ">Total Staff Members</h1>
-            <p className="text-5xl ml-8 mt-4 ">{data?.staffCount}</p>
-            {/* <p
+            {/* <p className="text-5xl ml-8 mt-4 ">{data?.staffCount}</p> */}
+            <p
               className="text-4xl ml-8 mt-4"
               style={{ transform: "translate(-35px,16px)", color: "#FF6969" }}
             >
-              25
-            </p> */}
+              {data?.staffCount}25
+            </p>
           </div>
           <p
             className="text-sm ml-8 mt-4 "
@@ -291,8 +291,6 @@ export const ManagerDashboard = () => {
             Gym Staff Members
           </p>
         </div>
-
-       
       </div>
 
       {/* 3 row */}

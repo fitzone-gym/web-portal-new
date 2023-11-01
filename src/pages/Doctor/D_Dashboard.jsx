@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 
 import Header from "../../components/header";
-import Sidenav from "../../components/Doctor/sidenav";
+import Sidenav from "../../components/Doctor/Sidenav";
 import "../../styles/Doctor/dashboard.css";
 
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";

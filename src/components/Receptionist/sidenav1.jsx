@@ -11,15 +11,16 @@ import {
 
 import { useLocation } from "react-router-dom";
 
-
 function Sidenav() {
   const { pathname } = useLocation();
   const isReceptionistDashboard = pathname === "/Receptionist/Dashboard";
   const isReceptionistMemberlist = pathname === "/Receptionist/Memberslist";
   const isReceptionistTrainerlist = pathname === "/Receptionist/Trainerlist";
   const isReceptionistDoctor = pathname === "/Receptionist/onCallDoctor";
-  const isReceptionistemberAttendance = pathname === "/Receptionist/Memberattendence";
-  const isContactUsSubmitions = pathname === "/Receptionist/contactUsSubmitions";
+  const isReceptionistemberAttendance =
+    pathname === "/Receptionist/Memberattendence";
+  const isContactUsSubmitions =
+    pathname === "/Receptionist/contactUsSubmitions";
   const isReceptionistPayments = pathname === "/Receptionist/Payment";
   const activeStyles = {
     borderRadius: "50px",
@@ -30,7 +31,7 @@ function Sidenav() {
     color: "rgb(229, 70, 70)",
   };
   return (
-    <div className="sidenavbar" style={{ paddingTop: "150px" }}>
+    <div className="sidenavbar">
       <ul className="flex flex-col py-5 space-y-1 font-bold text-center ml-10">
         <li>
           <a

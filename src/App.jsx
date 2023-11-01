@@ -7,13 +7,13 @@ import R_Trainerlist from "./pages/Receptionist/R_Trainerlist";
 import R_Announcement from "./pages/Receptionist/R_Announcement";
 import R_Userprofile from "./pages/Receptionist/R_Userprofile";
 import R_Attendence from "./pages/Receptionist/R_Attendence";
-import R_onememberattendence from "./pages/Receptionist/onememberattendence";
+// import R_onememberattendence from "./pages/Receptionist/onememberattendence";
 // import R_Leaverequest from "./pages/Receptionist/R_Leaverequest";
 import R_Payment from "./pages/Receptionist/R_Payment";
 import R_Memberprofile from "./pages/Receptionist/R_Memberprofile";
 import R_Trainerprofile from "./pages/Receptionist/R_Trainerprofile";
 import R_Editmyprofile from "./components/Receptionist/editprofile";
-import R_Attendence_All from "./pages/Receptionist/R_Attendence_All";
+// import R_Attendence_All from "./pages/Receptionist/R_Attendence_All";
 import Feedback_R from './pages/Receptionist/Feedback'
 import R_events from "./pages/Receptionist/R_events";
 import R_Oncalldoctor from "./pages/Receptionist/R_Oncalldoctor";

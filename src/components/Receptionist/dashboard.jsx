@@ -2,6 +2,8 @@ import { CheckIcon } from '@heroicons/react/20/solid'
 import '../../styles/Receptionist/dashboard.css'
 import background_image from '../../assets/dashboard_bg.png';
 import React, { useRef, useState, useEffect } from "react";
+import { BsFillCheckCircleFill } from "react-icons/bs";
+
 
 function Dashboard() {
     const [counts, setCounts] = useState({
@@ -101,242 +103,392 @@ function Dashboard() {
         fetchData();
     }, []);
   return (
-    
-    <div className='dashboard'>
-
-      <div className='statistics'>
-
-<div className="max-w-full mx-4 py-6  bg-grey-600 sm:mx-auto sm:px-6 lg:px-8 mt-20">
-    <div className="sm:flex sm:space-x-4"href="/Receptionist/Memberslist">
-      
-        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-            <div
-          class="bg-[#222222] border border-white/[.5] font-bold rounded-sm text-left rounded-md"
-          style={{
-            height: 160,
-            width: 360,
-          }}
-        >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">{counts.TotalMemberCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members</p>
-        </div>
-        </div> 
-
-        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-        <div
-          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
-          style={{
-            height: 160,
-            width: 360,
-          }}
-        >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">New Members</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">{counts.NewMemberCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">New Gym Members</p>
-        </div>
-        </div>
-        <div className="inline-block align-bottom rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-        <div
-          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
-          style={{
-            height: 160,
-            width: 360,
-          }}
-        >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Total Trainers</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">{counts.TotalTrainerCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Trainers</p>
-        </div>
-        </div>
-        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-        <div
-          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
-          style={{
-            height: 160,
-            width: 360,
-          }}
-        >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">New Trainers</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">{counts.newTrainersCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Newly joined gym trainers</p>
-        </div>
-        </div>
-    </div>
-
-    <div className="sm:flex sm:space-x-4">
-        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-        <div
-          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
-          style={{
-            height: 160,
-            width: 360,
-          }}
-        >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Attendence Today</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">{counts. todayAttendenceCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Gym Members presnet today</p>
-        </div>
-        </div>
-
-        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-        <div
-          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
-          style={{
-            height: 160,
-            width: 360,
-          }}
-        >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Current Presence</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">{counts.currentAttendenceCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Members at the time</p>
-        </div>
-            
-        </div>
- <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
- <div
-          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
-          style={{
-            height: 160,
-            width: 360,
-          }}
-        >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">On Call Doctors</h1>
-          <p className="text-5xl ml-8 mt-4 text-white">{counts.TotalonCallDocCount}</p>
-          <p className="text-medium ml-8 mt-4 text-red-500">Available doctors for emergency</p>
-        </div>
-            
-        </div>
-        <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
-        <div
-          class="bg-[#222222] border border-white/[1.] font-bold rounded-sm text-left rounded-md"
-          style={{
-            height: 160,
-            width: 360,
-          }}
-        >
-          <h1 className="text-xl mt-2 ml-8 mt-2 text-white">Workshops</h1>
-       <a href = "/Receptionist/events">  <p className="text-5xl ml-8 mt-4 text-white">{counts.EventsCount}</p></a> 
-          <p className="text-medium ml-8 mt-4 text-red-500">Workshop planned this month</p>
-        </div>
-        </div>
-
-
-        
-    </div>
-
-    <div className="sm:flex sm:space-x-4">
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-2/3 sm:my-8">
-            <div className="bg-white p-12 h-5">
-                <div className="sm:flex sm:items-start">
-                    <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                        <h3 className="text-sm leading-6 font-medium text-gray-400">Announcements</h3>
-                        <div
-  class="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-8xl md:flex-row">
-  
-  <div class="flex flex-col justify-start p-1 text-left	">
-    <h5
-      class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-{counts.announcementtitle} </h5>
-    <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-    {counts.announcementbody}    </p>
-    <p class="text-xs text-neutral-500 dark:text-neutral-300">
-      Last updated 3 mins ago
-    </p>
-  </div>
-
- 
-  
-</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8 h-120">
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" onSubmit={handlesubmit} method="POST">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                Member ID
-              </label>
-              <div className="mt-2">
-                <input
-                  id="memberid"
-                  name="memberid"
-                  type="text"
-                  onChange={(e) => setmemberId(e.target.value)}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-           
-
-            <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                  Check-in time 
-                </label>
-            
-              </div>
-              <div className="mt-2">
-                <input
-                  id="checkin_time"
-                  name="checkin_time"
-                  type="time"
-                  value={checkIn}
-                  onChange={(e) => setCheckIn(e.target.value)}
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                  Check-out time 
-                </label>
-              
-              </div>
-              <div className="mt-2">
-                <input
-                  id="checkout_time"
-                  name="checkout_time"
-                  type="time"
-                  value={checkOut}
-                  onChange={(e) => setCheckOut(e.target.value)}
-                  
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400"
+    <div className="dashboard">
+      <div className="statistics">
+        <div className="max-w-full mx-4 py-6  bg-grey-600 sm:mx-auto sm:px-6 lg:px-8 mt-36">
+          <div
+            className="sm:flex sm:space-x-4"
+            href="/Receptionist/Memberslist"
+          >
+            <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+              <div
+                className="border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+                style={{
+                  height: 120,
+                  width: 200,
+                }}
               >
-                Mark Attendence
-              </button>
+                <div className="" style={{ display: "flex" }}>
+                  <h1 className="text-xl mt-2 ml-8 mt-2">Total Members</h1>
+                  <p
+                    className="text-4xl ml-8 mt-4"
+                    style={{ transform: "translateY(16px)", color: "#141E46" }}
+                  >
+                    {counts.TotalMemberCount}
+                  </p>
+                </div>
+                <p
+                  className="text-sm ml-8 mt-4"
+                  style={{ color: "#062C30", fontWeight: 500 }}
+                >
+                  Gym Members
+                </p>
+              </div>
             </div>
-          </form>
 
+            <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+              <div
+                className="border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+                style={{
+                  height: 120,
+                  width: 200,
+                }}
+              >
+                <div className="" style={{ display: "flex" }}>
+                  <h1 className="text-xl mt-2 ml-8 mt-2">New Members</h1>
+                  <p
+                    className="text-4xl ml-8 mt-4"
+                    style={{
+                      transform: "translate(20px,16px)",
+                      color: "#B3A492",
+                    }}
+                  >
+                    {counts.NewMemberCount}
+                  </p>
+                </div>
+                <p
+                  className="text-sm ml-8 mt-4"
+                  style={{ color: "#062C30", fontWeight: 500 }}
+                >
+                  New Gym Members
+                </p>
+              </div>
+            </div>
+            <div className="inline-block align-bottom rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+              <div
+                className="border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+                style={{
+                  height: 120,
+                  width: 200,
+                }}
+              >
+                <div className="" style={{ display: "flex" }}>
+                  <h1 className="text-xl mt-2 ml-8 mt-2">Total Trainers</h1>
+                  <p
+                    className="text-4xl ml-8 mt-4"
+                    style={{ transform: "translateY(16px)", color: "#4D4C7D" }}
+                  >
+                    {counts.TotalTrainerCount}
+                  </p>
+                </div>
+                <p
+                  className="text-sm ml-8 mt-4"
+                  style={{ color: "#062C30", fontWeight: 500 }}
+                >
+                  Gym Trainers
+                </p>
+              </div>
+            </div>
+            <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+              <div
+                className="border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+                style={{
+                  height: 120,
+                  width: 200,
+                }}
+              >
+                <div className="" style={{ display: "flex" }}>
+                  <h1 className="text-xl mt-2 ml-8 mt-2">New Trainers</h1>
+                  <div className="" style={{ display: "flex" }}>
+                    <p
+                      className="text-4xl ml-8 mt-4"
+                      style={{
+                        transform: "translate(-20px,16px)",
+                        color: "#F99417",
+                      }}
+                    >
+                      {counts.newTrainersCount}
+                    </p>
+                  </div>
+                </div>
+                <p
+                  className="text-sm ml-8 mt-4"
+                  style={{ color: "#062C30", fontWeight: 500 }}
+                >
+                  Newly joined(current month)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="sm:flex sm:space-x-4">
+            <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+              <div
+                className="border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+                style={{
+                  height: 120,
+                  width: 200,
+                }}
+              >
+                <div className="" style={{ display: "flex" }}>
+                  <h1 className="text-xl mt-2 ml-8 mt-2">Attendence Today</h1>
+                  <p
+                    className="text-4xl ml-8 mt-4"
+                    style={{
+                      transform: "translate(-18px,16px)",
+                      color: "#C70039",
+                    }}
+                  >
+                    {counts.todayAttendenceCount}
+                  </p>
+                </div>
+                <p
+                  className="text-sm ml-8 mt-4"
+                  style={{ color: "#062C30", fontWeight: 500 }}
+                >
+                  Gym Members
+                </p>
+              </div>
+            </div>
+
+            <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+              <div
+                className="border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+                style={{
+                  height: 120,
+                  width: 200,
+                }}
+              >
+                <div className="" style={{ display: "flex" }}>
+                  <h1 className="text-xl mt-2 ml-8 mt-2">Current Presence</h1>
+                  <p
+                    className="text-4xl ml-8 mt-4"
+                    style={{
+                      transform: "translate(-35px,16px)",
+                      color: "#FF6969",
+                    }}
+                  >
+                    {counts.currentAttendenceCount}
+                  </p>
+                </div>
+                <p
+                  className="text-sm ml-8 mt-4"
+                  style={{ color: "#062C30", fontWeight: 500 }}
+                >
+                  At current time
+                </p>
+              </div>
+            </div>
+            <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+              <div
+                className="border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+                style={{
+                  height: 120,
+                  width: 200,
+                }}
+              >
+                <div className="" style={{ display: "flex" }}>
+                  <h1 className="text-xl mt-2 ml-8 mt-2">On Call Doctors</h1>
+                  <p
+                    className="text-4xl ml-8 mt-4"
+                    style={{ transform: "translateY(16px)", color: "#141E46" }}
+                  >
+                    {counts.TotalonCallDocCount}
+                  </p>
+                </div>
+                <p
+                  className="text-sm ml-8 mt-4"
+                  style={{ color: "#062C30", fontWeight: 500 }}
+                >
+                  For emergency
+                </p>
+              </div>
+            </div>
+            <div className="inline-block align-bottom  rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+              <div
+                className="border border-white/[.5] font-bold rounded-sm text-left rounded-md"
+                style={{
+                  height: 120,
+                  width: 200,
+                }}
+              >
+                <div className="" style={{ display: "flex" }}>
+                  <h1 className="text-xl mt-2 ml-8 mt-2">
+                    Doctor Availability
+                  </h1>
+                  <a href="/Receptionist/events">
+                    {" "}
+                    <p
+                      className="text-4xl ml-8 mt-4"
+                      style={{
+                        transform: "translateY(16px)",
+                        color: "#419197",
+                      }}
+                    >
+                      {counts.availability === "Consultant purpose" ? (
+                        <div className="">
+                          <BsFillCheckCircleFill />
+                        </div>
+                      ) : (
+                        <div className="" >
+                          X
+                        </div>
+                      )}
+                    </p>
+                  </a>
+                </div>
+                <p
+                  className="text-sm ml-8 mt-4"
+                  style={{ color: "#062C30", fontWeight: 500 }}
+                >
+                  At current time
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="sm:flex sm:space-x-4">
+            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-2/3 sm:my-8">
+              <div className="bg-white p-4 h-5">
+                <div className="sm:flex sm:items-start">
+                  <div className="text-center sm:mt-0 sm:ml-2 sm:text-left">
+                    <h3
+                      className="text-meadium leading-6 font-medium"
+                      style={{ fontWeight: "bold" }}
+                    >
+                      Announcements
+                    </h3>
+                    {/* <FaRegCircleUserc /> */}
+                    <div
+                      className="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-8xl md:flex-row"
+                      style={{ marginTop: "30px", padding: "15px" }}
+                    >
+                      <div className="flex flex-col justify-start p-1 text-left	">
+                        <h5
+                          className="mb-2 text-xl font-medium text-neutral-800"
+                          style={{
+                            color: "#062C30",
+                            fontSize: 15,
+                            fontWeight: 600,
+                          }}
+                        >
+                          {counts.announcementtitle}{" "}
+                        </h5>
+                        <p
+                          className="mb-4 text-base text-neutral-600 dark:text-neutral-300"
+                          style={{ fontSize: 14 }}
+                        >
+                          {counts.announcementbody}{" "}
+                        </p>
+                        <p className="text-xs text-neutral-500 dark:text-neutral-300">
+                          Last updated 3 mins ago
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8 h-120"
+              style={{ padding: "15px" }}
+            >
+              <h3
+                className="text-meadium leading-6 font-medium"
+                style={{ fontWeight: "bold", paddingLeft: "27px" }}
+              >
+                Member Attendence
+              </h3>
+              <div
+                className=" sm:mx-auto sm:w-full sm:max-w-sm"
+                style={{ padding: "15px" }}
+              >
+                <form
+                  className="space-y-6"
+                  onSubmit={handlesubmit}
+                  method="POST"
+                  style={{ padding: "15px" }}
+                >
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Member ID
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        id="memberid"
+                        name="memberid"
+                        type="text"
+                        onChange={(e) => setmemberId(e.target.value)}
+                        className="block w-full rounded-md border-0 py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <label
+                        htmlFor="password"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Check-in time
+                      </label>
+                    </div>
+                    <div className="mt-2">
+                      <input
+                        id="checkin_time"
+                        name="checkin_time"
+                        type="time"
+                        value={checkIn}
+                        onChange={(e) => setCheckIn(e.target.value)}
+                        required
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <label
+                        htmlFor="password"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Check-out time
+                      </label>
+                    </div>
+                    <div className="mt-2">
+                      <input
+                        id="checkout_time"
+                        name="checkout_time"
+                        type="time"
+                        value={checkOut}
+                        onChange={(e) => setCheckOut(e.target.value)}
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <button
+                      type="submit"
+                      className="flex w-full justify-center rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold leading-6  shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400 text-white"
+                    >
+                      Mark Attendence
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          {/* Mmebers Revenue */}
         </div>
-        </div>
-
-        
-        </div>
-
-        {/* Mmebers Revenue */}
-
-</div>
-
-</div>
-</div>
-  )
+      </div>
+    </div>
+  );
 }
 
 export default Dashboard

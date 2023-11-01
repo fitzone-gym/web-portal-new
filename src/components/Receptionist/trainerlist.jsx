@@ -16,6 +16,10 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
+import { BsCheck2Square } from "react-icons/bs";
+
+
+
 
 
 export const R_Trainerlists = () => {
@@ -64,35 +68,30 @@ export const R_Trainerlists = () => {
 
   return (
     <>
-     
-
-        <div
-          className="mt-40"
-          style={{
-            // marginLeft: "17%",
-            marginRight: "20px",
-            marginLeft: "17%",
-            marginTop: "200px",
-            textAlign: "center",
-            width: "100%",
-          }}
-        >
-          {/* <div className="sectionHeader">
+      <div
+        className="mt-40"
+        style={{
+          // marginLeft: "17%",
+          marginRight: "20px",
+          marginLeft: "17%",
+          marginTop: "200px",
+          textAlign: "center",
+          width: "100%",
+        }}
+      >
+        {/* <div className="sectionHeader">
             <h2>Members</h2>
           </div> */}
-          <div
-            className="relative  shadow-md sm:rounded-lg"
-            style={{ margin: "0px 30px 30px 30px" }}
-          >
-            <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
-              <div>
-        
-          
-              </div>
-              <label for="table-search" className="sr-only">
-                Search
-              </label>
-              <form onSubmit={handleSearch}>
+        <div
+          className="relative  shadow-md sm:rounded-lg"
+          style={{ margin: "0px 30px 30px 30px" }}
+        >
+          <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
+            <div></div>
+            <label for="table-search" className="sr-only">
+              Search
+            </label>
+            <form onSubmit={handleSearch}>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <svg
@@ -118,40 +117,38 @@ export const R_Trainerlists = () => {
                   className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Search for users"
                 />
-                 <button
+                <button
                   type="submit"
-                  className="mr-[0%] text-white absolute right-2.5 bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-black
+                 absolute right-2.5 w-18 bg-gray-200 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2"
                   style={{
-                    marginTop: -41,
+                    marginTop: -35,
                   }}
                 >
                   Search
                 </button>
               </div>
-              </form>
-            </div>
-            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-             
+            </form>
+          </div>
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
                 <th scope="col" className="px-6 py-3">
-                    Trainer Name
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Contact No  
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Experience
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Availability
-                  </th>
-                  <th>
-                    No of Members
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
+                  Trainer Name
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Contact No
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Experience
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Availability
+                </th>
+                <th>No of Members</th>
+              </tr>
+            </thead>
+            <tbody>
               {searchResults.length > 0
                 ? searchResults.map((member, index) => (
                     <tr
@@ -165,11 +162,10 @@ export const R_Trainerlists = () => {
                         {member.first_name + " " + member.last_name}{" "}
                       </th>
                       <td className="px-6 py-4">{member.phone_no} </td>
-                      
                       <td className="px-6 py-4"></td>{" "}
                       <td className="px-6 py-4">{member.package}</td>
                       <td className="px-6 py-4">
-                      {/* <a
+                        {/* <a
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline decoration:none"
                       style={{textDecoration:"none"}}
@@ -193,87 +189,85 @@ export const R_Trainerlists = () => {
                           {member.first_name + " " + member.last_name}{" "}
                         </th>
                         <td className="px-6 py-4">{member.phone_no} </td>
-                        <td className="px-6 py-4">{member.working_experience} Years</td>{" "}
                         <td className="px-6 py-4">
-                               {member.status === 1 ? "Available" : "Unavailable"}
-                         </td>
-
-                        <td className="px-6 py-4">
-                   
-                        </td>
+                          {member.working_experience} Years
+                        </td>{" "}
+                        <th className="px-6 py-4" style={{merginLeft:"15px"}}>
+                          {member.status === 1 ? (
+                            <div
+                              style={{
+                                fontSize: 18,
+                                color: "#C70039",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              <BsCheck2Square />
+                            </div>
+                          ) : (
+                            <div style={{ fontSize: 15, color: "#419197" }}>
+                              X
+                            </div>
+                          )}
+                        </th>
+                        <td className="px-6 py-4"></td>
                       </tr>
                     );
                   })}
-              </tbody>
-            </table>
-          </div>
+            </tbody>
+          </table>
         </div>
-     
+      </div>
+
       {/* dialog popup */}
       <Dialog open={open} onClose={handleClose}>
         {/* <DialogTitle>Subscribe</DialogTitle> */}
         <DialogContent>
-        <div className="p-2 text-center">
-                {/* <img src={profile} className="userProfileImage" /> */}
-                <img
-                  className="userProfileImage items-center"
-                  src={profileimage}
-                  // src="../assets/Users/Janith.jpg"
-                  alt=""
-                />
-              </div>
+          <div className="p-2 text-center">
+            {/* <img src={profile} className="userProfileImage" /> */}
+            <img
+              className="userProfileImage items-center"
+              src={profileimage}
+              // src="../assets/Users/Janith.jpg"
+              alt=""
+            />
+          </div>
           <DialogContentText>
             <p className="pt-2  text-center healthpopUpUserName">Neil singh</p>
-    
           </DialogContentText>
           <div className="pt-8">
-
-          
-
-            <div className="flex gap-4 pb-3 formInputs">
-            
-
- </div>
- <div className="flex gap-4 pb-3 ">
-            <p className="healthpopUpUserAge">Contact No:  </p>
-            <p className="healthpopUpUserAge">0763572139</p>
-
+            <div className="flex gap-4 pb-3 formInputs"></div>
+            <div className="flex gap-4 pb-3 ">
+              <p className="healthpopUpUserAge">Contact No: </p>
+              <p className="healthpopUpUserAge">0763572139</p>
             </div>
-<div className="flex gap-4 pt-3">
-
-            <p className="healthpopUpUserAge">Email Address:  </p>
-            <p className="healthpopUpUserAge">muralijasi@gmail.com</p>
- </div>
-
- <div className="flex gap-4 pt-3">
-
-<p className="healthpopUpUserAge">Gender:  </p>
-<p className="healthpopUpUserAge"> Male</p>
-</div>
-
-           
-
             <div className="flex gap-4 pt-3">
-            <p className="healthpopUpUserAge"> Availability:  </p>
-            <p className="healthpopUpUserAge"> Available </p>
-
-            </div>
-<div className="flex gap-4 pt-3">
-            <p className="healthpopUpUserAge">Qualification:  </p>
-            <p className="healthpopUpUserAge"> BSc </p>
+              <p className="healthpopUpUserAge">Email Address: </p>
+              <p className="healthpopUpUserAge">muralijasi@gmail.com</p>
             </div>
 
             <div className="flex gap-4 pt-3">
-            <p className="healthpopUpUserAge"> Work Experience :  </p>
-            <p className="healthpopUpUserAge"> 4 Years </p>
+              <p className="healthpopUpUserAge">Gender: </p>
+              <p className="healthpopUpUserAge"> Male</p>
             </div>
 
             <div className="flex gap-4 pt-3">
-            <p className="healthpopUpUserAge">Emergency Contact :  </p>
-            <p className="healthpopUpUserAge">0773618798</p>
+              <p className="healthpopUpUserAge"> Availability: </p>
+              <p className="healthpopUpUserAge"> Available </p>
+            </div>
+            <div className="flex gap-4 pt-3">
+              <p className="healthpopUpUserAge">Qualification: </p>
+              <p className="healthpopUpUserAge"> BSc </p>
             </div>
 
-      
+            <div className="flex gap-4 pt-3">
+              <p className="healthpopUpUserAge"> Work Experience : </p>
+              <p className="healthpopUpUserAge"> 4 Years </p>
+            </div>
+
+            <div className="flex gap-4 pt-3">
+              <p className="healthpopUpUserAge">Emergency Contact : </p>
+              <p className="healthpopUpUserAge">0773618798</p>
+            </div>
           </div>
         </DialogContent>
         <DialogActions>

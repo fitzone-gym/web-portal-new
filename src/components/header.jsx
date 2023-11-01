@@ -17,7 +17,6 @@ function classNames(...classes) {
 
 
 function Navbar() {
-
     let navigate = useNavigate();
     const handleLogout = () => {
       sessionStorage.clear();

@@ -2,7 +2,7 @@ import React, {  useState, useEffect } from "react";
 
 
 import Header from "../../components/header";
-import Sidenav from "../../components/Doctor/sidenav";
+import Sidenav from "../../components/Doctor/Sidenav";
 import "../../styles/Doctor/memberList.css";
 
 

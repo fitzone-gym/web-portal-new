@@ -260,9 +260,9 @@ export const Loginform = () => {
               />
             </div>
             <div className="ml-3 text-xs lg:text-sm">
-              <label htmlFor="remember" className="text-white dark:text-gray-300 mr-4">
+              {/* <label htmlFor="remember" className="text-white dark:text-gray-300 mr-4">
                 Remember me
-              </label>
+              </label> */}
             </div>
           </div>
           <div>

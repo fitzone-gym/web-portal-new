@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from "react";
 import { Link } from "react-router-dom";
 
 import Header from "../../components/header";
-import Sidenav from "../../components/Doctor/sidenav";
+import Sidenav from "../../components/Doctor/Sidenav";
 import "../../styles/Doctor/profile.css";
 import profile from "../../assets/profile2.jpg";
 

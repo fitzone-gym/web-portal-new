@@ -17,7 +17,7 @@ export const R_Attendence_All= () => {
     <Header />
  
     <div className="flex flex-row">
-    <Sidenav />
+    <Sidenav style={{paddingTop:"150px"}}/>
 
       <All_Attendence_R/>
 

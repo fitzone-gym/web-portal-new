@@ -117,9 +117,10 @@ export const Payment = () => {
                 />
                  <button
                   type="submit"
-                  className="mr-[0%] text-white absolute right-2.5 bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-black
+                 absolute right-2.5 w-18 bg-gray-200 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2"
                   style={{
-                    marginTop: -41,
+                    marginTop: -35,
                   }}
                 >
                   Search

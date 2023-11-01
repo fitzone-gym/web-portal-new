@@ -14,7 +14,7 @@
 .contactUsCardSet{
     margin-left:17%;
     margin-right:20px;
-    margin-top:50px;
+    margin-top:120px;
     margin-bottom:20px;
     padding-bottom:20px; /*temporary*/
 }
@@ -52,16 +52,19 @@
 }
 
 .contactUsMessages .contactUsCardSet .openReplySection {
-    color: rgb(185, 37, 37);
+    color:#002f49;
     font-size:13px;
+    font-weight:bold;
 }
 
 .contactUsMessages .contactUsCardSet .responseStateBtn{
-    padding:10;
+    padding:6 10 6 10;
     border-radius:50px;
     font-size:13px;
     text-transform: lowercase;
     color:#fcbf49;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
 }
 
 .css-1rwt2y5-MuiButtonBase-root-MuiButton-roo{
@@ -69,12 +72,13 @@
 }
 
 .contactUsMessages .contactUsCardSet .responseStateBtnPending{
-    padding: 10;
+    padding: 8 10 8 10;
     border-radius: 50px;
     font-size: 13px;
     text-transform: lowercase;
     color:#eae2b7;
-    
+    font-family: 'Poppins', sans-serif;
+    font-weight:600
 }
 
 .replySectionHeader{

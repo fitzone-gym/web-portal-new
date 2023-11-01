@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 import axios from "axios";
 
 import Header from "../../components/header";
-import Sidenav from "../../components/Receptionist/sidenav";
+import Sidenav from "../../components/Receptionist/sidenav1";
 import "../../styles/Receptionist/contactUsSubmitions.css";
 
 import { styled } from "@mui/material/styles";
@@ -170,34 +170,12 @@ function Contactus_Form_Submitions() {
     );
   };
 
-  // const useStyles = makeStyles({
-  //   formInputs: {
-  //     fontSize: "13px",
-  //     "& .MuiInputBase-input": {
-  //       color: "red", // Customize the text color here
-  //     },
-  //   },
-  // });
-
-  //  const classes = useStyles();
-  
-
   return (
     <>
       <div className="contactUsMessages">
-        {/* <Disclosure
-          as="nav"
-          className="bg-gray-800 fixed top-0 left-0 w-full z-50"
-        >
-          <Header/>
-        </Disclosure> */}
         <Header />
-        <Sidenav  style={{paddingTop:"-150px"}}/>
+        <Sidenav />
         <div className="contactUsCardSet">
-          {/* <div className="sectionHeader">
-            <h2>Get in Touch</h2>
-          </div> */}
-
           {requestDetails.length > 0 ? (
             requestDetails.map((request) => (
               <Card
@@ -230,20 +208,28 @@ function Contactus_Form_Submitions() {
                 <CardActions disableSpacing>
                   {request.reply_or_not_state === 0 ? (
                     <Button
-                      variant="outlined"
-                      startIcon={<PendingActionsIcon />}
+                      // startIcon={<PendingActionsIcon />}
                       className="responseStateBtnPending"
                       color="error"
+                      style={{
+                        color: "rgb(179, 164, 146)",
+                        border: "1px solid #b3a492",
+                      }}
                     >
-                      Pending
+                      <PendingActionsIcon style={{ fontSize: 16 }} />
+                      &nbsp;&nbsp;Pending
                     </Button>
                   ) : (
                     <Button
-                      variant="outlined"
-                      startIcon={<MarkEmailReadIcon />}
+                      // startIcon={<MarkEmailReadIcon />}
                       className="responseStateBtn"
+                      style={{
+                        color: "#EE9322",
+                        border: "1px solid #EE9322",
+                      }}
                     >
-                      Replied
+                      <MarkEmailReadIcon style={{ fontSize: 16 }} />
+                      &nbsp;&nbsp;Replied
                     </Button>
                   )}
 
@@ -255,7 +241,7 @@ function Contactus_Form_Submitions() {
                   >
                     <ExpandMoreIcon aria-label="show more" />
                   </ExpandMore>
-                  <span className="openReplySection">Reply</span>
+                  <span className="openReplySection" style={{}}>Reply</span>
                 </CardActions>
                 <Collapse
                   in={expandedRequests[request.submition_id]}
@@ -381,17 +367,21 @@ function Contactus_Form_Submitions() {
                             <div className="btnSection">
                               {request.reply_or_not_state === 0 ? (
                                 <Button
-                                  variant="contained"
+                                  // variant="contained"
                                   type="submit"
                                   value="Send"
-                                  endIcon={
-                                    <SendIcon
-                                      className="sendBtnTextIcon"
-                                      style={{ fontSize: "10px" }}
-                                    />
-                                  }
+                                  style={{
+                                    backgroundColor: "rgb(0, 48, 73)",
+                                    color: "while",
+                                  }}
                                 >
-                                  <span className="sendBtnText">Send</span>
+                                  <span
+                                    className="sendBtnText"
+                                    style={{ color: "white" }}
+                                  >
+                                    <SendIcon style={{ fontSize: 14 }} />
+                                    &nbsp;&nbsp;Send
+                                  </span>
                                 </Button>
                               ) : (
                                 <p></p>

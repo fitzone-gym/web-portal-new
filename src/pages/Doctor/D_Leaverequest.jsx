@@ -1,7 +1,7 @@
 import React , {useEffect, useState} from "react";
 
 import Header from "../../components/header";
-import Sidenav from "../../components/Doctor/sidenav";
+import Sidenav from "../../components/Doctor/Sidenav";
 import "../../styles/Doctor/leaverequest.css";
 
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
