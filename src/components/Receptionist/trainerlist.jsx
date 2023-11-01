@@ -209,7 +209,7 @@ export const R_Trainerlists = () => {
                             </div>
                           )}
                         </th>
-                        <td className="px-6 py-4"></td>
+                        <td className="px-6 py-4">{member.member_count}</td>
                       </tr>
                     );
                   })}

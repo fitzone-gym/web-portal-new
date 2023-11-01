@@ -235,7 +235,7 @@ function Dashboard() {
                   <p
                     className="text-4xl ml-8 mt-4"
                     style={{
-                      transform: "translate(-18px,16px)",
+                      transform: "translate(0px,16px)",
                       color: "#C70039",
                     }}
                   >
@@ -264,7 +264,7 @@ function Dashboard() {
                   <p
                     className="text-4xl ml-8 mt-4"
                     style={{
-                      transform: "translate(-35px,16px)",
+                      transform: "translate(0px,16px)",
                       color: "#FF6969",
                     }}
                   >
@@ -325,13 +325,11 @@ function Dashboard() {
                         color: "#419197",
                       }}
                     >
-                      {counts.availability === "Consultant purpose" ? (
+                      {counts.availability >= 1 ? (
+                        <div className="">X</div>
+                      ) : (
                         <div className="">
                           <BsFillCheckCircleFill />
-                        </div>
-                      ) : (
-                        <div className="" >
-                          X
                         </div>
                       )}
                     </p>

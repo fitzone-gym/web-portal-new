@@ -24,7 +24,7 @@ export const ManagerSidebar = (props) => {
     color: " rgb(229, 70, 70)",
   };
   return (
-    <div className="sidenavbar">
+    <div className="sidenavbar" style={{paddingTop:"80px"}}>
       <div className=" mt-20 ml-6">
         <ul className="flex flex-col py-5 space-y-1 font-bold text-center  ">
           <li>
@@ -132,9 +132,9 @@ export const ManagerSidebar = (props) => {
               to="/"
               className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-800  pr-6 mt-[90%]"
             >
-              <div className="inline-flex justify-center items-center ml-4">
+              {/* <div className="inline-flex justify-center items-center ml-4">
                 <TbLogout />
-              </div>
+              </div> */}
               {/* <span className="max-lg:hidden ml-2 text-sm tracking-wide truncate">
                 Logout
               </span> */}

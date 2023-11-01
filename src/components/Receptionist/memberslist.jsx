@@ -10,6 +10,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import "../../styles/Receptionist/memberlist.css";
 
@@ -54,6 +55,7 @@ export const memberlist = () => {
           // console.log("tt"+ response.data.data); // Check the API response data
           // console.log(typeof response.data.data); // Check the type of response.data
           setData(response.data.data); // Assuming the response contains an array of trainer objects
+          console.log(response.data.data);
         } catch (error) {
           console.log("Error:", error);
         }
@@ -69,6 +71,7 @@ export const memberlist = () => {
           `http://localhost:5400/members/searchMembers?searchTerm=${searchTerm}`
         );
         setSearchResults(response.data.data);
+        
       } catch (error) {
         console.log("Error:", error);
       }
@@ -168,8 +171,11 @@ export const memberlist = () => {
                 <th scope="col" className="px-6 py-3">
                   Address
                 </th>
-                <th scope="col" className="px-6 py-3">
-                  Last payment month
+                <th scope="col" className="px-4 py-3">
+                  Last payment date
+                </th>
+                <th scope="col" className="px-4 py-3">
+                  Payment OK/NOT
                 </th>
               </tr>
             </thead>
@@ -180,7 +186,7 @@ export const memberlist = () => {
                       key={index}
                       className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
                     >
-                      <td className="px-6 py-4">{member.user_id} </td>
+                      <td className="px-6 py-4">{member.user_id}</td>
                       <th
                         scope="row"
                         className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -191,6 +197,31 @@ export const memberlist = () => {
                       <td className="px-6 py-4">{member.phone_no}</td>{" "}
                       <td className="px-6 py-4">{member.package}</td>
                       <td className="px-6 py-4">{member.emergency_contact}</td>
+                      <td className="px-4 py-3">
+                        <div
+                          style={getRandomColor()}
+                          className="statusBatchPayment"
+                        >
+                          {member.payment_made_date_time}
+                        </div>
+                      </td>
+                      <td>
+                        {member.status == 0 ? (
+                          <div
+                            className=""
+                            style={{ fontSize: 14, color: "#C70039" }}
+                          >
+                            X
+                          </div>
+                        ) : (
+                          <div
+                            className=""
+                            style={{ fontSize: 14, color: "#419197" }}
+                          >
+                            <BsFillCheckCircleFill />
+                          </div>
+                        )}
+                      </td>
                     </tr>
                   ))
                 : data.map((member, index) => {
@@ -215,7 +246,7 @@ export const memberlist = () => {
                             style={getRandomColor()}
                             className="statusBatchPayment"
                           >
-                            Janu
+                            {member.payment_made_date_time}
                           </div>
                         </td>
                       </tr>

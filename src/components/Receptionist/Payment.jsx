@@ -1,20 +1,29 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import moment from 'moment';
+// import { Link } from "react-router-dom";
+// import moment from 'moment';
 
 
 
 
 /*popup form */
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-
+// import Button from "@mui/material/Button";
+// import TextField from "@mui/material/TextField";
+// import Dialog from "@mui/material/Dialog";
+// import DialogActions from "@mui/material/DialogActions";
+// import DialogContent from "@mui/material/DialogContent";
+// import DialogContentText from "@mui/material/DialogContentText";
+// import DialogTitle from "@mui/material/DialogTitle";
+function formatDateTime(dateTimeString) {
+  const formattedString = new Date(dateTimeString).toLocaleString("en-US", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  return formattedString.replaceAll("/", ".");
+}
 
 
 export const Payment = () => {
@@ -53,43 +62,31 @@ export const Payment = () => {
       }
     };
 
-    function DateFormatComponent(props) {
-      const formattedDate = moment(props.isoDate).format('MMMM D, YYYY h:mm A');
-      
-      return <div>{formattedDate}</div>;
-    }
-    
+
 
   return (
     <>
-     
-
+      <div
+        className="mt-40"
+        style={{
+          // marginLeft: "17%",
+          marginRight: "20px",
+          marginLeft: "17%",
+          marginTop: "150px",
+          textAlign: "center",
+          width: "100%",
+        }}
+      >
         <div
-          className="mt-40"
-          style={{
-            // marginLeft: "17%",
-            marginRight: "20px",
-            marginLeft: "17%",
-            marginTop: "200px",
-            textAlign: "center",
-            width: "100%",
-          }}
+          className="relative  shadow-md sm:rounded-lg"
+          style={{ margin: "0px 30px 30px 30px" }}
         >
-         
-
-          <div
-            className="relative  shadow-md sm:rounded-lg"
-            style={{ margin: "0px 30px 30px 30px" }}
-          >
-            <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
-              <div>
-        
-          
-              </div>
-              <label for="table-search" className="sr-only">
-                Search
-              </label>
-              <form onSubmit={handleSearch}>
+          <div className="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
+            <div></div>
+            <label for="table-search" className="sr-only">
+              Search
+            </label>
+            <form onSubmit={handleSearch}>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <svg
@@ -115,7 +112,7 @@ export const Payment = () => {
                   className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Search for Payment Details"
                 />
-                 <button
+                <button
                   type="submit"
                   className="text-black
                  absolute right-2.5 w-18 bg-gray-200 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2"
@@ -126,28 +123,24 @@ export const Payment = () => {
                   Search
                 </button>
               </div>
-              </form>
-            </div>
-            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            </form>
+          </div>
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-             
-                
-             <th scope="col" className="px-6 py-3">
-               Payment Month
-             </th>
-             <th scope="col" className="px-6 py-3">
-               Payment Date
-             </th>
+                <th scope="col" className="px-6 py-3">
+                  Payment Month
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Payment Date
+                </th>
 
-             <th scope="col" className="px-6 py-3">
-               Salary Amount 
-             </th>
-            
-            
-           </tr>
-              </thead>
-              <tbody>
+                <th scope="col" className="px-6 py-3">
+                  Salary Amount
+                </th>
+              </tr>
+            </thead>
+            <tbody>
               {searchResults.length > 0
                 ? searchResults.map((Payment, index) => (
                     <tr
@@ -160,11 +153,11 @@ export const Payment = () => {
                       >
                         {Payment.payment_month}
                       </th>
-                      <td className="px-6 py-4"> <DateFormatComponent isoDate={Payment.payment_made_date}/> </td>
-                      
+                      <td className="px-6 py-4">
+                        {" "}
+                        {formatDateTime(Payment.payment_made_date)}{" "}
+                      </td>
                       <td className="px-6 py-4">{Payment.amount}</td>{" "}
-                    
-                      
                     </tr>
                   ))
                 : data.map((Payment, index) => {
@@ -177,21 +170,19 @@ export const Payment = () => {
                           scope="row"
                           className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                         >
-                           {Payment.payment_month}
+                          {Payment.payment_month}
                         </th>
-                        <td className="px-6 py-4">{Payment.payment_made_date}  </td>
+                        <td className="px-6 py-4">
+                          {Payment.payment_made_date}{" "}
+                        </td>
                         <td className="px-6 py-4">{Payment.amount}</td>{" "}
-                      
-                       
                       </tr>
                     );
                   })}
-              </tbody>
-            </table>
-          </div>
+            </tbody>
+          </table>
         </div>
-     
-    
+      </div>
     </>
   );
 }}
