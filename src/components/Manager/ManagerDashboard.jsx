@@ -311,7 +311,6 @@ export const ManagerDashboard = () => {
             <h1 style={{ color: "#5a5c5c", fontWeight: 500 }}>
               Gym Member Compisition
             </h1>
-
             <div
               className="w-full h-90
              ml-2"
