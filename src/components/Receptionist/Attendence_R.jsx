@@ -67,6 +67,12 @@ export const Attendence_R = () => {
       
     }
 
+
+    function formatDate(inputDate) {
+      const date = new Date(inputDate);
+      return date.toISOString().split('T')[0];
+    }
+    
   return (
     <>
      
@@ -204,7 +210,7 @@ export const Attendence_R = () => {
                         >
                           {member.first_name + " " + member.last_name}{" "}
                         </th>
-                        <td className="px-6 py-4">{member.Date} </td>
+                        {formatDate(member.Date)}
                         <td className="px-6 py-4">{member.Checkin}</td>{" "}
                         <td className="px-6 py-4">{member.Checkout}</td>
                         <td className="px-6 py-4">

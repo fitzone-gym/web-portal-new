@@ -33,23 +33,6 @@ export const OnCallDoctor_R = () => {
   
       fetchMembers();
     }, []);
-  
-    const handleSearch = async (event) => {
-      event.preventDefault();
-      try {
-        const response = await axios.get(
-          `http://localhost:5400/members/searchMembers?searchTerm=${searchTerm}`
-        );
-        setSearchResults(response.data.data);
-      } catch (error) {
-        console.log("Error:", error);
-      }
-    };
-
-
-    const memberprofilepopup = async (event) => {
-      
-    }
 
   return (
     <>

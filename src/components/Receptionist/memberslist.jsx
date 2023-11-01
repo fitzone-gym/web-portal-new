@@ -153,9 +153,7 @@ export const memberlist = () => {
                   <th scope="col" className="px-6 py-3">
                   Package Type
                   </th>
-                  <th scope="col" className="px-6 py-3">
-                    Emergency Contact
-                  </th>
+                
                 </tr>
               </thead>
               <tbody>
@@ -175,9 +173,7 @@ export const memberlist = () => {
                         <td className="px-6 py-4">{member.email} </td>
                         <td className="px-6 py-4">{member.phone_no}</td>{" "}
                         <td className="px-6 py-4">{member.package}</td>
-                        <td className="px-6 py-4">
-                        {member.emergency_contact}
-                        </td>
+                       
                     </tr>
                   ))
                 : data.map((member, index) => {
@@ -197,9 +193,7 @@ export const memberlist = () => {
                         <td className="px-6 py-4">{member.phone_no}</td>{" "}
                         <td className="px-6 py-4">{member.package}</td>
                         
-                        <td className="px-6 py-4">
-                        {member.emergency_contact}
-                        </td>
+                       
                       </tr>
                     );
                   })}

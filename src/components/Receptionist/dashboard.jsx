@@ -17,7 +17,6 @@ function Dashboard() {
 
     });
 
-    const [memberName, setMemberName] = useState("");
     const [checkIn, setCheckIn] = useState("");
     const [checkOut, setCheckOut] = useState("");
 
@@ -244,7 +243,7 @@ function Dashboard() {
     <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
     {counts.announcementbody}    </p>
     <p class="text-xs text-neutral-500 dark:text-neutral-300">
-      Last updated 3 mins ago
+    {counts.announcementDate}
     </p>
   </div>
 

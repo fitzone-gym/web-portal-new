@@ -164,7 +164,7 @@ function sidenav() {
               </svg>
             </span>
             <span className="ml-2 text-sm tracking-wide truncate">
-              Workshops
+              Leaverequest
             </span>
           </a>
         </li>
