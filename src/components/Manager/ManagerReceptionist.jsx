@@ -62,7 +62,7 @@ export const ManagerReceptionist = () => {
       className=""
       style={{
         arginRight: "0px",
-        marginLeft: "14%",
+        marginLeft: "20%",
         marginTop: "140px",
         textAlign: "center",
       }}

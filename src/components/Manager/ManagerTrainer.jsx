@@ -85,7 +85,7 @@ export const ManagerTrainer = () => {
       style={{
         arginRight: "0px",
         marginLeft: "14%",
-        marginTop: "160px",
+        marginTop: "100px",
         textAlign: "center",
       }}
     >
@@ -102,11 +102,11 @@ export const ManagerTrainer = () => {
               marginLeft: "80px",
             }}
           >
-            Managers
+           Trainer 
           </h3>
           <form onSubmit={handleSearch}>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-120%]">
+            <div className="relative mt-20">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-120%] ">
                 <svg
                   className="w-4 h-4 text-gray-500 dark:text-gray-400"
                   aria-hidden="true"

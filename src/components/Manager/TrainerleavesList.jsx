@@ -70,7 +70,7 @@ export const TrainerleavesList = () => {
       style={{
         marginRight: "20px",
         marginLeft: "13%",
-        marginTop: "300px",
+        marginTop: "320px",
         textAlign: "center",
       }}
     >
@@ -163,7 +163,7 @@ export const TrainerleavesList = () => {
                       src={priofileimg}
                       alt=""
                     />
-                    <div className="pl-20 mt-[-13%]">
+                    <div className="pl-20 mt-[-10%]">
                       <div className="text-base font-semibold">
                         {leaves.first_name + " " + leaves.last_name}
                       </div>
@@ -186,7 +186,7 @@ export const TrainerleavesList = () => {
         </div>
       </div>
 
-      <div className="pt-40">
+      <div className="pt-20">
         <div style={{display:"flex"}}>
           <div style={{ fontWeight: "bold" , paddingLeft:"100px" }}>Not Approved</div>
         <div className="pt-6 pb-6 ml-[60%] w-[20%]">
@@ -265,7 +265,7 @@ export const TrainerleavesList = () => {
                       src={priofileimg}
                       alt=""
                     />
-                    <div className="pl-20 mt-[-13%]">
+                    <div className="pl-20 mt-[-10%]">
                       <div className="text-base font-semibold">
                         {leaves.first_name + " " + leaves.last_name}
                       </div>

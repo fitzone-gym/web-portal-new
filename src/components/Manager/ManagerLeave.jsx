@@ -88,7 +88,10 @@ export const ManagerLeave = () => {
       }}
     >
       <div className="">
-        {/* <h4>Leave Requests Details</h4> */}
+        <div className="text-4xl mr-[62%]">
+          <h4>Leave Requests Details</h4>
+        </div>
+
         <div className="pt-6 pb-6 ml-[77%] w-[20%]">
           <form onSubmit={handleSearch}>
             <div className="relative">
@@ -382,7 +385,7 @@ export const ManagerLeave = () => {
               to="/Manager/Leave/TrainerList"
               className="font-medium text-blue-600 "
               style={{
-                fontSize: 12,
+                fontSize: 16,
                 color: "black",
                 fontWeight: "bold",
                 marginTop: "50px",

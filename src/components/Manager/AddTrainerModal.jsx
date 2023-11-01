@@ -62,7 +62,7 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-10">
+    <div className="fixed inset-0 flex items-center justify-center z-10 mt-20">
       <div className="fixed inset-0 flex items-center justify-center bg-black opacity-80"></div>
       <form
         onSubmit={handleSubmit}
@@ -168,14 +168,14 @@ const AddTrainerModal = ({ onClose, fetchTrainers }   ) => {
           </div>
 
           <div>
-            <span className="mt-52 col text-white ">NIC</span>
+            <span className="mt-60 col text-white">NIC</span>
           </div>
           {/* <div>
             <span className="mt-52 col text-white ">Password</span>
           </div> */}
           <div>
             <input
-              className="rounded-md w-72"
+              className="rounded-md w-72 ml-[-105%] mt-[17%] "
               type="text"
               name="nic"
               placeholder="nic"

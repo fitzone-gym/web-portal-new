@@ -112,12 +112,15 @@ export const ManagerMembers = () => {
       className=""
       style={{
         marginRight: "20px",
-        marginLeft: "16%",
+        marginLeft: "27%",
         marginTop: "150px",
         textAlign: "center",
       }}
     >
-      <div className="" >
+      <div className="text-4xl mr-[62%]">
+        <h4>Members</h4>
+      </div>
+      <div className="">
         <div className="text-4xl">{/* <h4>Members Details</h4> */}</div>
         <div className="pt-6 pb-6 ml-[75%] w-[24%]">
           <form onSubmit={handleSearch}>
@@ -161,7 +164,7 @@ export const ManagerMembers = () => {
           </form>
         </div>
 
-        <div className="mt-4 ml-24 " style={{transform:"translateY(-80px)"}}>
+        <div className="mt-4 ml-24 " style={{ transform: "translateY(-80px)" }}>
           <div className="w-1/4 mr-2">
             <input
               type="number"
@@ -191,7 +194,10 @@ export const ManagerMembers = () => {
           </div>
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20 " style={{transform:"translateY(-90px)"}}>
+        <div
+          className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-20 "
+          style={{ transform: "translateY(-90px)" }}
+        >
           <table className="w-full text-sm text-left text-gray-500  ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>

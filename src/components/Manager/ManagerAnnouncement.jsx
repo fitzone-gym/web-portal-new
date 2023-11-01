@@ -67,17 +67,32 @@ export const ManagerAnnouncement = () => {
     console.log("This is announcement to select", announcement.announcement_id);
   };
 
+   const formatDate = (dateString) => {
+     const date = new Date(dateString);
+     const formattedDate = new Intl.DateTimeFormat("en-GB", {
+       day: "numeric",
+       month: "long",
+       year: "numeric",
+     }).format(date);
+
+     return formattedDate;
+   };
+
   return (
     <div
       className=""
       style={{
         marginRight: "20px",
-        marginLeft: "15%",
-        marginTop: "120px",
+        marginLeft: "25%",
+        marginTop: "90px",
         textAlign: "center",
       }}
     >
-      <div className="pt-6 ml-[57%] w-[24%]" >
+      <div className="text-4xl mr-[60%] mt-24">
+        <h4>Announcement Details</h4>
+      </div>
+
+      <div className="pt-6 ml-[57%] w-[24%]">
         <div className="ml-[115%] mt-[0ss%]">
           <button
             type=""
@@ -94,11 +109,14 @@ export const ManagerAnnouncement = () => {
             </div>
             Add New
           </button>
-          {showModal && <CreatAnnonModal onClose={handleCloseModal} />}
+          {/* {showModal && <CreatAnnonModal onClose={handleCloseModal} />} */}
         </div>
       </div>
 
-      <table className="font-semibold h-[28%] py-3 px-6 border-separate border-spacing-10" style={{width:"1150px"}}>
+      <table
+        className="font-semibold h-[28%] py-3 px-6 border-separate border-spacing-10"
+        style={{ width: "1150px" }}
+      >
         <tbody className="">
           {data.map((announcement, index) => {
             return (
@@ -109,7 +127,6 @@ export const ManagerAnnouncement = () => {
                 <td className="rounded-lg">
                   <div>
                     <p className="mt-2 ml-7 font-bold">{announcement.title}</p>
-          
                   </div>
                   <br />
                   <div
@@ -117,14 +134,18 @@ export const ManagerAnnouncement = () => {
                     style={{ fontWeight: 300, fontSize: 14 }}
                   >
                     <p className="ml-[3%] mt-1 mr-3">
-                      Dear {announcement.for}, {announcement.description}.
+                      Dear {announcement.receiver}, {announcement.description}.
                     </p>
-                    {/* <p className="ml-[3%] mt-[1%]">Jayani</p>
-                    <p className="ml-[3%] ">Gym Manager</p> */}
+                    <p className="ml-[3%] mt-[1%]">Jayani</p>
+                    <p className="ml-[3%] ">Gym Manager</p>
                   </div>
 
                   <div className="actions">
                     {/* <Link to="/Manager/Announcement/UpdateAnnoun"> */}
+                    <div className="inline-block ml-8 text-gray-400">
+                      {formatDate(announcement.date_from)} -
+                      {formatDate(announcement.date_to)}
+                    </div>
                     <button
                       className="text-white bg-green-500 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-4 text-center inline-flex text-center items-center mr-2"
                       style={{
@@ -145,7 +166,7 @@ export const ManagerAnnouncement = () => {
                     </button>
                     {/* </Link> */}
                     {/* Render the update modal conditionally */}
-                    {editingAnnouncement && (
+                    {/* {editingAnnouncement && (
                       <UpdateAnnonModal
                         onClose={() => {
                           setEditingAnnouncement(null); // Close the modal
@@ -153,7 +174,7 @@ export const ManagerAnnouncement = () => {
                         }}
                         announcement={editingAnnouncement} // Pass the announcement data
                       />
-                    )}
+                    )} */}
 
                     <Link
                       onClick={() => handleDelete(announcement.announcement_id)}
@@ -183,6 +204,17 @@ export const ManagerAnnouncement = () => {
           })}
         </tbody>
       </table>
+      {/* Render the modal conditionally */}
+      {showModal && <CreatAnnonModal onClose={handleCloseModal} />}
+      {editingAnnouncement && (
+        <UpdateAnnonModal
+          onClose={() => {
+            setEditingAnnouncement(null); // Close the modal
+            handleCloseModal();
+          }}
+          announcement={editingAnnouncement} // Pass the announcement data
+        />
+      )}
     </div>
   );
 };

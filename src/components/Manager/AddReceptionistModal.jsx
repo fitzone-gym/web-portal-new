@@ -164,14 +164,14 @@ const AddReceptionistModal = ({ onClose, fetchReceptionist }) => {
           </div>
 
           <div>
-            <span className="mt-52 col text-white ">NIC</span>
+            <span className="mt-60 col text-white ">NIC</span>
           </div>
           {/* <div>
             <span className="mt-52 col text-white ">Password</span>
           </div> */}
           <div>
             <input
-              className="rounded-md w-72"
+              className="rounded-md w-72 ml-[-105%] mt-[17%]"
               type="text"
               name="nic"
               placeholder="nic"

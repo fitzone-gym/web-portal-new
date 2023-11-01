@@ -86,15 +86,15 @@ export const Test = (props) => {
             className=""
             style={{
               marginRight: "20px",
-              marginLeft: "15%",
+              marginLeft: "25%",
               marginTop: "160px",
               textAlign: "center",
             }}
           >
-            <div className="text-4xl mr-[66%]">
-              {/* <h4>Salary Details</h4> */}
+            <div className="text-4xl mr-[56%]">
+              <h4>Salary Details</h4>
             </div>
-            <div className="flex flex-row">
+            <div className="flex flex-row mt-12">
               <Slider
                 types={types}
                 changeValue={logChange}
