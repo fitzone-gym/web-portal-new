@@ -1,7 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+
+import Header from "../../components/header";
+import Sidenav from "../../components/Receptionist/Sidenav1";
 import "../../styles/Doctor/profile.css";
-import profile from "../../assets/profileimage.jpg";
+import profile from "../../assets/profile2.jpg";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -9,20 +12,13 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import axios from "axios";
 
-
 /*edit popup */
-import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
-  
 let theme = createTheme({
   palette: {
     primary: {
@@ -43,43 +39,81 @@ theme = createTheme(theme, {
 });
 
 function Profile() {
+  const [open, setOpen] = useState(false);
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-const handleClickOpen = () => {
-  setOpen(true);
-};
+  const [profileDetail, setprofileDetail] = useState([]);
 
-const handleClose = () => {
-  setOpen(false);
-};
+  const fetchProfileDetails = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:5400/auth/memberProfile/${sessionStorage.getItem(
+          "role_id"
+        )}/${sessionStorage.getItem("id")}`
+      );
+      setprofileDetail(response.data.data);
+      const profileDetailss = response.data.data;
+      console.log("profileDetails", profileDetailss);
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
 
-  
-const [profileDetail, setprofileDetail] = useState([]);
+  // console.log(profileDetail.last_name)
+  const [firstname, setfirstName] = useState("");
+  const [lastname, setlastName] = useState("");
+  const [contactno, settpNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  useEffect(() => {
+    if (profileDetail) {
+      setfirstName(profileDetail.first_name || "");
+      setlastName(profileDetail.last_name || "");
+      settpNumber(profileDetail.phone_no || "");
+      setEmail(profileDetail.email || "");
+      setMessage(profileDetail.message || "");
+    }
+  }, [profileDetail]);
 
-const fetchProfileDetails = async () => {
-  try {
-    const response = await axios.get(
-      `http://localhost:5400/auth/memberProfile/${sessionStorage.getItem("user_role")}/${sessionStorage.getItem("id")}`
-    );
-    setprofileDetail(response.data.data); 
-    const profileDetailss = response.data.data;
-    console.log("profileDetails",profileDetailss);
-  } catch (error) {
-    console.log("Error:", error);
-  }
-};
+  // const form = useRef();
 
-useEffect(() => {
-  fetchProfileDetails();
-}, []);
+  const handleSubmit = (e) => {
+    console.log("callme");
+    setOpen(false);
+    e.preventDefault();
+    axios
+      .patch(
+        `http://localhost:5400/auth/updateProfile/${sessionStorage.getItem(
+          "id"
+        )}`,
+        { firstname, lastname, email, contactno, message }
+      )
 
+      .then((response) => {
+        console.log("Data submitted successfully to backend", response.data);
+        // Update reply_or_not_state after successful submission
+      })
+      .catch((error) => {
+        console.log("Error submitting data", error);
+      });
+  };
+
+  useEffect(() => {
+    fetchProfileDetails();
+  }, []);
 
   return (
     <>
       <div className="contactUsMessages">
-      
+        <Header />
+        <Sidenav />
 
         <div className="userProfile">
           <div>
@@ -107,7 +141,7 @@ useEffect(() => {
                                   id="outlined-controlled"
                                   label="First Name"
                                   name="firstname"
-                                  value={profileDetail.first_name}
+                                  value="T.M"
                                   size="small"
                                   InputProps={{
                                     style: {
@@ -119,24 +153,26 @@ useEffect(() => {
                                       height: "40px",
                                     },
                                   }}
+                                  onChange={(e) => setfirstName(e.target.value)}
                                 />
                               </Grid>
                               <Grid item xs={6}>
                                 <TextField
-                                  id="outlined-controlled"
+                                  id="outlined focus:border-none"
                                   label="Last Name"
                                   name="lastname"
-                                  value={profileDetail.last_name}
+                                  value="Jasi" // Use the state variable 'lastname' here
                                   InputProps={{
                                     style: {
                                       fontSize: "13px",
                                       fontFamily: "Poppins, sans-serif",
                                       color: "gray",
                                       fontWeight: 500,
-                                      height:"40px",
-                                      width:"250px"
+                                      height: "40px",
+                                      width: "250px",
                                     },
                                   }}
+                                  onChange={(e) => setlastName(e.target.value)} // Update 'lastname' state
                                 />
                               </Grid>
                             </Grid>
@@ -146,7 +182,7 @@ useEffect(() => {
                                 id="outlined-controlled"
                                 label="Email"
                                 name="email"
-                                value={profileDetail.email}
+                                value="tmjasi@gmail.com"
                                 InputProps={{
                                   style: {
                                     fontSize: "13px",
@@ -157,6 +193,7 @@ useEffect(() => {
                                     height: "40px",
                                   },
                                 }}
+                                onChange={(e) => setEmail(e.target.value)}
                               />
                             </Grid>
                             <br />
@@ -165,7 +202,7 @@ useEffect(() => {
                                 id="outlined-controlled"
                                 label="Contact"
                                 name="contact"
-                                value={profileDetail.phone_no}
+                                value="0761452452"
                                 size="small"
                                 InputProps={{
                                   style: {
@@ -177,15 +214,16 @@ useEffect(() => {
                                     height: "40px",
                                   },
                                 }}
+                                onChange={(e) => settpNumber(e.target.value)}
                               />
                             </Grid>
                             <br />
                             <Grid item xs={12} style={{ fontSize: "13" }}>
-                              <TextField
+                              {/* <TextField
                                 id="outlined-controlled"
                                 label="Message"
                                 name="message"
-                                value={profileDetail.message}
+                                value={message}
                                 size="small"
                                 InputProps={{
                                   style: {
@@ -197,7 +235,8 @@ useEffect(() => {
                                     height: "50px",
                                   },
                                 }}
-                              />
+                                onChange={(e) => setMessage(e.target.value)}
+                              /> */}
                             </Grid>
                           </div>
                           <div className="replyMessageSection"></div>
@@ -207,7 +246,8 @@ useEffect(() => {
                     <DialogActions>
                       <button
                         className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 mr-5 mb-5 rounded shadow"
-                        onClick={handleClose}
+                        type="submit"
+                        onClick={handleSubmit}
                       >
                         Save
                       </button>
@@ -216,22 +256,25 @@ useEffect(() => {
                 </div>
               </div>
               <div className="p-4 text-center">
-                {/* <img src={profile} className="userProfileImage" /> */}
                 <img
                   className="userProfileImage"
-                  src={`../assets/Users/${sessionStorage.getItem(
-                    "profile_picture"
+                  src={`../src/assets/Users/${sessionStorage.getItem(
+                    "profile_image"
                   )}`}
-                  // src="../assets/Users/Janith.jpg"
+                  // src="../src/assets/Users/Janith.jpg"
                   alt=""
                 />
               </div>
               <div className=" fw-600 userProfileDtails">
-                <p className="userNameProfile">
-                 Jasitharan
+                <p className="userNameProfile">T.M&nbsp; Jasi</p>
+                <p className="userEmailProfile">tmjasi@gmail.com</p>
+                <p className="qualfication">
+                  {" "}
+                  {/* {profileDetail.qualification}-5557 */}
                 </p>
-                <p className="userEmailProfile">muralijasi@gmail.com</p>
-                <p className="qualfication"> {profileDetail.qualification}</p>
+                {/* <p className="qualfication">
+                  Specialized in Surgeons, Dermatologists, and Urologists
+                </p> */}
               </div>
             </div>
           </div>
@@ -248,8 +291,26 @@ useEffect(() => {
             </Link>
           </div>
 
-          <div className="pl-6 text-justify  pt-12 message">
-            <span>{profileDetail.message}</span>
+          <div className="pl-6 text-justify  pt-12 message"><br/><br/>
+            <h3 style={{ color: "#45474B", fontWeight: 600 }}>Exciting News for Our Gym Members!</h3>
+            <span>
+              We're delighted to announce that our gym management system now
+              includes a dedicated receptionist profile! Our receptionist is
+              here to enhance your gym experience, providing seamless assistance
+              and ensuring your queries are addressed promptly. From membership
+              inquiries to class schedules, our receptionist is ready to assist
+              you. Feel free to reach out for any assistance you may need.
+              Welcome to a more convenient and personalized gym experience!
+            </span>
+            <br />
+            <br />
+            <span style={{ paddingTop: 50, color: "#45474B", fontWeight: 600 }}>
+              Best regards,
+            </span>
+            <br />
+            <span style={{ paddingTop: 50, color: "#45474B", fontWeight: 600 }}>
+              Fit-Zone.
+            </span>
           </div>
         </div>
       </div>

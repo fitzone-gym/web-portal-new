@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
+import { BsFillCaretRightFill, BsArrowRightShort } from "react-icons/bs";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 function classNames(...classes) {
@@ -53,7 +54,13 @@ function Navbar() {
                   <Menu.Button className="">
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">Open user menu</span>
-                    <ArrowDropDownIcon />
+                    <BsFillCaretRightFill
+                      style={{
+                        fontWeight: "bold",
+                        fontSize: 20,
+                        paddingTop: 10,
+                      }}
+                    />
                   </Menu.Button>
                 </div>
                 <Transition

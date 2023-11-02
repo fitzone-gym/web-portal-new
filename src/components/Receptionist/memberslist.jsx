@@ -236,7 +236,8 @@ export const memberlist = () => {
                           </th>
                           <td className="px-6 py-4">{member.email} </td>
                           <td className="px-6 py-4">{member.phone_no}</td>{" "}
-                          <td className="px-6 py-4">{member.package}</td>
+                          <td className="px-6 py-4" style={{fontSize:11}} ><div style={getRandomColor()}
+                              className="statusBatchPayment">{member.package}</div></td>
                           <td className="px-6 py-4">{member.address}</td>
                           <td className="px-4 py-3">
                             <div
@@ -247,7 +248,7 @@ export const memberlist = () => {
                             </div>
                           </td>
                           <td>
-                            {member.payment_status === 0 ? (
+                            {/* {member.payment_status === 0 ? (
                               <div
                                 className=""
                                 style={{
@@ -269,7 +270,17 @@ export const memberlist = () => {
                               >
                                 <BsFillCheckCircleFill />
                               </div>
-                            )}
+                            )} */}
+                            <div
+                                className=""
+                                style={{
+                                  fontSize: 18,
+                                  color: "#419197",
+                                  paddingLeft: 20,
+                                }}
+                              >
+                                <BsFillCheckCircleFill />
+                              </div>
                           </td>
                         </tr>
                       );

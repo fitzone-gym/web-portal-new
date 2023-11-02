@@ -1,9 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 
 import Header from "../../components/header";
-import Sidenav from "../../components/Doctor/Sidenav";
+import Sidenav from "../../components/Doctor/sidenav";
 import "../../styles/Doctor/appointments.css";
-
 
 /*popup form */
 
@@ -15,90 +14,111 @@ import DialogContentText from "@mui/material/DialogContentText";
 
 import axios from "axios";
 
+import jsPDF from "jspdf";
 
+import html2canvas from "html2canvas";
+
+// const handleDownloadPDF = () => {
+//   console.log("download call")
+//   const doc = new jsPDF("landscape", "px", "a4", "false");
+//   // doc.text(120,219,"Download");
+//   const content = document.getElementById("popup-content");
+
+//   doc.fromHTML(content, 15, 15); // Convert content to PDF
+//   doc.save("popup.pdf"); // Download the PDF
+// };
+
+const handleDownloadPDF = () => {
+  const content = document.getElementById("popup-content");
+
+  html2canvas(content).then((canvas) => {
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF("p", "mm", "a4");
+    const width = pdf.internal.pageSize.getWidth();
+    const height = (canvas.height * width * 1.2) / canvas.width;
+    pdf.addImage(imgData, "PNG", 0, 0, width, height);
+    pdf.save("popup.pdf");
+  });
+};
 
 function D_Appointments() {
+  const [open, setOpen] = React.useState(false);
 
+  const [appointments, setAppointments] = useState([]);
+  const [selectedAppointment, setSelectedAppointment] = useState(null);
 
-    const [open, setOpen] = React.useState(false);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5400/memberdoctorappointment/")
+      .then((response) => {
+        setAppointments(response.data.data);
+        console.log(appointments);
+      })
+      .catch((error) => console.error("error fetching trainer details"));
+  }, []);
 
-    const [appointments, setAppointments] = useState([]);
-    const [selectedAppointment, setSelectedAppointment] = useState(null);
+  /* update profile */
+  const [weight, setweight] = useState("");
+  const [height, setheight] = useState("");
+  const [BMI, setBMI] = useState("");
+  const [diabetes_level, setdiabeteslevel] = useState("");
+  const [blood_presure, setbloodpresure] = useState("");
+  const [cholesterol_level, setcholesterollevel] = useState("");
+  const [injuries, setinjuries] = useState("");
+  const [id, setId] = useState("");
 
-    useEffect(() => {
-      axios
-        .get("http://localhost:5400/memberdoctorappointment/")
-        .then((response) => {
-          setAppointments(response.data.data);
-          console.log(appointments);
-        })
-        .catch((error) => console.error("error fetching trainer details"));
-    }, []);
+  const handleClickOpen = (appointment) => {
+    setSelectedAppointment(appointment);
+    setweight(appointment.first_name || "");
+    setheight(appointment.last_name || "");
+    setBMI(appointment.phone_no || "");
+    setdiabeteslevel(appointment.email || "");
+    setbloodpresure(appointment.message || "");
+    setcholesterollevel(appointment.email || "");
+    setinjuries(appointment.message || "");
+    setId(appointment.member_id || "");
+    setOpen(true);
+  };
 
-    /* update profile */
-    const [weight, setweight] = useState("");
-    const [height, setheight] = useState("");
-    const [BMI, setBMI] = useState("");
-    const [diabetes_level, setdiabeteslevel] = useState("");
-    const [blood_presure, setbloodpresure] = useState("");
-    const [cholesterol_level, setcholesterollevel] = useState("");
-    const [injuries, setinjuries] = useState("");
-    const [id, setId] = useState("");
-    
-    const handleClickOpen = (appointment) => {
-      setSelectedAppointment(appointment);
-      setweight(appointment.first_name || "");
-      setheight(appointment.last_name || "");
-      setBMI(appointment.phone_no || "");
-      setdiabeteslevel(appointment.email || "");
-      setbloodpresure(appointment.message || "");
-      setcholesterollevel(appointment.email || "");
-      setinjuries(appointment.message || "");
-      setId(appointment.member_id || "");
-      setOpen(true);
+  const handleSubmit = (e) => {
+    console.log("callme");
+    setOpen(false);
+    e.preventDefault();
+    const updatedAppointment = {
+      ...selectedAppointment,
+      weight,
+      height,
+      BMI,
+      diabetes_level,
+      blood_presure,
+      cholesterol_level,
+      injuries,
+      id,
     };
+    axios
+      .patch(
+        "http://localhost:5400/memberdoctorappointment/updateHealthDetails/",
+        {
+          updatedAppointment,
+        }
+      )
+      .then((response) => {
+        console.log("Data submitted successfully to backend", response.data);
+        // Update reply_or_not_state after successful submission
+      })
+      .catch((error) => {
+        console.log("Error submitting data", error);
+      });
+  };
 
-    const handleSubmit = (e) => {
-      console.log("callme");
-      setOpen(false);
-      e.preventDefault();
-      const updatedAppointment = {
-        ...selectedAppointment,
-        weight,
-        height,
-        BMI,
-        diabetes_level,
-        blood_presure,
-        cholesterol_level,
-        injuries,
-        id,
-      };
-      axios
-        .patch(
-          "http://localhost:5400/memberdoctorappointment/updateHealthDetails/",
-          {
-            updatedAppointment,
-          }
-        )
-        .then((response) => {
-          console.log("Data submitted successfully to backend", response.data);
-          // Update reply_or_not_state after successful submission
-        })
-        .catch((error) => {
-          console.log("Error submitting data", error);
-        });
-    };
+  // const handleClickOpenNew = () => {
+  //   setOpen(true);
+  // };
 
-    
-    // const handleClickOpenNew = () => {
-    //   setOpen(true);
-    // };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-    const handleClose = () => {
-      setOpen(false);
-    };
-
-    
   return (
     <>
       <div className="contactUsMessages">
@@ -328,7 +348,7 @@ function D_Appointments() {
       </div>
 
       {/* dialog popup */}
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose} id="popup-content">
         {/* <DialogTitle>Subscribe</DialogTitle> */}
         <DialogContent>
           <DialogContentText>
@@ -539,11 +559,19 @@ function D_Appointments() {
           </div>
         </DialogContent>
         <DialogActions>
-          <button onClick={handleClose} className="dialogCloseBtn">
-            CLOSE
+          <button
+            // onClick={handleClose}
+            className="downloadBtn"
+            onClick={handleDownloadPDF}
+          >
+            Downloard
           </button>
+
           <button onClick={handleSubmit} className="dialogCloseBtn">
             UPDATE
+          </button>
+          <button onClick={handleClose} className="dialogCloseBtn">
+            CLOSE
           </button>
         </DialogActions>
       </Dialog>

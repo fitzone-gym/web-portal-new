@@ -30,7 +30,7 @@ function Sidenav() {
   };
   console.log(isDoctorDashboard);
   return (
-    <div className="sidenavbar" >
+    <div className="sidenavbar" style={{paddingTop:"60px"}}>
       <ul className="flex flex-col py-5 space-y-1 font-bold text-center ml-10">
         <li>
           <a

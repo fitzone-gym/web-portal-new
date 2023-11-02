@@ -7,6 +7,7 @@ import {
   BsCurrencyDollar,
   BsFillPersonCheckFill,
   BsClipboardDataFill,
+  BsFillEmojiSmileFill,
 } from "react-icons/bs";
 
 import { useLocation } from "react-router-dom";
@@ -22,6 +23,7 @@ function Sidenav() {
   const isContactUsSubmitions =
     pathname === "/Receptionist/contactUsSubmitions";
   const isReceptionistPayments = pathname === "/Receptionist/Payment";
+  const isProfile = pathname === "/Receptionist/profile";
   const activeStyles = {
     borderRadius: "50px",
     marginLeft: "10px",
@@ -31,7 +33,7 @@ function Sidenav() {
     color: "rgb(229, 70, 70)",
   };
   return (
-    <div className="sidenavbar">
+    <div className="sidenavbar" style={{ paddingTop: "60px" }}>
       <ul className="flex flex-col py-5 space-y-1 font-bold text-center ml-10">
         <li>
           <a
@@ -129,6 +131,18 @@ function Sidenav() {
             <span className="ml-2 text-sm tracking-wide truncate">
               Questions
             </span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/Receptionist/profile"
+            className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black-50 text-black-600 hover:text-black-800 border-l-4 border-transparent "
+            style={isProfile ? activeStyles : {}}
+          >
+            <span className="inline-flex justify-center items-center ml-4">
+              <BsFillEmojiSmileFill />
+            </span>
+            <span className="ml-2 text-sm tracking-wide truncate">Profile</span>
           </a>
         </li>
       </ul>

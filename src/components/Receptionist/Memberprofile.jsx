@@ -53,7 +53,7 @@ function Memberprofile() {
               </h3>
               <div className="text-sm leading-normal mt-0 mb-2 text-gray-800 font-bold uppercase">
                 <i className="fas fa-map-marker-alt mr-2 text-lg text-slate-50" />
-                Member , FitZone
+                Receptionist , FitZone
               </div>
            
               <div className="mb-2 text-slate-50">
