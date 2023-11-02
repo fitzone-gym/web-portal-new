@@ -1,0 +1,23 @@
+import Header from "../../components/header";
+import Sidenav from "../../components/Receptionist/sidenav";
+import Memberprofile from "../../components/Receptionist/Memberprofile";
+import "../../styles/Receptionist/memberlist.css";
+import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+export const R_Memeberprofile = () => {
+  return (
+    <div className="flex flex-col h-screen w-full bg-white">
+      <Header />
+
+      <div className="flex flex-row">
+        <Sidenav />
+
+        <Memberprofile />
+      </div>
+    </div>
+  );
+};
+
+export default R_Memeberprofile;

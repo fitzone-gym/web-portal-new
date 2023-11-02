@@ -2,29 +2,40 @@
 
 .sidenavbar{
     margin: 0px;
-    background-color: #c22626 ;
+    background-color: #292D36 ;
     width: 16%;
     position: fixed;
     height: 100%;
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
     font-style: bold;
- 
-
+    /* padding-top:80px; */
+    color:white;
 }
 
- img{
-    width: 50%;
-flex-shrink: 0;
-    border-radius: 100px;
-border: 2px solid #000;
-margin-left: 25%;
-margin-top: 10%;
+.sidenavbar li{
+    color:white;
 }
-
 h1{
     font-size: small;
 }
 
 .min-h-screen{
     margin-top: 10%;
+}
+
+.border-transparent{
+    border-color: transparent;
+}
+
+.border-l-4{
+    border-left-width: 0px;
+}
+
+.active {
+    border-radius: 50px;
+    margin-left: 10px;
+    margin-right: 20px;
+    width: 250px;
+    background: white;
+    color: rgb(229, 70, 70);
 }
